@@ -4,14 +4,14 @@ import { cn } from "@/lib/utils";
 export function RightWrong({
   good,
   bad,
-  goodLabel = "Faça assim",
-  badLabel = "Evite",
+  goodLabel,
+  badLabel,
   className,
 }: {
   good: React.ReactNode;
   bad: React.ReactNode;
-  goodLabel?: string;
-  badLabel?: string;
+  goodLabel: string;
+  badLabel: string;
   className?: string;
 }) {
   return (

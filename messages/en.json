@@ -8,6 +8,8 @@
     "freeBadge": "100% free · no paywall · no ads",
     "language": "Language",
     "themeToggle": "Toggle light/dark theme",
+    "promptLabel": "Prompt",
+    "breadcrumb": "Breadcrumb",
     "footer": {
       "tagline": "AI knowledge open to everyone. Donations 100% passed through to digital inclusion.",
       "learn": "Learn",
@@ -147,5 +149,6 @@
     "promiseBody": "PromptCause is run by volunteers. The site's costs come out of our own pocket, not the donations — that's why the counter can honestly show 100% passed through.",
     "closingTitle": "Learn. Then pass it on.",
     "closingBody": "Start for free today. If one day this opens a door for you, help open the next one for someone else."
-  }
+  },
+  "notFound": { "eyebrow": "Error 404", "title": "This prompt returned nothing.", "body": "The page you are looking for does not exist or was moved. How about starting over?", "back": "Back to start →" }
 }

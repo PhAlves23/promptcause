@@ -8,6 +8,8 @@
     "freeBadge": "100% grátis · sem paywall · sem anúncios",
     "language": "Idioma",
     "themeToggle": "Alternar tema claro/escuro",
+    "promptLabel": "Prompt",
+    "breadcrumb": "Trilha de navegação",
     "footer": {
       "tagline": "Conhecimento de IA aberto a todos. Doações 100% repassadas à inclusão digital.",
       "learn": "Aprender",
@@ -147,5 +149,6 @@
     "promiseBody": "PromptCause é mantido por voluntários. Os custos do site saem do nosso bolso, não das doações — por isso o contador pode mostrar, com honestidade, 100% repassado.",
     "closingTitle": "Aprenda. Depois passe adiante.",
     "closingBody": "Comece de graça hoje. Se um dia isso te abrir uma porta, ajude a abrir a próxima para alguém."
-  }
+  },
+  "notFound": { "eyebrow": "Erro 404", "title": "Este prompt não retornou nada.", "body": "A página que você procura não existe ou foi movida. Que tal recomeçar do início?", "back": "Voltar ao início →" }
 }

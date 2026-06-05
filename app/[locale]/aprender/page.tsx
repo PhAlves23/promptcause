@@ -63,7 +63,7 @@ export default async function AprenderPage({ params }: { params: Promise<{ local
 
         {/* CENTER: lesson */}
         <article className="min-w-0">
-          <nav aria-label="breadcrumb" className="mb-5 flex flex-wrap items-center gap-2 text-[0.85rem] text-ink-soft">
+          <nav aria-label={c("breadcrumb")} className="mb-5 flex flex-wrap items-center gap-2 text-[0.85rem] text-ink-soft">
             <Link href="/aprender" className="hover:text-ink">
               {c("nav.learn")}
             </Link>
@@ -89,7 +89,7 @@ export default async function AprenderPage({ params }: { params: Promise<{ local
           </h2>
           <p className="max-w-[68ch]">{t("pRecipe")}</p>
 
-          <PromptBlock className="my-5">
+          <PromptBlock label={c("promptLabel")} className="my-5">
             <PromptComment>{t("pcComment1")}</PromptComment>
             <br />
             {t("pcL1a")}

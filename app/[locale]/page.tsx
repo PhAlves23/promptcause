@@ -125,7 +125,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
               <KeyMessage className="mt-[22px] max-w-[52ch]">{c("keymsg")}</KeyMessage>
             </div>
             <div>
-              <PromptBlock className="mb-4">
+              <PromptBlock label={c("promptLabel")} className="mb-4">
                 <PromptComment>{t("teachComment")}</PromptComment>
                 <br />
                 {t("teachLine1")} <PromptVar>{`{${t("teachVar")}}`}</PromptVar>

@@ -3,11 +3,11 @@ import { cn } from "@/lib/utils";
 /** Dark monospace prompt sample with a corner label — mirrors `.prompt`. */
 export function PromptBlock({
   children,
-  label = "Prompt",
+  label,
   className,
 }: {
   children: React.ReactNode;
-  label?: string;
+  label: string;
   className?: string;
 }) {
   return (

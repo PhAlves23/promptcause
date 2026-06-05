@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
-import { getMessages, setRequestLocale } from "next-intl/server";
+import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { Newsreader, IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
 import "../globals.css";
 import { routing } from "@/i18n/routing";
@@ -31,15 +31,22 @@ const plexMono = IBM_Plex_Mono({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  title: {
-    default: "PromptCause — Learn AI for free. Donate to the cause.",
-    template: "%s · PromptCause",
-  },
-  description:
-    "The open prompt-engineering reference. From your first prompt to advanced engineering — free forever. Every donation goes entirely to digital-inclusion NGOs.",
-  metadataBase: new URL("https://promptcause.com"),
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "home" });
+  return {
+    title: {
+      default: `PromptCause — ${t("metaTitle")}`,
+      template: "%s · PromptCause",
+    },
+    description: t("lede"),
+    metadataBase: new URL("https://promptcause.com"),
+  };
+}
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
