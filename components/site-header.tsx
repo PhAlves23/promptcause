@@ -12,7 +12,6 @@ const NAV = [
   { href: "/causa", label: "A Causa" },
   { href: "/causa#ledger", label: "Transparência" },
   { href: "/manifesto", label: "Manifesto" },
-  { href: "/marca", label: "Marca" },
 ] as const;
 
 export function SiteHeader() {

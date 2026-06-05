@@ -1,9 +1,7 @@
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
-/**
- * PromptCause wordmark: the "<3" mark (chevron + heart) followed by the name.
- * Mirrors references/styles.css `.brand-mark` / `.brand-name`.
- */
+/** PromptCause logo: the "<3" mark image + the wordmark. */
 export function BrandLogo({
   className,
   variant = "default",
@@ -12,22 +10,18 @@ export function BrandLogo({
   variant?: "default" | "footer";
 }) {
   return (
-    <span className={cn("inline-flex items-center gap-2.5", className)}>
-      <span
-        className={cn(
-          "relative grid size-[30px] place-items-center rounded-lg font-mono text-[18px] font-semibold text-white shadow-[inset_0_0_0_1px_rgba(0,0,0,0.06)]",
-          variant === "footer" ? "bg-green-bright" : "bg-green",
-        )}
-      >
-        ›
-        <i className="absolute -top-1.5 -right-[7px] grid size-[15px] place-items-center rounded-full bg-paper text-[9px] not-italic leading-none text-clay shadow-[0_0_0_1px_var(--line)]">
-          ♥
-        </i>
-      </span>
+    <span className={cn("inline-flex items-center gap-2", className)}>
+      <Image
+        src="/promptcauselogo-mark.png"
+        alt=""
+        width={34}
+        height={34}
+        className="size-[30px] object-contain"
+      />
       <span
         className={cn(
           "font-display text-[1.32rem] font-semibold tracking-tight",
-          variant === "footer" && "text-white",
+          variant === "footer" ? "text-white" : "text-ink",
         )}
       >
         Prompt

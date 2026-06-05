@@ -20,10 +20,7 @@ const COLS: { title: string; links: [string, string][] }[] = [
   },
   {
     title: "Projeto",
-    links: [
-      ["/manifesto", "Manifesto"],
-      ["/marca", "Marca"],
-    ],
+    links: [["/manifesto", "Manifesto"]],
   },
 ];
 

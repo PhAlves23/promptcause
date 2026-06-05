@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 — PromptCause</title>
+<script>try{document.documentElement.dataset.theme=localStorage.getItem('pc_theme')||'light'}catch(e){}</script>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-screen-label="404">
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">›<i class="mk-heart">♥</i></span>
+      <span class="brand-name">Prompt<b>Cause</b></span>
+    </a>
+    <nav class="nav-links">
+      <a href="learn.html" data-i18n="nav.learn">Aprender</a>
+      <a href="cause.html" data-i18n="nav.cause">A Causa</a>
+      <a href="cause.html#ledger" data-i18n="nav.transparency">Transparência</a>
+      <a href="manifesto.html" data-i18n="nav.manifesto">Manifesto</a>
+      <a href="brand-guide.html" data-i18n="nav.brand">Marca</a>
+    </nav>
+    <div class="nav-right">
+      <button class="icon-btn" data-theme-toggle aria-label="Tema claro/escuro">◐</button>
+      <div class="lang-select">
+        <button class="lang-btn" data-lang-btn aria-label="Idioma"><span data-lang-current>PT</span> <span class="chev">▾</span></button>
+        <div class="lang-menu" data-lang-menu></div>
+      </div>
+      <a class="btn btn-donate btn-sm" href="donate.html"><span class="heart">♥</span> <span data-i18n="cta.donate">Doar</span></a>
+    </div>
+    <button class="menu-btn" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<section style="min-height:calc(100vh - var(--nav-h) - 60px); display:grid; place-items:center; padding:60px 0;">
+  <div class="wrap-narrow" style="text-align:center;">
+    <div class="display" style="font-size:clamp(4rem,14vw,9rem); line-height:.9; color:var(--green); letter-spacing:-.03em;">404<span class="caret" style="color:var(--clay);">_</span></div>
+    <h1 class="display" style="font-size:clamp(1.6rem,3.6vw,2.4rem); margin:18px 0 10px;">Esse prompt não retornou nada.</h1>
+    <p class="lede" style="max-width:46ch; margin:0 auto 28px;">A página que você pediu não existe — ou foi reescrita. Acontece com os melhores prompts. Vamos refinar a busca.</p>
+
+    <div class="prompt" style="text-align:left; max-width:520px; margin:0 auto 30px;">
+      <span class="label">Resposta</span><span class="tok-com"># consulta</span><br>
+      <span class="tok-key">GET</span> <span class="tok-var">{a página que você procurava}</span><br>
+      <span style="color:var(--clay);">→ 404 · não encontrado</span><br>
+      <span class="tok-com"># dica: tente um caminho que existe abaixo</span>
+    </div>
+
+    <div style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap;">
+      <a class="btn btn-green btn-lg" href="index.html">← Voltar ao início</a>
+      <a class="btn btn-ghost btn-lg" href="learn.html"><span data-i18n="cta.start">Começar a aprender</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-col">
+        <a class="brand" href="index.html" style="margin-bottom:14px;">
+          <span class="brand-mark">›<i class="mk-heart">♥</i></span><span class="brand-name">Prompt<b>Cause</b></span>
+        </a>
+        <p class="muted" style="max-width:34ch; color:#A39B8B;" data-i18n="foot.tagline">Conhecimento de IA aberto a todos. Doações 100% repassadas à inclusão digital.</p>
+      </div>
+      <div class="foot-col"><h5 data-i18n="foot.learn">Aprender</h5><a href="learn.html" data-i18n="lv.1">Iniciante</a><a href="learn.html" data-i18n="lv.2">Intermediário</a><a href="learn.html" data-i18n="lv.3">Avançado</a></div>
+      <div class="foot-col"><h5 data-i18n="foot.cause">A Causa</h5><a href="cause.html" data-i18n="nav.transparency">Transparência</a><a href="cause.html#partners" data-i18n="cause.partners">ONGs parceiras</a><a href="donate.html" data-i18n="cta.donate">Doar</a></div>
+      <div class="foot-col"><h5 data-i18n="foot.about">Projeto</h5><a href="manifesto.html" data-i18n="nav.manifesto">Manifesto</a><a href="brand-guide.html" data-i18n="nav.brand">Marca</a></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 PromptCause</span>
+      <span data-i18n="foot.rights">Conteúdo aberto. Use, traduza, compartilhe.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

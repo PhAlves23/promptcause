@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Causa — PromptCause</title>
+<script>try{document.documentElement.dataset.theme=localStorage.getItem('pc_theme')||'light'}catch(e){}</script>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-screen-label="A Causa">
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">›<i class="mk-heart">♥</i></span>
+      <span class="brand-name">Prompt<b>Cause</b></span>
+    </a>
+    <nav class="nav-links">
+      <a href="learn.html" data-i18n="nav.learn">Aprender</a>
+      <a href="cause.html" class="active" data-i18n="nav.cause">A Causa</a>
+      <a href="#ledger" data-i18n="nav.transparency">Transparência</a>
+      <a href="manifesto.html" data-i18n="nav.manifesto">Manifesto</a>
+      <a href="brand-guide.html" data-i18n="nav.brand">Marca</a>
+    </nav>
+    <div class="nav-right">
+      <button class="icon-btn" data-theme-toggle aria-label="Tema claro/escuro">◐</button>
+      <div class="lang-select">
+        <button class="lang-btn" data-lang-btn aria-label="Idioma"><span data-lang-current>PT</span> <span class="chev">▾</span></button>
+        <div class="lang-menu" data-lang-menu></div>
+      </div>
+      <a class="btn btn-donate btn-sm" href="donate.html"><span class="heart">♥</span> <span data-i18n="cta.donate">Doar</span></a>
+    </div>
+    <button class="menu-btn" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="section-pad" style="padding-bottom:40px;">
+  <div class="wrap-narrow">
+    <p class="eyebrow" data-i18n="cause.eyebrow">Transparência radical</p>
+    <h1 class="display" style="font-size:clamp(2.4rem,5.5vw,4rem); margin:14px 0 18px; max-width:14ch;" data-i18n="cause.h1">O dinheiro nunca passa por nós.</h1>
+    <p class="lede" data-i18n="cause.lede">Toda doação vai direto para a conta das ONGs parceiras. Nós não tocamos, não retemos taxa, não pagamos salário com isso. Aqui está a prova, linha por linha.</p>
+  </div>
+</section>
+
+<!-- IMPACT -->
+<section style="padding-bottom:48px;">
+  <div class="wrap">
+    <div class="impact" style="text-align:center;">
+      <div class="impact-label" data-i18n="home.impact.label">Total doado à causa — repassado integralmente</div>
+      <div class="impact-num" data-counter data-target="248730" data-prefix="R$ ">R$ 248.730</div>
+      <div class="impact-sub"><span class="pass">100% repassado.</span> <span data-i18n="home.impact.sub">Atualizado em tempo real. Cada centavo vai para ONGs parceiras de inclusão digital.</span></div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- FLOW -->
+<section class="section-pad">
+  <div class="wrap">
+    <p class="eyebrow" data-i18n="cause.flow">Como o dinheiro flui</p>
+    <h2 class="display" style="font-size:2.2rem; margin:8px 0 32px; max-width:20ch;">Três passos. Zero retenção no meio.</h2>
+    <div style="display:grid; grid-template-columns:1fr auto 1fr auto 1fr; align-items:center; gap:18px;">
+      <div class="card" style="text-align:center;">
+        <div class="mono" style="color:var(--ink-faint); font-size:.8rem;">01</div>
+        <div style="font-size:2rem; margin:6px 0;">♥</div>
+        <h3 class="display" style="font-size:1.25rem; margin-bottom:6px;">Você doa</h3>
+        <p class="muted" style="font-size:.9rem; margin:0;">Via PIX ou cartão, direto no checkout da ONG parceira.</p>
+      </div>
+      <div style="font-size:1.6rem; color:var(--green); text-align:center;">→</div>
+      <div class="card" style="text-align:center; border-color:var(--green-tint-2); background:var(--green-tint);">
+        <div class="mono" style="color:var(--green); font-size:.8rem;">02</div>
+        <div style="font-size:2rem; margin:6px 0;">→</div>
+        <h3 class="display" style="font-size:1.25rem; margin-bottom:6px;">Vai direto à ONG</h3>
+        <p class="muted" style="font-size:.9rem; margin:0;">A conta de destino é da instituição, não nossa. Não passamos a mão no valor.</p>
+      </div>
+      <div style="font-size:1.6rem; color:var(--green); text-align:center;">→</div>
+      <div class="card" style="text-align:center;">
+        <div class="mono" style="color:var(--ink-faint); font-size:.8rem;">03</div>
+        <div style="font-size:2rem; margin:6px 0;">✓</div>
+        <h3 class="display" style="font-size:1.25rem; margin-bottom:6px;">Comprovante público</h3>
+        <p class="muted" style="font-size:.9rem; margin:0;">Cada repasse aparece no razão aberto abaixo, com data e destino.</p>
+      </div>
+    </div>
+    <div class="keymsg" style="margin-top:28px;"><span class="km-mark">♥</span><span data-i18n="keymsg">Grátis. Se te ajudou, 100% da doação vai para a causa.</span></div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- LEDGER -->
+<section class="section-pad" id="ledger" style="background:var(--paper-sunk);">
+  <div class="wrap-narrow">
+    <p class="eyebrow" data-i18n="cause.ledger">Razão público</p>
+    <h2 class="display" style="font-size:2.2rem; margin:8px 0 6px;">Cada repasse, à vista de todos.</h2>
+    <p class="muted" style="margin-bottom:24px;">Entradas em cinza, repasses em verde. Saldo retido por nós: sempre R$ 0,00.</p>
+    <div class="card" style="padding:8px 24px;">
+      <div class="ledger-row"><span>Repasse → Instituto Conectar (SP)</span><span class="amt out">− R$ 12.400</span></div>
+      <div class="ledger-row"><span>Doações PIX · maio/26</span><span class="amt in">+ R$ 12.400</span></div>
+      <div class="ledger-row"><span>Repasse → Rede Digital Norte (PA)</span><span class="amt out">− R$ 8.900</span></div>
+      <div class="ledger-row"><span>Doações cartão · maio/26</span><span class="amt in">+ R$ 8.900</span></div>
+      <div class="ledger-row"><span>Repasse → AlfaTech Comunidade (BA)</span><span class="amt out">− R$ 15.200</span></div>
+      <div class="ledger-row"><span>Doações PIX · abril/26</span><span class="amt in">+ R$ 15.200</span></div>
+    </div>
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-top:18px; padding:16px 24px; background:var(--green-tint); border:1px solid var(--green-tint-2); border-radius:var(--r);">
+      <span style="font-weight:600; color:var(--green-deep);">Retido por nós</span>
+      <span class="mono" style="font-weight:600; color:var(--green-deep);">R$ 0,00</span>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- PARTNERS -->
+<section class="section-pad" id="partners">
+  <div class="wrap">
+    <p class="eyebrow" data-i18n="cause.partners">ONGs parceiras</p>
+    <h2 class="display" style="font-size:2.2rem; margin:8px 0 28px; max-width:22ch;">Quem leva a tecnologia até a ponta.</h2>
+    <div class="grid-3">
+      <div class="card">
+        <div style="aspect-ratio:16/9; background:repeating-linear-gradient(135deg,var(--paper-sunk),var(--paper-sunk) 9px,var(--line) 9px,var(--line) 10px); border-radius:var(--r-sm); display:grid; place-items:center; margin-bottom:14px;"><span class="mono" style="font-size:.72rem; color:var(--ink-faint);">logo da ONG</span></div>
+        <h3 class="display" style="font-size:1.25rem; margin-bottom:6px;">Instituto Conectar</h3>
+        <p class="muted" style="font-size:.92rem;">Laboratórios de IA em escolas públicas da periferia de São Paulo.</p>
+      </div>
+      <div class="card">
+        <div style="aspect-ratio:16/9; background:repeating-linear-gradient(135deg,var(--paper-sunk),var(--paper-sunk) 9px,var(--line) 9px,var(--line) 10px); border-radius:var(--r-sm); display:grid; place-items:center; margin-bottom:14px;"><span class="mono" style="font-size:.72rem; color:var(--ink-faint);">logo da ONG</span></div>
+        <h3 class="display" style="font-size:1.25rem; margin-bottom:6px;">Rede Digital Norte</h3>
+        <p class="muted" style="font-size:.92rem;">Internet e equipamentos para comunidades ribeirinhas do Pará.</p>
+      </div>
+      <div class="card">
+        <div style="aspect-ratio:16/9; background:repeating-linear-gradient(135deg,var(--paper-sunk),var(--paper-sunk) 9px,var(--line) 9px,var(--line) 10px); border-radius:var(--r-sm); display:grid; place-items:center; margin-bottom:14px;"><span class="mono" style="font-size:.72rem; color:var(--ink-faint);">logo da ONG</span></div>
+        <h3 class="display" style="font-size:1.25rem; margin-bottom:6px;">AlfaTech Comunidade</h3>
+        <p class="muted" style="font-size:.92rem;">Formação em IA para jovens e adultos no interior da Bahia.</p>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top:36px;">
+      <a class="btn btn-donate btn-lg" href="donate.html"><span class="heart">♥</span> <span data-i18n="cta.donate">Doar</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-col">
+        <a class="brand" href="index.html" style="margin-bottom:14px;">
+          <span class="brand-mark">›<i class="mk-heart">♥</i></span><span class="brand-name">Prompt<b>Cause</b></span>
+        </a>
+        <p class="muted" style="max-width:34ch; color:#A39B8B;" data-i18n="foot.tagline">Conhecimento de IA aberto a todos. Doações 100% repassadas à inclusão digital.</p>
+      </div>
+      <div class="foot-col"><h5 data-i18n="foot.learn">Aprender</h5><a href="learn.html" data-i18n="lv.1">Iniciante</a><a href="learn.html" data-i18n="lv.2">Intermediário</a><a href="learn.html" data-i18n="lv.3">Avançado</a></div>
+      <div class="foot-col"><h5 data-i18n="foot.cause">A Causa</h5><a href="cause.html" data-i18n="nav.transparency">Transparência</a><a href="cause.html#partners" data-i18n="cause.partners">ONGs parceiras</a><a href="donate.html" data-i18n="cta.donate">Doar</a></div>
+      <div class="foot-col"><h5 data-i18n="foot.about">Projeto</h5><a href="manifesto.html" data-i18n="nav.manifesto">Manifesto</a><a href="brand-guide.html" data-i18n="nav.brand">Marca</a></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 PromptCause</span>
+      <span data-i18n="foot.rights">Conteúdo aberto. Use, traduza, compartilhe.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
