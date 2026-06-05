@@ -33,7 +33,7 @@ export function LanguageSwitcher() {
         <button
           type="button"
           aria-label={t("language")}
-          className="inline-flex items-center gap-1.5 rounded-full border border-line-strong bg-paper-card px-3 py-[7px] font-mono text-[0.76rem] font-medium text-ink-soft hover:border-ink-faint hover:text-ink"
+          className="inline-flex cursor-pointer items-center gap-1.5 rounded-full border border-line-strong bg-paper-card px-3 py-[7px] font-mono text-[0.76rem] font-medium text-ink-soft hover:border-ink-faint hover:text-ink"
         >
           <span aria-hidden>{localeMeta[locale]?.flag}</span>
           <span className="uppercase">{locale}</span>
@@ -55,7 +55,7 @@ export function LanguageSwitcher() {
                     key={l}
                     value={`${meta.native} ${meta.english} ${l}`}
                     onSelect={() => change(l)}
-                    className="gap-2.5"
+                    className="cursor-pointer gap-2.5"
                   >
                     <span aria-hidden>{meta.flag}</span>
                     <span className="flex-1 truncate">{meta.native}</span>

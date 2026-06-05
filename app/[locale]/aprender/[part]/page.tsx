@@ -3,6 +3,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { Button } from "@/components/ui/button";
 import { GuideNav } from "@/components/guide-nav";
+import { OnThisPage } from "@/components/on-this-page";
 import { TechniqueBlock } from "@/components/technique-block";
 import { getBiblia } from "@/lib/biblia";
 
@@ -84,21 +85,8 @@ export default async function GuidePartPage({
           </div>
         </article>
 
-        {/* RIGHT: TOC of this page's techniques */}
-        <aside className="sticky top-[92px] hidden max-h-[calc(100vh-110px)] self-start overflow-y-auto xl:block">
-          <p className={`mb-3 ${eyebrow}`}>{b.tocTitle}</p>
-          <nav className="flex flex-col border-l border-line">
-            {part.techniques.map((tech) => (
-              <a
-                key={tech.id}
-                href={`#${tech.id}`}
-                className="-ml-px border-l-2 border-transparent py-1 pl-3 text-[0.82rem] text-ink-soft hover:border-line-strong hover:text-ink"
-              >
-                {tech.name}
-              </a>
-            ))}
-          </nav>
-        </aside>
+        {/* RIGHT: TOC with scroll-spy */}
+        <OnThisPage title={b.tocTitle} items={part.techniques.map((t) => ({ id: t.id, label: t.name }))} />
       </div>
     </div>
   );
