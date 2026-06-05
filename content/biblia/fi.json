@@ -15,61 +15,162 @@
           "id": "zero-shot-prompting",
           "name": "Nollakuvakehote",
           "level": 1,
-          "whatIs": "anna suorat ohjeet ilman esimerkkejä. \"Zero-shot\" = nolla esimerkkiä. Se on kaiken lähtökohta.",
-          "when": "yksinkertaiset, hyvin määritellyt tehtävät, jotka malli jo hallitsee (kääntäminen, yhteenveto, suoraan kysymykseen vastaaminen).",
-          "wrong": "kerro markkinoinnista",
-          "right": "Selitä markkinoinnin 4 P:tä (tuote, hinta, paikka, promootio)\nyhdessä kappaleessa kukin käytännön esimerkin avulla kahvilasta.",
-          "why": "väärä on epämääräinen - \"markkinoinnista\" voi saada tuhat erilaista vastausta. Oikea määrittelee soveltamisalan (4 P:tä), muodon (kukin yksi kappale) ja kontekstin (kahvila). Ilman esimerkkejä se oli yksiselitteinen."
+          "simple": "Kysy suoraan, antamatta esimerkkejä.",
+          "whatIs": "Anna selkeät ohjeet näyttämättä esimerkkejä vastauksista – malli käyttää vain koulutuksessa oppimaansa. \"Zero-shot\" = nolla esimerkkiä. Se on kaiken lähtökohta.",
+          "when": "Yleisiä ja tarkasti määriteltyjä tehtäviä, jotka malli jo hallitsee: kääntäminen, yhteenveto, asiakysymykseen vastaaminen, tekstin uudelleenkirjoittaminen.",
+          "whenNot": "Kun tarkka muoto, sävy tai reunakotelot ovat tärkeitä. Sitten jotkin esimerkit (muutama laukaus) ovat arvokkaampia kuin mikään ohje.",
+          "examples": [
+            {
+              "wrong": "kerro markkinoinnista",
+              "right": "Selitä markkinoinnin 4 P:tä (tuote, hinta, paikka, promootio)\nyhdessä kappaleessa kukin esimerkin avulla kahvilasta.",
+              "note": "Oikea määrittelee soveltamisalan (4 P:tä), muodon (yksi kappale kustakin) ja kontekstin (kahvila) – yksiselitteisesti ilman esimerkkejä."
+            },
+            {
+              "wrong": "korjaa tekstini",
+              "right": "Korjaa alla olevan tekstin kielioppi- ja välimerkkivirheet.\nSäilytä merkitys ja sävy. Palauta vain korjattu teksti.",
+              "note": "Kerro sille, mitä korjata, mitä säilyttää ja tulostusmuoto."
+            }
+          ],
+          "why": "Nykyaikaiset mallit ratkaisevat tuttuja tehtäviä ilman esimerkkejä – kunhan ohje on täsmällinen. Selkeys korvaa esimerkit.",
+          "tip": "Jos vastaus on yleinen, älä lisää vielä esimerkkejä: tee ohjeista ensin tarkempi (muoto, koko, yleisö).",
+          "sources": [
+            {
+              "label": "Antrooppinen – parhaiden käytäntöjen kannustaminen",
+              "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+            }
+          ]
         },
         {
           "id": "role-persona-prompting",
           "name": "Roolin/henkilön kehotus",
           "level": 1,
-          "whatIs": "anna mallille rooli (\"Sinä olet...\"). Yksi lause muuttaa vastauksen sävyä, sanastoa ja syvyyttä. Asiantuntijakehotteen muunnelmassa käytetään asiantuntijahenkilöä täsmälleen toimialueella.",
-          "when": "aina kun sävyllä tai teknisellä syvyydellä on merkitystä. Käytännössä ilmainen ja auttaa melkein aina.",
-          "wrong": "Onko tässä koodissa turvallisuusongelmia?\n[code]",
-          "right": "Olet hyökkäävä tietoturva-asiantuntija (pentesteri), joka tarkistaa koodin tarkastusta varten. Analysoi alla olevasta koodista\nhaavoittuvuuksia (injektio, salainen altistuminen, heikko todennus).\n[koodi]",
-          "why": "\"Audittestaajan\" rooli keskittää mallin sellaisen henkilön ajattelutapaan, joka etsii aktiivisesti puutteita, ja luokkien luettelointi antaa suuntaa. Ilman paperia vastaus on yleensä yleinen ja pinnallinen."
+          "simple": "Kerro mallille ennen tehtävää \"keitä he ovat\".",
+          "whatIs": "Määritä rooli (\"Olet vanhempi verolakimies\") kalibroidaksesi sävyn, sanaston ja vastauksen syvyyden. Yksi lause muuttaa jo tuloksen.",
+          "when": "Kun sävyllä tai teknisellä tasolla on merkitystä - kirjoittaminen, palvelu, mielipiteet, opetus.",
+          "whenNot": "Puhdasta tietoa koskevissa kysymyksissä (fakta, tilit, monivalinta) persoona voi jäädä tielle. MMLU-vertailutesteissä \"asiantuntija\"-persoonat laskivat tarkkuudella (~71,6 %:sta ~68 %:iin).",
+          "examples": [
+            {
+              "wrong": "Onko tässä koodissa turvallisuusongelma?",
+              "right": "Olet tutkija, joka tarkistaa koodin tarkastusta varten.\nAnalysoi alla oleva koodi injektiota, paljastettuja\nsalaisuuksia ja heikkoa todennusta varten.",
+              "note": "Paperi keskittyy malliin niiden ajattelutapaan, jotka etsivät puutteita."
+            },
+            {
+              "wrong": "selittää rekursion",
+              "right": "Olet kärsivällinen opettaja, joka selittää 10-vuotiaalle lapselle. Selitä rekursio jokapäiväisellä analogialla.",
+              "note": "Persona + yleisö määrittelee selityksen tason."
+            }
+          ],
+          "why": "Rooli aktivoi kyseiseen profiiliin liittyvän sanaston ja sävyn. Mutta vaikutus on tehtäväherkkä: se auttaa sävyyn, harvoin asiatietoon.",
+          "tip": "Käytä persoonaa sävyyn ja TYYLIIN; älä odota \"Olet matematiikan nero\" parantavan pisteitä. Tarkkuuden vuoksi valitse selkeät ohjeet ja vahvistus.",
+          "sources": [
+            {
+              "label": "PromptHub — Roolikehotustutkimus",
+              "url": "https://www.prompthub.us/blog/role-prompting-does-adding-personas-to-your-prompts-really-make-a-difference"
+            },
+            {
+              "label": "Antrooppinen – Anna Claudelle rooli",
+              "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+            }
+          ]
         },
         {
-          "id": "few-shot-multishot-prompting",
-          "name": "Muutaman otoksen/Multishot-kehote",
+          "id": "few-shot-multishot",
+          "name": "Muutama laukaus / Multishot",
           "level": 1,
-          "whatIs": "näytä 2–5 esimerkkiä syötteestä→tulosteesta ennen kuin kysyt tapauksestasi. Se on luotettavin työkalu muodon, sävyn ja yhdenmukaisuuden hallitsemiseen. \"Few-shot\" = muutama esimerkki.",
-          "when": "kun tarkka muoto tai sävy on tärkeä tai vaikeassa luokittelussa. Esimerkkien on oltava merkityksellisiä (samankaltaisia ​​kuin todellista tapausta) ja monipuolisia (peitettävä muunnelmia).",
-          "wrong": "Poimi mielipide ja luokka tästä arvostelusta: \"Se saapui nopeasti, mutta se oli rikki.\"",
-          "right": "Poimi tunne ja luokka. Seuraa esimerkkejä:\n\n<example>\nArvostelu: \"Pidin siitä, suosittelen sitä lämpimästi!\"\n→ {\"fiilis\": \"positiivinen\", \"luokka\": \"tyytyväisyys\"}\n</example>\n<example>\nArvostelu: \"Se sisälsi puuttuvan palan.\"\n→ {\"fieling\": \"ngogo\": \"defective_product\"}\n</example \n\nArvostelu: \"Se saapui nopeasti, mutta se oli rikki.\"\n→",
-          "why": "kaksi esimerkkiä korjaavat muodon (JSON kahdella kentällä) ja näyttävät luokkasanaston. Malli yksinkertaisesti seuraa mallia. Huomaa, että toinen esimerkki kattaa negatiivisen tapauksen – monimuotoisuus estää mallia ajattelemasta kaikkea positiivisena."
+          "simple": "Näytä 2–5 esimerkkivastausta ennen kuin kysyt tapaustasi.",
+          "whatIs": "Sisällytä malliin input→output-esimerkkejä mallin jäljittelemiseksi. \"Few-shot\" = muutama esimerkki. Se on vahvin vipu muodon, sävyn ja yhtenäisyyden hallitsemiseen.",
+          "when": "Kun tarkka muoto on tärkeä (JSON, taulukko), sävyn on oltava johdonmukainen tai lajittelu on vaikeaa.",
+          "whenNot": "Triviaaleissa tehtävissä (nollalaukaus jo ratkaisee sen) tai kun esimerkit vinoutuvat kohti yhtä mallia - monipuolista tai vähennä sitä.",
+          "examples": [
+            {
+              "right": "Arvioi tunne. Seuraa esimerkkejä:\n\"Pidin siitä, suosittelen sitä!\" → positiivinen\n\"Se meni rikki.\" → negatiivinen\n\nArvostelu: \"Saapui nopeasti, mutta oli murskattu.\" →",
+              "note": "Kaksi esimerkkiä korjaa tulosmuodon ja sanaston; sisällytä negatiivinen tapaus puolueellisuuden välttämiseksi."
+            }
+          ],
+          "why": "Fow-shot tulee GPT-3-tutkimuksesta (Brown et al., 2020): mallit oppivat tehtävän vain kehotteen esimerkeistä (in-context learning). Tutkimukset osoittavat hyppyjä, kuten F1 0,51 → 0,62, kun siirrytään nollasta kolmeen esimerkkiin.",
+          "tip": "3-5 esimerkkiä on makea paikka. Käytä ERI esimerkkejä (kansireunakotelot) ja huolehdi TARJOUSTA — esimerkkien permutointi voi muuttaa tarkkuutta suuresti.",
+          "sources": [
+            {
+              "label": "Brown et ai. 2020 – Kielimallit ovat vähän oppineita",
+              "url": "https://arxiv.org/abs/2005.14165"
+            },
+            {
+              "label": "Pikaraportti (arXiv:2406.06608)",
+              "url": "https://arxiv.org/abs/2406.06608"
+            }
+          ]
         },
         {
-          "id": "estruturacao-com-xml-delimitadores",
+          "id": "estruturacao-com-xml",
           "name": "Jäsentäminen XML/erottimilla",
           "level": 1,
-          "whatIs": "kääri jokainen kehotteen osa tunnisteiksi ( <context> , <dados> , <instructions> ). Se erottaa selkeästi sen, mikä on ohjetta, siitä, mitä annetaan, estäen mallia sekoittamasta näitä kahta.",
-          "when": "aina kun kehote sekoittaa ohjeet dataan (erityisesti pitkiin tai itse muotoiltuihin tietoihin). Se on suositeltu malli Claudelle.",
-          "wrong": "Tiivistä seuraava teksti kolmeen aiheeseen: Tämän päivän kokous: päätimme lykätä julkaisua. Tee myös yhteenveto riskeistä kolmeen aiheeseen. Budjetti\nhyväksytty.",
-          "right": "Tiivistä tekstin <text> sisältö tasan kolmeen aiheeseen.\n\n<text>\nTämänpäiväinen kokous: päätimme lykätä julkaisua. Budjetti hyväksytty.\nRiskit: vähentynyt tiimi ja tiukka määräaika.\n</text>",
-          "why": "<text>-tunniste tekee tiivistettävistä asioista kristallinkirkkaan. Väärässä tapauksessa sisällön keskellä oleva ohje \"Yhteenveto riskit 3 aiheessa\" on luettavissa osana tiivistettävää tekstiä – tai toissijaisesti. Puhdasta epäselvyyttä."
+          "simple": "Erota ohjeet ja tiedot \"tageilla\".",
+          "whatIs": "Kääri kehotteen jokainen osa merkkeihin (<konteksti>, <tiedot>, <ohjeet>), jotta malli ei sekoita järjestystä käsiteltäviin materiaaleihin.",
+          "when": "Aina kun kehote sekoittaa käskyn dataan – erityisesti pitkiin tai itse muotoiltuihin tietoihin. Se on suositeltu malli Claudelle.",
+          "whenNot": "Lyhyissä yksirivisissä kehotteissa, joissa ei ole upotettuja tietoja, se on tarpeeton.",
+          "examples": [
+            {
+              "wrong": "Yhteenveto: Tämän päivän kokous: olemme lykänneet julkaisua.\nTee myös yhteenveto riskeistä. Budjetti ok.",
+              "right": "Tee yhteenveto tekstin <text> sisällöstä kolmeen aiheeseen.\n\n<text>\nTämänpäiväinen kokous: lykkäsimme julkaisua. Budjetti ok.\nRiskit: pienempi tiimi ja tiukka määräaika.\n</text>",
+              "note": "Tunniste tekee selväksi, mitä annetaan ja mikä on opetusta – ilman epäselvyyttä."
+            }
+          ],
+          "why": "Tunnisteet vähentävät ohjeiden ja sisällön välistä epäselvyyttä – yleisin virhe kehotteissa, joissa on upotettu teksti. Strukturoiduilla tiedoilla koulutetut mallit (kuten Claude) seuraavat tunnisteita tarkasti.",
+          "tip": "Käytä johdonmukaisia ​​ja kuvaavia tunnisteen nimiä. Sisään, kun hierarkia on olemassa (useita <asiakirjoja> <dokumenttien> sisällä).",
+          "sources": [
+            {
+              "label": "Antrooppinen – Käytä XML-tageja",
+              "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+            }
+          ]
         },
         {
           "id": "contexto-motivacao",
           "name": "Konteksti + motivaatio",
           "level": 1,
-          "whatIs": "antaa taustatietoja ja selittää, miksi ohje on olemassa. Malli yleistyy paremmin suhteesta.",
-          "when": "aina kun sääntö voidaan tulkita väärin, jos sitä sovelletaan kirjaimeen ymmärtämättä tavoitetta.",
-          "wrong": "Vastaa enintään 2 lauseella. Älä koskaan käytä numeroita.",
-          "right": "Tämä vastaus näytetään älykellossa, jossa on pieni näyttö, ja se luetaan ääneen. Siksi: enintään 2 lyhyttä lausetta ja\nkirjoita numerot kokonaan (esim. \"kolme\" \"3\" sijaan), koska\nnäytönlukuohjelma kirjoittaa numerot oudosti.",
-          "why": "Tietäen syyn (pieni näyttö + ääni), malli soveltaa sääntöä terveellä järjellä ja ennakoi jopa sanattomat tapaukset. Ilman syytä \"älä koskaan käytä numeroita\" on sokea sääntö, jota hän voi rikkoa tai soveltaa absurdeilla tavoilla."
+          "simple": "Selitä ohjeen syy, älä vain järjestystä.",
+          "whatIs": "Kerro taustatiedot ja pyynnön syy. Malli yleistyy paremmin, kun se ymmärtää tavoitteen, ei vain sääntöä.",
+          "when": "Aina kun sääntö voidaan tulkita väärin, jos sitä sovelletaan kirjeeseen ymmärtämättä tarkoitusta.",
+          "whenNot": "Se tulee harvoin tielle – mutta älä liioittele sitä epäolennaisella kontekstilla, joka muuttuu meluksi ja hukkaa mallin huomion.",
+          "examples": [
+            {
+              "wrong": "Älä koskaan käytä ellipsiä.",
+              "right": "Puhesyntetisaattori lukee tämän vastauksen, joka ei ääntä ellipsiä oikein – joten älä käytä sanaa \"…\".",
+              "note": "Tietäen miksi, malli soveltaa sääntöä terveellä järjellä ja ennakoi samanlaisia ​​tapauksia."
+            }
+          ],
+          "why": "Kun malli ymmärtää motivaation, se laajentaa säännön sanattomiin tapauksiin ja välttää absurdeja sovelluksia. Karkea opetus on sokea sääntö.",
+          "tip": "Yksi lause \"miksi tällä on väliä\" on yleensä kolmen \"tee se näin\" lauseen arvoinen.",
+          "sources": [
+            {
+              "label": "Antrooppinen – Paranna suorituskykyä lisäämällä kontekstia",
+              "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+            }
+          ]
         },
         {
-          "id": "contrato-de-saida-output-contract",
+          "id": "contrato-de-saida",
           "name": "Tuotantosopimus",
           "level": 1,
-          "whatIs": "määritä vastauksen tarkka muoto – JSON-skeema, tagit, \"vain tulos ilman esittelyä\", koko. Kerro mitä tehdä, älä mitä vältä.",
-          "when": "aina, kun järjestelmä kuluttaa tulosteen (jäsennys) tai tarvitsee yhtenäisen muodon.",
-          "wrong": "Anna minulle tämän tekstin asiakastiedot ilman pitkiä puheita.",
-          "right": "Poimi asiakastiedot. Vastaa VAIN tällä JSONilla, ilman\ntekstiä ennen tai jälkeen. Käytä tyhjää puuttuville kentille:\n{\"nimi\": string, \"email\": string|null, \"phone\": string|null}",
-          "why": "\"ei paskaa\" on subjektiivinen; eksplisiittinen skeema on objektiivinen ja koodin jäsennettävissä. \"Käytä tyhjää puuttumiseen\" estää mallia keksimästä dataa - yleinen virhe poiminnassa."
+          "simple": "Ilmoita vastauksen TARKKA muoto.",
+          "whatIs": "Määritä, miten lähdön tulee tulla: JSON-skeema, tagit, \"vain tulos ilman esittelyä\", koko. Kerro mitä tehdä, älä mitä vältä.",
+          "when": "Aina kun järjestelmä kuluttaa vastauksen (jäsennys) tai vaatii johdonmukaista muotoa puheluiden välillä.",
+          "whenNot": "Vapaassa tai tutkivassa keskustelussa jäykkä sopimus voi tukahduttaa vastaukset, jotka hyötyisivät joustavuudesta.",
+          "examples": [
+            {
+              "wrong": "Anna minulle asiakkaan tiedot, ei meteliä",
+              "right": "Poimi asiakastiedot. Vastaa VAIN tällä JSONilla,\nei tekstiä ennen tai jälkeen. Käytä tyhjää puuttuville kentille:\n{\"nimi\": string, \"email\": string|null, \"phone\": string|null}",
+              "note": "Eksplisiittinen skeema + \"null for puuttuu\" estää mallia keksimästä dataa."
+            }
+          ],
+          "why": "\"Ei tavallisia\" on subjektiivinen; skeema on objektiivinen ja koodin jäsennettävissä. Muodon määrittäminen poistaa muunnelman, joka rikkoo integraatiot.",
+          "tip": "Jos haluat todella pakottaa JSON:n/rakenteen, käytä Structured Outputs -toimintoa (Claude/OpenAI) sen sijaan, että pyytäisit sitä tekstissä – se on paljon luotettavampi.",
+          "sources": [
+            {
+              "label": "Antrooppinen — Ohjausvastauksen muoto",
+              "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+            }
+          ]
         }
       ]
     },
@@ -454,5 +555,9 @@
       ]
     }
   ],
-  "tocTitle": "Tällä sivulla"
+  "tocTitle": "Tällä sivulla",
+  "simpleLabel": "Yhteenvetona",
+  "whenNotLabel": "Milloin välttää",
+  "tipLabel": "Vihje",
+  "sourcesLabel": "Lähteet"
 }

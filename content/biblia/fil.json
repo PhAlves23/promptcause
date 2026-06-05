@@ -15,61 +15,162 @@
           "id": "zero-shot-prompting",
           "name": "Zero-shot na pag-udyok",
           "level": 1,
-          "whatIs": "magbigay ng direktang pagtuturo, nang walang mga halimbawa. \"Zero-shot\" = zero na mga halimbawa. Ito ang simula ng lahat.",
-          "when": "simple, mahusay na tinukoy na mga gawain na ang modelo ay master na (pagsasalin, pagbubuod, pagsagot sa isang direktang tanong).",
-          "wrong": "sabihin sa akin ang tungkol sa marketing",
-          "right": "Ipaliwanag ang 4 Ps ng marketing (produkto, presyo, lugar, promosyon)\nsa isang talata bawat isa, na may praktikal na halimbawa mula sa isang coffee shop.",
-          "why": "ang mali ay malabo — \"tungkol sa marketing\" ay maaaring makabuo ng isang libong iba't ibang mga sagot. Ang kanan ay tumutukoy sa saklaw (ang 4 Ps), format (isang talata bawat isa) at konteksto (coffee shop). Kahit na walang mga halimbawa, ito ay malinaw."
+          "simple": "Magtanong nang direkta, nang hindi nagbibigay ng mga halimbawa.",
+          "whatIs": "Magbigay ng malinaw na mga tagubilin nang hindi nagpapakita ng mga halimbawa ng mga sagot — ginagamit lang ng modelo ang natutunan nito sa pagsasanay. \"Zero-shot\" = zero na mga halimbawa. Ito ang simula ng lahat.",
+          "when": "Karaniwan at mahusay na natukoy na mga gawain na ang modelo ay masters na: pagsasalin, pagbubuod, pagsagot sa isang makatotohanang tanong, muling pagsulat ng isang teksto.",
+          "whenNot": "Kapag mahalaga ang eksaktong hugis, tono o gilid na mga kaso. Pagkatapos ang ilang mga halimbawa (few-shot) ay nagkakahalaga ng higit sa anumang pagtuturo.",
+          "examples": [
+            {
+              "wrong": "sabihin sa akin ang tungkol sa marketing",
+              "right": "Ipaliwanag ang 4 Ps ng marketing (produkto, presyo, lugar, promosyon)\nsa isang talata bawat isa, na may halimbawa ng coffee shop.",
+              "note": "Ang kanan ay tumutukoy sa saklaw (ang 4 Ps), format (isang talata bawat isa) at konteksto (coffee shop) — hindi malabo kahit na walang mga halimbawa."
+            },
+            {
+              "wrong": "itama ang text ko",
+              "right": "Iwasto ang mga error sa grammar at bantas sa teksto sa ibaba.\nPanatilihin ang kahulugan at tono. Ibalik lamang ang naitama na teksto.",
+              "note": "Sabihin dito kung ano ang dapat ayusin, kung ano ang iingatan, at ang format ng output."
+            }
+          ],
+          "why": "Ang mga modernong modelo ay nilulutas ang mga kilalang gawain nang walang mga halimbawa — hangga't ang pagtuturo ay tiyak. Pinapalitan ng kalinawan ang mga halimbawa.",
+          "tip": "Kung generic ang sagot, huwag ka nang magdagdag pa ng mga halimbawa: gawing mas partikular ang mga tagubilin (format, laki, audience).",
+          "sources": [
+            {
+              "label": "Anthropic — Pag-prompt ng pinakamahuhusay na kagawian",
+              "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+            }
+          ]
         },
         {
           "id": "role-persona-prompting",
           "name": "Pag-udyok sa Tungkulin/Persona",
           "level": 1,
-          "whatIs": "magtalaga ng isang tungkulin sa modelo (\"Ikaw ay isang...\"). Binabago ng isang pangungusap ang tono, bokabularyo at lalim ng sagot. Gumagamit ang variant ng Expert prompting ng expert persona sa eksaktong domain.",
-          "when": "sa tuwing mahalaga ang tono o teknikal na lalim. Praktikal na libre at halos palaging tumutulong.",
-          "wrong": "Mayroon bang anumang isyu sa seguridad ang code na ito?\n[code]",
-          "right": "Isa kang nakakapanakit na eksperto sa seguridad (pentester) na nagre-review ng code para sa isang audit. Suriin ang code sa ibaba para sa\nmga kahinaan (injection, lihim na pagkakalantad, mahinang pagpapatotoo).\n[code]",
-          "why": "Ang papel na \"audit tester\" ay nakatuon sa modelo sa mindset ng isang taong aktibong naghahanap ng mga kapintasan, at ang paglilista ng mga kategorya ay nagbibigay ng direksyon. Kung walang papel, ang tugon ay karaniwang generic at mababaw."
+          "simple": "Sabihin sa modelo ang \"sino sila\" bago ang gawain.",
+          "whatIs": "Magtalaga ng tungkulin (\"Ikaw ay isang senior na abogado sa buwis\") upang i-calibrate ang tono, bokabularyo, at lalim ng pagtugon. Binago na ng isang pangungusap ang resulta.",
+          "when": "Kapag mahalaga ang tono o teknikal na antas — pagsulat, serbisyo, opinyon, pagtuturo.",
+          "whenNot": "Sa mga katanungan ng dalisay na kaalaman (mga katotohanan, mga account, maramihang pagpipilian) ang persona ay maaaring makahadlang. Sa mga pagsubok sa benchmark ng MMLU, bumaba ang katumpakan ng \"eksperto\" na katauhan (mula ~71.6% hanggang ~68%).",
+          "examples": [
+            {
+              "wrong": "May problema ba sa seguridad ang code na ito?",
+              "right": "Isa kang pentester na nagre-review ng code para sa isang audit.\nSuriin ang code sa ibaba para sa pag-iniksyon, mga nalantad na\nlihim, at mahinang pagpapatotoo.",
+              "note": "Ang papel ay nakatuon sa modelo sa pag-iisip ng mga naghahanap ng mga kapintasan."
+            },
+            {
+              "wrong": "nagpapaliwanag ng recursion",
+              "right": "Isa kang matiyagang guro na nagpapaliwanag sa isang 10 taong gulang na bata. Ipaliwanag ang recursion na may pang-araw-araw na pagkakatulad.",
+              "note": "Tinutukoy ng Persona + audience ang antas ng pagpapaliwanag."
+            }
+          ],
+          "why": "Ina-activate ng tungkulin ang bokabularyo at tono na nauugnay sa profile na iyon. Ngunit ang epekto ay sensitibo sa gawain: nakakatulong ito sa tono, bihira sa makatotohanang kaalaman.",
+          "tip": "Gumamit ng persona para sa TONE at STYLE; huwag asahan na \"Ikaw ay isang henyo sa matematika\" upang mapabuti ang marka. Para sa katumpakan, mas gusto ang malinaw na mga tagubilin at pag-verify.",
+          "sources": [
+            {
+              "label": "PromptHub — Pag-aaral sa pag-udyok ng tungkulin",
+              "url": "https://www.prompthub.us/blog/role-prompting-does-adding-personas-to-your-prompts-really-make-a-difference"
+            },
+            {
+              "label": "Anthropic — Bigyan ng papel si Claude",
+              "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+            }
+          ]
         },
         {
-          "id": "few-shot-multishot-prompting",
-          "name": "Few-shot/Multishot na pag-prompt",
+          "id": "few-shot-multishot",
+          "name": "Few-shot / Multishot",
           "level": 1,
-          "whatIs": "magpakita ng 2 hanggang 5 halimbawa ng input→output bago tanungin ang iyong kaso. Ito ang pinaka-maaasahang tool para sa pagkontrol sa format, tono at pagkakapare-pareho. \"Few-shot\" = ilang halimbawa.",
-          "when": "kapag ang eksaktong format o tono ay mahalaga, o sa mahirap na pag-uuri. Ang mga halimbawa ay dapat na may kaugnayan (katulad ng tunay na kaso) at magkakaibang (mga variation ng pabalat).",
-          "wrong": "Kunin ang damdamin at kategorya mula sa pagsusuring ito: \"Mabilis itong dumating ngunit nasira.\"",
-          "right": "I-extract ang damdamin at kategorya. Sundin ang mga halimbawa:\n\n<example>\nReview: \"Nagustuhan ko ito, lubos kong inirerekumenda!\"\n→ {\"feeling\": \"positive\", \"category\": \"satisfaction\"}\n</example>\n<example>\nReview: \"Ito ay may kasamang nawawalang piraso.\"\n→ {\"feeling\" \": \"goryproduct\"; \"defective\" \n\nRebyu: \"Mabilis itong dumating ngunit sira.\"\n→",
-          "why": "inaayos ng dalawang halimbawa ang format (JSON na may dalawang field) at ipinapakita ang bokabularyo ng kategorya. Ang modelo ay sumusunod lamang sa pattern. Tandaan na ang pangalawang halimbawa ay sumasaklaw sa isang negatibong kaso — pinipigilan ng pagkakaiba-iba ang modelo na isipin na ang lahat ay positibo."
+          "simple": "Magpakita ng 2 hanggang 5 sample na sagot bago itanong ang iyong kaso.",
+          "whatIs": "Isama ang ilang mga halimbawa ng input→output para sa modelo upang gayahin ang pattern. \"Few-shot\" = ilang halimbawa. Ito ang pinakamalakas na pingga para sa pagkontrol ng hugis, tono at pagkakapare-pareho.",
+          "when": "Kapag mahalaga ang eksaktong format (JSON, talahanayan), kailangang pare-pareho ang tono, o mahirap ang pag-uuri.",
+          "whenNot": "Sa mga trivial na gawain (zero-shot na ang lumulutas nito) o kapag ang mga halimbawa ay lumiling patungo sa isang pattern — pagkatapos ay pag-iba-ibahin o bawasan ito.",
+          "examples": [
+            {
+              "right": "I-rate ang pakiramdam. Sundin ang mga halimbawa:\n\"Nagustuhan ko ito, inirerekomenda ko ito!\" → positibo\n\"Nasira ito.\" → negatibo\n\nReview: \"Mabilis na dumating ngunit nadurog.\" →",
+              "note": "Dalawang halimbawa ang ayusin ang format ng output at bokabularyo; isama ang isang negatibong kaso upang maiwasan ang bias."
+            }
+          ],
+          "why": "Ang ilang-shot ay nagmula sa GPT-3 na pananaliksik (Brown et al., 2020): natutunan ng mga modelo ang gawain mula lamang sa mga halimbawa sa prompt (in-context learning). Ipinapakita ng mga pag-aaral ang mga pagtalon tulad ng F1 0.51 → 0.62 kapag mula sa zero hanggang 3 halimbawa.",
+          "tip": "3 hanggang 5 halimbawa ang matamis na lugar. Gumamit ng IBA'T IBANG halimbawa (takpan ang mga gilid ng case) at alagaan ang ORDER — ang pag-permute ng mga halimbawa ay maaaring magbago nang malaki sa katumpakan.",
+          "sources": [
+            {
+              "label": "Brown et al. 2020 — Mga Few-Shot Learner ang mga Modelo ng Wika",
+              "url": "https://arxiv.org/abs/2005.14165"
+            },
+            {
+              "label": "Ang Maagap na Ulat (arXiv:2406.06608)",
+              "url": "https://arxiv.org/abs/2406.06608"
+            }
+          ]
         },
         {
-          "id": "estruturacao-com-xml-delimitadores",
+          "id": "estruturacao-com-xml",
           "name": "Pag-istruktura gamit ang XML/mga delimiter",
           "level": 1,
-          "whatIs": "balutin ang bawat bahagi ng prompt sa mga tag ( <context> , <dados> , <instructions> ). Ito ay malinaw na naghihiwalay kung ano ang pagtuturo mula sa kung ano ang ibinigay, na pumipigil sa modelo na malito ang dalawa.",
-          "when": "sa tuwing hinahalo ng prompt ang mga tagubilin sa data (lalo na ang mahaba o self-formatted na data). Ito ang inirerekomendang pattern para kay Claude.",
-          "wrong": "Ibuod ang sumusunod na teksto sa 3 paksa: Pagpupulong ngayon: nagpasya kaming ipagpaliban ang paglulunsad. Ibuod din ang mga panganib sa 3 paksa. Inaprubahan\nang badyet.",
-          "right": "Ibuod ang nilalaman sa loob ng <text> sa eksaktong 3 paksa.\n\n<text>\nPagpupulong ngayon: nagpasya kaming ipagpaliban ang paglulunsad. Naaprubahan ang badyet.\nMga Panganib: pinababang koponan at mahigpit na deadline.\n</text>",
-          "why": "ginagawang malinaw ng tag na <text> kung ano ang dapat ibuod. Sa maling kaso, ang pagtuturo na \"Ibuod ang mga panganib sa 3 paksa\" sa gitna ng nilalaman ay mababasa bilang bahagi ng tekstong ibubuod — o bilang pangalawang pagkakasunud-sunod. Puro kalabuan."
+          "simple": "Paghiwalayin ang pagtuturo at data gamit ang \"mga tag\".",
+          "whatIs": "I-wrap ang bawat bahagi ng prompt sa mga marker (<context>, <data>, <instructions>) para hindi malito ng modelo kung ano ang ayos at kung ano ang materyal na ipoproseso.",
+          "when": "Sa tuwing hinahalo ng prompt ang pagtuturo sa data — lalo na ang mahaba o self-formatted na data. Ito ang inirerekomendang pattern para kay Claude.",
+          "whenNot": "Sa maikling isang linyang prompt na walang naka-embed na data, ito ay hindi kailangan.",
+          "examples": [
+            {
+              "wrong": "Ibuod: Pagpupulong ngayon: ipinagpaliban namin ang paglulunsad.\nIbuod din ang mga panganib. Okay ang budget.",
+              "right": "Ibuod ang nilalaman sa loob ng <text> sa 3 paksa.\n\n<text>\nPagpupulong ngayon: ipinagpaliban namin ang paglulunsad. Ok ang badyet.\nMga Panganib: pinababang koponan at mahigpit na deadline.\n</text>",
+              "note": "Nilinaw ng tag kung ano ang ibinigay at kung ano ang pagtuturo — nang walang kalabuan."
+            }
+          ],
+          "why": "Binabawasan ng mga tag ang kalabuan sa pagitan ng pagtuturo at nilalaman — ang pinakakaraniwang error sa mga prompt na may naka-embed na text. Ang mga modelong sinanay gamit ang structured data (tulad ni Claude) ay tumpak na sumusunod sa mga tag.",
+          "tip": "Gumamit ng pare-pareho at mapaglarawang mga pangalan ng tag. Pugad kapag mayroong hierarchy (maraming <document> sa loob ng <documents>).",
+          "sources": [
+            {
+              "label": "Anthropic — Gumamit ng mga XML tag",
+              "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+            }
+          ]
         },
         {
           "id": "contexto-motivacao",
           "name": "Konteksto + motibasyon",
           "level": 1,
-          "whatIs": "magbigay ng background na impormasyon at ipaliwanag kung bakit umiiral ang pagtuturo. Ang modelo ay nag-generalize nang mas mahusay mula sa ratio.",
-          "when": "sa tuwing ang isang tuntunin ay maaaring ma-misinterpret kung ilalapat sa liham nang hindi nauunawaan ang layunin.",
-          "wrong": "Sagutin sa maximum na 2 pangungusap. Huwag gumamit ng mga numero.",
-          "right": "Ang sagot na ito ay ipapakita sa isang matalinong relo na may maliit na screen at babasahin nang malakas. Samakatuwid: maximum na 2 maiikling pangungusap, at\nsumulat ng mga numero nang buo (hal. \"tatlo\" sa halip na \"3\"), dahil kakaiba ang pagbaybay ng\nscreen reader ng mga digit.",
-          "why": "alam ang dahilan (maliit na screen + boses), inilalapat ng modelo ang panuntunan nang may sentido komun at inaasahan pa nga ang mga hindi sinasabing kaso. Kung walang dahilan, ang \"never use numbers\" ay isang blind rule na maaari niyang sirain o ilapat sa mga walang katotohanan na paraan."
+          "simple": "Ipaliwanag ang dahilan ng pagtuturo, hindi lamang ang pagkakasunud-sunod.",
+          "whatIs": "Magbigay ng background na impormasyon at ang dahilan sa likod ng kahilingan. Mas nagiging pangkalahatan ang modelo kapag naiintindihan nito ang layunin, hindi lamang ang panuntunan.",
+          "when": "Sa tuwing ang isang tuntunin ay maaaring ma-misinterpret kung ilalapat sa liham nang hindi nauunawaan ang layunin.",
+          "whenNot": "Ito ay bihirang makasagabal — ngunit huwag itong dagdagan ng walang katuturang konteksto, na nagiging ingay at sinasayang ang atensyon ng modelo.",
+          "examples": [
+            {
+              "wrong": "Huwag gumamit ng ellipsis.",
+              "right": "Ang tugon na ito ay babasahin ng isang speech synthesizer na hindi binibigkas nang tama ang mga ellipse — kaya huwag gumamit ng \"...\".",
+              "note": "Alam kung bakit, inilalapat ng modelo ang panuntunan nang may sentido komun at inaasahan ang mga katulad na kaso."
+            }
+          ],
+          "why": "Kapag naiintindihan ng modelo ang motibasyon, pinalawak nito ang panuntunan sa mga hindi sinasabing kaso at iniiwasan ang mga walang katotohanan na aplikasyon. Ang magaspang na pagtuturo ay isang bulag na tuntunin.",
+          "tip": "Ang isang pangungusap ng \"bakit ito mahalaga\" ay karaniwang nagkakahalaga ng tatlong pangungusap ng \"gawin ito sa ganitong paraan\".",
+          "sources": [
+            {
+              "label": "Anthropic — Magdagdag ng konteksto upang mapabuti ang pagganap",
+              "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+            }
+          ]
         },
         {
-          "id": "contrato-de-saida-output-contract",
+          "id": "contrato-de-saida",
           "name": "Kontrata ng output",
           "level": 1,
-          "whatIs": "tukuyin ang eksaktong format ng tugon — JSON schema, mga tag, \"ang resulta lang nang walang panimula\", laki. Sabihin kung ano ang dapat gawin, hindi kung ano ang dapat iwasan.",
-          "when": "sa tuwing ang output ay ginagamit ng isang system (pag-parse) o nangangailangan ng pare-parehong format.",
-          "wrong": "Ibigay sa akin ang data ng customer para sa text na ito, nang walang karagdagang abala.",
-          "right": "I-extract ang data ng customer. Tumugon LAMANG gamit ang JSON na ito, nang walang\ntext bago o pagkatapos. Gumamit ng null para sa mga nawawalang field:\n{\"name\": string, \"email\": string|null, \"phone\": string|null}",
-          "why": "\"walang kalokohan\" ay subjective; ang tahasang schema ay layunin at code-parseable. Pinipigilan ng \"Gumamit ng null para sa nawawala\" ang modelo mula sa pag-imbento ng data — isang karaniwang error sa pagkuha."
+          "simple": "Sabihin ang EXACT format ng sagot.",
+          "whatIs": "Tukuyin kung paano dapat dumating ang output: JSON schema, mga tag, \"ang resulta lang nang walang panimula\", laki. Sabihin kung ano ang dapat gawin, hindi kung ano ang dapat iwasan.",
+          "when": "Sa tuwing ang tugon ay ginagamit ng isang system (pag-parse) o nangangailangan ng pare-parehong format sa pagitan ng mga tawag.",
+          "whenNot": "Sa libre o pag-aaral na pag-uusap, ang isang mahigpit na kontrata ay maaaring makapigil sa mga tugon na makikinabang sa flexibility.",
+          "examples": [
+            {
+              "wrong": "Ibigay sa akin ang mga detalye ng customer, walang kaguluhan",
+              "right": "I-extract ang data ng customer. Tumugon sa JSON na ito LAMANG,\nwalang text bago o pagkatapos. Gumamit ng null para sa mga nawawalang field:\n{\"name\": string, \"email\": string|null, \"phone\": string|null}",
+              "note": "Pinipigilan ng tahasang schema + \"null for missing\" ang modelo sa pag-imbento ng data."
+            }
+          ],
+          "why": "\"Walang frills\" ay subjective; isang schema ay layunin at code-parseable. Ang pagtukoy sa format ay nag-aalis ng variation na sumisira sa mga pagsasama.",
+          "tip": "Para talagang pilitin ang JSON/structure, gumamit ng Structured Outputs (Claude/OpenAI) sa halip na hilingin lang ito sa text — mas maaasahan ito.",
+          "sources": [
+            {
+              "label": "Anthropic — Kontrolin ang format ng tugon",
+              "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+            }
+          ]
         }
       ]
     },
@@ -454,5 +555,9 @@
       ]
     }
   ],
-  "tocTitle": "Sa pahinang ito"
+  "tocTitle": "Sa pahinang ito",
+  "simpleLabel": "Sa buod",
+  "whenNotLabel": "Kailan maiiwasan",
+  "tipLabel": "Tip",
+  "sourcesLabel": "Mga pinagmumulan"
 }

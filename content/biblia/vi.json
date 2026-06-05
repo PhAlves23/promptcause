@@ -15,61 +15,162 @@
           "id": "zero-shot-prompting",
           "name": "Nhắc nhở bắn không",
           "level": 1,
-          "whatIs": "đưa ra hướng dẫn trực tiếp, không có ví dụ. \"Không bắn\" = không có ví dụ nào. Đó là điểm khởi đầu của mọi thứ.",
-          "when": "các nhiệm vụ đơn giản, được xác định rõ ràng mà mô hình đã thành thạo (dịch, tóm tắt, trả lời câu hỏi trực tiếp).",
-          "wrong": "cho tôi biết về tiếp thị",
-          "right": "Giải thích 4P của hoạt động tiếp thị (sản phẩm, giá cả, địa điểm, khuyến mãi)\ntrong mỗi đoạn một đoạn, kèm theo ví dụ thực tế từ một quán cà phê.",
-          "why": "câu sai thì mơ hồ - \"về tiếp thị\" có thể tạo ra hàng nghìn câu trả lời khác nhau. Phần bên phải xác định phạm vi (4P), định dạng (mỗi đoạn một đoạn) và bối cảnh (quán cà phê). Ngay cả khi không có ví dụ, nó vẫn rõ ràng."
+          "simple": "Hỏi trực tiếp mà không đưa ra ví dụ.",
+          "whatIs": "Đưa ra hướng dẫn rõ ràng mà không hiển thị ví dụ về câu trả lời — mô hình chỉ sử dụng những gì đã học được trong quá trình đào tạo. \"Không bắn\" = không có ví dụ nào. Đó là điểm khởi đầu của mọi thứ.",
+          "when": "Các nhiệm vụ phổ biến và được xác định rõ ràng mà mô hình đã thành thạo: dịch, tóm tắt, trả lời một câu hỏi thực tế, viết lại văn bản.",
+          "whenNot": "Khi hình dạng, tông màu hoặc trường hợp cạnh chính xác đóng vai trò quan trọng. Sau đó, một số ví dụ (vài cảnh quay) có giá trị hơn bất kỳ hướng dẫn nào.",
+          "examples": [
+            {
+              "wrong": "cho tôi biết về tiếp thị",
+              "right": "Giải thích 4P của hoạt động tiếp thị (sản phẩm, giá cả, địa điểm, khuyến mãi)\ntrong mỗi đoạn văn, kèm theo ví dụ về một quán cà phê.",
+              "note": "Phần bên phải xác định phạm vi (4P), định dạng (mỗi đoạn một đoạn) và bối cảnh (quán cà phê) - rõ ràng ngay cả khi không có ví dụ."
+            },
+            {
+              "wrong": "sửa văn bản của tôi",
+              "right": "Sửa lỗi ngữ pháp và dấu câu trong văn bản bên dưới.\nGiữ nguyên ý nghĩa và giọng điệu. Chỉ trả lại văn bản đã sửa.",
+              "note": "Cho nó biết những gì cần sửa, những gì cần giữ lại và định dạng đầu ra."
+            }
+          ],
+          "why": "Các mô hình hiện đại giải quyết các nhiệm vụ phổ biến mà không cần ví dụ - miễn là hướng dẫn cụ thể. Sự rõ ràng thay thế các ví dụ.",
+          "tip": "Nếu câu trả lời là chung chung, đừng thêm ví dụ: trước tiên hãy đưa ra hướng dẫn cụ thể hơn (định dạng, quy mô, đối tượng).",
+          "sources": [
+            {
+              "label": "Anthropic - Thúc đẩy các phương pháp hay nhất",
+              "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+            }
+          ]
         },
         {
           "id": "role-persona-prompting",
           "name": "Nhắc nhở về vai trò/nhân cách",
           "level": 1,
-          "whatIs": "gán vai trò cho người mẫu (\"Bạn là một...\"). Một câu duy nhất sẽ thay đổi giọng điệu, từ vựng và chiều sâu của câu trả lời. Biến thể nhắc nhở Chuyên gia sử dụng tính cách chuyên gia trong miền chính xác.",
-          "when": "bất cứ khi nào giai điệu hoặc chiều sâu kỹ thuật có vấn đề. Thực tế miễn phí và hầu như luôn hữu ích.",
-          "wrong": "Mã này có vấn đề gì về bảo mật không?\n[code]",
-          "right": "Bạn là một chuyên gia bảo mật tấn công (pentester) đang xem xét mã để kiểm tra. Phân tích mã bên dưới để tìm\ncác lỗ hổng (tiêm, lộ bí mật, xác thực yếu).\n[code]",
-          "why": "Vai trò \"người kiểm tra kiểm toán\" tập trung mô hình vào suy nghĩ của một người tích cực tìm kiếm sai sót và việc liệt kê các danh mục sẽ đưa ra hướng đi. Nếu không có giấy tờ, câu trả lời có xu hướng chung chung và hời hợt."
+          "simple": "Cho người mẫu biết “họ là ai” trước khi thực hiện nhiệm vụ.",
+          "whatIs": "Chỉ định một vai trò (\"Bạn là luật sư thuế cấp cao\") để điều chỉnh giọng điệu, từ vựng và độ sâu của câu trả lời. Một câu duy nhất đã thay đổi kết quả.",
+          "when": "Khi giọng điệu hoặc trình độ kỹ thuật quan trọng - cách viết, dịch vụ, ý kiến, giảng dạy.",
+          "whenNot": "Trong các câu hỏi về kiến ​​thức thuần túy (sự kiện, tài khoản, câu hỏi trắc nghiệm), nhân cách có thể cản trở. Trong các thử nghiệm trên điểm chuẩn MMLU, tính cách \"chuyên gia\" đã giảm độ chính xác (từ ~71,6% xuống ~68%).",
+          "examples": [
+            {
+              "wrong": "Mã này có vấn đề về bảo mật không?",
+              "right": "Bạn là một pentester đang xem xét mã để kiểm tra.\nHãy phân tích mã bên dưới để chèn,\nbí mật bị lộ và xác thực yếu.",
+              "note": "Bài viết tập trung mô hình vào suy nghĩ của những người tìm kiếm sai sót."
+            },
+            {
+              "wrong": "giải thích đệ quy",
+              "right": "Bạn là một giáo viên kiên nhẫn đang giải thích cho một đứa trẻ 10 tuổi. Giải thích đệ quy bằng một sự tương tự hàng ngày.",
+              "note": "Persona + khán giả xác định mức độ giải thích."
+            }
+          ],
+          "why": "Vai trò này sẽ kích hoạt vốn từ vựng và giọng điệu liên quan đến hồ sơ đó. Nhưng tác dụng này phụ thuộc vào nhiệm vụ: nó giúp ích cho giọng điệu, hiếm khi giúp ích cho kiến ​​thức thực tế.",
+          "tip": "Sử dụng tính cách cho TONE và PHONG CÁCH; đừng mong đợi \"Bạn là thiên tài toán học\" sẽ cải thiện điểm số. Để có độ chính xác, hãy ưu tiên hướng dẫn và xác minh rõ ràng.",
+          "sources": [
+            {
+              "label": "NhắcHub - Nghiên cứu thúc đẩy vai trò",
+              "url": "https://www.prompthub.us/blog/role-prompting-does-adding-personas-to-your-prompts-really-make-a-difference"
+            },
+            {
+              "label": "Nhân chủng học - Hãy giao cho Claude một vai trò",
+              "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+            }
+          ]
         },
         {
-          "id": "few-shot-multishot-prompting",
-          "name": "Nhắc ít ảnh/nhiều ảnh",
+          "id": "few-shot-multishot",
+          "name": "Ít ảnh / Nhiều ảnh",
           "level": 1,
-          "whatIs": "hiển thị 2 đến 5 ví dụ về đầu vào → đầu ra trước khi hỏi trường hợp của bạn. Đây là công cụ đáng tin cậy nhất để kiểm soát định dạng, tông màu và tính nhất quán. \"Ít phát súng\" = vài ví dụ.",
-          "when": "khi định dạng hoặc giọng điệu chính xác có vấn đề hoặc khi phân loại khó. Ví dụ phải phù hợp (tương tự với trường hợp thực tế) và đa dạng (các biến thể bìa).",
-          "wrong": "Trích xuất cảm xúc và danh mục từ bài đánh giá này: \"Nó đến nhanh nhưng bị hỏng.\"",
-          "right": "Trích xuất tình cảm và danh mục. Làm theo các ví dụ:\n\n<example>\nĐánh giá: \"Tôi thích nó, tôi đánh giá cao nó!\"\n→ {\"cảm giác\": \"tích cực\", \"category\": \"sự hài lòng\"\n</example>\n<example>\nĐánh giá: \"Nó đi kèm một phần còn thiếu.\"\n→ {\"cảm giác\": \"tiêu cực\", \"category\": \"sản phẩm khiếm khuyết\"\n</example \n\nĐánh giá: \"Nó đến nhanh chóng nhưng nó đã bị hỏng.\"\n→",
-          "why": "hai ví dụ sửa định dạng (JSON với hai trường) và hiển thị từ vựng danh mục. Mô hình chỉ đơn giản là theo mô hình. Lưu ý rằng ví dụ thứ hai đề cập đến trường hợp tiêu cực - tính đa dạng ngăn cản mô hình nghĩ mọi thứ đều tích cực."
+          "simple": "Hiển thị 2 đến 5 câu trả lời mẫu trước khi hỏi trường hợp của bạn.",
+          "whatIs": "Bao gồm một số ví dụ đầu vào → đầu ra để mô hình bắt chước mẫu. \"Ít phát súng\" = vài ví dụ. Nó là đòn bẩy mạnh nhất để kiểm soát hình dạng, tông màu và tính nhất quán.",
+          "when": "Khi định dạng chính xác quan trọng (JSON, bảng), âm thanh cần phải nhất quán hoặc khó phân loại.",
+          "whenNot": "Trong các nhiệm vụ tầm thường (không bắn đã giải quyết được nó) hoặc khi các ví dụ nghiêng về một mẫu duy nhất - thì hãy đa dạng hóa hoặc giảm bớt nó.",
+          "examples": [
+            {
+              "right": "Đánh giá cảm giác. Hãy làm theo các ví dụ:\n\"Tôi thích nó, tôi khuyên bạn nên dùng nó!\" → tích cực\n\"Nó bị hỏng rồi.\" → tiêu cực\n\nĐánh giá: \"Đến nhanh nhưng bị nghiền nát.\" →",
+              "note": "Hai ví dụ sửa định dạng đầu ra và từ vựng; thêm trường hợp phủ định để tránh sai lệch."
+            }
+          ],
+          "why": "Một vài cảnh quay đến từ nghiên cứu GPT-3 (Brown và cộng sự, 2020): các mô hình học nhiệm vụ chỉ từ các ví dụ trong lời nhắc (học trong ngữ cảnh). Các nghiên cứu cho thấy các bước nhảy như F1 0,51 → 0,62 khi đi từ 0 đến 3 ví dụ.",
+          "tip": "3 đến 5 ví dụ là đủ. Sử dụng các ví dụ KHÁC NHAU (bao gồm các trường hợp cạnh) và quan tâm đến ĐẶT HÀNG - các ví dụ hoán vị có thể thay đổi độ chính xác rất nhiều.",
+          "sources": [
+            {
+              "label": "Brown và cộng sự. Năm 2020 — Các mô hình ngôn ngữ là những người học ít cơ hội",
+              "url": "https://arxiv.org/abs/2005.14165"
+            },
+            {
+              "label": "Báo cáo nhanh chóng (arXiv:2406.06608)",
+              "url": "https://arxiv.org/abs/2406.06608"
+            }
+          ]
         },
         {
-          "id": "estruturacao-com-xml-delimitadores",
+          "id": "estruturacao-com-xml",
           "name": "Cấu trúc bằng XML/dấu phân cách",
           "level": 1,
-          "whatIs": "gói từng phần của lời nhắc trong các thẻ ( <context> , <dados> , <instructions> ). Nó phân biệt rõ ràng đâu là hướng dẫn với những gì được đưa ra, giúp mô hình không bị nhầm lẫn giữa hai điều này.",
-          "when": "bất cứ khi nào lời nhắc trộn các hướng dẫn với dữ liệu (đặc biệt là dữ liệu dài hoặc dữ liệu tự định dạng). Đó là mẫu được đề xuất cho Claude.",
-          "wrong": "Tóm tắt văn bản sau thành 3 chủ đề: Cuộc họp hôm nay: chúng tôi quyết định hoãn buổi ra mắt. Đồng thời tóm tắt các rủi ro trong 3 chủ đề. Ngân sách\nđã được phê duyệt.",
-          "right": "Tóm tắt nội dung trong <text> thành đúng 3 chủ đề.\n\n<text>\nCuộc họp hôm nay: chúng tôi quyết định hoãn ra mắt. Ngân sách đã được phê duyệt.\nRủi ro: giảm đội ngũ và thời hạn chặt chẽ.\n</text>",
-          "why": "thẻ <text> làm cho nội dung cần được tóm tắt trở nên rõ ràng. Trong trường hợp sai, hướng dẫn \"Tóm tắt các rủi ro trong 3 chủ đề\" ở giữa nội dung có thể được đọc như một phần của văn bản cần tóm tắt — hoặc dưới dạng lệnh thứ hai. Sự mơ hồ thuần túy."
+          "simple": "Tách lệnh và dữ liệu bằng \"thẻ\".",
+          "whatIs": "Bao bọc từng phần của lời nhắc trong các điểm đánh dấu (<context>, <data>, <instructions>) để mô hình không nhầm lẫn giữa thứ tự và vật liệu cần xử lý.",
+          "when": "Bất cứ khi nào lời nhắc trộn lẫn hướng dẫn với dữ liệu — đặc biệt là dữ liệu dài hoặc dữ liệu tự định dạng. Đó là mẫu được đề xuất cho Claude.",
+          "whenNot": "Trong những lời nhắc ngắn gọn một dòng không có dữ liệu được nhúng thì điều đó là không cần thiết.",
+          "examples": [
+            {
+              "wrong": "Tóm tắt: Cuộc họp hôm nay: chúng tôi đã hoãn việc ra mắt.\nTóm tắt cả những rủi ro. Ngân sách ổn.",
+              "right": "Tóm tắt nội dung trong <text> thành 3 chủ đề.\n\n<text>\nCuộc họp hôm nay: chúng tôi đã hoãn việc ra mắt. Ngân sách ổn.\nRủi ro: giảm đội ngũ và thời hạn chặt chẽ.\n</text>",
+              "note": "Thẻ làm rõ nội dung được đưa ra và hướng dẫn là gì - không có sự mơ hồ."
+            }
+          ],
+          "why": "Thẻ làm giảm sự mơ hồ giữa hướng dẫn và nội dung — lỗi phổ biến nhất trong lời nhắc có văn bản được nhúng. Các mô hình được đào tạo bằng dữ liệu có cấu trúc (như Claude) tuân theo các thẻ một cách chính xác.",
+          "tip": "Sử dụng tên thẻ nhất quán và mang tính mô tả. Lồng ghép khi có hệ thống phân cấp (một số <tài liệu> trong <tài liệu>).",
+          "sources": [
+            {
+              "label": "Nhân chủng học - Sử dụng thẻ XML",
+              "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+            }
+          ]
         },
         {
           "id": "contexto-motivacao",
           "name": "Bối cảnh + động lực",
           "level": 1,
-          "whatIs": "cung cấp thông tin cơ bản và giải thích lý do tại sao hướng dẫn tồn tại. Mô hình tổng quát hóa tốt hơn từ tỷ lệ.",
-          "when": "bất cứ khi nào một quy tắc có thể bị hiểu sai nếu áp dụng cho bức thư mà không hiểu mục tiêu.",
-          "wrong": "Trả lời tối đa 2 câu. Không bao giờ sử dụng số.",
-          "right": "Câu trả lời này sẽ được hiển thị trên đồng hồ thông minh có màn hình nhỏ và đọc to. Do đó: tối đa 2 câu ngắn và\nviết số đầy đủ (ví dụ: \"ba\" thay vì \"3\") vì\ntrình đọc màn hình đánh vần các chữ số một cách kỳ lạ.",
-          "why": "biết được lý do (màn hình nhỏ + giọng nói), người mẫu áp dụng quy tắc theo lẽ thường và thậm chí còn đoán trước được những trường hợp bất thành văn. Nếu không có lý do, “không bao giờ sử dụng số” là một quy tắc mù quáng mà anh ta có thể phá vỡ hoặc áp dụng theo những cách vô lý."
+          "simple": "Giải thích lý do đưa ra chỉ dẫn chứ không chỉ là mệnh lệnh.",
+          "whatIs": "Cung cấp thông tin cơ bản và lý do đằng sau yêu cầu. Mô hình khái quát hóa tốt hơn khi nó hiểu mục tiêu chứ không chỉ hiểu quy tắc.",
+          "when": "Bất cứ khi nào một quy tắc có thể bị hiểu sai nếu áp dụng vào bức thư mà không hiểu mục đích.",
+          "whenNot": "Nó hiếm khi gây cản trở — nhưng đừng thổi phồng nó bằng bối cảnh không liên quan, điều này sẽ gây nhiễu và lãng phí sự chú ý của người mẫu.",
+          "examples": [
+            {
+              "wrong": "Không bao giờ sử dụng dấu chấm lửng.",
+              "right": "Phản hồi này sẽ được đọc bởi một bộ tổng hợp giọng nói không phát âm chính xác dấu chấm lửng — vì vậy, đừng sử dụng \"...\".",
+              "note": "Biết được lý do tại sao, mô hình áp dụng quy tắc theo lẽ thường và lường trước những trường hợp tương tự."
+            }
+          ],
+          "why": "Khi mô hình hiểu được động cơ, nó sẽ mở rộng quy tắc cho những trường hợp bất thành văn và tránh được những ứng dụng vô lý. Hướng dẫn thô thiển là một quy tắc mù quáng.",
+          "tip": "Một câu “tại sao điều này lại quan trọng” thường có giá trị bằng ba câu “làm theo cách này”.",
+          "sources": [
+            {
+              "label": "Anthropic — Thêm ngữ cảnh để cải thiện hiệu suất",
+              "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+            }
+          ]
         },
         {
-          "id": "contrato-de-saida-output-contract",
+          "id": "contrato-de-saida",
           "name": "Hợp đồng đầu ra",
           "level": 1,
-          "whatIs": "chỉ định định dạng chính xác của phản hồi — lược đồ JSON, thẻ, \"chỉ là kết quả mà không cần giới thiệu\", kích thước. Nói những gì cần làm, không phải những gì cần tránh.",
-          "when": "bất cứ khi nào đầu ra được hệ thống sử dụng (phân tích cú pháp) hoặc cần một định dạng nhất quán.",
-          "wrong": "Hãy cung cấp cho tôi dữ liệu khách hàng cho văn bản này mà không cần phải đắn đo thêm nữa.",
-          "right": "Trích xuất dữ liệu khách hàng. CHỈ trả lời bằng JSON này, không có\nvăn bản nào trước hoặc sau. Sử dụng null cho các trường bị thiếu:\n{\"name\": string, \"email\": string|null, \"phone\": string|null}",
-          "why": "\"không nhảm nhí\" là chủ quan; lược đồ rõ ràng là khách quan và có thể phân tích cú pháp mã. \"Sử dụng null để thiếu\" ngăn mô hình tạo ra dữ liệu — một lỗi phổ biến trong quá trình trích xuất."
+          "simple": "Nêu định dạng CHÍNH XÁC của câu trả lời.",
+          "whatIs": "Chỉ định cách xuất kết quả: lược đồ JSON, thẻ, \"chỉ là kết quả mà không cần giới thiệu\", kích thước. Nói những gì cần làm, không phải những gì cần tránh.",
+          "when": "Bất cứ khi nào hệ thống sử dụng phản hồi (phân tích cú pháp) hoặc cần định dạng nhất quán giữa các cuộc gọi.",
+          "whenNot": "Trong cuộc trò chuyện tự do hoặc mang tính khám phá, một hợp đồng cứng nhắc có thể ngăn cản những phản ứng có lợi từ sự linh hoạt.",
+          "examples": [
+            {
+              "wrong": "Hãy cho tôi thông tin chi tiết về khách hàng, đừng phiền phức",
+              "right": "Trích xuất dữ liệu khách hàng. CHỈ trả lời bằng JSON này,\nkhông có văn bản trước hoặc sau. Sử dụng null cho các trường bị thiếu:\n{\"name\": string, \"email\": string|null, \"phone\": string|null}",
+              "note": "Lược đồ rõ ràng + \"null vì thiếu\" ngăn mô hình tạo ra dữ liệu."
+            }
+          ],
+          "why": "\"Không rườm rà\" là chủ quan; một lược đồ là khách quan và có thể phân tích cú pháp mã. Việc xác định định dạng sẽ loại bỏ các biến thể phá vỡ sự tích hợp.",
+          "tip": "Để thực sự ép buộc JSON/cấu trúc, hãy sử dụng Kết quả đầu ra có cấu trúc (Claude/OpenAI) thay vì chỉ yêu cầu nó trong văn bản - nó đáng tin cậy hơn nhiều.",
+          "sources": [
+            {
+              "label": "Nhân chủng học - Định dạng phản hồi kiểm soát",
+              "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+            }
+          ]
         }
       ]
     },
@@ -454,5 +555,9 @@
       ]
     }
   ],
-  "tocTitle": "Trên trang này"
+  "tocTitle": "Trên trang này",
+  "simpleLabel": "Tóm lại",
+  "whenNotLabel": "Khi nào nên tránh",
+  "tipLabel": "Mẹo",
+  "sourcesLabel": "Nguồn"
 }

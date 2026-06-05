@@ -15,61 +15,162 @@
           "id": "zero-shot-prompting",
           "name": "Zero-shot prompting",
           "level": 1,
-          "whatIs": "give direkte instruktion uden eksempler. \"Nul-skud\" = nul eksempler. Det er udgangspunktet for alting.",
-          "when": "enkle, veldefinerede opgaver, som modellen allerede mestrer (oversætte, opsummere, besvare et direkte spørgsmål).",
-          "wrong": "fortæl mig om markedsføring",
-          "right": "Forklar de 4 P'er for markedsføring (produkt, pris, sted, kampagne)\ni et afsnit hver med et praktisk eksempel fra en kaffebar.",
-          "why": "den forkerte er vag — \"om markedsføring\" kan generere tusind forskellige svar. Den højre definerer omfang (de 4 P'er), format (et afsnit hver) og kontekst (café). Selv uden eksempler var det utvetydigt."
+          "simple": "Spørg direkte uden at give eksempler.",
+          "whatIs": "Giv klare instruktioner uden at vise eksempler på svar - modellen bruger kun det, den har lært i træningen. \"Nul-skud\" = nul eksempler. Det er udgangspunktet for alting.",
+          "when": "Fælles og veldefinerede opgaver, som modellen allerede mestrer: at oversætte, opsummere, besvare et faktuelt spørgsmål, omskrive en tekst.",
+          "whenNot": "Når den nøjagtige form, tone eller kanttilfælde betyder noget. Så er nogle eksempler (få-skud) mere værd end nogen instruktion.",
+          "examples": [
+            {
+              "wrong": "fortæl mig om markedsføring",
+              "right": "Forklar de 4 P'er for markedsføring (produkt, pris, sted, kampagne)\ni et afsnit hver med et eksempel på en kaffebar.",
+              "note": "Den højre definerer omfang (de 4 P'er), format (et afsnit hver) og kontekst (café) - utvetydigt selv uden eksempler."
+            },
+            {
+              "wrong": "ret min tekst",
+              "right": "Ret grammatik- og tegnsætningsfejl i teksten nedenfor.\nBevar mening og tone. Returner kun den rettede tekst.",
+              "note": "Fortæl den, hvad den skal rette, hvad den skal bevare, og outputformatet."
+            }
+          ],
+          "why": "Moderne modeller løser velkendte opgaver uden eksempler - så længe instruktionen er specifik. Klarhed erstatter eksempler.",
+          "tip": "Hvis svaret er generisk, skal du ikke tilføje eksempler endnu: Gør først instruktionerne mere specifikke (format, størrelse, målgruppe).",
+          "sources": [
+            {
+              "label": "Antropisk — Tilskyndelse til bedste praksis",
+              "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+            }
+          ]
         },
         {
           "id": "role-persona-prompting",
           "name": "Rolle/personlig tilskyndelse",
           "level": 1,
-          "whatIs": "tildele en rolle til modellen (\"Du er en...\"). En enkelt sætning ændrer svarets tone, ordforråd og dybde. Ekspert-promptvarianten bruger en ekspertpersona på det nøjagtige domæne.",
-          "when": "når som helst tone eller teknisk dybde betyder noget. Næsten gratis og hjælper næsten altid.",
-          "wrong": "Har denne kode nogen sikkerhedsproblemer?\n[code]",
-          "right": "Du er en offensiv sikkerhedsekspert (pentester), der gennemgår kode til en revision. Analyser koden nedenfor for\nsårbarheder (injektion, hemmelig eksponering, svag autentificering).\n[kode]",
-          "why": "Rollen \"revisionstester\" fokuserer modellen på tankegangen hos en person, der aktivt leder efter fejl, og opremsning af kategorierne giver retning. Uden papir har svaret en tendens til at være generisk og overfladisk."
+          "simple": "Fortæl modellen \"hvem de er\" før opgaven.",
+          "whatIs": "Tildel en rolle (\"Du er en senior skatteadvokat\") for at kalibrere tone, ordforråd og dybde af respons. En enkelt sætning ændrer allerede resultatet.",
+          "when": "Når tone eller teknisk niveau betyder noget - skrivning, service, meninger, undervisning.",
+          "whenNot": "I spørgsmål om ren viden (fakta, regnskaber, multiple choice) kan personaen komme i vejen. I test på MMLU-benchmark faldt \"ekspert\"-personas nøjagtighed (fra ~71,6% til ~68%).",
+          "examples": [
+            {
+              "wrong": "Har denne kode et sikkerhedsproblem?",
+              "right": "Du er en pentester, der gennemgår kode til en revision.\nAnalyser koden nedenfor for indsprøjtning, afslørede\nhemmeligheder og svag godkendelse.",
+              "note": "Papiret fokuserer modellen på tankegangen hos dem, der leder efter fejl."
+            },
+            {
+              "wrong": "forklarer rekursion",
+              "right": "Du er en tålmodig lærer, der forklarer til et 10-årigt barn. Forklar rekursion med en hverdagsanalogi.",
+              "note": "Persona + publikum definerer forklaringsniveauet."
+            }
+          ],
+          "why": "Rollen aktiverer det ordforråd og tone, der er knyttet til den profil. Men effekten er opgavefølsom: den hjælper med tonefald, sjældent med faktuel viden.",
+          "tip": "Brug persona til TONE og STIL; Forvent ikke, at \"Du er et matematikgeni\" for at forbedre scoren. For nøjagtigheden skal du foretrække klare instruktioner og verifikation.",
+          "sources": [
+            {
+              "label": "PromptHub — Rollefremkaldende undersøgelse",
+              "url": "https://www.prompthub.us/blog/role-prompting-does-adding-personas-to-your-prompts-really-make-a-difference"
+            },
+            {
+              "label": "Antropisk — Giv Claude en rolle",
+              "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+            }
+          ]
         },
         {
-          "id": "few-shot-multishot-prompting",
-          "name": "Few-shot/Multishot prompting",
+          "id": "few-shot-multishot",
+          "name": "Få-skud / Multishot",
           "level": 1,
-          "whatIs": "vis 2 til 5 eksempler på input→output, før du stiller din sag. Det er det mest pålidelige værktøj til at kontrollere format, tone og konsistens. \"Få-skud\" = få eksempler.",
-          "when": "når det nøjagtige format eller tone har betydning, eller i vanskelig klassificering. Eksempler skal være relevante (svarende til det virkelige tilfælde) og mangfoldige (dækningsvariationer).",
-          "wrong": "Uddrag følelsen og kategorien fra denne anmeldelse: \"Den ankom hurtigt, men den var ødelagt.\"",
-          "right": "Uddrag følelse og kategori. Følg eksemplerne:\n\n<eksempel>\nAnmeldelse: \"Jeg elskede det, jeg kan varmt anbefale det!\"\n→ {\"feeling\": \"positive\", \"category\": \"satisfaction\"}\n</eksempel>\n<eksempel>\nAnmeldelse: \"Den kom med en manglende brik.\"\n→ \"cat\":egory\": \"defekt_produkt\"}\n</eksempel \n\nAnmeldelse: \"Den ankom hurtigt, men den var ødelagt.\"\n→",
-          "why": "de to eksempler fikser formatet (JSON med to felter) og viser kategoriens ordforråd. Modellen følger blot mønsteret. Bemærk, at det andet eksempel dækker et negativt tilfælde - mangfoldighed forhindrer modellen i at tro, at alt er positivt."
+          "simple": "Vis 2 til 5 eksempler på svar, før du beder om din sag.",
+          "whatIs": "Inkluder nogle input→output-eksempler, så modellen kan efterligne mønsteret. \"Få-skud\" = få eksempler. Det er det stærkeste håndtag til at kontrollere form, tone og konsistens.",
+          "when": "Når det nøjagtige format betyder noget (JSON, tabel), skal tonen være konsistent, ellers er sortering vanskelig.",
+          "whenNot": "I trivielle opgaver (nulskud løser det allerede), eller når eksemplerne skæver mod et enkelt mønster - så diversificer eller reducer det.",
+          "examples": [
+            {
+              "right": "Bedøm følelsen. Følg eksemplerne:\n\"Jeg elskede det, jeg anbefaler det!\" → positiv\n\"Den kom i stykker.\" → negativ\n\nAnmeldelse: \"Ankom hurtigt, men blev knust.\" →",
+              "note": "To eksempler fikser outputformatet og ordforrådet; inkludere en negativ sag for at undgå bias."
+            }
+          ],
+          "why": "Few-shot kommer fra GPT-3-forskning (Brown et al., 2020): modeller lærer opgaven blot fra eksemplerne i prompten (in-context learning). Undersøgelser viser spring som F1 0,51 → 0,62, når man går fra nul til 3 eksempler.",
+          "tip": "3 til 5 eksempler er det søde sted. Brug FORSKELLIGE eksempler (cover edge cases) og tag dig af ORDER — permuterende eksempler kan i høj grad ændre nøjagtigheden.",
+          "sources": [
+            {
+              "label": "Brown et al. 2020 — Sprogmodeller er få-skudte elever",
+              "url": "https://arxiv.org/abs/2005.14165"
+            },
+            {
+              "label": "Den hurtige rapport (arXiv:2406.06608)",
+              "url": "https://arxiv.org/abs/2406.06608"
+            }
+          ]
         },
         {
-          "id": "estruturacao-com-xml-delimitadores",
+          "id": "estruturacao-com-xml",
           "name": "Strukturering med XML/afgrænsere",
           "level": 1,
-          "whatIs": "pak hver del af prompten ind i tags ( <context> , <dados> , <instructions> ). Det adskiller tydeligt, hvad der er instruktion fra det, der gives, hvilket forhindrer modellen i at forveksle de to.",
-          "when": "hver gang prompten blander instruktioner med data (især lange eller selvformaterede data). Det er det anbefalede mønster for Claude.",
-          "wrong": "Opsummer følgende tekst i 3 emner: Dagens møde: vi besluttede at udskyde lanceringen. Opsummer også risiciene i 3 emner. Budget\ngodkendt.",
-          "right": "Opsummer indholdet i <tekst> i præcis 3 emner.\n\n<text>\nDagens møde: vi besluttede at udskyde lanceringen. Budget godkendt.\nRisici: reduceret team og stram deadline.\n</text>",
-          "why": "<text>-tagget gør det, der skal opsummeres, krystalklart. I det forkerte tilfælde kan instruktionen \"Opsummer risiciene i 3 emner\" i midten af ​​indholdet læses som en del af teksten, der skal opsummeres — eller som en anden ordre. Ren tvetydighed."
+          "simple": "Adskil instruktion og data med \"tags\".",
+          "whatIs": "Pak hver del af prompten ind i markører (<kontekst>, <data>, <instruktioner>), så modellen ikke forveksler, hvad der er orden, med hvad der er materiale at behandle.",
+          "when": "Hver gang prompten blander instruktion med data - især lange eller selvformaterede data. Det er det anbefalede mønster for Claude.",
+          "whenNot": "I korte en-linje prompter uden indlejrede data er det unødvendigt.",
+          "examples": [
+            {
+              "wrong": "Opsummering: Dagens møde: vi har udskudt lanceringen.\nOpsummer også risiciene. Budget ok.",
+              "right": "Opsummer indholdet i <tekst> i 3 emner.\n\n<text>\nDagens møde: vi udsatte lanceringen. Budget ok.\nRisici: reduceret team og stram deadline.\n</text>",
+              "note": "Tagget gør det klart, hvad der gives, og hvad der er instruktion - uden tvetydighed."
+            }
+          ],
+          "why": "Tags reducerer tvetydighed mellem instruktion og indhold - den mest almindelige fejl i prompter med indlejret tekst. Modeller trænet med strukturerede data (som Claude) følger tags nøjagtigt.",
+          "tip": "Brug konsistente og beskrivende tagnavne. Nest når der er hierarki (flere <dokument> i <dokumenter>).",
+          "sources": [
+            {
+              "label": "Antropisk — Brug XML-tags",
+              "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+            }
+          ]
         },
         {
           "id": "contexto-motivacao",
           "name": "Kontekst + motivation",
           "level": 1,
-          "whatIs": "give baggrundsinformation og forklare, hvorfor instruktionen findes. Modellen generaliserer bedre ud fra forholdet.",
-          "when": "når en regel kan misfortolkes, hvis den anvendes til punkt og prikke uden at forstå formålet.",
-          "wrong": "Besvar i højst 2 sætninger. Brug aldrig tal.",
-          "right": "Dette svar vil blive vist på et smartur med en lille skærm og læst højt. Derfor: maks. 2 korte sætninger, og\nskriv hele tal (f.eks. \"tre\" i stedet for \"3\"), fordi\nskærmlæseren staver cifre mærkeligt.",
-          "why": "ved at kende årsagen (lilleskærm + stemme), anvender modellen reglen med sund fornuft og forudser endda uudtalte sager. Uden grunden er \"brug aldrig tal\" en blind regel, som han kan bryde eller anvende på absurde måder."
+          "simple": "Forklar årsagen til instruktionen, ikke kun rækkefølgen.",
+          "whatIs": "Giv baggrundsoplysninger og årsagen bag anmodningen. Modellen generaliserer bedre, når den forstår formålet, ikke kun reglen.",
+          "when": "Når en regel kan misfortolkes, hvis den anvendes til punkt og prikke uden at forstå formålet.",
+          "whenNot": "Det kommer sjældent i vejen — men lad være med at puste det op med irrelevant kontekst, som bliver til støj og spilder modellens opmærksomhed.",
+          "examples": [
+            {
+              "wrong": "Brug aldrig ellipse.",
+              "right": "Dette svar vil blive læst af en talesynthesizer, der ikke udtaler ellipser korrekt - så brug ikke \"...\".",
+              "note": "Ved at vide hvorfor, anvender modellen reglen med sund fornuft og forudser lignende tilfælde."
+            }
+          ],
+          "why": "Når modellen forstår motivationen, udvider den reglen til uudtalte sager og undgår absurde anvendelser. Rå instruktion er en blind regel.",
+          "tip": "En sætning med \"hvorfor betyder det noget\" er normalt tre sætninger værd med \"gør det på denne måde\".",
+          "sources": [
+            {
+              "label": "Antropisk — Tilføj kontekst for at forbedre ydeevnen",
+              "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+            }
+          ]
         },
         {
-          "id": "contrato-de-saida-output-contract",
+          "id": "contrato-de-saida",
           "name": "Output kontrakt",
           "level": 1,
-          "whatIs": "angiv det nøjagtige format på svaret — JSON-skema, tags, \"bare resultatet uden introduktion\", størrelse. Fortæl hvad du skal gøre, ikke hvad du skal undgå.",
-          "when": "når outputtet forbruges af et system (parsing) eller har brug for et ensartet format.",
-          "wrong": "Giv mig uden videre kundedata for denne tekst.",
-          "right": "Udtræk kundedata. Svar KUN med denne JSON, uden\ntekst før eller efter. Brug null for manglende felter:\n{\"name\": string, \"email\": string|null, \"phone\": string|null}",
-          "why": "\"ingen bullshit\" er subjektivt; det eksplicitte skema er objektivt og kodeparseligt. \"Brug null for missing\" forhindrer modellen i at opfinde data - en almindelig fejl ved ekstraktion."
+          "simple": "Angiv det EKSAKTE format af svaret.",
+          "whatIs": "Angiv hvordan outputtet skal komme: JSON-skema, tags, \"bare resultatet uden introduktion\", størrelse. Fortæl hvad du skal gøre, ikke hvad du skal undgå.",
+          "when": "Når svaret forbruges af et system (parsing) eller har brug for et konsistent format mellem opkald.",
+          "whenNot": "I en fri eller udforskende samtale kan en stiv kontrakt kvæle svar, der ville drage fordel af fleksibilitet.",
+          "examples": [
+            {
+              "wrong": "Giv mig kundeoplysningerne, ingen bøvl",
+              "right": "Udtræk kundedata. Svar KUN med denne JSON,\ningen tekst før eller efter. Brug null for manglende felter:\n{\"name\": string, \"email\": string|null, \"phone\": string|null}",
+              "note": "Eksplicit skema + \"nul for mangler\" forhindrer modellen i at opfinde data."
+            }
+          ],
+          "why": "\"Ingen dikkedarer\" er subjektivt; et skema er objektivt og kodeparsebart. Definition af formatet fjerner variation, der bryder integrationer.",
+          "tip": "For virkelig at tvinge JSON/struktur, brug Structured Outputs (Claude/OpenAI) i stedet for bare at bede om det i teksten - det er meget mere pålideligt.",
+          "sources": [
+            {
+              "label": "Antropisk — Kontrolresponsformat",
+              "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+            }
+          ]
         }
       ]
     },
@@ -454,5 +555,9 @@
       ]
     }
   ],
-  "tocTitle": "På denne side"
+  "tocTitle": "På denne side",
+  "simpleLabel": "Sammenfattende",
+  "whenNotLabel": "Hvornår skal man undgå",
+  "tipLabel": "Tip",
+  "sourcesLabel": "Kilder"
 }

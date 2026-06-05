@@ -1,5 +1,5 @@
 import { LevelBadge } from "@/components/level-badge";
-import type { Technique } from "@/lib/biblia";
+import type { Technique, Example } from "@/lib/biblia";
 
 type Labels = {
   whatIsLabel: string;
@@ -7,6 +7,10 @@ type Labels = {
   wrongLabel: string;
   rightLabel: string;
   whyLabel: string;
+  simpleLabel?: string;
+  whenNotLabel?: string;
+  tipLabel?: string;
+  sourcesLabel?: string;
 };
 
 export function TechniqueBlock({
@@ -18,29 +22,84 @@ export function TechniqueBlock({
   levelLabel: string;
   labels: Labels;
 }) {
+  // unify legacy {wrong,right} into the examples list
+  const examples: Example[] =
+    tech.examples && tech.examples.length > 0
+      ? tech.examples
+      : tech.right || tech.wrong
+        ? [{ wrong: tech.wrong, right: tech.right ?? "" }]
+        : [];
+
   return (
-    <div id={tech.id} className="scroll-mt-[92px] border-t border-line py-7 first:border-t-0">
+    <div id={tech.id} className="scroll-mt-[92px] border-t border-line py-8 first:border-t-0">
       <div className="flex flex-wrap items-center gap-3">
         <h3 className="font-display text-[1.5rem] font-medium">{tech.name}</h3>
         <LevelBadge level={tech.level} label={levelLabel} />
       </div>
+
+      {tech.simple && (
+        <p className="mt-3 max-w-[74ch] rounded-[10px] border border-green-tint-2 bg-green-tint px-4 py-2.5 text-[1.02rem] font-medium text-green-deep">
+          {labels.simpleLabel ? `${labels.simpleLabel}: ` : ""}
+          {tech.simple}
+        </p>
+      )}
+
       <p className="mt-3 max-w-[72ch] text-[1.05rem] leading-[1.6]">
         <strong>{labels.whatIsLabel}:</strong> {tech.whatIs}
       </p>
+
       {tech.when && (
-        <p className="mt-2 max-w-[72ch] text-[0.98rem] text-ink-soft italic">
-          {labels.whenLabel}: {tech.when}
+        <p className="mt-2.5 max-w-[72ch] text-[0.98rem] text-ink-soft">
+          <strong className="text-ink">{labels.whenLabel}:</strong> {tech.when}
         </p>
       )}
-      {(tech.wrong || tech.right) && (
-        <div className="my-4 grid gap-4 sm:grid-cols-2">
-          {tech.wrong && <ExampleBox kind="bad" label={labels.wrongLabel} text={tech.wrong} />}
-          {tech.right && <ExampleBox kind="good" label={labels.rightLabel} text={tech.right} />}
+
+      {tech.whenNot && labels.whenNotLabel && (
+        <p className="mt-2.5 max-w-[72ch] rounded-[10px] border border-clay-tint-2 bg-clay-tint px-4 py-2.5 text-[0.96rem] text-clay-deep">
+          <strong>{labels.whenNotLabel}:</strong> {tech.whenNot}
+        </p>
+      )}
+
+      {examples.map((ex, i) => (
+        <div key={i} className="mt-4">
+          <div className="grid gap-4 sm:grid-cols-2">
+            {ex.wrong && <ExampleBox kind="bad" label={labels.wrongLabel} text={ex.wrong} />}
+            {ex.right && <ExampleBox kind="good" label={labels.rightLabel} text={ex.right} />}
+          </div>
+          {ex.note && <p className="mt-2 max-w-[72ch] text-[0.9rem] text-ink-soft italic">{ex.note}</p>}
+        </div>
+      ))}
+
+      {tech.why && (
+        <div className="mt-4 max-w-[74ch] border-l-[3px] border-green bg-paper-card px-4 py-3 text-[0.98rem] leading-[1.55]">
+          <strong>{labels.whyLabel}:</strong> {tech.why}
         </div>
       )}
-      {tech.why && (
-        <div className="max-w-[74ch] border-l-[3px] border-green bg-paper-card px-4 py-3 text-[0.98rem] leading-[1.55]">
-          <strong>{labels.whyLabel}:</strong> {tech.why}
+
+      {tech.tip && labels.tipLabel && (
+        <p className="mt-3 max-w-[74ch] text-[0.95rem] text-ink-soft">
+          <strong className="text-ink">💡 {labels.tipLabel}:</strong> {tech.tip}
+        </p>
+      )}
+
+      {tech.sources && tech.sources.length > 0 && (
+        <div className="mt-3.5 flex flex-wrap items-center gap-x-3 gap-y-1.5">
+          {labels.sourcesLabel && (
+            <span className="font-mono text-[0.66rem] tracking-[0.12em] text-ink-faint uppercase">
+              {labels.sourcesLabel}:
+            </span>
+          )}
+          {tech.sources.map((s, i) => (
+            <a
+              key={i}
+              href={s.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[0.85rem] text-green underline-offset-2 hover:underline"
+            >
+              {s.label} ↗
+            </a>
+          ))}
         </div>
       )}
     </div>

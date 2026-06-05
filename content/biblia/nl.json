@@ -15,61 +15,162 @@
           "id": "zero-shot-prompting",
           "name": "Zero-shot-aanwijzingen",
           "level": 1,
-          "whatIs": "geef directe instructies, zonder voorbeelden. \"Zero-shot\" = nul voorbeelden. Het is het startpunt van alles.",
-          "when": "eenvoudige, goed gedefinieerde taken die het model al beheerst (vertalen, samenvatten, een directe vraag beantwoorden).",
-          "wrong": "vertel me over marketing",
-          "right": "Leg de vier P's van marketing (product, prijs, plaats, promotie) uit\nelk in één paragraaf, met een praktisch voorbeeld uit een coffeeshop.",
-          "why": "de verkeerde is vaag: 'over marketing' kan duizend verschillende antwoorden opleveren. De rechter definieert reikwijdte (de 4 P’s), format (elk één paragraaf) en context (coffeeshop). Zelfs zonder voorbeelden was het ondubbelzinnig."
+          "simple": "Vraag direct, zonder voorbeelden te geven.",
+          "whatIs": "Geef duidelijke instructies zonder voorbeelden van antwoorden te tonen; het model gebruikt alleen wat het tijdens de training heeft geleerd. \"Zero-shot\" = nul voorbeelden. Het is het startpunt van alles.",
+          "when": "Veelvoorkomende en goed gedefinieerde taken die het model al beheerst: vertalen, samenvatten, een feitelijke vraag beantwoorden, een tekst herschrijven.",
+          "whenNot": "Wanneer de exacte vorm, toon of rand er toe doen. Dan zijn sommige voorbeelden (few-shot) meer waard dan welke instructie dan ook.",
+          "examples": [
+            {
+              "wrong": "vertel me over marketing",
+              "right": "Leg de vier P's van marketing (product, prijs, plaats, promotie) uit\nelk in één paragraaf, met een voorbeeld van een coffeeshop.",
+              "note": "De rechter definieert reikwijdte (de 4 P’s), format (elk één paragraaf) en context (coffeeshop) – ondubbelzinnig, zelfs zonder voorbeelden."
+            },
+            {
+              "wrong": "corrigeer mijn tekst",
+              "right": "Corrigeer grammatica- en interpunctiefouten in de onderstaande tekst.\nBehoud de betekenis en toon. Geef alleen de gecorrigeerde tekst terug.",
+              "note": "Vertel het wat het moet repareren, wat het moet behouden en wat het uitvoerformaat is."
+            }
+          ],
+          "why": "Moderne modellen lossen bekende taken op zonder voorbeelden – zolang de instructie maar specifiek is. Duidelijkheid vervangt voorbeelden.",
+          "tip": "Als het antwoord generiek is, voeg dan nog geen voorbeelden toe: maak de instructies eerst specifieker (formaat, omvang, publiek).",
+          "sources": [
+            {
+              "label": "Antropisch – Stimulerende best practices",
+              "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+            }
+          ]
         },
         {
           "id": "role-persona-prompting",
           "name": "Rol-/persona-aanwijzingen",
           "level": 1,
-          "whatIs": "wijs een rol toe aan het model (\"Jij bent een...\"). Eén enkele zin verandert de toon, de woordenschat en de diepgang van het antwoord. De Expert prompting-variant maakt gebruik van een expertpersona in het exacte domein.",
-          "when": "wanneer toon of technische diepgang ertoe doen. Vrijwel gratis en helpt bijna altijd.",
-          "wrong": "Heeft deze code beveiligingsproblemen?\n[code]",
-          "right": "Je bent een offensieve beveiligingsexpert (pentester) die code beoordeelt voor een audit. Analyseer de onderstaande code op\nkwetsbaarheden (injectie, geheime blootstelling, zwakke authenticatie).\n[code]",
-          "why": "De rol van 'audittester' richt het model op de mentaliteit van iemand die actief op zoek is naar fouten, en het opsommen van de categorieën biedt richting. Zonder papier is de reactie vaak generiek en oppervlakkig."
+          "simple": "Vertel het model vóór de taak ‘wie ze zijn’.",
+          "whatIs": "Wijs een rol toe (\"U bent een senior belastingadvocaat\") om de toon, de woordenschat en de diepgang van de reactie te kalibreren. Eén enkele zin verandert al het resultaat.",
+          "when": "Wanneer de toon of het technische niveau ertoe doen: schrijven, service, meningen, lesgeven.",
+          "whenNot": "Bij vragen over pure kennis (feiten, verhalen, meerkeuzevragen) kan de persona een belemmering vormen. In tests op de MMLU-benchmark daalden de nauwkeurigheid van 'expert'-persona's (van ~71,6% naar ~68%).",
+          "examples": [
+            {
+              "wrong": "Heeft deze code een beveiligingsprobleem?",
+              "right": "Je bent een pentester die code beoordeelt voor een audit.\nAnalyseer de onderstaande code voor injectie, onthul\ngeheimen en zwakke authenticatie.",
+              "note": "Het artikel richt het model op de mentaliteit van degenen die op zoek zijn naar gebreken."
+            },
+            {
+              "wrong": "verklaart recursie",
+              "right": "Je bent een geduldige leraar die uitleg geeft aan een 10-jarig kind. Leg recursie uit met een alledaagse analogie.",
+              "note": "Persona + publiek bepalen het niveau van uitleg."
+            }
+          ],
+          "why": "De rol activeert de woordenschat en toon die bij dat profiel horen. Maar het effect is taakgevoelig: het helpt bij de toon, zelden bij feitelijke kennis.",
+          "tip": "Gebruik persona voor TONE en STIJL; verwacht niet dat \"Je bent een wiskundig genie\" de score verbetert. Voor nauwkeurigheid geeft u de voorkeur aan duidelijke instructies en verificatie.",
+          "sources": [
+            {
+              "label": "PromptHub — Onderzoek naar rolaanwijzingen",
+              "url": "https://www.prompthub.us/blog/role-prompting-does-adding-personas-to-your-prompts-really-make-a-difference"
+            },
+            {
+              "label": "Antropisch — Geef Claude een rol",
+              "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+            }
+          ]
         },
         {
-          "id": "few-shot-multishot-prompting",
-          "name": "Weinig-shot/Multishot-prompts",
+          "id": "few-shot-multishot",
+          "name": "Weinig schot / Multishot",
           "level": 1,
-          "whatIs": "toon 2 tot 5 voorbeelden van input → output voordat u uw zaak stelt. Het is het meest betrouwbare hulpmiddel voor het controleren van formaat, toon en consistentie. \"Weinig schot\" = enkele voorbeelden.",
-          "when": "wanneer het exacte formaat of de toon ertoe doet, of bij moeilijke classificatie. Voorbeelden moeten relevant zijn (vergelijkbaar met de echte casus) en divers (omslagvariaties).",
-          "wrong": "Haal het sentiment en de categorie uit deze recensie: \"Het kwam snel aan, maar het was kapot.\"",
-          "right": "Extract sentiment en categorie. Volg de voorbeelden:\n\n<example>\nReview: \"Ik vond het geweldig, ik raad het ten zeerste aan!\"\n→ {\"feeling\": \"positief\", \"category\": \"satisfaction\"}\n</example>\n<example>\nReview: \"Er ontbrak een stukje.\"\n→ {\"feeling\": \"negative\", \"category\": \"defective_product\"}\n</example \n\nReview: \"Het werd snel geleverd, maar het was kapot.\"\n→",
-          "why": "de twee voorbeelden fixeren het formaat (JSON met twee velden) en tonen de categorievocabulaire. Het model volgt eenvoudigweg het patroon. Merk op dat het tweede voorbeeld een negatief geval betreft: diversiteit verhindert dat het model denkt dat alles positief is."
+          "simple": "Toon 2 tot 5 voorbeeldantwoorden voordat u naar uw casus vraagt.",
+          "whatIs": "Voeg enkele invoer → uitvoervoorbeelden toe zodat het model het patroon kan imiteren. \"Weinig schot\" = enkele voorbeelden. Het is de sterkste hefboom voor het controleren van vorm, toon en consistentie.",
+          "when": "Als het exacte formaat ertoe doet (JSON, tabel), moet de toon consistent zijn, anders is sorteren moeilijk.",
+          "whenNot": "Bij triviale taken (zero-shot lost het al op) of wanneer de voorbeelden naar een enkel patroon neigen – diversifieer of verminder het dan.",
+          "examples": [
+            {
+              "right": "Beoordeel het gevoel. Volg de voorbeelden:\n\"Ik vond het geweldig, ik raad het aan!\" → positief\n\"Het kwam kapot.\" → negatief\n\nReview: \"Snel aangekomen, maar was verpletterd.\" →",
+              "note": "Twee voorbeelden leggen het uitvoerformaat en de woordenschat vast; Voeg een negatief geval toe om vertekening te voorkomen."
+            }
+          ],
+          "why": "Few-shot komt uit GPT-3-onderzoek (Brown et al., 2020): modellen leren de taak alleen al aan de hand van de voorbeelden in de prompt (in-context learning). Studies tonen sprongen aan zoals F1 0,51 → 0,62 wanneer we van nul naar 3 voorbeelden gaan.",
+          "tip": "3 tot 5 voorbeelden is de goede plek. Gebruik VERSCHILLENDE voorbeelden (cover edge cases) en zorg voor VOLGORDE; het wisselen van voorbeelden kan de nauwkeurigheid enorm veranderen.",
+          "sources": [
+            {
+              "label": "Bruin et al. 2020 — Taalmodellen zijn slechts weinig leerlingen",
+              "url": "https://arxiv.org/abs/2005.14165"
+            },
+            {
+              "label": "Het snelle rapport (arXiv:2406.06608)",
+              "url": "https://arxiv.org/abs/2406.06608"
+            }
+          ]
         },
         {
-          "id": "estruturacao-com-xml-delimitadores",
+          "id": "estruturacao-com-xml",
           "name": "Structureren met XML/scheidingstekens",
           "level": 1,
-          "whatIs": "verpak elk deel van de prompt in tags ( <context> , <dados> , <instructions> ). Het scheidt duidelijk wat instructie is en wat er wordt gegeven, waardoor wordt voorkomen dat het model de twee door elkaar haalt.",
-          "when": "wanneer de prompt instructies combineert met gegevens (vooral lange of zelfgeformatteerde gegevens). Het is het aanbevolen patroon voor Claude.",
-          "wrong": "Vat de volgende tekst samen in 3 onderwerpen: Bijeenkomst van vandaag: we hebben besloten de lancering uit te stellen. Vat ook de risico’s samen in 3 onderwerpen. Begroting\ngoedgekeurd.",
-          "right": "Vat de inhoud van <text> samen in exact 3 onderwerpen.\n\n<text>\nBijeenkomst van vandaag: we hebben besloten de lancering uit te stellen. Budget goedgekeurd.\nRisico's: kleiner team en strakke deadline.\n</text>",
-          "why": "de <text>-tag maakt glashelder wat samengevat moet worden. In het verkeerde geval kan de instructie \"Samenvatting van de risico's in 3 onderwerpen\" in het midden van de inhoud worden gelezen als onderdeel van de samen te vatten tekst – of als tweede bestelling. Pure dubbelzinnigheid."
+          "simple": "Aparte instructie en gegevens met \"tags\".",
+          "whatIs": "Verpak elk deel van de prompt in markeringen (<context>, <data>, <instructions>), zodat het model niet verwart wat de orde is met wat van belang is om te verwerken.",
+          "when": "Telkens wanneer de prompt instructie met gegevens combineert, vooral lange of zelfgeformatteerde gegevens. Het is het aanbevolen patroon voor Claude.",
+          "whenNot": "Kortom, prompts van één regel zonder ingebedde gegevens zijn niet nodig.",
+          "examples": [
+            {
+              "wrong": "Samenvattend: Bijeenkomst van vandaag: we hebben de lancering uitgesteld.\nSamenvatten ook de risico's. Budget oké.",
+              "right": "Vat de inhoud van <text> samen in 3 onderwerpen.\n\n<text>\nBijeenkomst van vandaag: we hebben de lancering uitgesteld. Budget ok.\nRisico's: kleiner team en strakke deadline.\n</text>",
+              "note": "De tag maakt duidelijk wat er wordt gegeven en wat instructie is – zonder dubbelzinnigheid."
+            }
+          ],
+          "why": "Tags verminderen de dubbelzinnigheid tussen instructie en inhoud – de meest voorkomende fout bij aanwijzingen met ingesloten tekst. Modellen die zijn getraind met gestructureerde gegevens (zoals Claude) volgen tags nauwkeurig.",
+          "tip": "Gebruik consistente en beschrijvende tagnamen. Nesten wanneer er sprake is van hiërarchie (meerdere <document> binnen <documenten>).",
+          "sources": [
+            {
+              "label": "Antropisch — Gebruik XML-tags",
+              "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+            }
+          ]
         },
         {
           "id": "contexto-motivacao",
           "name": "Context + motivatie",
           "level": 1,
-          "whatIs": "geef achtergrondinformatie en leg uit waarom de instructie bestaat. Het model generaliseert beter vanuit de ratio.",
-          "when": "wanneer een regel verkeerd kan worden geïnterpreteerd als deze naar de letter wordt toegepast zonder het doel te begrijpen.",
-          "wrong": "Antwoord in maximaal 2 zinnen. Gebruik nooit cijfers.",
-          "right": "Dit antwoord wordt op een smartwatch met een klein scherm weergegeven en voorgelezen. Daarom: maximaal 2 korte zinnen, en\nschrijf getallen voluit (bijvoorbeeld \"drie\" in plaats van \"3\"), omdat de\nschermlezer cijfers vreemd spelt.",
-          "why": "Omdat hij de reden kent (klein scherm + stem), past het model de regel met gezond verstand toe en anticipeert zelfs op onuitgesproken gevallen. Zonder de reden is 'nooit cijfers gebruiken' een blinde regel die hij kan overtreden of op absurde manieren kan toepassen."
+          "simple": "Leg de reden voor de instructie uit, niet alleen de volgorde.",
+          "whatIs": "Geef achtergrondinformatie en de reden achter het verzoek. Het model generaliseert beter als het het doel begrijpt, en niet alleen de regel.",
+          "when": "Wanneer een regel verkeerd kan worden geïnterpreteerd als deze op de letter wordt toegepast zonder het doel ervan te begrijpen.",
+          "whenNot": "Het staat zelden in de weg, maar vul het niet op met irrelevante context, die in ruis verandert en de aandacht van het model verspilt.",
+          "examples": [
+            {
+              "wrong": "Gebruik nooit beletseltekens.",
+              "right": "Dit antwoord wordt gelezen door een spraaksynthesizer die ellipsen niet correct uitspreekt. Gebruik dus geen \"...\".",
+              "note": "Het model weet waarom, past de regel met gezond verstand toe en anticipeert op soortgelijke gevallen."
+            }
+          ],
+          "why": "Wanneer het model de motivatie begrijpt, breidt het de regel uit naar onuitgesproken gevallen en vermijdt het absurde toepassingen. Grove instructie is een blinde regel.",
+          "tip": "Eén zin ‘waarom doet dit er toe’ is doorgaans drie zinnen ‘doe het op deze manier’ waard.",
+          "sources": [
+            {
+              "label": "Antropisch — Voeg context toe om de prestaties te verbeteren",
+              "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+            }
+          ]
         },
         {
-          "id": "contrato-de-saida-output-contract",
+          "id": "contrato-de-saida",
           "name": "Uitvoercontract",
           "level": 1,
-          "whatIs": "specificeer het exacte formaat van het antwoord: JSON-schema, tags, \"alleen het resultaat zonder introductie\", grootte. Vertel wat u moet doen, niet wat u moet vermijden.",
-          "when": "wanneer de uitvoer door een systeem wordt verbruikt (parsing) of een consistent formaat nodig heeft.",
-          "wrong": "Geef mij zonder verder oponthoud de klantgegevens voor deze tekst.",
-          "right": "Klantgegevens extraheren. Reageer ALLEEN met deze JSON, zonder\ntekst ervoor of erna. Gebruik null voor ontbrekende velden:\n{\"name\": string, \"email\": string|null, \"phone\": string|null}",
-          "why": "\"geen onzin\" is subjectief; het expliciete schema is objectief en door code te parseren. \"Gebruik null voor ontbrekende\" verhindert dat het model gegevens verzint - een veel voorkomende fout bij het extraheren."
+          "simple": "Vermeld het EXACTE formaat van het antwoord.",
+          "whatIs": "Geef op hoe de uitvoer moet komen: JSON-schema, tags, \"alleen het resultaat zonder introductie\", grootte. Vertel wat u moet doen, niet wat u moet vermijden.",
+          "when": "Wanneer het antwoord door een systeem wordt verbruikt (parseren) of een consistent formaat nodig heeft tussen oproepen.",
+          "whenNot": "In een vrij of verkennend gesprek kan een rigide contract reacties onderdrukken die baat zouden hebben bij flexibiliteit.",
+          "examples": [
+            {
+              "wrong": "Geef mij de klantgegevens, zonder gedoe",
+              "right": "Klantgegevens extraheren. Reageer ALLEEN met deze JSON,\ngeen tekst ervoor of erna. Gebruik null voor ontbrekende velden:\n{\"name\": string, \"email\": string|null, \"phone\": string|null}",
+              "note": "Expliciet schema + \"null voor ontbrekend\" verhindert dat het model gegevens verzint."
+            }
+          ],
+          "why": "\"Geen franje\" is subjectief; een schema is objectief en code-parseerbaar. Door het formaat te definiëren, wordt variatie verwijderd die de integratie verbreekt.",
+          "tip": "Om JSON/structuur echt te forceren, gebruik je Structured Outputs (Claude/OpenAI) in plaats van er alleen maar om te vragen in de tekst; het is veel betrouwbaarder.",
+          "sources": [
+            {
+              "label": "Antropisch — Formaat voor controlereacties",
+              "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+            }
+          ]
         }
       ]
     },
@@ -101,7 +202,7 @@
           "id": "step-back-prompting",
           "name": "Stap-terug-prompts",
           "level": 2,
-          "whatIs": "Voordat u het specifieke probleem aanpakt, vraagt ​​u het model een stap terug te doen naar een algemener principe of concept. Vervolgens past hij dit principe toe op de zaak.",
+          "whatIs": "Voordat u het specifieke probleem aanpakt, vraagt u het model een stap terug te doen naar een algemener principe of concept. Vervolgens past hij dit principe toe op de zaak.",
           "when": "problemen waarbij het toepassen van de juiste algemene regel belangrijker is dan rekenen – natuurkunde, recht, diagnose.",
           "wrong": "Een gas van 2 atm en 300 K wordt bij constant volume verwarmd tot 600 K.\nWat is de nieuwe druk?",
           "right": "Ten eerste: welke gaswet is van toepassing als het volume constant is en de temperatuur verandert? Geef de relatie aan. Pas het dan toe:\neen gas van 2 atm en 300 K wordt bij constant volume verwarmd tot 600 K.",
@@ -454,5 +555,9 @@
       ]
     }
   ],
-  "tocTitle": "Op deze pagina"
+  "tocTitle": "Op deze pagina",
+  "simpleLabel": "Samengevat",
+  "whenNotLabel": "Wanneer te vermijden",
+  "tipLabel": "Tip",
+  "sourcesLabel": "Bronnen"
 }

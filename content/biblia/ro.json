@@ -15,61 +15,162 @@
           "id": "zero-shot-prompting",
           "name": "Solicitare zero-shot",
           "level": 1,
-          "whatIs": "dați instrucțiuni directe, fără exemple. „Zero-shot” = zero exemple. Este punctul de plecare al tuturor.",
-          "when": "sarcini simple, bine definite pe care modelul le stăpânește deja (traducerea, rezumatul, răspunsul la o întrebare directă).",
-          "wrong": "spune-mi despre marketing",
-          "right": "Explicați cei 4 P-uri ai marketingului (produs, preț, loc, promovare)\nîntr-un paragraf fiecare, cu un exemplu practic dintr-o cafenea.",
-          "why": "cel greșit este vag — „despre marketing” poate genera o mie de răspunsuri diferite. Cel din dreapta definește domeniul (cei 4 P), formatul (câte un paragraf) și contextul (cafenea). Chiar și fără exemple, a fost fără echivoc."
+          "simple": "Întrebați direct, fără a da exemple.",
+          "whatIs": "Dați instrucțiuni clare, fără a afișa exemple de răspunsuri — modelul folosește doar ceea ce a învățat la antrenament. „Zero-shot” = zero exemple. Este punctul de plecare al tuturor.",
+          "when": "Sarcini comune și bine definite pe care modelul le stăpânește deja: traducerea, rezumatul, răspunsul la o întrebare de fapt, rescrierea unui text.",
+          "whenNot": "Când forma exactă, tonul sau carcasele de margine contează. Apoi, unele exemple (puține lovituri) valorează mai mult decât orice instrucțiune.",
+          "examples": [
+            {
+              "wrong": "spune-mi despre marketing",
+              "right": "Explicați cei 4 P-uri ai marketingului (produs, preț, loc, promovare)\nîntr-un paragraf fiecare, cu un exemplu de cafenea.",
+              "note": "Cea din dreapta definește domeniul de aplicare (cei 4 P), formatul (un paragraf fiecare) și contextul (cafenea) - fără ambiguitate chiar și fără exemple."
+            },
+            {
+              "wrong": "corectează-mi textul",
+              "right": "Corectați erorile gramaticale și de punctuație din textul de mai jos.\nPăstrează sensul și tonul. Returnează doar textul corectat.",
+              "note": "Spune-i ce să repare, ce să păstreze și formatul de ieșire."
+            }
+          ],
+          "why": "Modelele moderne rezolvă sarcini binecunoscute fără exemple - atâta timp cât instrucțiunile sunt specifice. Claritatea înlocuiește exemplele.",
+          "tip": "Dacă răspunsul este generic, nu adăugați încă exemple: mai întâi faceți instrucțiunile mai specifice (format, dimensiune, audiență).",
+          "sources": [
+            {
+              "label": "Antropic – promovarea celor mai bune practici",
+              "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+            }
+          ]
         },
         {
           "id": "role-persona-prompting",
           "name": "Rol/Persona sugerare",
           "level": 1,
-          "whatIs": "atribuiți un rol modelului („Sunteți un...”). O singură propoziție schimbă tonul, vocabularul și profunzimea răspunsului. Varianta de promptare expert folosește o persoană expertă în domeniul exact.",
-          "when": "ori de câte ori tonul sau profunzimea tehnică contează. Practic gratuit și aproape întotdeauna ajută.",
-          "wrong": "Are acest cod probleme de securitate?\n[cod]",
-          "right": "Sunteți un expert în securitate ofensivă (pentester) care examinează codul pentru un audit. Analizați codul de mai jos pentru\nvulnerabilități (injecție, expunere secretă, autentificare slabă).\n[cod]",
-          "why": "Rolul de „testare de audit” concentrează modelul pe mentalitatea cuiva care caută în mod activ defecte, iar listarea categoriilor oferă direcție. Fără hârtie, răspunsul tinde să fie generic și superficial."
+          "simple": "Spune-i modelului „cine sunt” înainte de sarcină.",
+          "whatIs": "Atribuiți un rol („Sunteți un avocat fiscal senior”) pentru a calibra tonul, vocabularul și profunzimea răspunsului. O singură propoziție schimbă deja rezultatul.",
+          "when": "Când tonul sau nivelul tehnic contează - scris, serviciu, opinii, predare.",
+          "whenNot": "În problemele de cunoaștere pură (fapte, relatări, alegere multiplă) persoana poate sta în cale. În testele de referință MMLU, persoanele „experte” au scăzut precizia (de la ~71,6% la ~68%).",
+          "examples": [
+            {
+              "wrong": "Acest cod are o problemă de securitate?",
+              "right": "Sunteți un pentester care examinează codul pentru un audit.\nAnalizați codul de mai jos pentru injectare,\nsecrete expuse și autentificare slabă.",
+              "note": "Lucrarea concentrează modelul pe mentalitatea celor care caută defecte."
+            },
+            {
+              "wrong": "explică recursiunea",
+              "right": "Ești un profesor răbdător care explică unui copil de 10 ani. Explicați recursiunea cu o analogie de zi cu zi.",
+              "note": "Persona + public definesc nivelul de explicație."
+            }
+          ],
+          "why": "Rolul activează vocabularul și tonul asociat acelui profil. Dar efectul este sensibil la sarcină: ajută cu tonul, rareori cu cunoștințele faptice.",
+          "tip": "Utilizați persona pentru TON și STIL; nu vă așteptați ca „Ești un geniu în matematică” să îmbunătățească scorul. Pentru acuratețe, preferați instrucțiuni clare și verificare.",
+          "sources": [
+            {
+              "label": "PromptHub — Studiu de sugestii de rol",
+              "url": "https://www.prompthub.us/blog/role-prompting-does-adding-personas-to-your-prompts-really-make-a-difference"
+            },
+            {
+              "label": "Antropic — Dă-i lui Claude un rol",
+              "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+            }
+          ]
         },
         {
-          "id": "few-shot-multishot-prompting",
-          "name": "Solicitare câteva lovituri/multicaptură",
+          "id": "few-shot-multishot",
+          "name": "Câteva lovituri / Multishot",
           "level": 1,
-          "whatIs": "arătați 2 până la 5 exemple de intrare → ieșire înainte de a vă întreba cazul. Este cel mai fiabil instrument pentru controlul formatului, tonului și consistenței. „Few-shot” = câteva exemple.",
-          "when": "când formatul sau tonul exact contează, sau în clasificare dificilă. Exemplele trebuie să fie relevante (asemănătoare cu cazul real) și diverse (variații de acoperire).",
-          "wrong": "Extrageți sentimentul și categoria din această recenzie: „A sosit repede, dar a fost stricat”.",
-          "right": "Extrage sentimentul și categoria. Urmați exemplele:\n\n<example>\nRecenzie: „Mi-a plăcut, îl recomand cu căldură!”\n→ {„feeling”: „pozitiv”, „category”: „satisfacție”}\n</example>\n<example>\nRecenzie: „A venit cu o piesă lipsă.”\n→ „: „category”: „negativ:”, „defective_product”}\n</example \n\nRecenzie: „A sosit repede, dar a fost stricat.”\n→",
-          "why": "cele două exemple fixează formatul (JSON cu două câmpuri) și arată vocabularul categoriei. Modelul urmează pur și simplu modelul. Rețineți că al doilea exemplu acoperă un caz negativ - diversitatea împiedică modelul să creadă că totul este pozitiv."
+          "simple": "Afișați 2 până la 5 exemple de răspunsuri înainte de a cere cazul dvs.",
+          "whatIs": "Includeți câteva exemple de intrare→ieșire pentru ca modelul să imite modelul. „Few-shot” = câteva exemple. Este cea mai puternică pârghie pentru controlul formei, tonului și consistenței.",
+          "when": "Când formatul exact contează (JSON, tabel), tonul trebuie să fie consecvent sau sortarea este dificilă.",
+          "whenNot": "În sarcinile banale (zero-shot deja o rezolvă) sau când exemplele se înclină spre un singur model — apoi diversificați sau reduceți-l.",
+          "examples": [
+            {
+              "right": "Evaluează sentimentul. Urmează exemplele:\n„Mi-a plăcut, îl recomand!” → pozitiv\n„A venit stricat”. → negativ\n\nRecenzie: „A sosit repede, dar a fost zdrobit”. →",
+              "note": "Două exemple fixează formatul de ieșire și vocabularul; includeți un caz negativ pentru a evita părtinirea."
+            }
+          ],
+          "why": "Few-shot provine din cercetarea GPT-3 (Brown et al., 2020): modelele învață sarcina doar din exemplele din prompt (învățare în context). Studiile arată salturi ca F1 0,51 → 0,62 atunci când se trece de la zero la 3 exemple.",
+          "tip": "3 până la 5 exemple este punctul ideal. Folosiți DIFERITE exemple (cazuri de margine de acoperire) și aveți grijă de COMANDĂ - exemplele de permutare pot schimba foarte mult precizia.",
+          "sources": [
+            {
+              "label": "Brown şi colab. 2020 — Modelele lingvistice sunt elevi puțini",
+              "url": "https://arxiv.org/abs/2005.14165"
+            },
+            {
+              "label": "Raportul prompt (arXiv:2406.06608)",
+              "url": "https://arxiv.org/abs/2406.06608"
+            }
+          ]
         },
         {
-          "id": "estruturacao-com-xml-delimitadores",
+          "id": "estruturacao-com-xml",
           "name": "Structurare cu XML/delimitatori",
           "level": 1,
-          "whatIs": "împachetați fiecare parte a promptului în etichete ( <context> , <dados> , <instructions> ). Separă în mod clar ceea ce este instrucțiune de ceea ce este dat, împiedicând modelul să le confunde pe cele două.",
-          "when": "ori de câte ori promptul amestecă instrucțiuni cu date (în special date lungi sau autoformatate). Este modelul recomandat pentru Claude.",
-          "wrong": "Rezumați următorul text în 3 subiecte: Întâlnirea de astăzi: am decis să amânăm lansarea. De asemenea, rezumați riscurile în 3 subiecte. Buget\naprobat.",
-          "right": "Rezumați conținutul din <text> în exact 3 subiecte.\n\n<text>\nÎntâlnirea de astăzi: am decis să amânăm lansarea. Buget aprobat.\nRiscuri: echipă redusă și termen scurt.\n</text>",
-          "why": "eticheta <text> face ceea ce ar trebui rezumat limpede. În cazul greșit, instrucțiunea „Rezumați riscurile în 3 subiecte” din mijlocul conținutului poate fi citită ca parte a textului care trebuie rezumat — sau ca o a doua ordine. Pură ambiguitate."
+          "simple": "Separați instrucțiunile și datele cu „etichete”.",
+          "whatIs": "Înfășurați fiecare parte a promptului în markeri (<context>, <date>, <instructions>), astfel încât modelul să nu confunde ceea ce este ordine cu ceea ce este material de procesat.",
+          "when": "Ori de câte ori promptul combină instrucțiunile cu date - în special date lungi sau autoformatate. Este modelul recomandat pentru Claude.",
+          "whenNot": "În solicitări scurte de o singură linie, fără date încorporate, nu este necesar.",
+          "examples": [
+            {
+              "wrong": "Rezumat: Întâlnirea de astăzi: am amânat lansarea.\nRezumați și riscurile. Buget ok.",
+              "right": "Rezumați conținutul din <text> în 3 subiecte.\n\n<text>\nÎntâlnirea de astăzi: am amânat lansarea. Buget ok.\nRiscuri: echipă redusă și termen limită strâns.\n</text>",
+              "note": "Eticheta arată clar ce este dat și ce este instrucțiune - fără ambiguitate."
+            }
+          ],
+          "why": "Etichetele reduc ambiguitatea dintre instrucțiuni și conținut — cea mai frecventă eroare în solicitările cu text încorporat. Modelele instruite cu date structurate (cum ar fi Claude) urmează etichetele cu acuratețe.",
+          "tip": "Utilizați nume de etichete consecvente și descriptive. Cuibări atunci când există ierarhie (mai multe <document> în cadrul <documente>).",
+          "sources": [
+            {
+              "label": "Antropic — Folosiți etichete XML",
+              "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+            }
+          ]
         },
         {
           "id": "contexto-motivacao",
           "name": "Context + motivație",
           "level": 1,
-          "whatIs": "oferiți informații de bază și explicați de ce există instrucțiunea. Modelul generalizează mai bine din raport.",
-          "when": "ori de câte ori o regulă poate fi interpretată greșit dacă este aplicată la literă fără a înțelege obiectivul.",
-          "wrong": "Raspunde in maxim 2 propozitii. Nu folosi niciodată numere.",
-          "right": "Acest răspuns va fi afișat pe un ceas inteligent cu un ecran mic și va fi citit cu voce tare. Prin urmare: maxim 2 propoziții scurte și\nscrieți numere în întregime (de exemplu, „trei” în loc de „3”), deoarece\ncititorul de ecran scrie cifrele în mod ciudat.",
-          "why": "cunoscand motivul (mic ecran + voce), modelul aplica regula cu bun simt si anticipeaza chiar cazuri nerostite. Fără motiv, „nu folosi niciodată numere” este o regulă oarbă pe care o poate încălca sau aplica în moduri absurde."
+          "simple": "Explicați motivul instrucțiunii, nu doar comanda.",
+          "whatIs": "Oferiți informații de fundal și motivul din spatele solicitării. Modelul generalizează mai bine atunci când înțelege obiectivul, nu doar regula.",
+          "when": "Ori de câte ori o regulă poate fi interpretată greșit dacă este aplicată la literă fără a înțelege scopul.",
+          "whenNot": "Rareori iese în cale - dar nu-l umfla cu context irelevant, care se transformă în zgomot și irosește atenția modelului.",
+          "examples": [
+            {
+              "wrong": "Nu utilizați niciodată punctele de suspensie.",
+              "right": "Acest răspuns va fi citit de un sintetizator de vorbire care nu pronunță corect elipsele - așa că nu folosiți „…”.",
+              "note": "Știind de ce, modelul aplică regula cu bun simț și anticipează cazuri similare."
+            }
+          ],
+          "why": "Atunci când modelul înțelege motivația, extinde regula la cazurile nerostite și evită aplicațiile absurde. Instruirea crudă este o regulă oarbă.",
+          "tip": "O propoziție de „de ce contează asta” valorează de obicei trei propoziții de „fă-o așa”.",
+          "sources": [
+            {
+              "label": "Antropic — Adăugați context pentru a îmbunătăți performanța",
+              "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+            }
+          ]
         },
         {
-          "id": "contrato-de-saida-output-contract",
+          "id": "contrato-de-saida",
           "name": "Contract de ieșire",
           "level": 1,
-          "whatIs": "specificați formatul exact al răspunsului — schema JSON, etichete, „doar rezultatul fără introducere”, dimensiune. Spuneți ce să faceți, nu ce să evitați.",
-          "when": "ori de câte ori rezultatul este consumat de un sistem (parsing) sau are nevoie de un format consistent.",
-          "wrong": "Dați-mi datele clienților pentru acest text, fără alte prelungiri.",
-          "right": "Extrageți datele clienților. Răspundeți NUMAI cu acest JSON, fără\ntext înainte sau după. Folosiți null pentru câmpurile lipsă:\n{\"nume\": șir, \"email\": șir|null, \"telefon\": șir|null}",
-          "why": "„fără prostii” este subiectiv; schema explicită este obiectivă și analizabilă prin cod. „Utilizați null pentru lipsă” împiedică modelul să inventeze date - o eroare comună la extracție."
+          "simple": "Precizați formatul EXACT al răspunsului.",
+          "whatIs": "Specificați cum ar trebui să apară rezultatul: schema JSON, etichete, „doar rezultatul fără introducere”, dimensiune. Spuneți ce să faceți, nu ce să evitați.",
+          "when": "Ori de câte ori răspunsul este consumat de un sistem (parsing) sau are nevoie de un format consistent între apeluri.",
+          "whenNot": "Într-o conversație liberă sau exploratorie, un contract rigid poate înăbuși răspunsurile care ar beneficia de flexibilitate.",
+          "examples": [
+            {
+              "wrong": "Dă-mi detaliile clientului, fără tam-tam",
+              "right": "Extrageți datele clienților. Răspundeți NUMAI cu acest JSON,\nfără text înainte sau după. Folosiți null pentru câmpurile lipsă:\n{\"nume\": șir, \"email\": șir|null, \"telefon\": șir|null}",
+              "note": "Schema explicită + „null pentru lipsă” împiedică modelul să inventeze date."
+            }
+          ],
+          "why": "„Fără bibelouri” este subiectiv; o schemă este obiectivă și poate fi analizată prin cod. Definirea formatului elimină variația care întrerupe integrările.",
+          "tip": "Pentru a forța într-adevăr JSON/structura, utilizați Structured Outputs (Claude/OpenAI) în loc să le cereți doar în text - este mult mai fiabil.",
+          "sources": [
+            {
+              "label": "Antropic — Format de răspuns de control",
+              "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+            }
+          ]
         }
       ]
     },
@@ -454,5 +555,9 @@
       ]
     }
   ],
-  "tocTitle": "Pe această pagină"
+  "tocTitle": "Pe această pagină",
+  "simpleLabel": "În rezumat",
+  "whenNotLabel": "Când să evitați",
+  "tipLabel": "Sfat",
+  "sourcesLabel": "Surse"
 }

@@ -15,61 +15,162 @@
           "id": "zero-shot-prompting",
           "name": "Noll-shot-uppmaning",
           "level": 1,
-          "whatIs": "ge direkta instruktioner, utan exempel. \"Zero-shot\" = noll exempel. Det är utgångspunkten för allt.",
-          "when": "enkla, väldefinierade uppgifter som modellen redan behärskar (översätta, sammanfatta, svara på en direkt fråga).",
-          "wrong": "berätta om marknadsföring",
-          "right": "Förklara marknadsföringens fyra Ps (produkt, pris, plats, kampanj)\ni ett stycke vardera, med ett praktiskt exempel från ett kafé.",
-          "why": "fel är vagt — \"om marknadsföring\" kan generera tusen olika svar. Den högra definierar omfattning (de 4 Ps), format (ett stycke vardera) och sammanhang (kafé). Även utan exempel var det otvetydigt."
+          "simple": "Fråga direkt, utan att ge exempel.",
+          "whatIs": "Ge tydliga instruktioner utan att visa exempel på svar — modellen använder bara det den lärt sig under träningen. \"Zero-shot\" = noll exempel. Det är utgångspunkten för allt.",
+          "when": "Vanliga och väldefinierade uppgifter som modellen redan behärskar: översätta, sammanfatta, svara på en sakfråga, skriva om en text.",
+          "whenNot": "När den exakta formen, tonen eller kantfallen spelar roll. Sedan är några exempel (få-shot) värda mer än någon instruktion.",
+          "examples": [
+            {
+              "wrong": "berätta om marknadsföring",
+              "right": "Förklara marknadsföringens fyra Ps (produkt, pris, plats, kampanj)\ni ett stycke vardera, med ett exempel på ett kafé.",
+              "note": "Den högra definierar omfattning (de 4 Ps), format (ett stycke vardera) och sammanhang (kafé) — entydigt även utan exempel."
+            },
+            {
+              "wrong": "rätta min text",
+              "right": "Korrigera grammatik och skiljetecken i texten nedan.\nBehåll betydelse och ton. Returnera endast den korrigerade texten.",
+              "note": "Berätta för den vad den ska fixa, vad den ska bevara och utdataformatet."
+            }
+          ],
+          "why": "Moderna modeller löser välkända uppgifter utan exempel — så länge instruktionen är specifik. Tydlighet ersätter exempel.",
+          "tip": "Om svaret är allmänt, lägg inte till exempel än: gör först instruktionerna mer specifika (format, storlek, målgrupp).",
+          "sources": [
+            {
+              "label": "Antropisk — Uppmuntrar till bästa praxis",
+              "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+            }
+          ]
         },
         {
           "id": "role-persona-prompting",
           "name": "Uppmaning om roll/person",
           "level": 1,
-          "whatIs": "tilldela modellen en roll (\"Du är en...\"). En enda mening ändrar tonen, ordförrådet och djupet i svaret. Expert-uppmaningsvarianten använder en expertpersona i den exakta domänen.",
-          "when": "närhelst ton eller tekniskt djup spelar roll. Praktiskt taget gratis och hjälper nästan alltid.",
-          "wrong": "Har den här koden några säkerhetsproblem?\n[code]",
-          "right": "Du är en offensiv säkerhetsexpert (pentester) som granskar kod för en revision. Analysera koden nedan för\nsårbarheter (injektion, hemlig exponering, svag autentisering).\n[kod]",
-          "why": "Rollen \"revisionstestare\" fokuserar modellen på tankesättet hos någon som aktivt letar efter brister, och listning av kategorierna ger vägledning. Utan papper tenderar svaret att vara generiskt och ytligt."
+          "simple": "Berätta för modellen \"vem de är\" innan uppgiften.",
+          "whatIs": "Tilldela en roll (\"Du är en senior skattejurist\") för att kalibrera ton, ordförråd och svarsdjup. En enda mening ändrar redan resultatet.",
+          "when": "När ton eller teknisk nivå spelar roll - skrivande, service, åsikter, undervisning.",
+          "whenNot": "I frågor om ren kunskap (fakta, konton, flerval) kan personan komma i vägen. I tester på MMLU-riktmärket minskade \"expert\" personas noggrannhet (från ~71,6% till ~68%).",
+          "examples": [
+            {
+              "wrong": "Har den här koden ett säkerhetsproblem?",
+              "right": "Du är en pentester som granskar kod för en revision.\nAnalysera koden nedan för injektion, avslöjade\nhemligheter och svag autentisering.",
+              "note": "Uppsatsen fokuserar modellen på tankesättet hos dem som letar efter brister."
+            },
+            {
+              "wrong": "förklarar rekursion",
+              "right": "Du är en tålmodig lärare som förklarar för ett 10-årigt barn. Förklara rekursion med en vardaglig analogi.",
+              "note": "Persona + publik definierar nivån på förklaringen."
+            }
+          ],
+          "why": "Rollen aktiverar ordförrådet och tonen som är kopplad till den profilen. Men effekten är uppgiftskänslig: den hjälper till med ton, sällan med faktakunskap.",
+          "tip": "Använd persona för TONE och STIL; förvänta dig inte att \"Du är ett matematiskt geni\" för att förbättra poängen. För noggrannhet, föredra tydliga instruktioner och verifiering.",
+          "sources": [
+            {
+              "label": "PromptHub — Rollfrågastudie",
+              "url": "https://www.prompthub.us/blog/role-prompting-does-adding-personas-to-your-prompts-really-make-a-difference"
+            },
+            {
+              "label": "Antropisk — Ge Claude en roll",
+              "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+            }
+          ]
         },
         {
-          "id": "few-shot-multishot-prompting",
-          "name": "Få-shot/Multishot-meddelande",
+          "id": "few-shot-multishot",
+          "name": "Få-shot / Multishot",
           "level": 1,
-          "whatIs": "visa 2 till 5 exempel på input→output innan du frågar ditt ärende. Det är det mest pålitliga verktyget för att kontrollera format, ton och konsistens. \"Få-skott\" = några exempel.",
-          "when": "när exakt format eller ton spelar roll, eller i svår klassificering. Exemplen måste vara relevanta (liknande det verkliga fallet) och mångsidiga (omslagsvariationer).",
-          "wrong": "Extrahera känslan och kategorin från denna recension: \"Den kom snabbt men den var trasig.\"",
-          "right": "Extrahera känslor och kategori. Följ exemplen:\n\n<example>\nRecension: \"Jag älskade det, jag rekommenderar det varmt!\"\n→ {\"feeling\": \"positive\", \"category\": \"satisfaction\"}\n</example>\n<example>\nRecension: \"Det kom med en saknad bit.\"\n→ \"cat\"egory\":: \"defekt_produkt\"}\n</exempel \n\nRecension: \"Den kom snabbt men den var trasig.\"\n→",
-          "why": "de två exemplen fixar formatet (JSON med två fält) och visar kategorins ordförråd. Modellen följer helt enkelt mönstret. Observera att det andra exemplet täcker ett negativt fall – mångfald hindrar modellen från att tro att allt är positivt."
+          "simple": "Visa 2 till 5 exempelsvar innan du frågar efter ditt ärende.",
+          "whatIs": "Inkludera några input→utgångsexempel så att modellen kan imitera mönstret. \"Få-skott\" = några exempel. Det är den starkaste spaken för att kontrollera form, ton och konsistens.",
+          "when": "När det exakta formatet spelar roll (JSON, tabell), måste tonen vara konsekvent, annars är det svårt att sortera.",
+          "whenNot": "I triviala uppgifter (zero-shot löser det redan) eller när exemplen snedställs mot ett enda mönster — diversifiera eller minska det.",
+          "examples": [
+            {
+              "right": "Betygsätt känslan. Följ exemplen:\n\"Jag älskade det, jag rekommenderar det!\" → positivt\n\"Den kom trasig.\" → negativ\n\nRecension: \"Kom snabbt men blev krossad.\" →",
+              "note": "Två exempel fixar utdataformatet och vokabulären; inkludera ett negativt fall för att undvika partiskhet."
+            }
+          ],
+          "why": "Få-shot kommer från GPT-3-forskning (Brown et al., 2020): modeller lär sig uppgiften bara från exemplen i prompten (in-context learning). Studier visar hopp som F1 0,51 → 0,62 när man går från noll till 3 exempel.",
+          "tip": "3 till 5 exempel är sweet spot. Använd OLIKA exempel (omslagskantsfall) och ta hand om BESTÄLLNING — permuteringsexempel kan avsevärt förändra noggrannheten.",
+          "sources": [
+            {
+              "label": "Brown et al. 2020 — Språkmodeller är få-skjutna elever",
+              "url": "https://arxiv.org/abs/2005.14165"
+            },
+            {
+              "label": "Snabbrapporten (arXiv:2406.06608)",
+              "url": "https://arxiv.org/abs/2406.06608"
+            }
+          ]
         },
         {
-          "id": "estruturacao-com-xml-delimitadores",
+          "id": "estruturacao-com-xml",
           "name": "Strukturering med XML/avgränsare",
           "level": 1,
-          "whatIs": "linda in varje del av prompten i taggar ( <context> , <dados> , <instructions> ). Det skiljer tydligt vad som är instruktion från vad som ges, vilket hindrar modellen från att blanda ihop de två.",
-          "when": "närhelst uppmaningen blandar instruktioner med data (särskilt långa eller självformaterade data). Det är det rekommenderade mönstret för Claude.",
-          "wrong": "Sammanfatta följande text i 3 ämnen: Dagens möte: vi beslutade att skjuta upp lanseringen. Sammanfatta även riskerna i 3 ämnen. Budget\ngodkänd.",
-          "right": "Sammanfatta innehållet inom <text> i exakt 3 ämnen.\n\n<text>\nDagens möte: vi beslutade att skjuta upp lanseringen. Budget godkänd.\nRisker: minskat team och snäv deadline.\n</text>",
-          "why": "<text>-taggen gör det som ska sammanfattas kristallklart. I fel fall kan instruktionen \"Sammanfatta riskerna i 3 ämnen\" i mitten av innehållet läsas som en del av texten som ska sammanfattas — eller som en andra ordning. Ren oklarhet."
+          "simple": "Separera instruktion och data med \"taggar\".",
+          "whatIs": "Linda in varje del av prompten i markörer (<kontext>, <data>, <instruktioner>) så att modellen inte blandar ihop vad som är ordning och vad som är material att bearbeta.",
+          "when": "Närhelst uppmaningen blandar instruktion med data - särskilt långa eller självformaterade data. Det är det rekommenderade mönstret för Claude.",
+          "whenNot": "I korta enradsuppmaningar utan inbäddade data är det onödigt.",
+          "examples": [
+            {
+              "wrong": "Sammanfattning: Dagens möte: vi har skjutit upp lanseringen.\nSammanfatta även riskerna. Budget ok.",
+              "right": "Sammanfatta innehållet inom <text> i 3 ämnen.\n\n<text>\nDagens möte: vi sköt upp lanseringen. Budget ok.\nRisker: minskat team och snäv deadline.\n</text>",
+              "note": "Taggen gör det tydligt vad som ges och vad som är instruktion – utan tvetydighet."
+            }
+          ],
+          "why": "Taggar minskar oklarheten mellan instruktion och innehåll – det vanligaste felet i uppmaningar med inbäddad text. Modeller tränade med strukturerad data (som Claude) följer taggar exakt.",
+          "tip": "Använd konsekventa och beskrivande taggnamn. Nest när det finns hierarki (flera <dokument> inom <dokument>).",
+          "sources": [
+            {
+              "label": "Antropisk — Använd XML-taggar",
+              "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+            }
+          ]
         },
         {
           "id": "contexto-motivacao",
           "name": "Sammanhang + motivation",
           "level": 1,
-          "whatIs": "ge bakgrundsinformation och förklara varför instruktionen finns. Modellen generaliserar bättre utifrån förhållandet.",
-          "when": "närhelst en regel kan misstolkas om den tillämpas på bokstaven utan att förstå syftet.",
-          "wrong": "Svara i max 2 meningar. Använd aldrig siffror.",
-          "right": "Det här svaret kommer att visas på en smart klocka med en liten skärm och läsas upp. Därför: högst 2 korta meningar, och\nskriv siffror i sin helhet (t.ex. \"tre\" istället för \"3\"), eftersom\nskärmläsaren stavar siffror konstigt.",
-          "why": "Genom att veta orsaken (liten skärm + röst), tillämpar modellen regeln med sunt förnuft och förutser till och med outtalade fall. Utan anledning är \"använd aldrig siffror\" en blind regel som han kan bryta eller tillämpa på absurda sätt."
+          "simple": "Förklara orsaken till instruktionen, inte bara beställningen.",
+          "whatIs": "Ge bakgrundsinformation och anledningen bakom begäran. Modellen generaliserar bättre när den förstår målet, inte bara regeln.",
+          "when": "Närhelst en regel kan misstolkas om den tillämpas på bokstaven utan att förstå syftet.",
+          "whenNot": "Det kommer sällan i vägen — men blåsa inte upp det med irrelevanta sammanhang, som förvandlas till buller och slösar bort modellens uppmärksamhet.",
+          "examples": [
+            {
+              "wrong": "Använd aldrig ellips.",
+              "right": "Detta svar kommer att läsas av en talsyntes som inte uttalar ellipser korrekt - så använd inte \"...\".",
+              "note": "Genom att veta varför tillämpar modellen regeln med sunt förnuft och förutser liknande fall."
+            }
+          ],
+          "why": "När modellen förstår motivationen utvidgar den regeln till outtalade fall och undviker absurda tillämpningar. Grov instruktion är en blind regel.",
+          "tip": "En mening med \"varför spelar det här roll\" är vanligtvis värd tre meningar med \"gör det på det här sättet\".",
+          "sources": [
+            {
+              "label": "Antropisk — Lägg till sammanhang för att förbättra prestandan",
+              "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+            }
+          ]
         },
         {
-          "id": "contrato-de-saida-output-contract",
+          "id": "contrato-de-saida",
           "name": "Utgångskontrakt",
           "level": 1,
-          "whatIs": "ange det exakta formatet för svaret — JSON-schema, taggar, \"bara resultatet utan introduktion\", storlek. Berätta vad du ska göra, inte vad du ska undvika.",
-          "when": "när utdata konsumeras av ett system (parsning) eller behöver ett konsekvent format.",
-          "wrong": "Ge mig kunddata för denna text, utan vidare.",
-          "right": "Extrahera kunddata. Svara ENDAST med denna JSON, utan\ntext före eller efter. Använd null för saknade fält:\n{\"name\": string, \"email\": string|null, \"phone\": string|null}",
-          "why": "\"inget skitsnack\" är subjektivt; det explicita schemat är objektivt och kodparsebart. \"Använd null för saknad\" förhindrar modellen från att uppfinna data - ett vanligt fel vid extraktion."
+          "simple": "Ange det EXAKTA formatet på svaret.",
+          "whatIs": "Specificera hur utdata ska komma: JSON-schema, taggar, \"bara resultatet utan introduktion\", storlek. Berätta vad du ska göra, inte vad du ska undvika.",
+          "when": "Närhelst svaret konsumeras av ett system (parsning) eller behöver ett konsekvent format mellan samtal.",
+          "whenNot": "I fria eller utforskande samtal kan ett stel kontrakt kväva svar som skulle gynnas av flexibilitet.",
+          "examples": [
+            {
+              "wrong": "Ge mig kunduppgifterna, inget krångel",
+              "right": "Extrahera kunddata. Svara ENDAST med denna JSON,\ningen text före eller efter. Använd null för saknade fält:\n{\"name\": string, \"email\": string|null, \"phone\": string|null}",
+              "note": "Explicit schema + \"null för saknad\" hindrar modellen från att uppfinna data."
+            }
+          ],
+          "why": "\"Inga krusiduller\" är subjektivt; ett schema är objektivt och kodparsebart. Att definiera formatet tar bort variation som bryter integrationer.",
+          "tip": "För att verkligen tvinga fram JSON/struktur, använd Structured Outputs (Claude/OpenAI) istället för att bara be om det i texten – det är mycket mer tillförlitligt.",
+          "sources": [
+            {
+              "label": "Antropisk — Kontrollsvarsformat",
+              "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+            }
+          ]
         }
       ]
     },
@@ -454,5 +555,9 @@
       ]
     }
   ],
-  "tocTitle": "På den här sidan"
+  "tocTitle": "På den här sidan",
+  "simpleLabel": "Sammanfattningsvis",
+  "whenNotLabel": "När ska man undvika",
+  "tipLabel": "Tips",
+  "sourcesLabel": "Källor"
 }

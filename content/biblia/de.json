@@ -15,61 +15,162 @@
           "id": "zero-shot-prompting",
           "name": "Zero-Shot-Eingabeaufforderung",
           "level": 1,
-          "whatIs": "Geben Sie direkte Anweisungen, ohne Beispiele. „Zero-shot“ = null Beispiele. Es ist der Ausgangspunkt von allem.",
-          "when": "einfache, klar definierte Aufgaben, die das Modell bereits beherrscht (übersetzen, zusammenfassen, eine direkte Frage beantworten).",
-          "wrong": "Erzähl mir etwas über Marketing",
-          "right": "Erklären Sie die 4 Ps des Marketings (Produkt, Preis, Ort, Werbung)\nin jeweils einem Absatz anhand eines praktischen Beispiels aus einem Café.",
-          "why": "Die falsche ist vage – „über Marketing“ kann tausend verschiedene Antworten hervorbringen. Das rechte definiert den Umfang (die 4 Ps), das Format (jeweils ein Absatz) und den Kontext (Café). Auch ohne Beispiele war es eindeutig."
+          "simple": "Fragen Sie direkt, ohne Beispiele zu nennen.",
+          "whatIs": "Geben Sie klare Anweisungen, ohne Antwortbeispiele anzuzeigen – das Modell verwendet nur das, was es im Training gelernt hat. „Zero-shot“ = null Beispiele. Es ist der Ausgangspunkt von allem.",
+          "when": "Häufige und klar definierte Aufgaben, die das Modell bereits beherrscht: Übersetzen, Zusammenfassen, Beantworten einer sachlichen Frage, Umschreiben eines Textes.",
+          "whenNot": "Wenn es auf die genaue Form, den Farbton oder die Kanten ankommt. Dann sind einige Beispiele (wenige Beispiele) mehr wert als jede Anleitung.",
+          "examples": [
+            {
+              "wrong": "Erzähl mir etwas über Marketing",
+              "right": "Erklären Sie die 4 Ps des Marketings (Produkt, Preis, Ort, Werbung)\nin jeweils einem Absatz am Beispiel eines Cafés.",
+              "note": "Das Richtige definiert Umfang (die 4 Ps), Format (je ein Absatz) und Kontext (Café) – auch ohne Beispiele eindeutig."
+            },
+            {
+              "wrong": "korrigiere meinen Text",
+              "right": "Korrigieren Sie Grammatik- und Zeichensetzungsfehler im folgenden Text.\nBehalten Sie Bedeutung und Ton bei. Geben Sie nur den korrigierten Text zurück.",
+              "note": "Sagen Sie ihm, was repariert werden soll, was beibehalten werden soll und welches Ausgabeformat es haben soll."
+            }
+          ],
+          "why": "Moderne Modelle lösen bekannte Aufgaben ohne Beispiele – sofern die Anleitung konkret ist. Klarheit ersetzt Beispiele.",
+          "tip": "Wenn die Antwort allgemein gehalten ist, fügen Sie noch keine Beispiele hinzu: Gestalten Sie die Anweisungen zunächst spezifischer (Format, Größe, Zielgruppe).",
+          "sources": [
+            {
+              "label": "Anthropic – Best Practices fördern",
+              "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+            }
+          ]
         },
         {
           "id": "role-persona-prompting",
           "name": "Rollen-/Persona-Eingabeaufforderung",
           "level": 1,
-          "whatIs": "Weisen Sie dem Modell eine Rolle zu („Sie sind ein…“). Ein einzelner Satz verändert den Ton, den Wortschatz und die Tiefe der Antwort. Die Experten-Eingabeaufforderungsvariante verwendet eine Expertenpersona in der genauen Domäne.",
-          "when": "wann immer es auf Ton oder technische Tiefe ankommt. Praktisch kostenlos und hilft fast immer.",
-          "wrong": "Weist dieser Code Sicherheitsprobleme auf?\n[Code]",
-          "right": "Sie sind ein offensiver Sicherheitsexperte (Pentester), der Code für ein Audit überprüft. Analysieren Sie den folgenden Code auf\nSchwachstellen (Einschleusung, geheime Offenlegung, schwache Authentifizierung).\n[Code]",
-          "why": "Die Rolle des „Audit-Testers“ konzentriert das Modell auf die Denkweise einer Person, die aktiv nach Fehlern sucht, und die Auflistung der Kategorien gibt Orientierung. Ohne Papier ist die Antwort tendenziell allgemein und oberflächlich."
+          "simple": "Sagen Sie dem Model vor der Aufgabe, „wer es ist“.",
+          "whatIs": "Weisen Sie eine Rolle zu („Sie sind ein leitender Steueranwalt“), um den Ton, den Wortschatz und die Tiefe der Antwort anzupassen. Ein einziger Satz verändert bereits das Ergebnis.",
+          "when": "Wenn es auf den Ton oder das technische Niveau ankommt – Schreiben, Service, Meinungen, Unterricht.",
+          "whenNot": "Bei reinen Wissensfragen (Fakten, Berichte, Multiple Choice) kann die Persona im Weg stehen. In Tests zum MMLU-Benchmark sank die Genauigkeit von „Experten“-Personas (von ~71,6 % auf ~68 %).",
+          "examples": [
+            {
+              "wrong": "Hat dieser Code ein Sicherheitsproblem?",
+              "right": "Sie sind ein Pentester und überprüfen Code für ein Audit.\nAnalysieren Sie den Code unten auf Einschleusung, offengelegte\nGeheimnisse und schwache Authentifizierung.",
+              "note": "Der Artikel konzentriert das Modell auf die Denkweise derjenigen, die nach Fehlern suchen."
+            },
+            {
+              "wrong": "erklärt Rekursion",
+              "right": "Sie sind ein geduldiger Lehrer, der einem 10-jährigen Kind etwas erklärt. Erklären Sie die Rekursion mit einer alltäglichen Analogie.",
+              "note": "Persona + Zielgruppe definieren die Ebene der Erklärung."
+            }
+          ],
+          "why": "Die Rolle aktiviert das mit diesem Profil verbundene Vokabular und den Ton. Der Effekt ist jedoch aufgabenabhängig: Er hilft beim Ton, selten beim Sachwissen.",
+          "tip": "Verwenden Sie Persona für TON und STIL. Erwarten Sie nicht, dass „Sie sind ein Mathe-Genie“ die Punktzahl verbessert. Bevorzugen Sie aus Gründen der Genauigkeit klare Anweisungen und eine Überprüfung.",
+          "sources": [
+            {
+              "label": "PromptHub – Studie zur Rollenaufforderung",
+              "url": "https://www.prompthub.us/blog/role-prompting-does-adding-personas-to-your-prompts-really-make-a-difference"
+            },
+            {
+              "label": "Anthropisch – Geben Sie Claude eine Rolle",
+              "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+            }
+          ]
         },
         {
-          "id": "few-shot-multishot-prompting",
-          "name": "Eingabeaufforderung für wenige Aufnahmen/Mehrfachaufnahmen",
+          "id": "few-shot-multishot",
+          "name": "Wenige Aufnahmen / Mehrfachaufnahmen",
           "level": 1,
-          "whatIs": "Zeigen Sie 2 bis 5 Beispiele für Input→Output, bevor Sie Ihren Fall stellen. Es ist das zuverlässigste Tool zur Kontrolle von Format, Ton und Konsistenz. „Few-shot“ = wenige Beispiele.",
-          "when": "wenn es auf das genaue Format oder den Ton ankommt oder wenn es um eine schwierige Klassifizierung geht. Beispiele müssen relevant (ähnlich zum realen Fall) und vielfältig (Abdeckungsvarianten) sein.",
-          "wrong": "Extrahieren Sie das Gefühl und die Kategorie aus dieser Rezension: „Es kam schnell an, war aber kaputt.“",
-          "right": "Stimmung und Kategorie extrahieren. Folgen Sie den Beispielen:\n\n<example>\nRezension: „Mir hat es sehr gut gefallen, ich kann es nur wärmstens empfehlen!“\n→ {\"feeling\": \"positiv\", \"category\": \"satisfaction\"</example>\n<example>\nReview: \"Es fehlte ein Teil.\"\n→ {\"feeling\": \"negativ\", \"category\": „defective_product“}\n</example \n\nRezension: „Es kam schnell an, war aber kaputt.“\n→",
-          "why": "Die beiden Beispiele legen das Format fest (JSON mit zwei Feldern) und zeigen das Kategorienvokabular. Das Modell folgt einfach dem Muster. Beachten Sie, dass das zweite Beispiel einen negativen Fall abdeckt – Diversität verhindert, dass das Modell denkt, dass alles positiv ist."
+          "simple": "Zeigen Sie 2 bis 5 Beispielantworten, bevor Sie nach Ihrem Fall fragen.",
+          "whatIs": "Fügen Sie einige Eingabe-Ausgabe-Beispiele für das Modell hinzu, um das Muster zu imitieren. „Few-shot“ = wenige Beispiele. Es ist der stärkste Hebel zur Kontrolle von Form, Ton und Konsistenz.",
+          "when": "Wenn es auf das genaue Format ankommt (JSON, Tabelle), muss der Ton konsistent sein, sonst ist die Sortierung schwierig.",
+          "whenNot": "Bei trivialen Aufgaben (Zero-Shot löst das Problem bereits) oder wenn die Beispiele auf ein einzelnes Muster tendieren – diversifizieren oder reduzieren Sie es.",
+          "examples": [
+            {
+              "right": "Bewerten Sie das Gefühl. Folgen Sie den Beispielen:\n„Es hat mir sehr gut gefallen, ich kann es nur empfehlen!“ → positiv\n„Es kam kaputt.“ → negativ\n\nRezension: „Schnell angekommen, aber kaputt.“ →",
+              "note": "Zwei Beispiele fixieren das Ausgabeformat und den Wortschatz; Fügen Sie einen negativen Fall ein, um Verzerrungen zu vermeiden."
+            }
+          ],
+          "why": "Few-Shot stammt aus der GPT-3-Forschung (Brown et al., 2020): Modelle lernen die Aufgabe allein aus den Beispielen in der Eingabeaufforderung (In-Context-Lernen). Studien zeigen Sprünge wie F1 0,51 → 0,62 beim Übergang von null auf drei Beispiele.",
+          "tip": "3 bis 5 Beispiele sind der Sweet Spot. Verwenden Sie VERSCHIEDENE Beispiele (decken Sie Randfälle ab) und achten Sie auf die REIHENFOLGE – das Permutieren von Beispielen kann die Genauigkeit erheblich verändern.",
+          "sources": [
+            {
+              "label": "Brown et al. 2020 – Sprachmodelle sind Few-Shot-Lernende",
+              "url": "https://arxiv.org/abs/2005.14165"
+            },
+            {
+              "label": "Der Prompt-Bericht (arXiv:2406.06608)",
+              "url": "https://arxiv.org/abs/2406.06608"
+            }
+          ]
         },
         {
-          "id": "estruturacao-com-xml-delimitadores",
+          "id": "estruturacao-com-xml",
           "name": "Strukturierung mit XML/Trennzeichen",
           "level": 1,
-          "whatIs": "Verpacken Sie jeden Teil der Eingabeaufforderung in Tags ( <context> , <dados> , <instructions> ). Es trennt klar zwischen Anweisungen und Gegebenheiten und verhindert so, dass das Modell beides verwechselt.",
-          "when": "immer dann, wenn die Eingabeaufforderung Anweisungen mit Daten vermischt (insbesondere lange oder selbstformatierte Daten). Es ist das empfohlene Muster für Claude.",
-          "wrong": "Fassen Sie den folgenden Text in drei Themen zusammen: Heutiges Treffen: Wir haben beschlossen, den Start zu verschieben. Fassen Sie außerdem die Risiken in 3 Themenbereichen zusammen. Budget\ngenehmigt.",
-          "right": "Fassen Sie den Inhalt von <text> in genau 3 Themen zusammen.\n\n<text>\nHeutiges Treffen: Wir haben beschlossen, den Start zu verschieben. Budget genehmigt.\nRisiken: reduziertes Team und knappe Frist.\n</text>",
-          "why": "Das <text>-Tag macht klar, was zusammengefasst werden soll. Im falschen Fall kann die Anweisung „Risiken in 3 Themenbereichen zusammenfassen“ in der Mitte des Inhalts als Teil des zusammenzufassenden Textes gelesen werden – oder als zweiter Auftrag. Reine Zweideutigkeit."
+          "simple": "Trennen Sie Anweisungen und Daten mit „Tags“.",
+          "whatIs": "Umschließen Sie jeden Teil der Eingabeaufforderung mit Markierungen (<Kontext>, <Daten>, <Anweisungen>), damit das Modell nicht verwechselt, was Ordnung ist, und was Material ist, das verarbeitet werden soll.",
+          "when": "Immer wenn die Eingabeaufforderung Anweisungen mit Daten vermischt – insbesondere lange oder selbstformatierte Daten. Es ist das empfohlene Muster für Claude.",
+          "whenNot": "Bei kurzen einzeiligen Eingabeaufforderungen ohne eingebettete Daten ist dies nicht erforderlich.",
+          "examples": [
+            {
+              "wrong": "Fassen Sie zusammen: Das heutige Treffen: Wir haben den Start verschoben.\nFassen Sie auch die Risiken zusammen. Budget ok.",
+              "right": "Fassen Sie den Inhalt von <text> in drei Themen zusammen.\n\n<text>\nHeutiges Treffen: Wir haben den Start verschoben. Budget ok.\nRisiken: reduziertes Team und knappe Frist.\n</text>",
+              "note": "Das Tag macht deutlich, was gegeben wird und was eine Anweisung ist – ohne Mehrdeutigkeit."
+            }
+          ],
+          "why": "Tags reduzieren Unklarheiten zwischen Anweisungen und Inhalten – den häufigsten Fehler bei Eingabeaufforderungen mit eingebettetem Text. Mit strukturierten Daten trainierte Modelle (wie Claude) folgen Tags genau.",
+          "tip": "Verwenden Sie konsistente und beschreibende Tag-Namen. Verschachtelung, wenn eine Hierarchie vorliegt (mehrere <Dokument> innerhalb von <Dokumenten>).",
+          "sources": [
+            {
+              "label": "Anthropic – Verwenden Sie XML-Tags",
+              "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+            }
+          ]
         },
         {
           "id": "contexto-motivacao",
           "name": "Kontext + Motivation",
           "level": 1,
-          "whatIs": "Geben Sie Hintergrundinformationen und erklären Sie, warum es die Anleitung gibt. Das Modell lässt sich anhand des Verhältnisses besser verallgemeinern.",
-          "when": "immer dann, wenn eine Regel fehlinterpretiert werden kann, wenn sie auf den Buchstaben angewendet wird, ohne das Ziel zu verstehen.",
-          "wrong": "Antworten Sie in maximal 2 Sätzen. Verwenden Sie niemals Zahlen.",
-          "right": "Diese Antwort wird auf einer Smartwatch mit kleinem Bildschirm angezeigt und vorgelesen. Deshalb: maximal 2 kurze Sätze und\nZahlen vollständig schreiben (z. B. „drei“ statt „3“), da der Screenreader Ziffern seltsam schreibt.",
-          "why": "Da das Modell den Grund kennt (kleiner Bildschirm + Stimme), wendet es die Regel mit gesundem Menschenverstand an und antizipiert sogar unausgesprochene Fälle. Ohne den Grund ist „Niemals Zahlen verwenden“ eine blinde Regel, die er brechen oder auf absurde Weise anwenden kann."
+          "simple": "Erklären Sie den Grund der Anweisung, nicht nur die Bestellung.",
+          "whatIs": "Geben Sie Hintergrundinformationen und den Grund für die Anfrage an. Das Modell lässt sich besser verallgemeinern, wenn es das Ziel und nicht nur die Regel versteht.",
+          "when": "Immer wenn eine Regel falsch interpretiert werden kann, wenn sie auf den Buchstaben angewendet wird, ohne den Zweck zu verstehen.",
+          "whenNot": "Es stört selten – aber übertreiben Sie es nicht mit irrelevantem Kontext, der zu Lärm wird und die Aufmerksamkeit des Modells verschwendet.",
+          "examples": [
+            {
+              "wrong": "Verwenden Sie niemals Auslassungspunkte.",
+              "right": "Diese Antwort wird von einem Sprachsynthesizer gelesen, der Ellipsen nicht richtig ausspricht. Verwenden Sie daher nicht „…“.",
+              "note": "Da das Modell weiß, warum, wendet es die Regel mit gesundem Menschenverstand an und antizipiert ähnliche Fälle."
+            }
+          ],
+          "why": "Wenn das Modell die Motivation versteht, weitet es die Regel auf unausgesprochene Fälle aus und vermeidet absurde Anwendungen. Grobe Anleitung ist eine blinde Regel.",
+          "tip": "Ein Satz „Warum ist das wichtig?“ ist normalerweise drei Sätze „Mach es so“ wert.",
+          "sources": [
+            {
+              "label": "Anthropisch – Fügen Sie Kontext hinzu, um die Leistung zu verbessern",
+              "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+            }
+          ]
         },
         {
-          "id": "contrato-de-saida-output-contract",
+          "id": "contrato-de-saida",
           "name": "Ausgabevertrag",
           "level": 1,
-          "whatIs": "Geben Sie das genaue Format der Antwort an – JSON-Schema, Tags, „nur das Ergebnis ohne Einführung“, Größe. Sagen Sie, was zu tun ist, nicht, was Sie vermeiden sollten.",
-          "when": "immer dann, wenn die Ausgabe von einem System verwendet wird (Analyse) oder ein konsistentes Format benötigt.",
-          "wrong": "Geben Sie mir ohne weiteres die Kundendaten für diesen Text.",
-          "right": "Kundendaten extrahieren. Antworten Sie NUR mit diesem JSON, ohne\nText davor oder danach. Verwenden Sie null für fehlende Felder:\n{\"name\": string, \"email\": string|null, \"phone\": string|null}",
-          "why": "„kein Blödsinn“ ist subjektiv; Das explizite Schema ist objektiv und im Code analysierbar. „Null für fehlende Daten verwenden“ verhindert, dass das Modell Daten erfindet – ein häufiger Fehler bei der Extraktion."
+          "simple": "Geben Sie das GENAUE Format der Antwort an.",
+          "whatIs": "Geben Sie an, wie die Ausgabe erfolgen soll: JSON-Schema, Tags, „nur das Ergebnis ohne Einführung“, Größe. Sagen Sie, was zu tun ist, nicht, was Sie vermeiden sollten.",
+          "when": "Immer wenn die Antwort von einem System verarbeitet wird (Analyse) oder ein konsistentes Format zwischen Aufrufen benötigt.",
+          "whenNot": "In freien oder explorativen Gesprächen kann ein starrer Vertrag Antworten unterdrücken, die von Flexibilität profitieren würden.",
+          "examples": [
+            {
+              "wrong": "Geben Sie mir die Kundendaten, ohne viel Aufhebens",
+              "right": "Kundendaten extrahieren. Antworten Sie NUR mit diesem JSON,\nkein Text davor oder danach. Verwenden Sie null für fehlende Felder:\n{\"name\": string, \"email\": string|null, \"phone\": string|null}",
+              "note": "Explizites Schema + „null für fehlend“ verhindert, dass das Modell Daten erfindet."
+            }
+          ],
+          "why": "„Kein Schnickschnack“ ist subjektiv; Ein Schema ist objektiv und im Code analysierbar. Durch die Definition des Formats werden Variationen entfernt, die Integrationen unterbrechen.",
+          "tip": "Um JSON/Struktur wirklich zu erzwingen, verwenden Sie strukturierte Ausgaben (Claude/OpenAI), anstatt nur im Text danach zu fragen – das ist viel zuverlässiger.",
+          "sources": [
+            {
+              "label": "Anthropisch – Kontrollantwortformat",
+              "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+            }
+          ]
         }
       ]
     },
@@ -282,7 +383,7 @@
           "whatIs": "Formulieren Sie dieselbe Anfrage auf verschiedene Arten um, rotieren Sie sie alle und aggregieren Sie sie. Reduziert die Empfindlichkeit des Ergebnisses gegenüber bestimmten Formulierungen (Modelle reagieren manchmal unterschiedlich, nur weil Sie gefragt haben).",
           "when": "wenn Sie vermuten, dass das Ergebnis zu sehr davon abhängt, wie die Frage formuliert ist.",
           "wrong": "",
-          "right": "I will ask the same question in 3 different ways. Beantworten Sie jede einzelne Frage\nund sagen Sie mir dann, ob die Antworten übereinstimmen. Wenn sie unterschiedlich sind, erklären Sie\nwarum und welches am zuverlässigsten ist.\n(a) „Erlaubt dieser Vertrag eine Kündigung ohne Vertragsstrafe?“\n(b) „Gibt es eine Strafklausel im Falle einer vorzeitigen Abreise?“\n(c) „Was passiert finanziell, wenn ich vorzeitig kündige?“",
+          "right": "Ich werde dieselbe Frage auf drei verschiedene Arten stellen. Beantworten Sie jede einzelne Frage\nund sagen Sie mir dann, ob die Antworten übereinstimmen. Wenn sie unterschiedlich sind, erklären Sie\nwarum und welches am zuverlässigsten ist.\n(a) „Erlaubt dieser Vertrag eine Kündigung ohne Vertragsstrafe?“\n(b) „Gibt es eine Strafklausel im Falle einer vorzeitigen Abreise?“\n(c) „Was passiert finanziell, wenn ich vorzeitig kündige?“",
           "why": "Wenn die drei Formulierungen übereinstimmen, ist die Antwort solide. Divergenz offenbart Unklarheiten im Vertrag oder im Verständnis des Modells – wertvolle Informationen an sich."
         }
       ]
@@ -454,5 +555,9 @@
       ]
     }
   ],
-  "tocTitle": "Auf dieser Seite"
+  "tocTitle": "Auf dieser Seite",
+  "simpleLabel": "Zusammenfassend",
+  "whenNotLabel": "Wann sollte man es vermeiden?",
+  "tipLabel": "Tipp",
+  "sourcesLabel": "Quellen"
 }

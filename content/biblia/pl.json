@@ -15,61 +15,162 @@
           "id": "zero-shot-prompting",
           "name": "Monit o zerowy strzał",
           "level": 1,
-          "whatIs": "udzielaj bezpośrednich instrukcji, bez przykładów. „Zero-shot” = zero przykładów. To punkt wyjścia wszystkiego.",
-          "when": "proste, dobrze zdefiniowane zadania, które model już opanował (tłumaczenie, podsumowanie, odpowiedź na bezpośrednie pytanie).",
-          "wrong": "opowiedz mi o marketingu",
-          "right": "Wyjaśnij 4 zasady marketingu (produkt, cena, miejsce, promocja) \nw każdym akapicie, na praktycznym przykładzie z kawiarni.",
-          "why": "zła jest niejasna – „o marketingu” może generować tysiąc różnych odpowiedzi. Prawa określa zakres (4 P), format (po jednym akapicie) i kontekst (kawiarnia). Nawet bez przykładów było to jednoznaczne."
+          "simple": "Zapytaj bezpośrednio, bez podawania przykładów.",
+          "whatIs": "Podaj jasne instrukcje, nie pokazując przykładów odpowiedzi – model wykorzystuje tylko to, czego nauczył się podczas szkolenia. „Zero-shot” = zero przykładów. To punkt wyjścia wszystkiego.",
+          "when": "Wspólne i dobrze określone zadania, które model już opanował: tłumaczenie, streszczanie, odpowiadanie na pytanie merytoryczne, przepisywanie tekstu.",
+          "whenNot": "Kiedy dokładny kształt, ton lub krawędzie mają znaczenie. Wtedy kilka przykładów (kilka strzałów) jest wartych więcej niż jakakolwiek instrukcja.",
+          "examples": [
+            {
+              "wrong": "opowiedz mi o marketingu",
+              "right": "Wyjaśnij 4 zasady marketingu (produkt, cena, miejsce, promocja) \nw każdym akapicie, na przykładzie kawiarni.",
+              "note": "Prawidłowa określa zakres (4 P), format (po jednym akapicie) i kontekst (kawiarnia) – jednoznaczny nawet bez przykładów."
+            },
+            {
+              "wrong": "popraw mój tekst",
+              "right": "Popraw błędy gramatyczne i interpunkcyjne w poniższym tekście.\nZachowaj znaczenie i ton. Zwróć tylko poprawiony tekst.",
+              "note": "Powiedz mu, co naprawić, co zachować i format wyjściowy."
+            }
+          ],
+          "why": "Nowoczesne modele rozwiązują dobrze znane zadania bez przykładów — pod warunkiem, że instrukcja jest konkretna. Jasność zastępuje przykłady.",
+          "tip": "Jeśli odpowiedź jest ogólna, nie dodawaj jeszcze przykładów: najpierw doprecyzuj instrukcje (format, rozmiar, odbiorcy).",
+          "sources": [
+            {
+              "label": "Antropiczne — podpowiadanie najlepszych praktyk",
+              "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+            }
+          ]
         },
         {
           "id": "role-persona-prompting",
           "name": "Podpowiadanie roli/osoby",
           "level": 1,
-          "whatIs": "przypisać rolę modelowi („Jesteś…”). Jedno zdanie zmienia ton, słownictwo i głębię odpowiedzi. Wariant podpowiedzi Ekspert wykorzystuje osobę eksperta z danej domeny.",
-          "when": "zawsze, gdy liczy się ton lub głębia techniczna. Praktycznie darmowy i prawie zawsze pomaga.",
-          "wrong": "Czy ten kod stwarza jakieś problemy związane z bezpieczeństwem?\n[code]",
-          "right": "Jesteś ofensywnym ekspertem ds. bezpieczeństwa (pentester) przeglądającym kod w celu audytu. Przeanalizuj poniższy kod pod kątem\nluk w zabezpieczeniach (wstrzyknięcie, ujawnienie sekretu, słabe uwierzytelnienie).\n[kod]",
-          "why": "Rola „testera audytu” skupia model na sposobie myślenia osoby, która aktywnie szuka wad, a wyszczególnienie kategorii zapewnia kierunek. Bez papieru odpowiedź jest zazwyczaj ogólna i powierzchowna."
+          "simple": "Przed zadaniem powiedz modelowi „kim jest”.",
+          "whatIs": "Przypisz rolę („Jesteś starszym prawnikiem podatkowym”), aby dostosować ton, słownictwo i głębię odpowiedzi. Już jedno zdanie zmienia wynik.",
+          "when": "Kiedy liczy się ton lub poziom techniczny — pisanie, obsługa, opinie, nauczanie.",
+          "whenNot": "W kwestiach czystej wiedzy (fakty, relacje, wielokrotny wybór) osoba może przeszkodzić. W testach benchmarku MMLU osoby „eksperci” spadły z dokładnością (z ~71,6% do ~68%).",
+          "examples": [
+            {
+              "wrong": "Czy ten kod stwarza problemy związane z bezpieczeństwem?",
+              "right": "Jesteś pentesterem przeglądającym kod na potrzeby audytu.\nPrzeanalizuj poniższy kod pod kątem wstrzyknięć, ujawnienia\ntajemnic i słabego uwierzytelnienia.",
+              "note": "W artykule skupiono się na modelu myślenia osób poszukujących wad."
+            },
+            {
+              "wrong": "wyjaśnia rekurencję",
+              "right": "Jesteś cierpliwym nauczycielem, który tłumaczy 10-letniemu dziecku. Wyjaśnij rekurencję za pomocą codziennej analogii.",
+              "note": "Persona + publiczność określają poziom wyjaśnienia."
+            }
+          ],
+          "why": "Rola aktywuje słownictwo i ton związane z tym profilem. Ale efekt jest zależny od zadania: pomaga w tonie, rzadko w przypadku wiedzy opartej na faktach.",
+          "tip": "Użyj persony dla TONU i STYLU; nie oczekuj, że stwierdzenie „Jesteś geniuszem matematyki” poprawi wynik. Aby uzyskać dokładność, preferuj jasne instrukcje i weryfikację.",
+          "sources": [
+            {
+              "label": "PromptHub — badanie dotyczące podejmowania ról",
+              "url": "https://www.prompthub.us/blog/role-prompting-does-adding-personas-to-your-prompts-really-make-a-difference"
+            },
+            {
+              "label": "Antropiczny — daj rolę Claude'owi",
+              "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+            }
+          ]
         },
         {
-          "id": "few-shot-multishot-prompting",
-          "name": "Monit o kilka strzałów/wiele strzałów",
+          "id": "few-shot-multishot",
+          "name": "Kilka strzałów / Wielostrzał",
           "level": 1,
-          "whatIs": "pokaż od 2 do 5 przykładów wejścia → wyjścia, zanim zapytasz o swoją sprawę. To najbardziej niezawodne narzędzie do kontrolowania formatu, tonu i spójności. „Few-shot” = kilka przykładów.",
-          "when": "gdy liczy się dokładny format lub ton lub przy trudnej klasyfikacji. Przykłady muszą być istotne (podobne do rzeczywistego przypadku) i różnorodne (obejmować odmiany).",
-          "wrong": "Wyodrębnij opinię i kategorię z tej recenzji: „Dotarła szybko, ale była zepsuta”.",
-          "right": "Wyodrębnij sentyment i kategorię. Skorzystaj z przykładów:\n\n<example>\nRecenzja: „Podobało mi się, bardzo polecam!”\n → {„uczucia”: „pozytywne”, „kategoria”: „satysfakcja”>\n</example>\n<example>\nRecenzja: „Przyszła z brakującym elementem.”\n → {„uczucie”: „negatywny”, „kategoria”: „produkt_defektywny”>\n</example \n\nRecenzja: „Dotarła szybko, ale była zepsuta.”\n→",
-          "why": "dwa przykłady naprawiają format (JSON z dwoma polami) i pokazują słownictwo kategorii. Model po prostu podąża za wzorem. Należy zauważyć, że drugi przykład obejmuje przypadek negatywny — różnorodność uniemożliwia modelowi myślenie, że wszystko jest pozytywne."
+          "simple": "Zanim zapytasz o swoją sprawę, pokaż od 2 do 5 przykładowych odpowiedzi.",
+          "whatIs": "Dołącz kilka przykładów wejść i wyjść, aby model imitował wzorzec. „Few-shot” = kilka przykładów. Jest to najsilniejsza dźwignia kontroli kształtu, tonu i konsystencji.",
+          "when": "Gdy liczy się dokładny format (JSON, tabela), ton musi być spójny, w przeciwnym razie sortowanie jest trudne.",
+          "whenNot": "W trywialnych zadaniach (zero-shot już to rozwiązuje) lub gdy przykłady kierują się w stronę jednego schematu – wtedy różnicuj lub ograniczaj.",
+          "examples": [
+            {
+              "right": "Oceń uczucie. Kieruj się przykładami:\n\"Podobało mi się, polecam!\" → pozytywne\n„Przyszło zepsute.” → negatywna\n\nOpinia: „Przybyła szybko, ale została zmiażdżona.” →",
+              "note": "Dwa przykłady naprawiają format wyjściowy i słownictwo; uwzględnij przypadek negatywny, aby uniknąć stronniczości."
+            }
+          ],
+          "why": "Few-shot pochodzi z badania GPT-3 (Brown i in., 2020): modele uczą się zadania wyłącznie na podstawie przykładów podanych w podpowiedzi (uczenie się w kontekście). Badania pokazują skoki takie jak F1 0,51 → 0,62 przy przejściu od zera do 3 przykładów.",
+          "tip": "Najlepszym rozwiązaniem będzie 3–5 przykładów. Używaj RÓŻNYCH przykładów (przykłady na krawędzi okładki) i dbaj o ZAMÓWIENIE — zamiana przykładów może znacznie zmienić dokładność.",
+          "sources": [
+            {
+              "label": "Brown i in. 2020 — Modele językowe to nieliczni uczniowie",
+              "url": "https://arxiv.org/abs/2005.14165"
+            },
+            {
+              "label": "Szybki raport (arXiv:2406.06608)",
+              "url": "https://arxiv.org/abs/2406.06608"
+            }
+          ]
         },
         {
-          "id": "estruturacao-com-xml-delimitadores",
+          "id": "estruturacao-com-xml",
           "name": "Strukturyzacja za pomocą XML/ograniczników",
           "level": 1,
-          "whatIs": "zawiń każdą część podpowiedzi w znaczniki ( <context> , <dados> , <instructions> ). Wyraźnie oddziela to, co jest instrukcją od tego, co jest podawane, zapobiegając pomyleniu tych dwóch elementów w modelu.",
-          "when": "za każdym razem, gdy monit łączy instrukcje z danymi (zwłaszcza danymi długimi lub samodzielnie sformatowanymi). Jest to wzór zalecany dla Claude'a.",
-          "wrong": "Streść poniższy tekst w 3 tematach: Dzisiejsze spotkanie: postanowiliśmy przełożyć premierę. Podsumuj także ryzyko w 3 tematach. Budżet\nzatwierdzony.",
-          "right": "Podsumuj zawartość <text> dokładnie na 3 tematy.\n\n<text>\nDzisiejsze spotkanie: postanowiliśmy przełożyć premierę. Budżet zatwierdzony.\nRyzyko: mniejszy zespół i napięty termin.\n</text>",
-          "why": "znacznik <text> sprawia, że ​​to, co powinno zostać podsumowane, jest krystalicznie jasne. W niewłaściwym przypadku instrukcję „Podsumuj ryzyko w 3 tematach” znajdującą się pośrodku treści można przeczytać jako część streszczonego tekstu — lub jako drugą kolejność. Czysta dwuznaczność."
+          "simple": "Oddziel instrukcje i dane za pomocą „tagów”.",
+          "whatIs": "Owiń każdą część podpowiedzi znacznikami (<kontekst>, <dane>, <instrukcje>), aby model nie pomylił porządku z materiałem do przetworzenia.",
+          "when": "Zawsze, gdy monit łączy instrukcje z danymi — szczególnie długimi lub samodzielnie sformatowanymi danymi. Jest to wzór zalecany dla Claude'a.",
+          "whenNot": "Krótko mówiąc, jednowierszowe podpowiedzi bez osadzonych danych są niepotrzebne.",
+          "examples": [
+            {
+              "wrong": "Podsumuj: dzisiejsze spotkanie: przełożyliśmy start.\nPodsumuj także ryzyko. Budżet w porządku.",
+              "right": "Podsumuj zawartość <text> w 3 tematach.\n\n<text>\nDzisiejsze spotkanie: przełożyliśmy premierę. Budżet ok.\nRyzyko: mniejszy zespół i napięty termin.\n</text>",
+              "note": "Etykieta wyjaśnia, co jest podane i czym jest instrukcja – bez dwuznaczności."
+            }
+          ],
+          "why": "Tagi zmniejszają niejednoznaczność pomiędzy instrukcją a treścią — najczęstszy błąd w podpowiedziach z osadzonym tekstem. Modele wyszkolone przy użyciu danych strukturalnych (takich jak Claude) dokładnie podążają za tagami.",
+          "tip": "Używaj spójnych i opisowych nazw tagów. Zagnieżdżaj, jeśli istnieje hierarchia (kilka <dokumentów> w <dokumentach>).",
+          "sources": [
+            {
+              "label": "Antropiczne — używaj tagów XML",
+              "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+            }
+          ]
         },
         {
           "id": "contexto-motivacao",
           "name": "Kontekst + motywacja",
           "level": 1,
-          "whatIs": "podać podstawowe informacje i wyjaśnić, dlaczego istnieje instrukcja. Model lepiej uogólnia na podstawie stosunku.",
-          "when": "ilekroć reguła może zostać błędnie zinterpretowana, jeśli zostanie zastosowana do litery bez zrozumienia celu.",
-          "wrong": "Odpowiedz w maksymalnie 2 zdaniach. Nigdy nie używaj liczb.",
-          "right": "Ta odpowiedź zostanie wyświetlona na inteligentnym zegarku z małym ekranem i przeczytana na głos. Dlatego: maksymalnie 2 krótkie zdania i\npisz liczby w całości (np. „trzy” zamiast „3”), ponieważ\nczytnik ekranu dziwnie pisze cyfry.",
-          "why": "znając przyczynę (mały ekran + głos), modelka kieruje się zdrowym rozsądkiem i przewiduje nawet niewypowiedziane przypadki. Bez powodu „nigdy nie używaj liczb” jest ślepą zasadą, którą można złamać lub zastosować w absurdalny sposób."
+          "simple": "Wyjaśnij powód wydania instrukcji, a nie tylko kolejności.",
+          "whatIs": "Podaj podstawowe informacje i powód prośby. Model lepiej uogólnia, gdy rozumie cel, a nie tylko regułę.",
+          "when": "Ilekroć reguła może zostać błędnie zinterpretowana, jeśli zostanie zastosowana do litery bez zrozumienia jej celu.",
+          "whenNot": "Rzadko to przeszkadza, ale nie nadmuchuj go nieistotnym kontekstem, bo to zamienia się w szum i marnuje uwagę modelki.",
+          "examples": [
+            {
+              "wrong": "Nigdy nie używaj elipsy.",
+              "right": "Ta odpowiedź zostanie odczytana przez syntezator mowy, który nie wymawia poprawnie wielokropków — więc nie używaj „…”.",
+              "note": "Wiedząc dlaczego, model stosuje regułę ze zdrowym rozsądkiem i przewiduje podobne przypadki."
+            }
+          ],
+          "why": "Kiedy model rozumie motywację, rozszerza regułę na niewypowiedziane przypadki i unika absurdalnych zastosowań. Prymitywne instrukcje są ślepą zasadą.",
+          "tip": "Jedno zdanie „dlaczego to ma znaczenie” jest zwykle warte trzech zdań „zrób to w ten sposób”.",
+          "sources": [
+            {
+              "label": "Antropiczne — Dodaj kontekst, aby poprawić wydajność",
+              "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+            }
+          ]
         },
         {
-          "id": "contrato-de-saida-output-contract",
+          "id": "contrato-de-saida",
           "name": "Umowa wyjściowa",
           "level": 1,
-          "whatIs": "określ dokładny format odpowiedzi — schemat JSON, znaczniki, „tylko wynik bez wstępu”, rozmiar. Powiedz, co robić, a nie czego unikać.",
-          "when": "za każdym razem, gdy dane wyjściowe są wykorzystywane przez system (parsowanie) lub wymagają spójnego formatu.",
-          "wrong": "Podaj mi bez zbędnych ceregieli dane klienta do tego tekstu.",
-          "right": "Wyodrębnij dane klientów. Odpowiadaj TYLKO tym kodem JSON, bez tekstu \nprzed i po. Użyj wartości null w przypadku brakujących pól:\n{\"name\": string, \"email\": string|null, \"phone\": string|null}",
-          "why": "„żadnych bzdur” jest subiektywne; jawny schemat jest obiektywny i można go analizować w kodzie. Opcja „Użyj wartości null w przypadku brakujących danych” uniemożliwia modelowi wymyślanie danych — częsty błąd podczas ekstrakcji."
+          "simple": "Podaj DOKŁADNY format odpowiedzi.",
+          "whatIs": "Określ, w jaki sposób powinny wyglądać dane wyjściowe: schemat JSON, tagi, „tylko wynik bez wstępu”, rozmiar. Powiedz, co robić, a nie czego unikać.",
+          "when": "Zawsze, gdy odpowiedź jest zużywana przez system (parsowanie) lub wymaga spójnego formatu pomiędzy wywołaniami.",
+          "whenNot": "W swobodnej lub eksploracyjnej rozmowie sztywna umowa może stłumić reakcje, które skorzystałyby na elastyczności.",
+          "examples": [
+            {
+              "wrong": "Podaj mi dane klienta, bez kłopotów",
+              "right": "Wyodrębnij dane klientów. Odpowiedz TYLKO tym kodem JSON, \nbez tekstu przed i po. Użyj wartości null w przypadku brakujących pól:\n{\"name\": string, \"email\": string|null, \"phone\": string|null}",
+              "note": "Jawny schemat + „null dla brakujących” uniemożliwia modelowi wymyślanie danych."
+            }
+          ],
+          "why": "„Bez fanaberii” jest subiektywne; schemat jest obiektywny i można go analizować. Zdefiniowanie formatu usuwa różnice, które zakłócają integrację.",
+          "tip": "Aby naprawdę wymusić JSON/strukturę, użyj strukturalnych wyników wyjściowych (Claude/OpenAI) zamiast po prostu pytać o to w tekście — jest to znacznie bardziej niezawodne.",
+          "sources": [
+            {
+              "label": "Antropiczny — format odpowiedzi kontrolnej",
+              "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+            }
+          ]
         }
       ]
     },
@@ -454,5 +555,9 @@
       ]
     }
   ],
-  "tocTitle": "Na tej stronie"
+  "tocTitle": "Na tej stronie",
+  "simpleLabel": "Podsumowując",
+  "whenNotLabel": "Kiedy unikać",
+  "tipLabel": "Wskazówka",
+  "sourcesLabel": "Źródła"
 }

@@ -15,61 +15,162 @@
           "id": "zero-shot-prompting",
           "name": "Zero-shot prompting",
           "level": 1,
-          "whatIs": "dar uma instrução direta, sem exemplos. \"Zero-shot\" = zero exemplos. É o ponto de partida de tudo.",
-          "when": "tarefas simples e bem definidas que o modelo já domina (traduzir, resumir, responder uma pergunta direta).",
-          "wrong": "me fala sobre marketing",
-          "right": "Explique os 4 Ps do marketing (produto, preço, praça, promoção)\nem um parágrafo cada, com um exemplo prático de uma cafeteria.",
-          "why": "o errado é vago — \"sobre marketing\" pode gerar mil respostas diferentes. O certo define escopo (os 4 Ps), formato (um parágrafo cada) e contexto (cafeteria). Mesmo sem exemplos, ficou inequívoco."
+          "simple": "Pedir direto, sem dar exemplos.",
+          "whatIs": "Dar uma instrução clara sem mostrar exemplos de resposta — o modelo usa só o que aprendeu no treino. \"Zero-shot\" = zero exemplos. É o ponto de partida de tudo.",
+          "when": "Tarefas comuns e bem definidas que o modelo já domina: traduzir, resumir, responder uma pergunta factual, reescrever um texto.",
+          "whenNot": "Quando o formato exato, o tom ou casos de borda importam. Aí alguns exemplos (few-shot) valem mais que qualquer instrução.",
+          "examples": [
+            {
+              "wrong": "me fala sobre marketing",
+              "right": "Explique os 4 Ps do marketing (produto, preço, praça, promoção)\nem um parágrafo cada, com um exemplo de uma cafeteria.",
+              "note": "O certo define escopo (os 4 Ps), formato (um parágrafo cada) e contexto (cafeteria) — inequívoco mesmo sem exemplos."
+            },
+            {
+              "wrong": "corrige meu texto",
+              "right": "Corrija erros de gramática e pontuação no texto abaixo.\nMantenha o sentido e o tom. Devolva só o texto corrigido.",
+              "note": "Diga o que corrigir, o que preservar e o formato de saída."
+            }
+          ],
+          "why": "Modelos modernos resolvem bem tarefas conhecidas sem exemplos — desde que a instrução seja específica. A clareza substitui os exemplos.",
+          "tip": "Se a resposta vier genérica, não adicione exemplos ainda: primeiro deixe a instrução mais específica (formato, tamanho, público).",
+          "sources": [
+            {
+              "label": "Anthropic — Prompting best practices",
+              "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+            }
+          ]
         },
         {
           "id": "role-persona-prompting",
           "name": "Role / Persona prompting",
           "level": 1,
-          "whatIs": "atribuir um papel ao modelo (\"Você é um...\"). Uma única frase muda tom, vocabulário e profundidade da resposta. A variante Expert prompting usa uma persona de especialista no domínio exato.",
-          "when": "sempre que o tom ou a profundidade técnica importam. Praticamente de graça e quase sempre ajuda.",
-          "wrong": "Esse código tem algum problema de segurança?\n[código]",
-          "right": "Você é um especialista em segurança ofensiva (pentester) revisando\ncódigo para uma auditoria. Analise o código abaixo em busca de\nvulnerabilidades (injeção, exposição de segredos, autenticação fraca).\n[código]",
-          "why": "o papel \"pentester em auditoria\" foca o modelo no mindset de quem procura falhas ativamente, e listar as categorias dá direção. Sem o papel, a resposta tende a ser genérica e superficial."
+          "simple": "Dizer ao modelo \"quem ele é\" antes da tarefa.",
+          "whatIs": "Atribuir um papel (\"Você é um advogado tributarista sênior\") para calibrar tom, vocabulário e profundidade da resposta. Uma única frase já muda o resultado.",
+          "when": "Quando o tom ou o nível técnico importam — escrita, atendimento, pareceres, ensino.",
+          "whenNot": "Em perguntas de conhecimento puro (fatos, contas, múltipla escolha) a persona pode ATRAPALHAR. Em testes no benchmark MMLU, personas de \"especialista\" derrubaram a acurácia (de ~71,6% para ~68%).",
+          "examples": [
+            {
+              "wrong": "Esse código tem problema de segurança?",
+              "right": "Você é um pentester revisando código para uma auditoria.\nAnalise o código abaixo em busca de injeção, segredos\nexpostos e autenticação fraca.",
+              "note": "O papel foca o modelo no mindset de quem procura falhas."
+            },
+            {
+              "wrong": "explica recursão",
+              "right": "Você é uma professora paciente explicando para uma criança\nde 10 anos. Explique recursão com uma analogia do dia a dia.",
+              "note": "Persona + audiência definem o nível da explicação."
+            }
+          ],
+          "why": "O papel ativa o vocabulário e o tom associados àquele perfil. Mas o efeito é sensível à tarefa: ajuda no tom, raramente em conhecimento factual.",
+          "tip": "Use persona para TOM e ESTILO; não espere que \"Você é um gênio da matemática\" melhore a conta. Para precisão, prefira instruções claras e verificação.",
+          "sources": [
+            {
+              "label": "PromptHub — Role prompting study",
+              "url": "https://www.prompthub.us/blog/role-prompting-does-adding-personas-to-your-prompts-really-make-a-difference"
+            },
+            {
+              "label": "Anthropic — Give Claude a role",
+              "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+            }
+          ]
         },
         {
-          "id": "few-shot-multishot-prompting",
-          "name": "Few-shot / Multishot prompting",
+          "id": "few-shot-multishot",
+          "name": "Few-shot / Multishot",
           "level": 1,
-          "whatIs": "mostrar de 2 a 5 exemplos de input→output antes de pedir o seu caso. É a ferramenta mais confiável para controlar formato, tom e consistência. \"Few-shot\" = poucos exemplos.",
-          "when": "quando o formato exato ou o tom importam, ou em classificação difícil. Os exemplos devem ser relevantes (parecidos com o caso real) e diversos (cobrir variações).",
-          "wrong": "Extraia o sentimento e a categoria desse review: \"Chegou rápido mas\nveio quebrado.\"",
-          "right": "Extraia sentimento e categoria. Siga os exemplos:\n\n<exemplo>\nReview: \"Amei, super recomendo!\"\n→ {\"sentimento\": \"positivo\", \"categoria\": \"satisfação\"}\n</exemplo>\n<exemplo>\nReview: \"Veio com peça faltando.\"\n→ {\"sentimento\": \"negativo\", \"categoria\": \"produto_defeituoso\"}\n</exemplo>\n\nReview: \"Chegou rápido mas veio quebrado.\"\n→",
-          "why": "os dois exemplos fixam o formato (JSON com dois campos) e mostram o vocabulário de categorias. O modelo simplesmente segue o padrão. Note que o segundo exemplo cobre um caso negativo — diversidade evita que o modelo ache que tudo é positivo."
+          "simple": "Mostrar 2 a 5 exemplos de resposta antes de pedir o seu caso.",
+          "whatIs": "Incluir alguns exemplos de input→output para o modelo imitar o padrão. \"Few-shot\" = poucos exemplos. É o lever mais forte para controlar formato, tom e consistência.",
+          "when": "Quando o formato exato importa (JSON, tabela), o tom precisa ser consistente, ou a classificação é difícil.",
+          "whenNot": "Em tarefas triviais (zero-shot já resolve) ou quando os exemplos enviesam para um único padrão — aí diversifique ou reduza.",
+          "examples": [
+            {
+              "right": "Classifique o sentimento. Siga os exemplos:\n\"Amei, recomendo!\" → positivo\n\"Veio quebrado.\" → negativo\n\nReview: \"Chegou rápido mas veio amassado.\" →",
+              "note": "Dois exemplos fixam o formato e o vocabulário de saída; inclua um caso negativo para não enviesar."
+            }
+          ],
+          "why": "Few-shot vem da pesquisa do GPT-3 (Brown et al., 2020): modelos aprendem a tarefa só pelos exemplos no prompt (in-context learning). Estudos mostram saltos como F1 0,51 → 0,62 ao ir de zero para 3 exemplos.",
+          "tip": "3 a 5 exemplos é o ponto ótimo. Use exemplos DIVERSOS (cubra os casos de borda) e cuide da ORDEM — a permutação dos exemplos pode mudar muito a acurácia.",
+          "sources": [
+            {
+              "label": "Brown et al. 2020 — Language Models are Few-Shot Learners",
+              "url": "https://arxiv.org/abs/2005.14165"
+            },
+            {
+              "label": "The Prompt Report (arXiv:2406.06608)",
+              "url": "https://arxiv.org/abs/2406.06608"
+            }
+          ]
         },
         {
-          "id": "estruturacao-com-xml-delimitadores",
+          "id": "estruturacao-com-xml",
           "name": "Estruturação com XML / delimitadores",
           "level": 1,
-          "whatIs": "envolver cada parte do prompt em tags ( <contexto> , <dados> , <instrucoes> ). Separa claramente o que é instrução do que é dado, evitando que o modelo confunda os dois.",
-          "when": "sempre que o prompt mistura instruções com dados (especialmente dados longos ou com formatação própria). É o padrão recomendado para Claude.",
-          "wrong": "Resuma o texto a seguir em 3 tópicos: Reunião de hoje: decidimos\nadiar o lançamento. Resuma em 3 tópicos também os riscos. Orçamento\naprovado.",
-          "right": "Resuma o conteúdo dentro de <texto> em exatamente 3 tópicos.\n\n<texto>\nReunião de hoje: decidimos adiar o lançamento. Orçamento aprovado.\nRiscos: equipe reduzida e prazo apertado.\n</texto>",
-          "why": "a tag <texto> deixa cristalino o que deve ser resumido. No errado, a instrução \"Resuma em 3 tópicos também os riscos\" no meio do conteúdo pode ser lida como parte do texto a resumir — ou como uma segunda ordem. Ambiguidade pura."
+          "simple": "Separar instrução e dados com \"etiquetas\" (tags).",
+          "whatIs": "Envolver cada parte do prompt em marcadores (<contexto>, <dados>, <instrucoes>) para o modelo não confundir o que é ordem com o que é material a processar.",
+          "when": "Sempre que o prompt mistura instrução com dados — especialmente dados longos ou com formatação própria. É o padrão recomendado para o Claude.",
+          "whenNot": "Em prompts curtos de uma linha, sem dados embutidos, é desnecessário.",
+          "examples": [
+            {
+              "wrong": "Resuma: Reunião de hoje: adiamos o lançamento.\nResuma os riscos também. Orçamento ok.",
+              "right": "Resuma o conteúdo dentro de <texto> em 3 tópicos.\n\n<texto>\nReunião de hoje: adiamos o lançamento. Orçamento ok.\nRiscos: equipe reduzida e prazo apertado.\n</texto>",
+              "note": "A tag deixa claro o que é dado e o que é instrução — sem ambiguidade."
+            }
+          ],
+          "why": "Tags reduzem a ambiguidade entre instrução e conteúdo — o erro mais comum em prompts com texto embutido. Modelos treinados com dados estruturados (como o Claude) seguem tags com precisão.",
+          "tip": "Use nomes de tag consistentes e descritivos. Aninhe quando houver hierarquia (vários <documento> dentro de <documentos>).",
+          "sources": [
+            {
+              "label": "Anthropic — Use XML tags",
+              "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+            }
+          ]
         },
         {
           "id": "contexto-motivacao",
           "name": "Contexto + motivação",
           "level": 1,
-          "whatIs": "dar informação de fundo e explicar por que a instrução existe. O modelo generaliza melhor a partir da razão.",
-          "when": "sempre que uma regra puder ser mal interpretada se aplicada ao pé da letra sem entender o objetivo.",
-          "wrong": "Responda em no máximo 2 frases. Nunca use números.",
-          "right": "Esta resposta será exibida em um relógio inteligente com tela\nminúscula e lida em voz alta. Por isso: máximo 2 frases curtas, e\nescreva números por extenso (ex: \"três\" em vez de \"3\"), porque o\nleitor de tela soletra dígitos de forma estranha.",
-          "why": "sabendo o motivo (tela pequena + voz), o modelo aplica a regra com bom senso e até antecipa casos não ditos. Sem o motivo, \"nunca use números\" é uma regra cega que ele pode quebrar ou aplicar de forma absurda."
+          "simple": "Explicar o porquê da instrução, não só a ordem.",
+          "whatIs": "Dar informação de fundo e a razão por trás do pedido. O modelo generaliza melhor quando entende o objetivo, não só a regra.",
+          "when": "Sempre que uma regra possa ser mal interpretada se aplicada ao pé da letra sem entender o propósito.",
+          "whenNot": "Raramente atrapalha — mas não infle com contexto irrelevante, que vira ruído e desperdiça a atenção do modelo.",
+          "examples": [
+            {
+              "wrong": "Nunca use reticências.",
+              "right": "Esta resposta será lida por um sintetizador de voz que não\npronuncia reticências corretamente — por isso, não use \"…\".",
+              "note": "Sabendo o porquê, o modelo aplica a regra com bom senso e antecipa casos parecidos."
+            }
+          ],
+          "why": "Quando o modelo entende a motivação, ele estende a regra a casos não ditos e evita aplicações absurdas. A instrução crua é uma regra cega.",
+          "tip": "Uma frase de \"por que isso importa\" costuma valer mais que três frases de \"faça assim\".",
+          "sources": [
+            {
+              "label": "Anthropic — Add context to improve performance",
+              "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+            }
+          ]
         },
         {
-          "id": "contrato-de-saida-output-contract",
-          "name": "Contrato de saída (Output contract)",
+          "id": "contrato-de-saida",
+          "name": "Contrato de saída (output contract)",
           "level": 1,
-          "whatIs": "especificar o formato exato da resposta — schema JSON, tags, \"só o resultado sem introdução\", tamanho. Diga o que fazer , não o que evitar.",
-          "when": "sempre que a saída for consumida por um sistema (parsing) ou precisar de formato consistente.",
-          "wrong": "Me dá os dados do cliente desse texto, sem enrolação.",
-          "right": "Extraia os dados do cliente. Responda APENAS com este JSON, sem\ntexto antes ou depois. Use null para campos ausentes:\n{\"nome\": string, \"email\": string|null, \"telefone\": string|null}",
-          "why": "\"sem enrolação\" é subjetivo; o schema explícito é objetivo e parseável por código. O \"use null para ausentes\" previne que o modelo invente dados — um erro comum em extração."
+          "simple": "Dizer o formato EXATO da resposta.",
+          "whatIs": "Especificar como a saída deve vir: schema JSON, tags, \"só o resultado sem introdução\", tamanho. Diga o que fazer, não o que evitar.",
+          "when": "Sempre que a resposta for consumida por um sistema (parsing) ou precisar de formato consistente entre chamadas.",
+          "whenNot": "Em conversa livre ou exploratória, um contrato rígido pode engessar respostas que se beneficiariam de flexibilidade.",
+          "examples": [
+            {
+              "wrong": "me dá os dados do cliente, sem enrolação",
+              "right": "Extraia os dados do cliente. Responda APENAS com este JSON,\nsem texto antes ou depois. Use null para campos ausentes:\n{\"nome\": string, \"email\": string|null, \"telefone\": string|null}",
+              "note": "Schema explícito + \"null para ausentes\" evita que o modelo invente dados."
+            }
+          ],
+          "why": "\"Sem enrolação\" é subjetivo; um schema é objetivo e parseável por código. Definir o formato remove a variação que quebra integrações.",
+          "tip": "Para forçar JSON/estrutura de verdade, use Structured Outputs (Claude/OpenAI) em vez de só pedir no texto — é bem mais confiável.",
+          "sources": [
+            {
+              "label": "Anthropic — Control response format",
+              "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+            }
+          ]
         }
       ]
     },
@@ -454,5 +555,9 @@
       ]
     }
   ],
-  "tocTitle": "Nesta página"
+  "tocTitle": "Nesta página",
+  "simpleLabel": "Em resumo",
+  "whenNotLabel": "Quando evitar",
+  "tipLabel": "Dica",
+  "sourcesLabel": "Fontes"
 }

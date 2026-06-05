@@ -15,61 +15,162 @@
           "id": "zero-shot-prompting",
           "name": "Gesaan sifar pukulan",
           "level": 1,
-          "whatIs": "memberi arahan langsung, tanpa contoh. \"Sifar pukulan\" = sifar contoh. Ia adalah titik permulaan segala-galanya.",
-          "when": "tugas mudah dan jelas yang model sudah kuasai (menterjemah, meringkaskan, menjawab soalan langsung).",
-          "wrong": "beritahu saya tentang pemasaran",
-          "right": "Terangkan 4 P pemasaran (produk, harga, tempat, promosi)\ndalam satu perenggan setiap satu, dengan contoh praktikal dari kedai kopi.",
-          "why": "yang salah adalah kabur — \"tentang pemasaran\" boleh menjana seribu jawapan yang berbeza. Yang betul mentakrifkan skop (4 Ps), format (satu perenggan setiap satu) dan konteks (kedai kopi). Walaupun tanpa contoh, ia jelas."
+          "simple": "Tanya terus, tanpa memberi contoh.",
+          "whatIs": "Berikan arahan yang jelas tanpa menunjukkan contoh jawapan — model hanya menggunakan apa yang dipelajari dalam latihan. \"Sifar pukulan\" = sifar contoh. Ia adalah titik permulaan segala-galanya.",
+          "when": "Tugas biasa dan jelas yang model sudah kuasai: menterjemah, meringkaskan, menjawab soalan fakta, menulis semula teks.",
+          "whenNot": "Apabila bentuk, ton atau kes tepi yang tepat penting. Kemudian beberapa contoh (sedikit pukulan) bernilai lebih daripada sebarang arahan.",
+          "examples": [
+            {
+              "wrong": "beritahu saya tentang pemasaran",
+              "right": "Terangkan 4 P pemasaran (produk, harga, tempat, promosi)\ndalam satu perenggan setiap satu, dengan contoh kedai kopi.",
+              "note": "Yang betul mentakrifkan skop (4 Ps), format (satu perenggan setiap satu) dan konteks (kedai kopi) — jelas walaupun tanpa contoh."
+            },
+            {
+              "wrong": "betulkan teks saya",
+              "right": "Betulkan kesilapan tatabahasa dan tanda baca dalam teks di bawah.\nKekalkan makna dan nada. Kembalikan hanya teks yang telah diperbetulkan.",
+              "note": "Beritahu perkara yang perlu diperbaiki, perkara yang perlu disimpan dan format output."
+            }
+          ],
+          "why": "Model moden menyelesaikan tugas yang terkenal tanpa contoh — selagi arahan itu khusus. Kejelasan menggantikan contoh.",
+          "tip": "Jika jawapannya adalah generik, jangan tambahkan contoh lagi: mula-mula buat arahan lebih khusus (format, saiz, khalayak).",
+          "sources": [
+            {
+              "label": "Anthropic — Mendorong amalan terbaik",
+              "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+            }
+          ]
         },
         {
           "id": "role-persona-prompting",
           "name": "Peranan/Persona mendorong",
           "level": 1,
-          "whatIs": "berikan peranan kepada model (\"Anda adalah...\"). Satu ayat mengubah nada, perbendaharaan kata dan kedalaman jawapan. Varian gesaan Pakar menggunakan persona pakar dalam domain yang tepat.",
-          "when": "bila-bila masa nada atau kedalaman teknikal penting. Secara praktikalnya percuma dan hampir selalu membantu.",
-          "wrong": "Adakah kod ini mempunyai sebarang isu keselamatan?\n[kod]",
-          "right": "Anda ialah pakar keselamatan yang menyinggung (pentester) menyemak kod untuk audit. Analisis kod di bawah untuk\nkelemahan (suntikan, pendedahan rahsia, pengesahan lemah).\n[kod]",
-          "why": "Peranan \"penguji audit\" memfokuskan model pada pemikiran seseorang yang aktif mencari kelemahan, dan menyenaraikan kategori memberikan hala tuju. Tanpa kertas, tindak balas cenderung bersifat generik dan cetek."
+          "simple": "Beritahu model \"siapa mereka\" sebelum tugasan.",
+          "whatIs": "Berikan peranan (\"Anda seorang peguam cukai kanan\") untuk menentukur nada, perbendaharaan kata dan kedalaman respons. Satu ayat sudah mengubah hasilnya.",
+          "when": "Apabila nada atau tahap teknikal penting — penulisan, perkhidmatan, pendapat, pengajaran.",
+          "whenNot": "Dalam persoalan pengetahuan tulen (fakta, akaun, aneka pilihan) persona boleh menghalangnya. Dalam ujian pada penanda aras MMLU, persona \"pakar\" menurunkan ketepatan (dari ~71.6% kepada ~68%).",
+          "examples": [
+            {
+              "wrong": "Adakah kod ini mempunyai masalah keselamatan?",
+              "right": "Anda ialah pentester yang menyemak kod untuk audit.\nAnalisis kod di bawah untuk suntikan,\nrahsia terdedah dan pengesahan yang lemah.",
+              "note": "Makalah itu memfokuskan model pada pemikiran mereka yang mencari kelemahan."
+            },
+            {
+              "wrong": "menerangkan rekursi",
+              "right": "Anda seorang guru yang sabar menerangkan kepada kanak-kanak berumur 10 tahun. Terangkan rekursi dengan analogi harian.",
+              "note": "Persona + penonton menentukan tahap penjelasan."
+            }
+          ],
+          "why": "Peranan mengaktifkan perbendaharaan kata dan nada yang dikaitkan dengan profil tersebut. Tetapi kesannya adalah sensitif tugas: ia membantu dengan nada, jarang dengan pengetahuan fakta.",
+          "tip": "Gunakan persona untuk NADA dan GAYA; jangan mengharapkan \"Anda seorang genius matematik\" untuk meningkatkan markah. Untuk ketepatan, lebih suka arahan dan pengesahan yang jelas.",
+          "sources": [
+            {
+              "label": "PromptHub — Kajian dorongan peranan",
+              "url": "https://www.prompthub.us/blog/role-prompting-does-adding-personas-to-your-prompts-really-make-a-difference"
+            },
+            {
+              "label": "Anthropic — Berikan Claude peranan",
+              "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+            }
+          ]
         },
         {
-          "id": "few-shot-multishot-prompting",
-          "name": "Gesaan beberapa tangkapan/Berbilang tangkapan",
+          "id": "few-shot-multishot",
+          "name": "Beberapa pukulan / Multishot",
           "level": 1,
-          "whatIs": "tunjukkan 2 hingga 5 contoh input→output sebelum bertanya kes anda. Ia adalah alat yang paling boleh dipercayai untuk mengawal format, nada dan konsistensi. \"Few-shot\" = beberapa contoh.",
-          "when": "apabila format atau nada yang tepat penting, atau dalam pengelasan yang sukar. Contoh mestilah relevan (serupa dengan kes sebenar) dan pelbagai (variasi penutup).",
-          "wrong": "Ekstrak sentimen dan kategori daripada ulasan ini: \"Ia tiba dengan cepat tetapi ia rosak.\"",
-          "right": "Ekstrak sentimen dan kategori. Ikut contoh:\n\n<example>\nUlasan: \"Saya menyukainya, saya sangat mengesyorkannya!\"\n→ {\"feeling\": \"positive\", \"category\": \"satisfaction\"}\n</example>\n<example>\nUlasan: \"Ia datang dengan bahagian yang hilang.\"\n→ {\"feeling\" \"category\": \"goryproduct:\"></example\"}\n</example>\n<example>\nUlasan: \"Ia datang dengan sekeping yang hilang.\"\n→ {\"feeling\" \"defective\"></example\": \"defective\"></example\" \n\nUlasan: \"Ia tiba dengan cepat tetapi ia rosak.\"\n→",
-          "why": "kedua-dua contoh membetulkan format (JSON dengan dua medan) dan menunjukkan perbendaharaan kata kategori. Model hanya mengikut corak. Ambil perhatian bahawa contoh kedua merangkumi kes negatif — kepelbagaian menghalang model daripada berfikir semuanya positif."
+          "simple": "Tunjukkan 2 hingga 5 contoh jawapan sebelum menanyakan kes anda.",
+          "whatIs": "Sertakan beberapa contoh input→output untuk model untuk meniru corak. \"Few-shot\" = beberapa contoh. Ia adalah tuas terkuat untuk mengawal bentuk, ton dan konsistensi.",
+          "when": "Apabila format yang tepat penting (JSON, jadual), nada perlu konsisten, atau pengisihan adalah sukar.",
+          "whenNot": "Dalam tugas remeh (sifar pukulan sudah menyelesaikannya) atau apabila contoh condong ke arah satu corak — kemudian pelbagaikan atau kurangkannya.",
+          "examples": [
+            {
+              "right": "Nilaikan perasaan. Ikuti contoh:\n\"Saya menyukainya, saya mengesyorkannya!\" → positif\n\"Ia datang rosak.\" → negatif\n\nUlasan: \"Tiba dengan cepat tetapi hancur.\" →",
+              "note": "Dua contoh menetapkan format output dan perbendaharaan kata; masukkan kes negatif untuk mengelakkan berat sebelah."
+            }
+          ],
+          "why": "Beberapa pukulan datang daripada penyelidikan GPT-3 (Brown et al., 2020): model mempelajari tugas hanya daripada contoh dalam gesaan (pembelajaran dalam konteks). Kajian menunjukkan lompatan seperti F1 0.51 → 0.62 apabila pergi dari sifar kepada 3 contoh.",
+          "tip": "3 hingga 5 contoh adalah titik manis. Gunakan contoh BERBEZA (sarung tepi penutup) dan jaga ORDER — mengubah suai contoh boleh mengubah ketepatan dengan ketara.",
+          "sources": [
+            {
+              "label": "Brown et al. 2020 — Model Bahasa adalah Pelajar Sedikit",
+              "url": "https://arxiv.org/abs/2005.14165"
+            },
+            {
+              "label": "Laporan Segera (arXiv:2406.06608)",
+              "url": "https://arxiv.org/abs/2406.06608"
+            }
+          ]
         },
         {
-          "id": "estruturacao-com-xml-delimitadores",
+          "id": "estruturacao-com-xml",
           "name": "Penstrukturan dengan XML/pembatas",
           "level": 1,
-          "whatIs": "bungkus setiap bahagian gesaan dalam teg ( <context> , <dados> , <instructions> ). Ia jelas memisahkan apa itu arahan daripada apa yang diberikan, menghalang model daripada mengelirukan kedua-duanya.",
-          "when": "apabila gesaan mencampurkan arahan dengan data (terutamanya data yang panjang atau diformat sendiri). Ia adalah corak yang disyorkan untuk Claude.",
-          "wrong": "Ringkaskan teks berikut kepada 3 topik: Mesyuarat hari ini: kami memutuskan untuk menangguhkan pelancaran. Ringkaskan juga risiko dalam 3 topik. Belanjawan\ndiluluskan.",
-          "right": "Ringkaskan kandungan dalam <text> kepada tepat 3 topik.\n\n<text>\nMesyuarat hari ini: kami memutuskan untuk menangguhkan pelancaran. Belanjawan diluluskan.\nRisiko: pasukan berkurangan dan tarikh akhir yang ketat.\n</text>",
-          "why": "tag <text> menjadikan perkara yang perlu diringkaskan jelas. Dalam kes yang salah, arahan \"Ringkaskan risiko dalam 3 topik\" di tengah-tengah kandungan boleh dibaca sebagai sebahagian daripada teks yang akan diringkaskan — atau sebagai susunan kedua. Kekaburan murni."
+          "simple": "Asingkan arahan dan data dengan \"tag\".",
+          "whatIs": "Balut setiap bahagian gesaan dalam penanda (<konteks>, <data>, <arahan>) supaya model tidak mengelirukan apa susunan dengan bahan untuk diproses.",
+          "when": "Setiap kali gesaan mencampurkan arahan dengan data — terutamanya data yang panjang atau diformat sendiri. Ia adalah corak yang disyorkan untuk Claude.",
+          "whenNot": "Secara ringkas gesaan satu baris tanpa data terbenam, ia adalah tidak perlu.",
+          "examples": [
+            {
+              "wrong": "Ringkaskan: Mesyuarat hari ini: kami telah menangguhkan pelancaran.\nRingkaskan risiko juga. Bajet ok.",
+              "right": "Ringkaskan kandungan dalam <text> kepada 3 topik.\n\n<text>\nMesyuarat hari ini: kami menangguhkan pelancaran. Belanjawan ok.\nRisiko: pasukan berkurangan dan tarikh akhir yang ketat.\n</text>",
+              "note": "Teg menjelaskan apa yang diberikan dan apa itu arahan — tanpa kesamaran."
+            }
+          ],
+          "why": "Tags reduce ambiguity between instruction and content — the most common error in prompts with embedded text. Model yang dilatih dengan data berstruktur (seperti Claude) mengikut teg dengan tepat.",
+          "tip": "Gunakan nama teg yang konsisten dan deskriptif. Nest when there is hierarchy (several <document> within <documents>).",
+          "sources": [
+            {
+              "label": "Anthropic — Gunakan tag XML",
+              "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+            }
+          ]
         },
         {
           "id": "contexto-motivacao",
           "name": "Konteks + motivasi",
           "level": 1,
-          "whatIs": "berikan maklumat latar belakang dan terangkan mengapa arahan itu wujud. Model membuat generalisasi lebih baik daripada nisbah.",
-          "when": "bila-bila masa peraturan boleh disalah tafsir jika digunakan pada surat itu tanpa memahami objektif.",
-          "wrong": "Jawab dalam maksimum 2 ayat. Jangan sekali-kali menggunakan nombor.",
-          "right": "Jawapan ini akan dipaparkan pada jam tangan pintar dengan skrin kecil dan dibaca dengan kuat. Oleh itu: maksimum 2 ayat pendek, dan\ntulis nombor sepenuhnya (cth. \"tiga\" bukannya \"3\"), kerana\npembaca skrin mengeja digit dengan pelik.",
-          "why": "mengetahui sebabnya (skrin kecil + suara), model itu menggunakan peraturan dengan akal fikiran dan juga menjangkakan kes yang tidak dituturkan. Tanpa alasan, \"jangan sekali-kali menggunakan nombor\" adalah peraturan buta yang boleh dia langgar atau gunakan dengan cara yang tidak masuk akal."
+          "simple": "Terangkan sebab arahan, bukan hanya pesanan.",
+          "whatIs": "Berikan maklumat latar belakang dan sebab di sebalik permintaan itu. Model membuat generalisasi lebih baik apabila ia memahami objektif, bukan hanya peraturan.",
+          "when": "Apabila sesuatu peraturan boleh disalah tafsir jika digunakan pada surat itu tanpa memahami tujuannya.",
+          "whenNot": "Ia jarang mengganggu — tetapi jangan kembangkannya dengan konteks yang tidak relevan, yang bertukar menjadi bunyi bising dan membazirkan perhatian model.",
+          "examples": [
+            {
+              "wrong": "Jangan sekali-kali menggunakan elipsis.",
+              "right": "Respons ini akan dibaca oleh pensintesis pertuturan yang tidak menyebut elips dengan betul — jadi jangan gunakan \"…\".",
+              "note": "Mengetahui sebabnya, model itu menggunakan peraturan dengan akal yang waras dan menjangkakan kes yang serupa."
+            }
+          ],
+          "why": "Apabila model memahami motivasi, ia memanjangkan peraturan kepada kes yang tidak dinyatakan dan mengelakkan aplikasi yang tidak masuk akal. Arahan kasar adalah peraturan buta.",
+          "tip": "Satu ayat \"mengapa ini penting\" biasanya bernilai tiga ayat \"lakukan dengan cara ini\".",
+          "sources": [
+            {
+              "label": "Anthropic — Tambahkan konteks untuk meningkatkan prestasi",
+              "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+            }
+          ]
         },
         {
-          "id": "contrato-de-saida-output-contract",
+          "id": "contrato-de-saida",
           "name": "Kontrak keluaran",
           "level": 1,
-          "whatIs": "nyatakan format respons yang tepat — skema JSON, teg, \"hanya hasil tanpa pengenalan\", saiz. Beritahu apa yang perlu dilakukan, bukan apa yang harus dielakkan.",
-          "when": "apabila output digunakan oleh sistem (penghuraian) atau memerlukan format yang konsisten.",
-          "wrong": "Beri saya data pelanggan untuk teks ini, tanpa berlengah lagi.",
-          "right": "Ekstrak data pelanggan. Balas HANYA dengan JSON ini, tanpa\nteks sebelum atau selepas. Gunakan null untuk medan yang tiada:\n{\"name\": string, \"email\": string|null, \"phone\": string|null}",
-          "why": "\"no bullshit\" adalah subjektif; skema eksplisit adalah objektif dan boleh dihuraikan kod. \"Gunakan null untuk hilang\" menghalang model daripada mencipta data — ralat biasa dalam pengekstrakan."
+          "simple": "Nyatakan format TEPAT jawapan.",
+          "whatIs": "Specify how the output should come: JSON schema, tags, \"just the result without introduction\", size. Beritahu apa yang perlu dilakukan, bukan apa yang harus dielakkan.",
+          "when": "Setiap kali respons digunakan oleh sistem (penghuraian) atau memerlukan format yang konsisten antara panggilan.",
+          "whenNot": "Dalam perbualan bebas atau penerokaan, kontrak tegar boleh menyekat respons yang akan mendapat manfaat daripada fleksibiliti.",
+          "examples": [
+            {
+              "wrong": "Beri saya butiran pelanggan, jangan kecoh",
+              "right": "Ekstrak data pelanggan. Balas dengan JSON ini SAHAJA,\ntiada teks sebelum atau selepas. Gunakan null untuk medan yang tiada:\n{\"name\": string, \"email\": string|null, \"phone\": string|null}",
+              "note": "Skema eksplisit + \"null for missing\" menghalang model daripada mencipta data."
+            }
+          ],
+          "why": "\"Tiada embel-embel\" adalah subjektif; skema adalah objektif dan boleh dihuraikan kod. Menentukan format mengalih keluar variasi yang memecahkan integrasi.",
+          "tip": "Untuk benar-benar memaksa JSON/struktur, gunakan Output Berstruktur (Claude/OpenAI) dan bukannya hanya memintanya dalam teks — ia lebih dipercayai.",
+          "sources": [
+            {
+              "label": "Anthropic — Kawalan format tindak balas",
+              "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+            }
+          ]
         }
       ]
     },
@@ -454,5 +555,9 @@
       ]
     }
   ],
-  "tocTitle": "Pada halaman ini"
+  "tocTitle": "Pada halaman ini",
+  "simpleLabel": "Secara ringkasnya",
+  "whenNotLabel": "Bila nak elak",
+  "tipLabel": "Petua",
+  "sourcesLabel": "Sumber"
 }

@@ -15,61 +15,162 @@
           "id": "zero-shot-prompting",
           "name": "Invite de tir zéro",
           "level": 1,
-          "whatIs": "donner des instructions directes, sans exemples. \"Zéro-shot\" = zéro exemple. C'est le point de départ de tout.",
-          "when": "des tâches simples et bien définies que le modèle maîtrise déjà (traduire, résumer, répondre à une question directe).",
-          "wrong": "parlez-moi du marketing",
-          "right": "Expliquez les 4 P du marketing (produit, prix, lieu, promotion)\nen un paragraphe chacun, avec un exemple pratique tiré d'un café.",
-          "why": "la mauvaise est vague : « à propos du marketing » peut générer mille réponses différentes. Celui de droite définit la portée (les 4 P), le format (un paragraphe chacun) et le contexte (café). Même sans exemples, c’était sans équivoque."
+          "simple": "Demandez directement, sans donner d'exemples.",
+          "whatIs": "Donnez des instructions claires sans montrer d’exemples de réponses : le modèle utilise uniquement ce qu’il a appris lors de la formation. \"Zéro-shot\" = zéro exemple. C'est le point de départ de tout.",
+          "when": "Tâches courantes et bien définies que le modèle maîtrise déjà : traduire, résumer, répondre à une question factuelle, réécrire un texte.",
+          "whenNot": "Lorsque la forme exacte, le ton ou les bords des cas comptent. Alors quelques exemples (quelques clichés) valent plus que n’importe quelle instruction.",
+          "examples": [
+            {
+              "wrong": "parlez-moi du marketing",
+              "right": "Expliquez les 4 P du marketing (produit, prix, lieu, promotion)\nen un paragraphe chacun, avec un exemple de café.",
+              "note": "Celui de droite définit la portée (les 4 P), le format (un paragraphe chacun) et le contexte (café) – sans ambiguïté, même sans exemples."
+            },
+            {
+              "wrong": "corriger mon texte",
+              "right": "Corrigez les erreurs de grammaire et de ponctuation dans le texte ci-dessous.\nConservez le sens et le ton. Renvoie uniquement le texte corrigé.",
+              "note": "Dites-lui ce qu'il faut corriger, ce qu'il faut conserver et le format de sortie."
+            }
+          ],
+          "why": "Les modèles modernes résolvent des tâches bien connues sans exemples, à condition que les instructions soient spécifiques. La clarté remplace les exemples.",
+          "tip": "Si la réponse est générique, n’ajoutez pas encore d’exemples : précisez d’abord les instructions (format, taille, public).",
+          "sources": [
+            {
+              "label": "Anthropic — Inviter les meilleures pratiques",
+              "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+            }
+          ]
         },
         {
           "id": "role-persona-prompting",
           "name": "Invite de rôle/personne",
           "level": 1,
-          "whatIs": "attribuer un rôle au modèle (\"Vous êtes un...\"). Une seule phrase change le ton, le vocabulaire et la profondeur de la réponse. La variante d'invite Expert utilise un personnage expert dans le domaine exact.",
-          "when": "chaque fois que le ton ou la profondeur technique comptent. Pratiquement gratuit et aide presque toujours.",
-          "wrong": "Ce code présente-t-il des problèmes de sécurité ?\n\n[code]",
-          "right": "Vous êtes un expert en sécurité offensive (pentester) qui révise du code pour un audit. Analysez le code ci-dessous pour\nvulnérabilités (injection, exposition de secrets, authentification faible).\n[code]",
-          "why": "Le rôle de « testeur d'audit » concentre le modèle sur l'état d'esprit de quelqu'un qui recherche activement des défauts, et la liste des catégories fournit une orientation. Sans papier, la réponse tend à être générique et superficielle."
+          "simple": "Dites au modèle « qui il est » avant la tâche.",
+          "whatIs": "Attribuez un rôle (« Vous êtes un avocat fiscaliste senior ») pour calibrer le ton, le vocabulaire et la profondeur de la réponse. Une seule phrase change déjà le résultat.",
+          "when": "Lorsque le ton ou le niveau technique compte – rédaction, service, opinions, enseignement.",
+          "whenNot": "Dans les questions de connaissance pure (faits, récits, choix multiples), la personnalité peut faire obstacle. Lors des tests sur le benchmark MMLU, les personnalités « expertes » ont perdu en précision (de ~71,6 % à ~68 %).",
+          "examples": [
+            {
+              "wrong": "Ce code présente-t-il un problème de sécurité ?",
+              "right": "Vous êtes un pentester qui examine du code pour un audit.\nAnalysez le code ci-dessous pour détecter l'injection, les\nsecrets exposés et l'authentification faible.",
+              "note": "L'article concentre le modèle sur l'état d'esprit de ceux qui recherchent des défauts."
+            },
+            {
+              "wrong": "explique la récursion",
+              "right": "Vous êtes un enseignant patient qui explique à un enfant de 10 ans. Expliquez la récursivité avec une analogie quotidienne.",
+              "note": "Persona + public définissent le niveau d'explication."
+            }
+          ],
+          "why": "Le rôle active le vocabulaire et le ton associés à ce profil. Mais l’effet est sensible à la tâche : il contribue au ton, rarement à la connaissance factuelle.",
+          "tip": "Utilisez le personnage pour le TON et le STYLE ; ne vous attendez pas à ce que « Vous êtes un génie des mathématiques » améliore le score. Pour plus de précision, préférez des instructions claires et une vérification.",
+          "sources": [
+            {
+              "label": "PromptHub — Étude d'incitation aux rôles",
+              "url": "https://www.prompthub.us/blog/role-prompting-does-adding-personas-to-your-prompts-really-make-a-difference"
+            },
+            {
+              "label": "Anthropique — Donner un rôle à Claude",
+              "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+            }
+          ]
         },
         {
-          "id": "few-shot-multishot-prompting",
-          "name": "Invite de quelques prises de vue/Multiprises",
+          "id": "few-shot-multishot",
+          "name": "Quelques plans / Multishot",
           "level": 1,
-          "whatIs": "montrez 2 à 5 exemples d'entrée → sortie avant de poser votre cas. C'est l'outil le plus fiable pour contrôler le format, le ton et la cohérence. \"Quelques plans\" = quelques exemples.",
-          "when": "lorsque le format ou le ton exact compte, ou dans une classification difficile. Les exemples doivent être pertinents (similaires au cas réel) et diversifiés (variations de couverture).",
-          "wrong": "Extrayez le sentiment et la catégorie de cet avis : \"Il est arrivé rapidement mais il était cassé.\"",
-          "right": "Extrayez le sentiment et la catégorie. Suivez les exemples :\n\n<exemple>\nAvis : \"Je l'ai adoré, je le recommande vivement !\"\n→ {\"feeling\": \"positif\", \"category\": \"satisfaction\">\n</exemple>\n<exemple>\nAvis : \"Il est livré avec une pièce manquante.\"\n→ {\"feeling\": \"negative\", \"category\": \"defective_product\">\n</example \n\nAvis : \"Il est arrivé rapidement mais il était cassé.\"\n→",
-          "why": "les deux exemples corrigent le format (JSON avec deux champs) et montrent le vocabulaire des catégories. Le modèle suit simplement le modèle. Notez que le deuxième exemple couvre un cas négatif : la diversité empêche le modèle de penser que tout est positif."
+          "simple": "Montrez 2 à 5 exemples de réponses avant de demander votre cas.",
+          "whatIs": "Incluez quelques exemples d'entrée → sortie pour que le modèle imite le modèle. \"Quelques plans\" = quelques exemples. C’est le levier le plus puissant pour contrôler la forme, le ton et la consistance.",
+          "when": "Lorsque le format exact compte (JSON, tableau), le ton doit être cohérent, sinon le tri est difficile.",
+          "whenNot": "Dans les tâches triviales (le tir zéro le résout déjà) ou lorsque les exemples penchent vers un modèle unique, diversifiez-le ou réduisez-le.",
+          "examples": [
+            {
+              "right": "Évaluez le sentiment. Suivez les exemples :\n\"J'ai adoré, je le recommande !\" → positif\n\"Il est arrivé cassé.\" → négatif\n\nAvis : \"Arrivé rapidement mais a été écrasé.\" →",
+              "note": "Deux exemples corrigent le format de sortie et le vocabulaire ; inclure un cas négatif pour éviter les biais."
+            }
+          ],
+          "why": "Peu d'images proviennent de la recherche GPT-3 (Brown et al., 2020) : les modèles apprennent la tâche uniquement à partir des exemples contenus dans l'invite (apprentissage en contexte). Des études montrent des sauts comme F1 0,51 → 0,62 lorsqu'on passe de zéro à 3 exemples.",
+          "tip": "3 à 5 exemples sont le point idéal. Utilisez DIFFÉRENTS exemples (couvrir les cas extrêmes) et veillez à l'ORDRE - la permutation des exemples peut modifier considérablement la précision.",
+          "sources": [
+            {
+              "label": "Brown et coll. 2020 — Les modèles linguistiques sont des apprenants peu nombreux",
+              "url": "https://arxiv.org/abs/2005.14165"
+            },
+            {
+              "label": "Le rapport rapide (arXiv:2406.06608)",
+              "url": "https://arxiv.org/abs/2406.06608"
+            }
+          ]
         },
         {
-          "id": "estruturacao-com-xml-delimitadores",
+          "id": "estruturacao-com-xml",
           "name": "Structuration avec XML/délimiteurs",
           "level": 1,
-          "whatIs": "enveloppez chaque partie de l'invite dans des balises ( <context> , <dados> , <instructions> ). Il sépare clairement ce qui constitue une instruction de ce qui est donné, évitant ainsi que le modèle ne confonde les deux.",
-          "when": "chaque fois que l'invite mélange des instructions avec des données (en particulier des données longues ou auto-formatées). C'est le modèle recommandé pour Claude.",
-          "wrong": "Résumez le texte suivant en 3 thèmes : Réunion d'aujourd'hui : nous avons décidé de reporter le lancement. Résumez également les risques en 3 sujets. Budget\napprouvé.",
-          "right": "Résumez le contenu de <text> en exactement 3 sujets.\n\n<text>\nRéunion d'aujourd'hui : nous avons décidé de reporter le lancement. Budget approuvé.\nRisques : équipe réduite et délai serré.\n</text>",
-          "why": "la balise <text> rend ce qui doit être résumé clairement. Dans le mauvais cas, l'instruction « Résumer les risques en 3 thèmes » au milieu du contenu peut être lue comme partie du texte à résumer — ou en second ordre. Pure ambiguïté."
+          "simple": "Séparez les instructions et les données avec des \"tags\".",
+          "whatIs": "Enveloppez chaque partie de l'invite dans des marqueurs (<context>, <data>, <instructions>) afin que le modèle ne confonde pas ce qui est ordre avec ce qui est matériel à traiter.",
+          "when": "Chaque fois que l'invite mélange des instructions avec des données, en particulier des données longues ou auto-formatées. C'est le modèle recommandé pour Claude.",
+          "whenNot": "En bref, des invites d’une seule ligne sans données intégrées, c’est inutile.",
+          "examples": [
+            {
+              "wrong": "Résumer : Réunion d'aujourd'hui : nous avons reporté le lancement.\nRésumez également les risques. Budget ok.",
+              "right": "Résumez le contenu de <text> en 3 sujets.\n\n<text>\nRéunion d'aujourd'hui : nous avons reporté le lancement. Budget ok.\nRisques : équipe réduite et délai serré.\n</text>",
+              "note": "L'étiquette indique clairement ce qui est donné et ce qu'est une instruction, sans ambiguïté."
+            }
+          ],
+          "why": "Les balises réduisent l’ambiguïté entre les instructions et le contenu – l’erreur la plus courante dans les invites contenant du texte intégré. Les modèles entraînés avec des données structurées (comme Claude) suivent les balises avec précision.",
+          "tip": "Utilisez des noms de balises cohérents et descriptifs. Imbriquer lorsqu'il y a une hiérarchie (plusieurs <document> dans <documents>).",
+          "sources": [
+            {
+              "label": "Anthropique — Utiliser des balises XML",
+              "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+            }
+          ]
         },
         {
           "id": "contexto-motivacao",
           "name": "Contexte + motivation",
           "level": 1,
-          "whatIs": "donner des informations générales et expliquer pourquoi l’instruction existe. Le modèle généralise mieux à partir du ratio.",
-          "when": "chaque fois qu'une règle peut être mal interprétée si elle est appliquée à la lettre sans en comprendre l'objectif.",
-          "wrong": "Répondez en 2 phrases maximum. N'utilisez jamais de chiffres.",
-          "right": "Cette réponse sera affichée sur une montre intelligente avec un petit écran et lue à haute voix. Par conséquent : maximum 2 phrases courtes, et\nécrivez les chiffres en toutes lettres (par exemple \"trois\" au lieu de \"3\"), car le\nlecteur d'écran épelle les chiffres de façon étrange.",
-          "why": "connaissant la raison (petit écran + voix), le modèle applique la règle avec bon sens et anticipe même les non-dits. Sans raison, « ne jamais utiliser de chiffres » est une règle aveugle qu’il peut enfreindre ou appliquer de manière absurde."
+          "simple": "Expliquez la raison de l'instruction, pas seulement la commande.",
+          "whatIs": "Donnez des informations générales et la raison de la demande. Le modèle généralise mieux lorsqu’il comprend l’objectif, et non seulement la règle.",
+          "when": "Chaque fois qu’une règle peut être mal interprétée si elle est appliquée à la lettre sans en comprendre le but.",
+          "whenNot": "Cela gêne rarement, mais ne le gonflez pas avec un contexte non pertinent, qui se transforme en bruit et gaspille l'attention du modèle.",
+          "examples": [
+            {
+              "wrong": "N’utilisez jamais de points de suspension.",
+              "right": "Cette réponse sera lue par un synthétiseur vocal qui ne prononce pas correctement les ellipses — n'utilisez donc pas \"…\".",
+              "note": "Sachant pourquoi, le modèle applique la règle avec bon sens et anticipe les cas similaires."
+            }
+          ],
+          "why": "Lorsque le modèle comprend la motivation, il étend la règle aux cas tacites et évite les applications absurdes. L’instruction grossière est une règle aveugle.",
+          "tip": "Une phrase de « pourquoi est-ce important » vaut généralement trois phrases de « faites-le de cette façon ».",
+          "sources": [
+            {
+              "label": "Anthropique — Ajouter du contexte pour améliorer les performances",
+              "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+            }
+          ]
         },
         {
-          "id": "contrato-de-saida-output-contract",
+          "id": "contrato-de-saida",
           "name": "Contrat de sortie",
           "level": 1,
-          "whatIs": "spécifiez le format exact de la réponse — schéma JSON, balises, \"juste le résultat sans introduction\", taille. Dites quoi faire, pas ce qu'il faut éviter.",
-          "when": "chaque fois que la sortie est consommée par un système (analyse) ou nécessite un format cohérent.",
-          "wrong": "Donnez-moi les données client de ce texte, sans plus tarder.",
-          "right": "Extrayez les données clients. Répondez UNIQUEMENT avec ce JSON, sans\ntexte avant ou après. Utilisez null pour les champs manquants :\n{\"name\": string, \"email\": string|null, \"phone\": string|null}",
-          "why": "« pas de conneries » est subjectif ; le schéma explicite est objectif et analysable par le code. \"Utiliser null pour manquant\" empêche le modèle d'inventer des données - une erreur courante lors de l'extraction."
+          "simple": "Indiquez le format EXACT de la réponse.",
+          "whatIs": "Spécifiez comment la sortie doit arriver : schéma JSON, balises, \"juste le résultat sans introduction\", taille. Dites quoi faire, pas ce qu'il faut éviter.",
+          "when": "Chaque fois que la réponse est consommée par un système (analyse) ou nécessite un format cohérent entre les appels.",
+          "whenNot": "Dans une conversation libre ou exploratoire, un contrat rigide peut étouffer les réponses qui bénéficieraient de la flexibilité.",
+          "examples": [
+            {
+              "wrong": "Donnez-moi les coordonnées du client, pas de problème",
+              "right": "Extrayez les données clients. Répondez avec ce JSON UNIQUEMENT,\npas de texte avant ou après. Utilisez null pour les champs manquants :\n{\"name\": string, \"email\": string|null, \"phone\": string|null}",
+              "note": "Le schéma explicite + « nul pour manquant » empêche le modèle d'inventer des données."
+            }
+          ],
+          "why": "« Sans fioritures » est subjectif ; un schéma est objectif et analysable par le code. La définition du format supprime les variations qui interrompent les intégrations.",
+          "tip": "Pour vraiment forcer JSON/structure, utilisez les sorties structurées (Claude/OpenAI) au lieu de simplement le demander dans le texte — c'est beaucoup plus fiable.",
+          "sources": [
+            {
+              "label": "Anthropique — Format de réponse de contrôle",
+              "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+            }
+          ]
         }
       ]
     },
@@ -454,5 +555,9 @@
       ]
     }
   ],
-  "tocTitle": "Sur cette page"
+  "tocTitle": "Sur cette page",
+  "simpleLabel": "En résumé",
+  "whenNotLabel": "Quand éviter",
+  "tipLabel": "Astuce",
+  "sourcesLabel": "Sources"
 }
