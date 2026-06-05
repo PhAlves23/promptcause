@@ -1,26 +1,183 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
+/* ===========================================================
+   PromptCause — design tokens exposed to Tailwind v4
+   Source of truth: references/styles.css
+   =========================================================== */
 @theme inline {
+  /* shadcn semantic tokens */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* brand palette → utilities (bg-paper, text-green, border-line, …) */
+  --color-paper: var(--paper);
+  --color-paper-card: var(--paper-card);
+  --color-paper-sunk: var(--paper-sunk);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-faint: var(--ink-faint);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-green: var(--green);
+  --color-green-deep: var(--green-deep);
+  --color-green-bright: var(--green-bright);
+  --color-green-tint: var(--green-tint);
+  --color-green-tint-2: var(--green-tint-2);
+  --color-clay: var(--clay);
+  --color-clay-deep: var(--clay-deep);
+  --color-clay-tint: var(--clay-tint);
+  --color-clay-tint-2: var(--clay-tint-2);
+  --color-wrong: var(--wrong);
+  --color-wrong-tint: var(--wrong-tint);
+  --color-footer: var(--footer-bg);
+
+  /* fonts (injected by next/font in layout.tsx) */
+  --font-sans: var(--font-plex-sans);
+  --font-mono: var(--font-plex-mono);
+  --font-display: var(--font-newsreader);
+
+  /* radii from the design system */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 22px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  --radius: 0.625rem;
+
+  /* --- brand palette (light) --- */
+  --paper: #f7f4ec;
+  --paper-card: #fffdf7;
+  --paper-sunk: #f0ebde;
+  --ink: #201c15;
+  --ink-soft: #6b6356;
+  --ink-faint: #9c9484;
+  --line: #e6e0d1;
+  --line-strong: #d7cfbc;
+  --green: #16684a;
+  --green-deep: #0e4a35;
+  --green-bright: #1e8a63;
+  --green-tint: #e7f0ea;
+  --green-tint-2: #d5e6db;
+  --clay: #c25b36;
+  --clay-deep: #a14624;
+  --clay-tint: #f7e8df;
+  --clay-tint-2: #f0d6c7;
+  --wrong: #b23a2e;
+  --wrong-tint: #f6e3de;
+  --footer-bg: #1b1810;
+
+  /* --- shadcn semantic mapping --- */
+  --background: var(--paper);
+  --foreground: var(--ink);
+  --card: var(--paper-card);
+  --card-foreground: var(--ink);
+  --popover: var(--paper-card);
+  --popover-foreground: var(--ink);
+  --primary: var(--green);
+  --primary-foreground: #ffffff;
+  --secondary: var(--paper-sunk);
+  --secondary-foreground: var(--ink);
+  --muted: var(--paper-sunk);
+  --muted-foreground: var(--ink-soft);
+  --accent: var(--green-tint);
+  --accent-foreground: var(--green-deep);
+  --destructive: var(--wrong);
+  --border: var(--line);
+  --input: var(--line-strong);
+  --ring: var(--green);
+}
+
+.dark {
+  /* --- brand palette (dark, for developers) --- */
+  --paper: #14130e;
+  --paper-card: #1d1b15;
+  --paper-sunk: #100f0a;
+  --ink: #ece7da;
+  --ink-soft: #a7a091;
+  --ink-faint: #736c5c;
+  --line: #2a2720;
+  --line-strong: #3a362b;
+  --green: #1f8a5e;
+  --green-deep: #15724b;
+  --green-bright: #46b587;
+  --green-tint: #16271d;
+  --green-tint-2: #20392a;
+  --clay: #dc7a53;
+  --clay-deep: #c25b36;
+  --clay-tint: #2c1d14;
+  --clay-tint-2: #3d281b;
+  --wrong: #e0796b;
+  --wrong-tint: #2c1814;
+  --footer-bg: #100f0a;
+
+  --background: var(--paper);
+  --foreground: var(--ink);
+  --card: var(--paper-card);
+  --card-foreground: var(--ink);
+  --popover: var(--paper-card);
+  --popover-foreground: var(--ink);
+  --primary: var(--green);
+  --primary-foreground: #ffffff;
+  --secondary: var(--paper-sunk);
+  --secondary-foreground: var(--ink);
+  --muted: var(--paper-sunk);
+  --muted-foreground: var(--ink-soft);
+  --accent: var(--green-tint);
+  --accent-foreground: var(--green-bright);
+  --destructive: var(--wrong);
+  --border: var(--line);
+  --input: var(--line-strong);
+  --ring: var(--green);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  html {
+    @apply font-sans;
+    scroll-behavior: smooth;
+  }
+  h1, h2, h3, h4 {
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+    font-weight: 500;
+  }
+  ::selection {
+    background: var(--green-tint-2);
+    color: var(--ink);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
+/* recurring blinking caret accent (hero) */
+@keyframes pc-blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0.25; } }
+.pc-caret { animation: pc-blink 1.1s steps(1) infinite; }

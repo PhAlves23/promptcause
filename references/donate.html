@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Doar — PromptCause</title>
+<script>try{document.documentElement.dataset.theme=localStorage.getItem('pc_theme')||'light'}catch(e){}</script>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-screen-label="Doar">
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">›<i class="mk-heart">♥</i></span>
+      <span class="brand-name">Prompt<b>Cause</b></span>
+    </a>
+    <nav class="nav-links">
+      <a href="learn.html" data-i18n="nav.learn">Aprender</a>
+      <a href="cause.html" data-i18n="nav.cause">A Causa</a>
+      <a href="cause.html#ledger" data-i18n="nav.transparency">Transparência</a>
+      <a href="manifesto.html" data-i18n="nav.manifesto">Manifesto</a>
+      <a href="brand-guide.html" data-i18n="nav.brand">Marca</a>
+    </nav>
+    <div class="nav-right">
+      <button class="icon-btn" data-theme-toggle aria-label="Tema claro/escuro">◐</button>
+      <div class="lang-select">
+        <button class="lang-btn" data-lang-btn aria-label="Idioma"><span data-lang-current>PT</span> <span class="chev">▾</span></button>
+        <div class="lang-menu" data-lang-menu></div>
+      </div>
+      <a class="btn btn-donate btn-sm" href="donate.html"><span class="heart">♥</span> <span data-i18n="cta.donate">Doar</span></a>
+    </div>
+    <button class="menu-btn" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<section class="section-pad">
+  <div class="wrap" style="display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:start;">
+
+    <!-- LEFT: pitch -->
+    <div>
+      <p class="eyebrow" data-i18n="cause.eyebrow">Transparência radical</p>
+      <h1 class="display" style="font-size:clamp(2.2rem,4.6vw,3.4rem); margin:14px 0 16px; max-width:14ch;" data-i18n="donate.h1">Retribua. 100% vira inclusão.</h1>
+      <p class="lede" data-i18n="donate.lede">Escolha um valor. Ele vai integralmente para uma ONG parceira — você recebe o comprovante de repasse.</p>
+
+      <div class="impact" style="margin:28px 0;">
+        <div class="impact-label" data-i18n="home.impact.label">Total doado à causa — repassado integralmente</div>
+        <div class="impact-num" data-counter data-target="248730" data-prefix="R$ ">R$ 248.730</div>
+        <div class="impact-sub"><span class="pass">100% repassado.</span></div>
+      </div>
+
+      <div class="keymsg"><span class="km-mark">♥</span><span data-i18n="keymsg">Grátis. Se te ajudou, 100% da doação vai para a causa.</span></div>
+    </div>
+
+    <!-- RIGHT: widget -->
+    <div class="card donate-card" data-donate data-method="pix" style="position:sticky; top:calc(var(--nav-h) + 24px);">
+      <!-- live header -->
+      <div class="donate-head">
+        <div class="dh-label" data-i18n="donate.youdonate">Sua doação</div>
+        <div class="donate-amount"><span data-live-amount>R$ 50</span><span class="donate-freq" data-live-freq></span></div>
+        <div class="donate-pass"><span><b>100%</b> <span data-i18n="donate.passed">repassado</span></span><span><b>0%</b> <span data-i18n="donate.retained">retido</span></span></div>
+        <div class="pass-bar"><i></i></div>
+      </div>
+
+      <div class="donate-body">
+        <!-- method -->
+        <p class="eyebrow" style="margin-bottom:12px;" data-i18n="donate.method">Forma de pagamento</p>
+        <div class="method-row" style="margin-bottom:22px;">
+          <div class="method-card sel" data-method="pix"><span class="ic">PIX</span> <span>Brasil · instantâneo</span></div>
+          <div class="method-card" data-method="card"><span class="ic">CARD</span> <span>Cartão · global</span></div>
+        </div>
+
+        <!-- frequency -->
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+          <p class="eyebrow" style="margin:0;" data-i18n="donate.freq">Frequência</p>
+          <div class="seg">
+            <button data-freq="once" class="sel" data-i18n="donate.once">Uma vez</button>
+            <button data-freq="monthly" data-i18n="donate.monthly">Mensal</button>
+          </div>
+        </div>
+
+        <!-- amounts -->
+        <div class="amt-grid">
+          <button class="amt-btn" data-amt="20"><small>R$</small>20</button>
+          <button class="amt-btn sel" data-amt="50"><small>R$</small>50</button>
+          <button class="amt-btn" data-amt="100"><small>R$</small>100</button>
+          <button class="amt-btn" data-amt="250"><small>R$</small>250</button>
+        </div>
+        <input class="amt-custom" type="number" min="1" placeholder="Outro valor (R$)" data-amt-custom>
+
+        <!-- impact line -->
+        <div style="display:flex; gap:12px; align-items:flex-start; margin:20px 0; padding:14px 16px; background:var(--green-tint); border:1px solid var(--green-tint-2); border-radius:var(--r);">
+          <span style="width:30px; height:30px; flex-shrink:0; border-radius:50%; background:var(--green); color:#fff; display:grid; place-items:center; font-size:1rem;">→</span>
+          <div>
+            <div class="eyebrow" style="margin-bottom:4px;" data-i18n="donate.impactof">O que esse valor faz</div>
+            <div data-impact-line style="font-size:.96rem; color:var(--green-deep); font-weight:500;">Uma hora de oficina de IA em uma escola pública.</div>
+          </div>
+        </div>
+
+        <button class="btn btn-donate btn-lg" style="width:100%;"><span class="heart">♥</span> <span data-i18n="donate.confirm">Doar agora</span></button>
+        <div data-summary class="mono" style="text-align:center; font-size:.82rem; color:var(--ink-faint); margin-top:12px;">R$ 50 → 100% repassado</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-col">
+        <a class="brand" href="index.html" style="margin-bottom:14px;">
+          <span class="brand-mark">›<i class="mk-heart">♥</i></span><span class="brand-name">Prompt<b>Cause</b></span>
+        </a>
+        <p class="muted" style="max-width:34ch; color:#A39B8B;" data-i18n="foot.tagline">Conhecimento de IA aberto a todos. Doações 100% repassadas à inclusão digital.</p>
+      </div>
+      <div class="foot-col"><h5 data-i18n="foot.learn">Aprender</h5><a href="learn.html" data-i18n="lv.1">Iniciante</a><a href="learn.html" data-i18n="lv.2">Intermediário</a><a href="learn.html" data-i18n="lv.3">Avançado</a></div>
+      <div class="foot-col"><h5 data-i18n="foot.cause">A Causa</h5><a href="cause.html" data-i18n="nav.transparency">Transparência</a><a href="cause.html#partners" data-i18n="cause.partners">ONGs parceiras</a><a href="donate.html" data-i18n="cta.donate">Doar</a></div>
+      <div class="foot-col"><h5 data-i18n="foot.about">Projeto</h5><a href="manifesto.html" data-i18n="nav.manifesto">Manifesto</a><a href="brand-guide.html" data-i18n="nav.brand">Marca</a></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 PromptCause</span>
+      <span data-i18n="foot.rights">Conteúdo aberto. Use, traduza, compartilhe.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
