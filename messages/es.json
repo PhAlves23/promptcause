@@ -10,6 +10,8 @@
     "themeToggle": "Cambiar tema claro/oscuro",
     "promptLabel": "Prompt",
     "breadcrumb": "Ruta de navegación",
+    "searchLanguage": "Buscar idioma…",
+    "noLanguage": "Ningún idioma encontrado.",
     "footer": {
       "tagline": "Conocimiento de IA abierto para todos. Donaciones 100% transferidas a la inclusión digital.",
       "learn": "Aprender",
