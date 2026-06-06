@@ -5,7 +5,8 @@
       "cause": "La Causa",
       "transparency": "Transparencia",
       "manifesto": "Manifiesto",
-      "skills": "Skills"
+      "skills": "Skills",
+      "community": "Comunidad"
     },
     "cta": {
       "donate": "Donar",
@@ -249,5 +250,16 @@
     "catalogTitle": "Catálogo de skills",
     "starsLabel": "estrellas",
     "forksLabel": "forks"
+  },
+  "contributors": {
+    "eyebrow": "Comunidad abierta",
+    "h1": "Quiénes construyen PromptCause.",
+    "lede": "Personas que contribuyen con contenido, skills y código — gratis, por la causa. Únete a ellas.",
+    "contributions": "contribuciones",
+    "empty": "Pronto, los primeros contribuidores.",
+    "ctaTitle": "¿Quieres aparecer aquí?",
+    "ctaText": "Toma una tarea, crea una skill o mejora el contenido. Toda contribución cuenta y gana su lugar en esta página.",
+    "ctaContent": "Contribuir con contenido",
+    "ctaSkill": "Crear una skill"
   }
 }

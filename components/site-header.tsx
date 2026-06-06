@@ -16,6 +16,7 @@ export function SiteHeader() {
   const nav = [
     { href: "/aprender", label: t("nav.learn") },
     { href: "/skills", label: t("nav.skills") },
+    { href: "/contribuidores", label: t("nav.community") },
     { href: "/causa", label: t("nav.cause") },
     { href: "/causa#ledger", label: t("nav.transparency") },
     { href: "/manifesto", label: t("nav.manifesto") },
