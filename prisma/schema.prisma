@@ -1,0 +1,73 @@
+// PromptCause — modelo de doação Fase 1 (redirect + contador).
+// Dev usa SQLite; produção troca o provider para "postgresql" (mesmo schema).
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+/// ONG parceira. O dinheiro vai direto pro `linkDoacao` dela — a plataforma não custodia.
+model Ong {
+  id            String    @id @default(cuid())
+  slug          String    @unique
+  nome          String
+  regiaoUf      String?
+  descricao     String?
+  logoUrl       String?
+  /// galeria do card (JSON): [{ "type": "image"|"video", "url": "..." }]. 1º item = capa.
+  media         String?
+  cnpj          String?
+  /// site institucional da ONG (link "saiba mais")
+  site          String?
+  /// como o doador doa: "link" (redirect ao checkout) | "pix" (mostra a chave)
+  donationType  String    @default("link")
+  /// URL do checkout/doação (quando donationType = link)
+  linkDoacao    String?
+  /// chave PIX da ONG (quando donationType = pix) — pública, exibida no site
+  pixKey        String?
+  /// rótulo do tipo da chave: "E-mail" | "CNPJ" | "Telefone" | "Aleatória"
+  pixKeyType    String?
+  /// gateway p/ ingestão de webhook: manual | mercadopago | asaas | stripe
+  gateway       String    @default("manual")
+  /// segredo p/ validar a assinatura do webhook do gateway da ONG (nunca no front)
+  webhookSecret String?
+  ativo         Boolean   @default(true)
+  ordem         Int       @default(0)
+  doacoes       Doacao[]
+  repasses      Repasse[]
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+/// Evento de doação confirmado — fonte do contador. `manual` (lançado no admin) ou `webhook`.
+model Doacao {
+  id              String   @id @default(cuid())
+  ong             Ong      @relation(fields: [ongId], references: [id])
+  ongId           String
+  valorCents      Int
+  moeda           String   @default("BRL")
+  origem          String   @default("manual")
+  /// id do evento no gateway — idempotência (evita dupla contagem)
+  providerEventId String?  @unique
+  periodo         String?
+  criadoEm        DateTime @default(now())
+
+  @@index([ongId])
+}
+
+/// Repasse/comprovante público por período — alimenta o ledger da página "A Causa".
+model Repasse {
+  id             String   @id @default(cuid())
+  ong            Ong      @relation(fields: [ongId], references: [id])
+  ongId          String
+  valorCents     Int
+  periodo        String
+  comprovanteUrl String?
+  criadoEm       DateTime @default(now())
+
+  @@index([ongId])
+}

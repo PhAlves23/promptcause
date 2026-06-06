@@ -6,8 +6,14 @@ import { Separator } from "@/components/ui/separator";
 import { KeyMessage } from "@/components/key-message";
 import { ImpactCounter } from "@/components/impact-counter";
 import { cn } from "@/lib/utils";
+import { getActiveOngs, getImpactTotalReais, getLedger, donationHref, formatBRLCents, parseMedia } from "@/lib/donations";
+import { DonateButton } from "@/components/donate-button";
+import { OngMedia } from "@/components/ong-media";
 
 const eyebrow = "font-mono text-[0.72rem] font-medium tracking-[0.16em] text-ink-faint uppercase";
+
+// Contador, parceiros e ledger vêm do banco a cada requisição.
+export const dynamic = "force-dynamic";
 
 export default async function CausaPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -15,24 +21,18 @@ export default async function CausaPage({ params }: { params: Promise<{ locale: 
   const t = await getTranslations("causa");
   const c = await getTranslations("common");
   const h = await getTranslations("home");
+  const to = await getTranslations("ongs");
+
+  const [totalReais, ongs, ledgerRows] = await Promise.all([
+    getImpactTotalReais(),
+    getActiveOngs(),
+    getLedger(),
+  ]);
 
   const flow = [
     { n: "01", icon: "♥", title: t("s1title"), desc: t("s1desc"), highlight: false },
     { n: "02", icon: "→", title: t("s2title"), desc: t("s2desc"), highlight: true },
     { n: "03", icon: "✓", title: t("s3title"), desc: t("s3desc"), highlight: false },
-  ];
-  const ledger: { label: string; amount: string; dir: "in" | "out" }[] = [
-    { label: t("rowOut1"), amount: "− R$ 12.400", dir: "out" },
-    { label: t("rowIn1"), amount: "+ R$ 12.400", dir: "in" },
-    { label: t("rowOut2"), amount: "− R$ 8.900", dir: "out" },
-    { label: t("rowIn2"), amount: "+ R$ 8.900", dir: "in" },
-    { label: t("rowOut3"), amount: "− R$ 15.200", dir: "out" },
-    { label: t("rowIn3"), amount: "+ R$ 15.200", dir: "in" },
-  ];
-  const partners = [
-    { name: t("p1name"), desc: t("p1desc") },
-    { name: t("p2name"), desc: t("p2desc") },
-    { name: t("p3name"), desc: t("p3desc") },
   ];
 
   return (
@@ -54,7 +54,7 @@ export default async function CausaPage({ params }: { params: Promise<{ locale: 
               {h("impactLabel")}
             </div>
             <ImpactCounter
-              target={248730}
+              target={totalReais}
               className="my-2 block font-display text-[clamp(2.6rem,6vw,4.4rem)] leading-none font-medium tracking-[-0.02em] text-white"
             />
             <div className="text-[0.96rem] text-[#b9cfc0]">
@@ -106,17 +106,22 @@ export default async function CausaPage({ params }: { params: Promise<{ locale: 
           <h2 className="mt-2 mb-1.5 font-display text-[2.2rem] font-medium">{t("ledgerTitle")}</h2>
           <p className="mb-6 text-ink-soft">{t("ledgerSub")}</p>
           <Card className="gap-0 rounded-[16px] border-line bg-paper-card px-6 py-2">
-            {ledger.map((row, i) => (
-              <div
-                key={i}
-                className="flex items-center justify-between gap-3.5 border-b border-line py-[13px] text-[0.94rem] last:border-b-0"
-              >
-                <span>{row.label}</span>
-                <span className={cn("font-mono font-medium", row.dir === "out" ? "text-green" : "text-ink-soft")}>
-                  {row.amount}
-                </span>
-              </div>
-            ))}
+            {ledgerRows.length === 0 ? (
+              <div className="py-[13px] text-[0.94rem] text-ink-soft">{t("ledgerEmpty")}</div>
+            ) : (
+              ledgerRows.map((row) => (
+                <div
+                  key={row.id}
+                  className="flex items-center justify-between gap-3.5 border-b border-line py-[13px] text-[0.94rem] last:border-b-0"
+                >
+                  <span>
+                    {row.ong.nome}
+                    {row.periodo ? ` · ${row.periodo}` : ""}
+                  </span>
+                  <span className="font-mono font-medium text-green">{formatBRLCents(row.valorCents)}</span>
+                </div>
+              ))
+            )}
           </Card>
           <div className="mt-[18px] flex items-center justify-between rounded-[10px] border border-green-tint-2 bg-green-tint px-6 py-4">
             <span className="font-semibold text-green-deep">{t("retained")}</span>
@@ -132,21 +137,32 @@ export default async function CausaPage({ params }: { params: Promise<{ locale: 
           <p className={eyebrow}>{t("partnersEyebrow")}</p>
           <h2 className="mt-2 mb-7 max-w-[22ch] font-display text-[2.2rem] font-medium">{t("partnersTitle")}</h2>
           <div className="grid gap-5 md:grid-cols-3">
-            {partners.map((p) => (
-              <Card key={p.name} className="gap-0 rounded-[16px] border-line bg-paper-card p-[26px]">
-                <div
-                  className="mb-3.5 grid aspect-video place-items-center rounded-[6px]"
-                  style={{
-                    backgroundImage:
-                      "repeating-linear-gradient(135deg, var(--paper-sunk), var(--paper-sunk) 9px, var(--line) 9px, var(--line) 10px)",
+            {ongs.map((o) => {
+              // descrição traduzida (namespace `ongs.<slug>`) com fallback ao texto do banco
+              const descKey = `${o.slug}.descricao`;
+              const desc = to.has(descKey) ? to(descKey) : o.descricao;
+              return (
+              <Card key={o.id} className="flex h-full flex-col gap-0 rounded-[16px] border-line bg-paper-card p-[26px]">
+                <OngMedia media={parseMedia(o.media)} nome={o.nome} placeholder={t("ngoLogo")} />
+                <h3 className="mb-1.5 font-display text-[1.25rem] font-medium">
+                  {o.nome}
+                  {o.regiaoUf ? <span className="ml-1.5 text-[0.9rem] text-ink-faint">({o.regiaoUf})</span> : null}
+                </h3>
+                {desc ? <p className="mb-4 text-[0.92rem] text-ink-soft">{desc}</p> : null}
+                <DonateButton
+                  size="sm"
+                  className="mt-auto h-10 w-full rounded-full bg-clay text-sm font-semibold text-white shadow-[0_2px_0_var(--clay-deep)] hover:bg-clay-deep"
+                  target={{
+                    nome: o.nome,
+                    donationType: o.donationType,
+                    href: o.linkDoacao ? donationHref(o.linkDoacao) : null,
+                    pixKey: o.pixKey,
+                    pixKeyType: o.pixKeyType,
                   }}
-                >
-                  <span className="font-mono text-[0.72rem] text-ink-faint">{t("ngoLogo")}</span>
-                </div>
-                <h3 className="mb-1.5 font-display text-[1.25rem] font-medium">{p.name}</h3>
-                <p className="text-[0.92rem] text-ink-soft">{p.desc}</p>
+                />
               </Card>
-            ))}
+              );
+            })}
           </div>
           <div className="mt-9 text-center">
             <Button

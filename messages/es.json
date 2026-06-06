@@ -1,10 +1,26 @@
 {
   "common": {
-    "nav": { "learn": "Aprender", "cause": "La Causa", "transparency": "Transparencia", "manifesto": "Manifiesto" },
-    "cta": { "donate": "Donar", "start": "Empezar a aprender", "openMenu": "Abrir menú" },
-    "levels": { "1": "Principiante", "2": "Intermedio", "3": "Avanzado" },
+    "nav": {
+      "learn": "Aprender",
+      "cause": "La Causa",
+      "transparency": "Transparencia",
+      "manifesto": "Manifiesto"
+    },
+    "cta": {
+      "donate": "Donar",
+      "start": "Empezar a aprender",
+      "openMenu": "Abrir menú"
+    },
+    "levels": {
+      "1": "Principiante",
+      "2": "Intermedio",
+      "3": "Avanzado"
+    },
     "keymsg": "Gratis. Si te ayudó, el 100% de la donación va a la causa.",
-    "rw": { "good": "Hazlo así", "bad": "Evita" },
+    "rw": {
+      "good": "Hazlo así",
+      "bad": "Evita"
+    },
     "freeBadge": "100% gratis · sin muro de pago · sin anuncios",
     "language": "Idioma",
     "themeToggle": "Cambiar tema claro/oscuro",
@@ -64,9 +80,15 @@
   "aprender": {
     "guideTitle": "Guía PromptCause",
     "guideSub": "prompt engineering · v1.0",
-    "l1": "Qué es un prompt", "l2": "Anatomía de una buena petición", "l3": "Dar contexto",
-    "l4": "Few-shot: enseñar con ejemplos", "l5": "Formatos y restricciones", "l6": "Personas y roles",
-    "l7": "Chain-of-thought", "l8": "Uso de herramientas", "l9": "Evaluación y guardrails",
+    "l1": "Qué es un prompt",
+    "l2": "Anatomía de una buena petición",
+    "l3": "Dar contexto",
+    "l4": "Few-shot: enseñar con ejemplos",
+    "l5": "Formatos y restricciones",
+    "l6": "Personas y roles",
+    "l7": "Chain-of-thought",
+    "l8": "Uso de herramientas",
+    "l9": "Evaluación y guardrails",
     "crumb": "La anatomía de un buen prompt",
     "tag": "Lección 01 · 5 min",
     "title": "La anatomía de un buen prompt",
@@ -74,9 +96,14 @@
     "lede": "Un prompt no es una pregunta suelta — es una instrucción. Cuanto más clara la instrucción, mejor la respuesta. Existe una receta simple que funciona casi siempre.",
     "h2recipe": "La receta: rol · tarea · contexto · formato",
     "pRecipe": "Piensa en pedirle algo a un colega muy capaz que acaba de llegar: hace exactamente lo que dices, pero no adivina lo que quieres. Dile quién es, qué hacer, con qué material y en qué formato.",
-    "pcComment1": "# rol", "pcL1a": "Eres un ", "pcVar": "redactor de correos", "pcL1b": " objetivo.",
-    "pcComment2": "# tarea + contexto", "pcL2": "Escribe un correo rechazando cortésmente la invitación de abajo, alegando agenda.",
-    "pcComment3": "# formato", "pcKey": "Máximo 4 frases. Tono cordial. Sin emojis.",
+    "pcComment1": "# rol",
+    "pcL1a": "Eres un ",
+    "pcVar": "redactor de correos",
+    "pcL1b": " objetivo.",
+    "pcComment2": "# tarea + contexto",
+    "pcL2": "Escribe un correo rechazando cortésmente la invitación de abajo, alegando agenda.",
+    "pcComment3": "# formato",
+    "pcKey": "Máximo 4 frases. Tono cordial. Sin emojis.",
     "h2contrast": "El contraste que lo cambia todo",
     "pContrast": "La misma petición, vaga y específica. La diferencia no está en el modelo — está en ti.",
     "good": "Escribe un correo rechazando la invitación, en tono cordial, máx. 4 frases, citando la agenda como motivo.",
@@ -87,7 +114,10 @@
     "pPractice": "Toma una petición que le harías hoy a la IA y reescríbela usando la receta. Compara las dos respuestas. La mejora suele ser inmediata.",
     "next": "Próxima lección: Dar contexto →",
     "onThisPage": "En esta página",
-    "tocRecipe": "La receta", "tocContrast": "El contraste", "tocWhy": "Por qué funciona", "tocPractice": "Practica ahora"
+    "tocRecipe": "La receta",
+    "tocContrast": "El contraste",
+    "tocWhy": "Por qué funciona",
+    "tocPractice": "Practica ahora"
   },
   "causa": {
     "eyebrow": "Transparencia radical",
@@ -95,32 +125,46 @@
     "lede": "Cada donación va directo a la cuenta de las ONG aliadas. No lo tocamos, no retenemos comisión, no pagamos sueldos con eso. Aquí está la prueba, línea por línea.",
     "flowEyebrow": "Cómo fluye el dinero",
     "flowTitle": "Tres pasos. Cero retención en medio.",
-    "s1title": "Donas", "s1desc": "Vía PIX o tarjeta, directo al checkout de la ONG aliada.",
-    "s2title": "Va directo a la ONG", "s2desc": "La cuenta de destino es de la institución, no nuestra. No tocamos el monto.",
-    "s3title": "Comprobante público", "s3desc": "Cada transferencia aparece en el libro abierto de abajo, con fecha y destino.",
+    "s1title": "Donas",
+    "s1desc": "Vía PIX o tarjeta, directo al checkout de la ONG aliada.",
+    "s2title": "Va directo a la ONG",
+    "s2desc": "La cuenta de destino es de la institución, no nuestra. No tocamos el monto.",
+    "s3title": "Comprobante público",
+    "s3desc": "Cada transferencia aparece en el libro abierto de abajo, con fecha y destino.",
     "ledgerEyebrow": "Libro público",
     "ledgerTitle": "Cada transferencia, a la vista de todos.",
     "ledgerSub": "Entradas en gris, transferencias en verde. Saldo retenido por nosotros: siempre R$ 0,00.",
-    "rowOut1": "Transferencia → Instituto Conectar (SP)", "rowIn1": "Donaciones PIX · may/26",
-    "rowOut2": "Transferencia → Rede Digital Norte (PA)", "rowIn2": "Donaciones tarjeta · may/26",
-    "rowOut3": "Transferencia → AlfaTech Comunidade (BA)", "rowIn3": "Donaciones PIX · abr/26",
+    "rowOut1": "Transferencia → Instituto Conectar (SP)",
+    "rowIn1": "Donaciones PIX · may/26",
+    "rowOut2": "Transferencia → Rede Digital Norte (PA)",
+    "rowIn2": "Donaciones tarjeta · may/26",
+    "rowOut3": "Transferencia → AlfaTech Comunidade (BA)",
+    "rowIn3": "Donaciones PIX · abr/26",
     "retained": "Retenido por nosotros",
     "partnersEyebrow": "ONG aliadas",
     "partnersTitle": "Quienes llevan la tecnología hasta el final.",
-    "p1name": "Instituto Conectar", "p1desc": "Laboratorios de IA en escuelas públicas de la periferia de São Paulo.",
-    "p2name": "Rede Digital Norte", "p2desc": "Internet y equipos para comunidades ribereñas de Pará.",
-    "p3name": "AlfaTech Comunidade", "p3desc": "Formación en IA para jóvenes y adultos en el interior de Bahía.",
+    "p1name": "Instituto Conectar",
+    "p1desc": "Laboratorios de IA en escuelas públicas de la periferia de São Paulo.",
+    "p2name": "Rede Digital Norte",
+    "p2desc": "Internet y equipos para comunidades ribereñas de Pará.",
+    "p3name": "AlfaTech Comunidade",
+    "p3desc": "Formación en IA para jóvenes y adultos en el interior de Bahía.",
     "ngoLogo": "logo de la ONG"
   },
   "doar": {
     "eyebrow": "Transparencia radical",
     "h1": "Retribuye. El 100% se vuelve inclusión.",
-    "lede": "Elige un monto. Va íntegramente a una ONG aliada — recibes el comprobante de transferencia.",
+    "lede": "Elige una ONG aliada. El 100% de tu donación va directo a ella — recibes el comprobante de transferencia.",
     "yourDonation": "Tu donación",
-    "passed": "transferido", "retained": "retenido",
+    "passed": "transferido",
+    "retained": "retenido",
     "method": "Forma de pago",
-    "pixHint": "Brasil · instantáneo", "cardHint": "Tarjeta · global",
-    "freq": "Frecuencia", "once": "Una vez", "monthly": "Mensual", "perMonth": "/mes",
+    "pixHint": "Brasil · instantáneo",
+    "cardHint": "Tarjeta · global",
+    "freq": "Frecuencia",
+    "once": "Una vez",
+    "monthly": "Mensual",
+    "perMonth": "/mes",
     "otherAmount": "Otro monto (R$)",
     "impactOf": "Qué hace este monto",
     "confirm": "Donar ahora",
@@ -129,7 +173,9 @@
     "impact50": "Una hora de taller de IA en una escuela pública.",
     "impact100": "Un grupo conectado por una semana.",
     "impact250": "Un kit de conectividad para una comunidad.",
-    "impactBase": "Cada peso acerca a alguien a la tecnología."
+    "impactBase": "Cada peso acerca a alguien a la tecnología.",
+    "toNgo": "para la ONG",
+    "redirectNote": "En la página de la ONG eliges el importe y la forma de pago — PIX o tarjeta."
   },
   "manifesto": {
     "eyebrow": "Manifiesto · Por qué existimos",
@@ -142,16 +188,33 @@
     "story3": "Porque no basta con enseñar IA a quien ya tiene computadora, internet y tiempo. La próxima persona en aprender puede ser alguien que aún no ha llegado a la red. Es para ella que va cada donación.",
     "believeEyebrow": "En qué creemos",
     "believeTitle": "Cuatro principios innegociables.",
-    "pr1title": "Conocimiento abierto, sin peaje", "pr1body": "Sin muro de pago, sin anuncios, sin inicio de sesión obligatorio. Aprender a usar IA es un derecho, no un producto. Úsalo, tradúcelo y compártelo libremente.",
-    "pr2title": "El dinero nunca pasa por nosotros", "pr2body": "Cada donación va directo a la cuenta de las ONG aliadas. Retenemos R$ 0,00 — y lo probamos, línea por línea.",
+    "pr1title": "Conocimiento abierto, sin peaje",
+    "pr1body": "Sin muro de pago, sin anuncios, sin inicio de sesión obligatorio. Aprender a usar IA es un derecho, no un producto. Úsalo, tradúcelo y compártelo libremente.",
+    "pr2title": "El dinero nunca pasa por nosotros",
+    "pr2body": "Cada donación va directo a la cuenta de las ONG aliadas. Retenemos R$ 0,00 — y lo probamos, línea por línea.",
     "pr2link": "Ver el libro público →",
-    "pr3title": "Enseñar con honestidad", "pr3body": "Nada de \"hack secreto\" ni promesa de atajo mágico. Mostramos la forma correcta y la incorrecta, lado a lado, y siempre explicamos por qué.",
-    "pr4title": "En la lengua de cada uno", "pr4body": "Contenido multilingüe por principio. La inclusión empieza por entender — por eso cualquier persona puede leer PromptCause en su propio idioma.",
+    "pr3title": "Enseñar con honestidad",
+    "pr3body": "Nada de \"hack secreto\" ni promesa de atajo mágico. Mostramos la forma correcta y la incorrecta, lado a lado, y siempre explicamos por qué.",
+    "pr4title": "En la lengua de cada uno",
+    "pr4body": "Contenido multilingüe por principio. La inclusión empieza por entender — por eso cualquier persona puede leer PromptCause en su propio idioma.",
     "promiseEyebrow": "Nuestra promesa",
     "promiseQuote": "“Gratis. Si te ayudó, el 100% de la donación va a la causa.”",
     "promiseBody": "PromptCause es mantenido por voluntarios. Los costos del sitio salen de nuestro bolsillo, no de las donaciones — por eso el contador puede mostrar, con honestidad, 100% transferido.",
     "closingTitle": "Aprende. Después pásalo.",
     "closingBody": "Empieza gratis hoy. Si algún día esto te abre una puerta, ayuda a abrir la próxima para alguien más."
   },
-  "notFound": { "eyebrow": "Error 404", "title": "Este prompt no devolvió nada.", "body": "La página que buscas no existe o fue movida. ¿Qué tal empezar de nuevo?", "back": "Volver al inicio →" }
+  "notFound": {
+    "eyebrow": "Error 404",
+    "title": "Este prompt no devolvió nada.",
+    "body": "La página que buscas no existe o fue movida. ¿Qué tal empezar de nuevo?",
+    "back": "Volver al inicio →"
+  },
+  "ongs": {
+    "mim-social": {
+      "descricao": "Educación con tecnología: alfabetización e inclusión digital para niños y adolescentes en la favela de Nestlé, en Jaboatão dos Guararapes (PE), Brasil."
+    },
+    "jovens-hackers": {
+      "descricao": "Escuela de programación, robótica y cultura maker por y para las periferias. Más de mil alumnos desde 2017."
+    }
+  }
 }

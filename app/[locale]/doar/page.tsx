@@ -2,6 +2,10 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { KeyMessage } from "@/components/key-message";
 import { ImpactCounter } from "@/components/impact-counter";
 import { DonateWidget } from "@/components/donate-widget";
+import { getActiveOngs, getImpactTotalReais, donationHref } from "@/lib/donations";
+
+// Lê o total doado e as ONGs do banco a cada requisição.
+export const dynamic = "force-dynamic";
 
 export default async function DoarPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -9,6 +13,7 @@ export default async function DoarPage({ params }: { params: Promise<{ locale: s
   const t = await getTranslations("doar");
   const c = await getTranslations("common");
   const h = await getTranslations("home");
+  const [totalReais, ongs] = await Promise.all([getImpactTotalReais(), getActiveOngs()]);
 
   return (
     <section className="py-[88px]">
@@ -27,7 +32,7 @@ export default async function DoarPage({ params }: { params: Promise<{ locale: s
               {h("impactLabel")}
             </div>
             <ImpactCounter
-              target={248730}
+              target={totalReais}
               className="my-2 block font-display text-[clamp(2.4rem,5vw,3.6rem)] leading-none font-medium tracking-[-0.02em] text-white"
             />
             <div className="text-[0.96rem] text-[#b9cfc0]">
@@ -38,7 +43,16 @@ export default async function DoarPage({ params }: { params: Promise<{ locale: s
           <KeyMessage>{c("keymsg")}</KeyMessage>
         </div>
 
-        <DonateWidget />
+        <DonateWidget
+          ongs={ongs.map((o) => ({
+            slug: o.slug,
+            nome: o.nome,
+            donationType: o.donationType,
+            href: o.linkDoacao ? donationHref(o.linkDoacao) : null,
+            pixKey: o.pixKey,
+            pixKeyType: o.pixKeyType,
+          }))}
+        />
       </div>
     </section>
   );

@@ -6,16 +6,20 @@ import { Separator } from "@/components/ui/separator";
 import { LevelBadge } from "@/components/level-badge";
 import { KeyMessage } from "@/components/key-message";
 import { ImpactCounter } from "@/components/impact-counter";
+import { getImpactTotalReais } from "@/lib/donations";
 import { PromptBlock, PromptVar, PromptKey, PromptComment } from "@/components/prompt-block";
 import { RightWrong } from "@/components/right-wrong";
 
 const eyebrow = "font-mono text-[0.72rem] font-medium tracking-[0.16em] text-ink-faint uppercase";
+
+export const dynamic = "force-dynamic";
 
 export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("home");
   const c = await getTranslations("common");
+  const totalReais = await getImpactTotalReais();
 
   const paths = [
     { level: 1 as const, title: t("p1title"), desc: t("p1desc") },
@@ -57,7 +61,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                 {t("impactLabel")}
               </div>
               <ImpactCounter
-                target={248730}
+                target={totalReais}
                 className="my-2 block font-display text-[clamp(2.6rem,6vw,4.4rem)] leading-none font-medium tracking-[-0.02em] text-white"
               />
               <div className="text-[0.96rem] text-[#b9cfc0]">
@@ -96,12 +100,12 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             {paths.map((p) => (
               <Card
                 key={p.level}
-                className="group gap-0 rounded-[16px] border-line bg-paper-card p-[26px] transition-all hover:-translate-y-[3px] hover:border-line-strong hover:shadow-[0_4px_16px_-6px_rgba(32,28,21,0.14)]"
+                className="group flex h-full flex-col gap-0 rounded-[16px] border-line bg-paper-card p-[26px] transition-all hover:-translate-y-[3px] hover:border-line-strong hover:shadow-[0_4px_16px_-6px_rgba(32,28,21,0.14)]"
               >
                 <LevelBadge level={p.level} label={c(`levels.${p.level}`)} />
                 <h3 className="mt-[18px] mb-2 font-display text-[1.5rem] font-medium">{p.title}</h3>
-                <p className="text-[0.96rem] text-ink-soft">{p.desc}</p>
-                <Link href="/aprender" className="mt-4 text-[0.92rem] font-semibold text-green group-hover:underline">
+                <p className="mb-4 text-[0.96rem] text-ink-soft">{p.desc}</p>
+                <Link href="/aprender" className="mt-auto text-[0.92rem] font-semibold text-green group-hover:underline">
                   {t("enter")} →
                 </Link>
               </Card>
