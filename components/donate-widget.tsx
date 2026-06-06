@@ -8,16 +8,23 @@ import { cn } from "@/lib/utils";
 
 type Method = "pix" | "card";
 type Freq = "once" | "monthly";
+type OngOption = { slug: string; nome: string; href: string };
 
 const PRESETS = [20, 50, 100, 250];
 const eyebrow = "font-mono text-[0.72rem] font-medium tracking-[0.16em] text-ink-faint uppercase";
 
-export function DonateWidget() {
+export function DonateWidget({ ongs = [] }: { ongs?: OngOption[] }) {
   const t = useTranslations("doar");
   const [method, setMethod] = useState<Method>("pix");
   const [freq, setFreq] = useState<Freq>("once");
   const [preset, setPreset] = useState(50);
   const [custom, setCustom] = useState("");
+  const [ongSlug, setOngSlug] = useState(ongs[0]?.slug ?? "");
+
+  const selectedOng = ongs.find((o) => o.slug === ongSlug) ?? ongs[0];
+  const goDonate = () => {
+    if (selectedOng) window.open(selectedOng.href, "_blank", "noopener,noreferrer");
+  };
 
   const customNum = Number(custom);
   const amount = custom !== "" && customNum > 0 ? customNum : preset;
@@ -58,6 +65,22 @@ export function DonateWidget() {
       </div>
 
       <div className="px-[26px] py-6">
+        {ongs.length > 0 && (
+          <div className="mb-[22px]">
+            <p className={cn(eyebrow, "mb-3")}>{t("ngoLabel")}</p>
+            <select
+              value={ongSlug}
+              onChange={(e) => setOngSlug(e.target.value)}
+              className="w-full rounded-[10px] border border-line-strong bg-paper-card px-3.5 py-3 text-base text-ink outline-none focus:border-green focus:ring-2 focus:ring-green/40"
+            >
+              {ongs.map((o) => (
+                <option key={o.slug} value={o.slug}>
+                  {o.nome}
+                </option>
+              ))}
+            </select>
+          </div>
+        )}
         <p className={cn(eyebrow, "mb-3")}>{t("method")}</p>
         <div className="mb-[22px] grid grid-cols-2 gap-2.5">
           {methods.map((m) => (
@@ -145,7 +168,9 @@ export function DonateWidget() {
         <Button
           type="button"
           size="lg"
-          className="h-12 w-full rounded-full bg-clay text-base font-semibold text-white shadow-[0_2px_0_var(--clay-deep)] hover:bg-clay-deep"
+          onClick={goDonate}
+          disabled={!selectedOng}
+          className="h-12 w-full rounded-full bg-clay text-base font-semibold text-white shadow-[0_2px_0_var(--clay-deep)] hover:bg-clay-deep disabled:opacity-50"
         >
           <span aria-hidden>♥</span> {t("confirm")}
         </Button>

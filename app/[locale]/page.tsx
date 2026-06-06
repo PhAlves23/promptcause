@@ -6,16 +6,20 @@ import { Separator } from "@/components/ui/separator";
 import { LevelBadge } from "@/components/level-badge";
 import { KeyMessage } from "@/components/key-message";
 import { ImpactCounter } from "@/components/impact-counter";
+import { getImpactTotalReais } from "@/lib/donations";
 import { PromptBlock, PromptVar, PromptKey, PromptComment } from "@/components/prompt-block";
 import { RightWrong } from "@/components/right-wrong";
 
 const eyebrow = "font-mono text-[0.72rem] font-medium tracking-[0.16em] text-ink-faint uppercase";
+
+export const dynamic = "force-dynamic";
 
 export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("home");
   const c = await getTranslations("common");
+  const totalReais = await getImpactTotalReais();
 
   const paths = [
     { level: 1 as const, title: t("p1title"), desc: t("p1desc") },
@@ -57,7 +61,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                 {t("impactLabel")}
               </div>
               <ImpactCounter
-                target={248730}
+                target={totalReais}
                 className="my-2 block font-display text-[clamp(2.6rem,6vw,4.4rem)] leading-none font-medium tracking-[-0.02em] text-white"
               />
               <div className="text-[0.96rem] text-[#b9cfc0]">
