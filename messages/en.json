@@ -161,7 +161,7 @@
   "doar": {
     "eyebrow": "Radical transparency",
     "h1": "Give back. 100% becomes inclusion.",
-    "lede": "Pick an amount. It goes entirely to a partner NGO — you get the transfer receipt.",
+    "lede": "Choose a partner NGO. 100% of your donation goes straight to it — you get the transfer receipt.",
     "yourDonation": "Your donation",
     "passed": "passed through",
     "retained": "kept",
@@ -181,7 +181,9 @@
     "impact100": "A class connected for a week.",
     "impact250": "A connectivity kit for a community.",
     "impactBase": "Every cent brings someone closer to technology.",
-    "ngoLabel": "Choose an NGO"
+    "ngoLabel": "Choose an NGO",
+    "toNgo": "to the NGO",
+    "redirectNote": "On the NGO’s page you choose the amount and payment method — PIX or card."
   },
   "manifesto": {
     "eyebrow": "Manifesto · Why we exist",

@@ -154,7 +154,7 @@
   "doar": {
     "eyebrow": "Transparencia radical",
     "h1": "Retribuye. El 100% se vuelve inclusión.",
-    "lede": "Elige un monto. Va íntegramente a una ONG aliada — recibes el comprobante de transferencia.",
+    "lede": "Elige una ONG aliada. El 100% de tu donación va directo a ella — recibes el comprobante de transferencia.",
     "yourDonation": "Tu donación",
     "passed": "transferido",
     "retained": "retenido",
@@ -173,7 +173,9 @@
     "impact50": "Una hora de taller de IA en una escuela pública.",
     "impact100": "Un grupo conectado por una semana.",
     "impact250": "Un kit de conectividad para una comunidad.",
-    "impactBase": "Cada peso acerca a alguien a la tecnología."
+    "impactBase": "Cada peso acerca a alguien a la tecnología.",
+    "toNgo": "para la ONG",
+    "redirectNote": "En la página de la ONG eliges el importe y la forma de pago — PIX o tarjeta."
   },
   "manifesto": {
     "eyebrow": "Manifiesto · Por qué existimos",
