@@ -126,7 +126,17 @@
     "tocRecipe": "A receita",
     "tocContrast": "O contraste",
     "tocWhy": "Por que funciona",
-    "tocPractice": "Pratique agora"
+    "tocPractice": "Pratique agora",
+    "soonBadge": "Em breve",
+    "soonTitle": "Em breve — e você pode construir com a gente",
+    "soonLede": "Estes temas estão a caminho. Quer montar um deles? Pegue a tarefa no GitHub: toda contribuição é bem-vinda.",
+    "soonCta": "Montar este conteúdo",
+    "soonRag": "Conecte o modelo a dados externos: recuperar e injetar contexto relevante na resposta.",
+    "soonFt": "Quando e como ajustar um modelo aos seus dados e ao seu domínio.",
+    "soonMcp": "Conecte ferramentas e fontes de dados aos agentes, de forma padronizada.",
+    "soonAgents": "Agentes que planejam, usam ferramentas e executam tarefas de ponta a ponta.",
+    "soonEvals": "Como medir a qualidade da IA: avaliação, benchmarks e testes.",
+    "soonEmbeddings": "Vetores e busca por significado — a base do RAG e da busca semântica."
   },
   "causa": {
     "eyebrow": "Transparência radical",

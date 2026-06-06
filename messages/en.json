@@ -126,7 +126,17 @@
     "tocRecipe": "The recipe",
     "tocContrast": "The contrast",
     "tocWhy": "Why it works",
-    "tocPractice": "Practice now"
+    "tocPractice": "Practice now",
+    "soonBadge": "Coming soon",
+    "soonTitle": "Coming soon — and you can build it with us",
+    "soonLede": "These topics are on the way. Want to build one? Grab the task on GitHub — every contribution is welcome.",
+    "soonCta": "Build this content",
+    "soonRag": "Connect the model to external data: retrieve and inject relevant context into the answer.",
+    "soonFt": "When and how to adapt a model to your data and domain.",
+    "soonMcp": "Connect tools and data sources to agents in a standard way.",
+    "soonAgents": "Agents that plan, use tools, and carry tasks end to end.",
+    "soonEvals": "How to measure AI quality: evaluation, benchmarks, and tests.",
+    "soonEmbeddings": "Vectors and semantic search — the foundation of RAG."
   },
   "causa": {
     "eyebrow": "Radical transparency",
