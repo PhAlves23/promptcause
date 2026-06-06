@@ -7,10 +7,47 @@ export type Skill = {
   category?: string;
   homepage: string;
   author: { login: string; name: string; profileUrl: string; avatarUrl: string };
+  stars: number;
+  forks: number;
 };
 
-const MARKETPLACE_URL =
-  "https://raw.githubusercontent.com/PhAlves23/prompt-cause-marketplace/main/.claude-plugin/marketplace.json";
+function githubRepo(url?: string): string {
+  const m = url?.match(/github\.com\/([^/]+\/[^/?#.]+)/);
+  return m ? m[1].replace(/\.git$/, "") : "";
+}
+
+async function fetchRepoStats(repo: string): Promise<{ stars: number; forks: number }> {
+  if (!repo) return { stars: 0, forks: 0 };
+  try {
+    const res = await fetch(`https://api.github.com/repos/${repo}`, {
+      headers: { Accept: "application/vnd.github+json" },
+      next: { revalidate: 3600 },
+    });
+    if (!res.ok) return { stars: 0, forks: 0 };
+    const r = (await res.json()) as { stargazers_count?: number; forks_count?: number };
+    return { stars: r.stargazers_count ?? 0, forks: r.forks_count ?? 0 };
+  } catch {
+    return { stars: 0, forks: 0 };
+  }
+}
+
+const MARKETPLACE_REPO = "PhAlves23/prompt-cause-marketplace";
+const MARKETPLACE_URL = `https://raw.githubusercontent.com/${MARKETPLACE_REPO}/main/.claude-plugin/marketplace.json`;
+
+/** Estrelas e forks do repositório do marketplace (GitHub API). */
+export async function getMarketplaceStats(): Promise<{ stars: number; forks: number } | null> {
+  try {
+    const res = await fetch(`https://api.github.com/repos/${MARKETPLACE_REPO}`, {
+      headers: { Accept: "application/vnd.github+json" },
+      next: { revalidate: 3600 },
+    });
+    if (!res.ok) return null;
+    const r = (await res.json()) as { stargazers_count?: number; forks_count?: number };
+    return { stars: r.stargazers_count ?? 0, forks: r.forks_count ?? 0 };
+  } catch {
+    return null;
+  }
+}
 
 function githubOwner(url?: string): string {
   const m = url?.match(/github\.com\/([^/]+)/);
@@ -56,11 +93,12 @@ export async function getSkills(): Promise<Skill[]> {
   }
 
   const plugins = data.plugins ?? [];
-  return Promise.all(
+  const resolved = await Promise.all(
     plugins.map(async (p): Promise<Skill> => {
       const repoUrl = p.source?.url || p.homepage || "";
       const login = githubOwner(repoUrl) || githubOwner(p.homepage);
-      const gh = await fetchGithubUser(login);
+      const repo = githubRepo(repoUrl) || githubRepo(p.homepage);
+      const [gh, stats] = await Promise.all([fetchGithubUser(login), fetchRepoStats(repo)]);
       return {
         name: p.name,
         description: p.description ?? "",
@@ -72,7 +110,12 @@ export async function getSkills(): Promise<Skill[]> {
           profileUrl: gh?.profileUrl || `https://github.com/${login}`,
           avatarUrl: gh?.avatarUrl || `https://github.com/${login}.png`,
         },
+        stars: stats.stars,
+        forks: stats.forks,
       };
     }),
   );
+
+  // catálogo ordenado pelos mais populares (estrelas, depois forks)
+  return resolved.sort((a, b) => b.stars - a.stars || b.forks - a.forks);
 }

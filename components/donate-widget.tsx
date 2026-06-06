@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { Card } from "@/components/ui/card";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { cn } from "@/lib/utils";
 import { DonateButton, type DonateTarget } from "@/components/donate-button";
 
@@ -53,17 +54,18 @@ export function DonateWidget({ ongs = [] }: { ongs?: OngOption[] }) {
         {ongs.length > 0 && (
           <div className="mb-[22px]">
             <p className={cn(eyebrow, "mb-3")}>{t("ngoLabel")}</p>
-            <select
-              value={ongSlug}
-              onChange={(e) => setOngSlug(e.target.value)}
-              className="w-full rounded-[10px] border border-line-strong bg-paper-card px-3.5 py-3 text-base text-ink outline-none focus:border-green focus:ring-2 focus:ring-green/40"
-            >
-              {ongs.map((o) => (
-                <option key={o.slug} value={o.slug}>
-                  {o.nome}
-                </option>
-              ))}
-            </select>
+            <Select value={ongSlug} onValueChange={setOngSlug}>
+              <SelectTrigger aria-label={t("ngoLabel")}>
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                {ongs.map((o) => (
+                  <SelectItem key={o.slug} value={o.slug}>
+                    {o.nome}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
           </div>
         )}
 

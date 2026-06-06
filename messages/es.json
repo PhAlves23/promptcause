@@ -38,7 +38,9 @@
       "partners": "ONG aliadas",
       "rights": "Contenido abierto. Úsalo, tradúcelo, compártelo.",
       "copyright": "© 2026 PromptCause"
-    }
+    },
+    "copy": "Copiar",
+    "copied": "¡Copiado!"
   },
   "home": {
     "metaTitle": "Aprende IA gratis. Dona a la causa.",
@@ -118,7 +120,17 @@
     "tocRecipe": "La receta",
     "tocContrast": "El contraste",
     "tocWhy": "Por qué funciona",
-    "tocPractice": "Practica ahora"
+    "tocPractice": "Practica ahora",
+    "soonBadge": "Próximamente",
+    "soonTitle": "Próximamente — y puedes construirlo con nosotros",
+    "soonLede": "Estos temas están en camino. ¿Quieres montar uno? Toma la tarea en GitHub: toda contribución es bienvenida.",
+    "soonCta": "Crear este contenido",
+    "soonRag": "Conecta el modelo a datos externos: recuperar e inyectar contexto relevante en la respuesta.",
+    "soonFt": "Cuándo y cómo ajustar un modelo a tus datos y dominio.",
+    "soonMcp": "Conecta herramientas y fuentes de datos a los agentes de forma estándar.",
+    "soonAgents": "Agentes que planifican, usan herramientas y ejecutan tareas de principio a fin.",
+    "soonEvals": "Cómo medir la calidad de la IA: evaluación, benchmarks y pruebas.",
+    "soonEmbeddings": "Vectores y búsqueda semántica: la base del RAG."
   },
   "causa": {
     "eyebrow": "Transparencia radical",
@@ -224,6 +236,18 @@
     "lede": "Un catálogo abierto de skills para Claude Code, Cursor, Copilot y más. Creadas por la comunidad, libres para usar.",
     "createdBy": "Creado por",
     "viewOnGithub": "Ver en GitHub",
-    "empty": "No hay skills disponibles por ahora."
+    "empty": "No hay skills disponibles por ahora.",
+    "mpTitle": "Un marketplace. Todas las skills.",
+    "mpLede": "Añade un marketplace e instala cualquier skill del catálogo. Cada skill queda fijada a un commit revisado (sha), así nada cambia bajo tus pies.",
+    "featCurated": "Curado y revisado, skill por skill",
+    "featSha": "Fijado por commit (sha): seguro y reproducible",
+    "featGranular": "Instala solo las skills que quieras",
+    "featMultiAgent": "Claude Code, Copilot, Cursor, Codex, Gemini y más",
+    "installHint": "Pega en tu agente:",
+    "starCta": "Dar una estrella",
+    "contributeCta": "Contribuir con una skill",
+    "catalogTitle": "Catálogo de skills",
+    "starsLabel": "estrellas",
+    "forksLabel": "forks"
   }
 }
