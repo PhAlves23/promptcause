@@ -19,6 +19,7 @@ export type AdminOng = {
   descricao: string;
   cnpj: string;
   site: string;
+  mediaUrls: string;
   donationType: string;
   linkDoacao: string;
   pixKey: string;
@@ -76,6 +77,17 @@ function OngFields({ d }: { d?: AdminOng }) {
           <label className={label}>Site</label>
           <input name="site" type="url" defaultValue={d?.site} placeholder="https://…" className={input} />
         </div>
+      </div>
+
+      <div>
+        <label className={label}>Mídia do card — uma URL por linha (YouTube vira vídeo; 1ª = capa)</label>
+        <textarea
+          name="media"
+          defaultValue={d?.mediaUrls}
+          rows={3}
+          placeholder={"/ongs/exemplo/foto.jpg\nhttps://youtube.com/watch?v=…"}
+          className={input}
+        />
       </div>
 
       <div>

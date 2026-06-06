@@ -20,6 +20,7 @@ const ongs = [
     // Campanha Benfeitoria dedicada → atribuição rastreável (melhor que PIX direto)
     donationType: "link",
     linkDoacao: "https://benfeitoria.com/projeto/mim-social-educao-com-tecnologia-1w0z",
+    media: JSON.stringify([{ type: "image", url: "/ongs/mim-social/images_1.jpg" }]),
     gateway: "manual",
     ordem: 1,
   },
@@ -33,6 +34,12 @@ const ongs = [
     donationType: "link",
     // PROVISÓRIO: trocar pelo link de campanha Benfeitoria dedicado (com ?ref=promptcause)
     linkDoacao: "https://jovenshackers.com.br",
+    media: JSON.stringify([
+      { type: "video", url: "https://www.youtube.com/watch?v=lwbG6kBwrhg" },
+      { type: "image", url: "/ongs/jovens-hackers/images_1.jpg" },
+      { type: "image", url: "/ongs/jovens-hackers/images_2.jpg" },
+      { type: "image", url: "/ongs/jovens-hackers/images_3.jpg" },
+    ]),
     gateway: "manual",
     ordem: 2,
   },

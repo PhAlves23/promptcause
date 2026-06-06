@@ -1,6 +1,6 @@
 import { requireAdmin } from "@/lib/auth";
 import { prisma } from "@/lib/db";
-import { getImpactTotalReais } from "@/lib/donations";
+import { getImpactTotalReais, parseMedia } from "@/lib/donations";
 import { AdminClient } from "./admin-client";
 
 export const dynamic = "force-dynamic";
@@ -22,6 +22,7 @@ export default async function AdminPage() {
     descricao: o.descricao ?? "",
     cnpj: o.cnpj ?? "",
     site: o.site ?? "",
+    mediaUrls: parseMedia(o.media).map((m) => m.url).join("\n"),
     donationType: o.donationType,
     linkDoacao: o.linkDoacao ?? "",
     pixKey: o.pixKey ?? "",

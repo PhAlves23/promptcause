@@ -33,6 +33,29 @@ export function formatBRLCents(cents: number): string {
   return BRL.format(cents / 100);
 }
 
+export type MediaItem = { type: "image" | "video"; url: string };
+
+/** Faz parse do campo `media` (JSON) da ONG, validando os itens. */
+export function parseMedia(json: string | null | undefined): MediaItem[] {
+  if (!json) return [];
+  try {
+    const arr = JSON.parse(json);
+    if (!Array.isArray(arr)) return [];
+    return arr.filter(
+      (m): m is MediaItem =>
+        m && typeof m.url === "string" && (m.type === "image" || m.type === "video"),
+    );
+  } catch {
+    return [];
+  }
+}
+
+/** Extrai o ID de um link do YouTube (watch, youtu.be ou embed). */
+export function youtubeId(url: string): string | null {
+  const m = url.match(/(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([\w-]{11})/);
+  return m ? m[1] : null;
+}
+
 /** Acrescenta `?ref=promptcause` ao link de doação da ONG (atribuição de origem). */
 export function donationHref(linkDoacao: string): string {
   try {

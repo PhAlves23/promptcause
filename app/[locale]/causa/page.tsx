@@ -6,8 +6,9 @@ import { Separator } from "@/components/ui/separator";
 import { KeyMessage } from "@/components/key-message";
 import { ImpactCounter } from "@/components/impact-counter";
 import { cn } from "@/lib/utils";
-import { getActiveOngs, getImpactTotalReais, getLedger, donationHref, formatBRLCents } from "@/lib/donations";
+import { getActiveOngs, getImpactTotalReais, getLedger, donationHref, formatBRLCents, parseMedia } from "@/lib/donations";
 import { DonateButton } from "@/components/donate-button";
+import { OngMedia } from "@/components/ong-media";
 
 const eyebrow = "font-mono text-[0.72rem] font-medium tracking-[0.16em] text-ink-faint uppercase";
 
@@ -137,21 +138,7 @@ export default async function CausaPage({ params }: { params: Promise<{ locale: 
           <div className="grid gap-5 md:grid-cols-3">
             {ongs.map((o) => (
               <Card key={o.id} className="gap-0 rounded-[16px] border-line bg-paper-card p-[26px]">
-                <div
-                  className="mb-3.5 grid aspect-video place-items-center overflow-hidden rounded-[6px]"
-                  style={{
-                    backgroundImage: o.logoUrl
-                      ? undefined
-                      : "repeating-linear-gradient(135deg, var(--paper-sunk), var(--paper-sunk) 9px, var(--line) 9px, var(--line) 10px)",
-                  }}
-                >
-                  {o.logoUrl ? (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img src={o.logoUrl} alt={o.nome} className="h-full w-full object-cover" />
-                  ) : (
-                    <span className="font-mono text-[0.72rem] text-ink-faint">{t("ngoLogo")}</span>
-                  )}
-                </div>
+                <OngMedia media={parseMedia(o.media)} nome={o.nome} placeholder={t("ngoLogo")} />
                 <h3 className="mb-1.5 font-display text-[1.25rem] font-medium">
                   {o.nome}
                   {o.regiaoUf ? <span className="ml-1.5 text-[0.9rem] text-ink-faint">({o.regiaoUf})</span> : null}

@@ -18,6 +18,8 @@ model Ong {
   regiaoUf      String?
   descricao     String?
   logoUrl       String?
+  /// galeria do card (JSON): [{ "type": "image"|"video", "url": "..." }]. 1º item = capa.
+  media         String?
   cnpj          String?
   /// site institucional da ONG (link "saiba mais")
   site          String?

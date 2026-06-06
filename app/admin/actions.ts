@@ -14,6 +14,17 @@ function revalidatePublic() {
   revalidatePath("/admin");
 }
 
+/** Converte o textarea de mídia (uma URL por linha) no JSON do campo `media`. YouTube → vídeo. */
+function mediaJson(raw?: string): string | null {
+  if (!raw) return null;
+  const items = raw
+    .split("\n")
+    .map((s) => s.trim())
+    .filter(Boolean)
+    .map((url) => ({ type: /youtube\.com|youtu\.be/.test(url) ? "video" : "image", url }));
+  return items.length ? JSON.stringify(items) : null;
+}
+
 function slugify(s: string): string {
   return s
     .normalize("NFD")
@@ -46,6 +57,7 @@ const ongSchema = z
     descricao: z.string().trim().optional().or(z.literal("")),
     cnpj: z.string().trim().optional().or(z.literal("")),
     site: z.string().trim().url("Site inválido").optional().or(z.literal("")),
+    media: z.string().optional().or(z.literal("")),
     donationType: z.enum(["link", "pix"]),
     linkDoacao: z.string().trim().optional().or(z.literal("")),
     pixKey: z.string().trim().optional().or(z.literal("")),
@@ -84,6 +96,7 @@ export async function createOng(_prev: ActionState, formData: FormData): Promise
       descricao: d.descricao || null,
       cnpj: d.cnpj || null,
       site: d.site || null,
+      media: mediaJson(d.media),
       donationType: d.donationType,
       linkDoacao: d.donationType === "link" ? d.linkDoacao : null,
       pixKey: d.donationType === "pix" ? d.pixKey : null,
@@ -112,6 +125,7 @@ export async function updateOng(_prev: ActionState, formData: FormData): Promise
       descricao: d.descricao || null,
       cnpj: d.cnpj || null,
       site: d.site || null,
+      media: mediaJson(d.media),
       donationType: d.donationType,
       linkDoacao: d.donationType === "link" ? d.linkDoacao : null,
       pixKey: d.donationType === "pix" ? d.pixKey : null,
