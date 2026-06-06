@@ -7,7 +7,13 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { cn } from "@/lib/utils";
 import { DonateButton, type DonateTarget } from "@/components/donate-button";
 
-type OngOption = DonateTarget & { slug: string };
+type OngOption = DonateTarget & {
+  slug: string;
+  descricao?: string | null;
+  logoUrl?: string | null;
+  regiaoUf?: string | null;
+  site?: string | null;
+};
 
 // Valores apenas como REFERÊNCIA DE IMPACTO — o valor/forma de pagamento reais
 // são escolhidos no checkout da própria ONG (modelo redirect).
@@ -66,6 +72,42 @@ export function DonateWidget({ ongs = [] }: { ongs?: OngOption[] }) {
                 ))}
               </SelectContent>
             </Select>
+          </div>
+        )}
+
+        {selectedOng && (selectedOng.descricao || selectedOng.logoUrl || selectedOng.regiaoUf || selectedOng.site) && (
+          <div className="mb-[22px] rounded-[10px] border border-line bg-paper-sunk px-4 py-4">
+            <div className="flex items-start gap-3">
+              {selectedOng.logoUrl && (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={selectedOng.logoUrl}
+                  alt={selectedOng.nome}
+                  className="size-11 shrink-0 rounded-[8px] border border-line object-cover"
+                />
+              )}
+              <div className="min-w-0">
+                <div className="font-display text-[1.02rem] leading-tight font-medium text-ink">{selectedOng.nome}</div>
+                {selectedOng.regiaoUf && (
+                  <div className="mt-0.5 font-mono text-[0.68rem] tracking-[0.08em] text-ink-faint uppercase">
+                    {selectedOng.regiaoUf}
+                  </div>
+                )}
+              </div>
+            </div>
+            {selectedOng.descricao && (
+              <p className="mt-3 text-[0.9rem] leading-[1.5] text-ink-soft">{selectedOng.descricao}</p>
+            )}
+            {selectedOng.site && (
+              <a
+                href={selectedOng.site}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 inline-flex items-center gap-1 text-[0.85rem] font-medium text-green hover:text-green-deep"
+              >
+                {t("learnMore")} <span aria-hidden>→</span>
+              </a>
+            )}
           </div>
         )}
 
