@@ -1,0 +1,11 @@
+# Áreas sensíveis — exigem revisão do mantenedor antes do merge.
+# Conteúdo, traduções e UI ficam livres para PRs da comunidade.
+
+/app/api/            @PhAlves23
+/app/admin/          @PhAlves23
+/lib/auth.ts         @PhAlves23
+/lib/db.ts           @PhAlves23
+/lib/donations.ts    @PhAlves23
+/prisma/             @PhAlves23
+/middleware.ts       @PhAlves23
+/.github/            @PhAlves23

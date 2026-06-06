@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" role="img" aria-label="PromptCause">
+  <rect width="1200" height="360" fill="#f7f4ec"/>
+  <rect x="0" y="0" width="1200" height="360" fill="none" stroke="#e7e0d0" stroke-width="2"/>
+  <rect x="0" y="354" width="1200" height="6" fill="#16684a"/>
+  <g text-anchor="middle" font-family="Georgia, 'Times New Roman', serif">
+    <text x="600" y="120" font-size="54" font-weight="700">
+      <tspan fill="#0e4a35">›</tspan><tspan fill="#c25b36" dx="6">♥</tspan>
+    </text>
+    <text x="600" y="212" font-size="86" font-weight="700">
+      <tspan fill="#201c15">Prompt</tspan><tspan fill="#16684a">Cause</tspan>
+    </text>
+    <text x="600" y="260" font-family="-apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="25" fill="#6b6354">
+      O guia aberto de IA. 100% das doações vão para a inclusão digital.
+    </text>
+    <text x="600" y="302" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="16" fill="#16684a" letter-spacing="1.5">
+      100% GRÁTIS  ·  OPEN SOURCE  ·  32 IDIOMAS
+    </text>
+  </g>
+</svg>
