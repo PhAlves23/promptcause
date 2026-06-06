@@ -174,8 +174,8 @@
   },
   "doar": {
     "eyebrow": "Trasparenza radicale",
-    "h1": "Dona. Il 100% diventa inclusione.",
-    "lede": "Scegli un'ONG partner. Il 100% della tua donazione va direttamente a lei, riceverai la prova del trasferimento.",
+    "h1": "Restituisci. Il 100% diventa inclusione.",
+    "lede": "Scegli un'ONG partner. Il 100% della tua donazione va direttamente a lei, ricevi la prova di trasferimento.",
     "yourDonation": "La tua donazione",
     "passed": "trasferito",
     "retained": "trattenuto",
@@ -196,6 +196,7 @@
     "impact250": "Un kit di connettività per una comunità.",
     "impactBase": "Ogni real avvicina qualcuno alla tecnologia.",
     "ngoLabel": "Per quale ONG",
+    "learnMore": "Scopri di più",
     "toNgo": "va all'ONG",
     "redirectNote": "Sul sito dell'ONG scegli l'importo e il metodo di pagamento, PIX o carta."
   },

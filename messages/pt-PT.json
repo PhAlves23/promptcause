@@ -63,7 +63,7 @@
     "passed": "repassado",
     "retained": "retido",
     "method": "Forma de pagamento",
-    "pixHint": "Brasil · instant, neo",
+    "pixHint": "Brasil · instantâneo, neo",
     "cardHint": "Cartão · global",
     "freq": "Frequência",
     "once": "Uma vez",
@@ -75,12 +75,13 @@
     "summarySuffix": "→ 100% repassado",
     "impact20": "Material didático de IA para um aluno.",
     "impact50": "Uma hora de oficina de IA numa escola pública.",
-    "impact100": "Uma turma conectada durante uma semana.",
+    "impact100": "Uma turma conectada por uma semana.",
     "impact250": "Um kit de conectividade para uma comunidade.",
     "impactBase": "Cada euro aproxima alguém da tecnologia.",
     "ngoLabel": "Para qual ONG",
+    "learnMore": "Saiba mais",
     "toNgo": "vai para a ONG",
-    "redirectNote": "No site da ONG escolhe o valor e a forma de pagamento, PIX ou cartão."
+    "redirectNote": "No site da ONG você escolhe o valor e a forma de pagamento, PIX ou cartão."
   },
   "skills": {
     "eyebrow": "Marketplace aberto",

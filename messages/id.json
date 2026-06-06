@@ -174,8 +174,8 @@
   },
   "doar": {
     "eyebrow": "Transparansi radikal",
-    "h1": "Berikan kembali. 100% untuk inklusi.",
-    "lede": "Pilih ONG mitra. 100% donasi Anda langsung ke mereka, Anda menerima bukti transfer.",
+    "h1": "Berikan kembali. 100% menjadi inklusi.",
+    "lede": "Pilih NGO mitra. 100% donasi Anda langsung ke mereka, Anda menerima bukti transfer.",
     "yourDonation": "Donasi Anda",
     "passed": "ditransfer",
     "retained": "ditahan",
@@ -191,13 +191,14 @@
     "confirm": "Donasi sekarang",
     "summarySuffix": "→ 100% ditransfer",
     "impact20": "Materi didaktik AI untuk satu siswa.",
-    "impact50": "Satu jam workshop AI di sekolah publik.",
+    "impact50": "Satu jam workshop AI di sekolah negeri.",
     "impact100": "Satu kelas terhubung selama seminggu.",
     "impact250": "Satu kit konektivitas untuk komunitas.",
-    "impactBase": "Setiap real mendekatkan seseorang ke teknologi.",
-    "ngoLabel": "Untuk ONG mana",
-    "toNgo": "pergi ke ONG",
-    "redirectNote": "Di situs ONG Anda memilih jumlah dan metode pembayaran, PIX atau kartu."
+    "impactBase": "Setiap real membawa seseorang lebih dekat ke teknologi.",
+    "ngoLabel": "Untuk NGO mana",
+    "learnMore": "Pelajari lebih lanjut",
+    "toNgo": "pergi ke NGO",
+    "redirectNote": "Di situs NGO Anda memilih nilai dan metode pembayaran, PIX atau kartu."
   },
   "manifesto": {
     "eyebrow": "Manifesto · Mengapa kami ada",
