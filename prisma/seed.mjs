@@ -14,12 +14,12 @@ const ongs = [
     nome: "MIM - Social Misericórdia",
     regiaoUf: "PE",
     descricao:
-      "CETINATEC: informática e programação de software para crianças e adolescentes em vulnerabilidade, em Jaboatão dos Guararapes (PE).",
+      "Educação com tecnologia: alfabetização e inclusão digital para crianças e adolescentes na favela da Nestlé, Jaboatão dos Guararapes (PE).",
     cnpj: "21.362.399/0001-20",
     site: "https://www.mimsocial.org",
-    donationType: "pix",
-    pixKey: "mimsocial.org@gmail.com",
-    pixKeyType: "E-mail",
+    // Campanha Benfeitoria dedicada → atribuição rastreável (melhor que PIX direto)
+    donationType: "link",
+    linkDoacao: "https://benfeitoria.com/projeto/mim-social-educao-com-tecnologia-1w0z",
     gateway: "manual",
     ordem: 1,
   },
