@@ -5,7 +5,7 @@ import { getContributors } from "@/lib/contributors";
 const eyebrow = "font-mono text-[0.72rem] font-medium tracking-[0.16em] text-ink-faint uppercase";
 
 const ISSUES_URL = "https://github.com/PhAlves23/promptcause/issues?q=is%3Aopen+label%3A%22help+wanted%22";
-const SKILL_CONTRIB_URL = "https://github.com/PhAlves23/prompt-cause-marketplace/blob/main/CONTRIBUTING.md";
+const SKILL_CONTRIB_URL = "https://github.com/PhAlves23/promptcause-marketplace/blob/main/CONTRIBUTING.md";
 
 export const dynamic = "force-dynamic";
 
