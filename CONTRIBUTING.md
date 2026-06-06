@@ -1,38 +1,38 @@
-# Contribuir com o PromptCause
+# Contributing to PromptCause
 
-Obrigado por querer ajudar! Toda contribuição — conteúdo, skill, tradução ou código — ganha lugar na [página de contribuidores](https://promptcause.com/pt/contribuidores). 💚
+Thanks for wanting to help! Every contribution — content, a skill, a translation or code — earns a spot on the [contributors page](https://promptcause.com/en/contribuidores). 💚
 
-## Formas de contribuir
+## Ways to contribute
 
-### 📚 Conteúdo (a forma mais fácil de começar)
-O guia ensina IA de forma prática. Temas novos estão abertos como tarefas:
+### 📚 Content (the easiest way to start)
+The guide teaches AI in a practical way. New topics are open as tasks:
 
-- Veja as [issues `help wanted`](https://github.com/PhAlves23/promptcause/issues?q=is%3Aopen+label%3A%22help+wanted%22) — RAG, MCP, Fine-tuning, AI Agents, Evals, Embeddings e mais.
-- Comente na issue dizendo que vai pegar, para não haver trabalho duplicado.
-- O conteúdo vive em `content/biblia/<idioma>.json`. Siga o formato das técnicas existentes: **o que é · quando usar · quando evitar · exemplo certo/errado · por quê**.
-- Escreva em **um idioma** (PT ou EN) — a tradução para os demais pode ser feita pelo pipeline de IA.
+- See the [`help wanted` issues](https://github.com/PhAlves23/promptcause/issues?q=is%3Aopen+label%3A%22help+wanted%22) — RAG, MCP, Fine-tuning, AI Agents, Evals, Embeddings and more.
+- Comment on the issue to claim it, so there's no duplicate work.
+- Content lives in `content/biblia/<language>.json`. Follow the format of the existing techniques: **what it is · when to use · when to avoid · right/wrong example · why**.
+- Write in **one language** (PT or EN) — the others can be filled by the AI translation pipeline.
 
 ### 🧩 Skills
-Skills ficam no [marketplace](https://github.com/PhAlves23/prompt-cause-marketplace). Mantenha sua skill no seu próprio repositório; nós a listamos fixada a um commit (`sha`) revisado. Veja o `CONTRIBUTING` de lá.
+Skills live in the [marketplace](https://github.com/PhAlves23/prompt-cause-marketplace). Keep your skill in your own repo; we list it pinned to a reviewed commit (`sha`). See its `CONTRIBUTING`.
 
-### 🌍 Tradução
-- A interface vive em `messages/<idioma>.json`.
-- PT/EN/ES são revisados; os demais usam fallback. Melhorias de tradução são muito bem-vindas.
+### 🌍 Translation
+- The UI lives in `messages/<language>.json`.
+- PT/EN/ES are reviewed; the rest use fallback. Translation improvements are very welcome.
 
-### 💻 Código
-- Abra uma issue antes de mudanças grandes.
-- Mantenha o estilo do código vizinho.
+### 💻 Code
+- Open an issue before large changes.
+- Match the style of the surrounding code.
 
-## Setup local
+## Local setup
 
 ```bash
 npm install
-cp .env.example .env       # configure as variáveis
+cp .env.example .env       # set the variables
 npx prisma generate && npx prisma db push
 npm run dev
 ```
 
-Antes de abrir o PR:
+Before opening a PR:
 
 ```bash
 npm run lint
@@ -40,12 +40,12 @@ npx tsc --noEmit
 npm run build
 ```
 
-## Padrões
+## Standards
 
-- Conteúdo educacional precisa estar **correto** — ele é revisado antes do merge.
-- Sem segredos no código (use variáveis de ambiente; `.env` é ignorado).
-- Áreas sensíveis (`app/api`, `app/admin`, `prisma`, pagamento, auth) passam por revisão do mantenedor via `CODEOWNERS`.
+- Educational content must be **correct** — it is reviewed before merge.
+- No secrets in code (use environment variables; `.env` is ignored).
+- Sensitive areas (`app/api`, `app/admin`, `prisma`, payments, auth) go through maintainer review via `CODEOWNERS`.
 
-## Licença das contribuições
+## Contribution license
 
-Ao contribuir, você concorda em licenciar **código** sob MIT e **conteúdo** sob CC BY-SA 4.0.
+By contributing, you agree to license **code** under MIT and **content** under CC BY-SA 4.0.

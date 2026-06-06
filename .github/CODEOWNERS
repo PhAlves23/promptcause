@@ -1,5 +1,5 @@
-# Áreas sensíveis — exigem revisão do mantenedor antes do merge.
-# Conteúdo, traduções e UI ficam livres para PRs da comunidade.
+# Sensitive areas — require maintainer review before merge.
+# Content, translations and UI stay open to community PRs.
 
 /app/api/            @PhAlves23
 /app/admin/          @PhAlves23

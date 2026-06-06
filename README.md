@@ -4,99 +4,99 @@
 
 <br>
 
-**O guia aberto e gratuito de IA — e cada doação vai 100% para a inclusão digital.**
+**The open, free guide to AI — and every donation goes 100% to digital inclusion.**
 
 [![License: MIT](https://img.shields.io/badge/code-MIT-16684a.svg)](LICENSE)
 [![Content: CC BY-SA](https://img.shields.io/badge/content-CC--BY--SA-c25b36.svg)](LICENSE)
 [![PRs welcome](https://img.shields.io/badge/PRs-welcome-1e8a63.svg)](CONTRIBUTING.md)
-[![Languages](https://img.shields.io/badge/i18n-32%20idiomas-16684a.svg)](#-tradução-i18n)
+[![Languages](https://img.shields.io/badge/i18n-32%20languages-16684a.svg)](#-translation-i18n)
 [![Deploy](https://img.shields.io/badge/deploy-Vercel-201c15.svg)](https://promptcause.com)
 
-[**Site**](https://promptcause.com) · [Aprender](https://promptcause.com/pt/aprender) · [Skills](https://promptcause.com/pt/skills) · [A Causa](https://promptcause.com/pt/causa) · [Contribuir](#-contribuir)
+[**Website**](https://promptcause.com) · [Learn](https://promptcause.com/en/aprender) · [Skills](https://promptcause.com/en/skills) · [The Cause](https://promptcause.com/en/causa) · [Contribute](#-contributing)
 
 </div>
 
 ---
 
-## O que é
+## What it is
 
-**PromptCause** é um guia **aberto e gratuito** de inteligência artificial — do primeiro prompt à engenharia avançada — em **32 idiomas**. O conteúdo é grátis para sempre. Quem aprende e quer retribuir encontra no site uma lista de **ONGs de inclusão digital**: escolhe uma e doa. **100% vai direto para a ONG** — a plataforma nunca custodia nem retém nada.
+**PromptCause** is an **open and free** guide to artificial intelligence — from your first prompt to advanced engineering — in **32 languages**. The content is free forever. People who learn from it and want to give back find a list of **digital-inclusion NGOs** on the site: pick one and donate. **100% goes straight to the NGO** — the platform never custodies or keeps a cent.
 
-> **Transparência radical:** o dinheiro nunca passa por nós. Doações vão direto para a conta da instituição.
+> **Radical transparency:** the money never passes through us. Donations go straight to the institution's account.
 
-## ✨ Destaques
+## ✨ Highlights
 
-- 📚 **Guia de prompt engineering** — 38 técnicas, com exemplos do jeito certo e errado.
-- 🌍 **32 idiomas** com fallback automático (next-intl).
-- 🧩 **Marketplace de Skills** — catálogo aberto de skills para Claude Code, Copilot, Cursor e mais (`sha`-pinned).
-- 💚 **Doações 100% repassadas** — ONGs parceiras com botão direto e ledger público.
-- 🤝 **Open source** — conteúdo, skills e código construídos pela comunidade.
-- 👥 **Página de contribuidores** — visibilidade para quem constrói.
+- 📚 **Prompt engineering guide** — 38 techniques, each with the right and wrong way side by side.
+- 🌍 **32 languages** with automatic fallback (next-intl).
+- 🧩 **Skills marketplace** — an open catalog of skills for Claude Code, Copilot, Cursor and more (`sha`-pinned).
+- 💚 **Donations passed on 100%** — partner NGOs with a direct button and a public ledger.
+- 🤝 **Open source** — content, skills and code built by the community.
+- 👥 **Contributors page** — visibility for everyone who builds it.
 
 ## 🧱 Stack
 
-| Camada | Tecnologia |
+| Layer | Tech |
 |---|---|
 | Framework | Next.js 16 (App Router) |
-| Banco | Postgres (Neon) + Prisma |
-| i18n | next-intl (32 idiomas) |
+| Database | Postgres (Neon) + Prisma |
+| i18n | next-intl (32 languages) |
 | UI | Tailwind CSS v4 + shadcn/ui |
-| Hospedagem | Vercel |
+| Hosting | Vercel |
 
-## 🚀 Rodando localmente
+## 🚀 Running locally
 
 ```bash
 git clone https://github.com/PhAlves23/promptcause.git
 cd promptcause
 npm install
 
-cp .env.example .env          # configure DATABASE_URL, ADMIN_PASSWORD, SESSION_SECRET
+cp .env.example .env          # set DATABASE_URL, ADMIN_PASSWORD, SESSION_SECRET
 npx prisma generate
-npx prisma db push            # cria as tabelas
-node prisma/seed.mjs          # ONGs de exemplo (opcional)
+npx prisma db push            # create the tables
+node prisma/seed.mjs          # sample NGOs (optional)
 
 npm run dev                   # http://localhost:3000
 ```
 
-> Precisa de um Postgres. O [Neon](https://neon.tech) tem um plano gratuito que funciona direto com a Vercel.
+> You'll need a Postgres database. [Neon](https://neon.tech) has a free tier that works out of the box with Vercel.
 
-## 🗂️ Estrutura
+## 🗂️ Structure
 
 ```
-app/[locale]/         páginas (home, aprender, skills, causa, doar, contribuidores)
-app/api/webhooks/     ingestão de webhooks de doação (por gateway da ONG)
-app/admin/            painel do operador (login + cadastro de ONG + lançamentos)
-components/           UI (widgets de doação, skills, mídia, header…)
-content/biblia/       conteúdo do guia, um JSON por idioma
+app/[locale]/         pages (home, learn, skills, cause, donate, contributors)
+app/api/webhooks/     donation webhook ingestion (per NGO gateway)
+app/admin/            operator panel (login + NGO management + entries)
+components/           UI (donation widgets, skills, media, header…)
+content/biblia/       guide content, one JSON per language
 lib/                  donations, skills, contributors, biblia, db, auth
-messages/             traduções da interface (um JSON por idioma)
+messages/             UI translations, one JSON per language
 prisma/               schema + seed
-scripts/translate.mjs pipeline de tradução por IA
+scripts/translate.mjs AI translation pipeline
 ```
 
-## 🌍 Tradução (i18n)
+## 🌍 Translation (i18n)
 
-A interface está em **32 idiomas** (PT/EN/ES revisados; demais por fallback). Para traduzir um namespace via IA:
+The UI ships in **32 languages** (PT/EN/ES reviewed; the rest via fallback). To translate a namespace with AI:
 
 ```bash
 ANTHROPIC_API_KEY=sk-... npm run translate <namespace>
 ```
 
-## 🤝 Contribuir
+## 🤝 Contributing
 
-Toda contribuição é bem-vinda — e ganha lugar na [página de contribuidores](https://promptcause.com/pt/contribuidores).
+Every contribution is welcome — and earns a spot on the [contributors page](https://promptcause.com/en/contribuidores).
 
-- **Conteúdo** — pegue uma tarefa em [issues `help wanted`](https://github.com/PhAlves23/promptcause/issues?q=is%3Aopen+label%3A%22help+wanted%22) (RAG, MCP, Fine-tuning, Agents, Evals, Embeddings…).
-- **Skills** — publique uma skill no [marketplace](https://github.com/PhAlves23/prompt-cause-marketplace).
-- **Código / tradução** — abra um PR.
+- **Content** — grab a task from [`help wanted` issues](https://github.com/PhAlves23/promptcause/issues?q=is%3Aopen+label%3A%22help+wanted%22) (RAG, MCP, Fine-tuning, Agents, Evals, Embeddings…).
+- **Skills** — publish a skill in the [marketplace](https://github.com/PhAlves23/prompt-cause-marketplace).
+- **Code / translation** — open a PR.
 
-Leia o [CONTRIBUTING.md](CONTRIBUTING.md). Áreas sensíveis (pagamento, admin, infra) passam por revisão do mantenedor (`CODEOWNERS`).
+Read [CONTRIBUTING.md](CONTRIBUTING.md). Sensitive areas (payments, admin, infra) go through maintainer review (`CODEOWNERS`).
 
-## 💚 A causa
+## 💚 The cause
 
-Saber usar IA virou alfabetização — e alfabetização não se vende. Por isso o conhecimento fica aberto, e quem puder retribuir financia inclusão digital para quem ainda nem chegou à internet.
+Knowing how to use AI has become literacy — and literacy isn't for sale. So the knowledge stays open, and those who can give back fund digital inclusion for people not yet even online.
 
-## 📄 Licença
+## 📄 License
 
-- **Código:** [MIT](LICENSE)
-- **Conteúdo** (guia, textos): **CC BY-SA 4.0** — use, traduza, compartilhe.
+- **Code:** [MIT](LICENSE)
+- **Content** (guide, texts): **CC BY-SA 4.0** — use it, translate it, share it.
