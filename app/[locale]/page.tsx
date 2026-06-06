@@ -100,12 +100,12 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             {paths.map((p) => (
               <Card
                 key={p.level}
-                className="group gap-0 rounded-[16px] border-line bg-paper-card p-[26px] transition-all hover:-translate-y-[3px] hover:border-line-strong hover:shadow-[0_4px_16px_-6px_rgba(32,28,21,0.14)]"
+                className="group flex h-full flex-col gap-0 rounded-[16px] border-line bg-paper-card p-[26px] transition-all hover:-translate-y-[3px] hover:border-line-strong hover:shadow-[0_4px_16px_-6px_rgba(32,28,21,0.14)]"
               >
                 <LevelBadge level={p.level} label={c(`levels.${p.level}`)} />
                 <h3 className="mt-[18px] mb-2 font-display text-[1.5rem] font-medium">{p.title}</h3>
-                <p className="text-[0.96rem] text-ink-soft">{p.desc}</p>
-                <Link href="/aprender" className="mt-4 text-[0.92rem] font-semibold text-green group-hover:underline">
+                <p className="mb-4 text-[0.96rem] text-ink-soft">{p.desc}</p>
+                <Link href="/aprender" className="mt-auto text-[0.92rem] font-semibold text-green group-hover:underline">
                   {t("enter")} →
                 </Link>
               </Card>

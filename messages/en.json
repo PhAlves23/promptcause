@@ -214,5 +214,13 @@
     "title": "This prompt returned nothing.",
     "body": "The page you are looking for does not exist or was moved. How about starting over?",
     "back": "Back to start →"
+  },
+  "ongs": {
+    "mim-social": {
+      "descricao": "Education through technology: literacy and digital inclusion for children and teenagers in the Nestlé favela, Jaboatão dos Guararapes (PE), Brazil."
+    },
+    "jovens-hackers": {
+      "descricao": "A coding, robotics and maker-culture school by and for the outskirts. Over a thousand students since 2017."
+    }
   }
 }

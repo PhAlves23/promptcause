@@ -214,5 +214,13 @@
     "title": "Este prompt não retornou nada.",
     "body": "A página que você procura não existe ou foi movida. Que tal recomeçar do início?",
     "back": "Voltar ao início →"
+  },
+  "ongs": {
+    "mim-social": {
+      "descricao": "Educação com tecnologia: alfabetização e inclusão digital para crianças e adolescentes na favela da Nestlé, em Jaboatão dos Guararapes (PE)."
+    },
+    "jovens-hackers": {
+      "descricao": "Escola de programação, robótica e cultura maker por e para as periferias. Mais de mil alunos desde 2017."
+    }
   }
 }

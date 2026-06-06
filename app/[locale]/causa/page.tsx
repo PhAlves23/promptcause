@@ -21,6 +21,7 @@ export default async function CausaPage({ params }: { params: Promise<{ locale: 
   const t = await getTranslations("causa");
   const c = await getTranslations("common");
   const h = await getTranslations("home");
+  const to = await getTranslations("ongs");
 
   const [totalReais, ongs, ledgerRows] = await Promise.all([
     getImpactTotalReais(),
@@ -136,14 +137,18 @@ export default async function CausaPage({ params }: { params: Promise<{ locale: 
           <p className={eyebrow}>{t("partnersEyebrow")}</p>
           <h2 className="mt-2 mb-7 max-w-[22ch] font-display text-[2.2rem] font-medium">{t("partnersTitle")}</h2>
           <div className="grid gap-5 md:grid-cols-3">
-            {ongs.map((o) => (
+            {ongs.map((o) => {
+              // descrição traduzida (namespace `ongs.<slug>`) com fallback ao texto do banco
+              const descKey = `${o.slug}.descricao`;
+              const desc = to.has(descKey) ? to(descKey) : o.descricao;
+              return (
               <Card key={o.id} className="flex h-full flex-col gap-0 rounded-[16px] border-line bg-paper-card p-[26px]">
                 <OngMedia media={parseMedia(o.media)} nome={o.nome} placeholder={t("ngoLogo")} />
                 <h3 className="mb-1.5 font-display text-[1.25rem] font-medium">
                   {o.nome}
                   {o.regiaoUf ? <span className="ml-1.5 text-[0.9rem] text-ink-faint">({o.regiaoUf})</span> : null}
                 </h3>
-                {o.descricao ? <p className="mb-4 text-[0.92rem] text-ink-soft">{o.descricao}</p> : null}
+                {desc ? <p className="mb-4 text-[0.92rem] text-ink-soft">{desc}</p> : null}
                 <DonateButton
                   size="sm"
                   className="mt-auto h-10 w-full rounded-full bg-clay text-sm font-semibold text-white shadow-[0_2px_0_var(--clay-deep)] hover:bg-clay-deep"
@@ -156,7 +161,8 @@ export default async function CausaPage({ params }: { params: Promise<{ locale: 
                   }}
                 />
               </Card>
-            ))}
+              );
+            })}
           </div>
           <div className="mt-9 text-center">
             <Button
