@@ -44,7 +44,14 @@ export default async function DoarPage({ params }: { params: Promise<{ locale: s
         </div>
 
         <DonateWidget
-          ongs={ongs.map((o) => ({ slug: o.slug, nome: o.nome, href: donationHref(o.linkDoacao) }))}
+          ongs={ongs.map((o) => ({
+            slug: o.slug,
+            nome: o.nome,
+            donationType: o.donationType,
+            href: o.linkDoacao ? donationHref(o.linkDoacao) : null,
+            pixKey: o.pixKey,
+            pixKeyType: o.pixKeyType,
+          }))}
         />
       </div>
     </section>

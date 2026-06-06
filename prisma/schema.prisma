@@ -18,8 +18,17 @@ model Ong {
   regiaoUf      String?
   descricao     String?
   logoUrl       String?
-  /// URL do checkout/doação que a ONG já usa (PIX, Benfeitoria, etc.)
-  linkDoacao    String
+  cnpj          String?
+  /// site institucional da ONG (link "saiba mais")
+  site          String?
+  /// como o doador doa: "link" (redirect ao checkout) | "pix" (mostra a chave)
+  donationType  String    @default("link")
+  /// URL do checkout/doação (quando donationType = link)
+  linkDoacao    String?
+  /// chave PIX da ONG (quando donationType = pix) — pública, exibida no site
+  pixKey        String?
+  /// rótulo do tipo da chave: "E-mail" | "CNPJ" | "Telefone" | "Aleatória"
+  pixKeyType    String?
   /// gateway p/ ingestão de webhook: manual | mercadopago | asaas | stripe
   gateway       String    @default("manual")
   /// segredo p/ validar a assinatura do webhook do gateway da ONG (nunca no front)

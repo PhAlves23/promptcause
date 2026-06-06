@@ -7,6 +7,7 @@ import { KeyMessage } from "@/components/key-message";
 import { ImpactCounter } from "@/components/impact-counter";
 import { cn } from "@/lib/utils";
 import { getActiveOngs, getImpactTotalReais, getLedger, donationHref, formatBRLCents } from "@/lib/donations";
+import { DonateButton } from "@/components/donate-button";
 
 const eyebrow = "font-mono text-[0.72rem] font-medium tracking-[0.16em] text-ink-faint uppercase";
 
@@ -156,15 +157,17 @@ export default async function CausaPage({ params }: { params: Promise<{ locale: 
                   {o.regiaoUf ? <span className="ml-1.5 text-[0.9rem] text-ink-faint">({o.regiaoUf})</span> : null}
                 </h3>
                 {o.descricao ? <p className="text-[0.92rem] text-ink-soft">{o.descricao}</p> : null}
-                <Button
-                  asChild
+                <DonateButton
                   size="sm"
                   className="mt-4 h-10 w-full rounded-full bg-clay text-sm font-semibold text-white shadow-[0_2px_0_var(--clay-deep)] hover:bg-clay-deep"
-                >
-                  <a href={donationHref(o.linkDoacao)} target="_blank" rel="noopener noreferrer">
-                    <span aria-hidden>♥</span> {c("cta.donate")}
-                  </a>
-                </Button>
+                  target={{
+                    nome: o.nome,
+                    donationType: o.donationType,
+                    href: o.linkDoacao ? donationHref(o.linkDoacao) : null,
+                    pixKey: o.pixKey,
+                    pixKeyType: o.pixKeyType,
+                  }}
+                />
               </Card>
             ))}
           </div>

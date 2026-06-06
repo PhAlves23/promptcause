@@ -37,7 +37,13 @@
       "partners": "Partner NGOs",
       "rights": "Open content. Use, translate, share.",
       "copyright": "© 2026 PromptCause"
-    }
+    },
+    "pixModalTitle": "Donate via PIX",
+    "pixKeyLabel": "PIX key",
+    "pixCopy": "Copy",
+    "pixCopied": "Copied!",
+    "pixHelp": "Copy the key and donate in your bank app. 100% goes straight to the NGO — it never passes through us.",
+    "close": "Close"
   },
   "home": {
     "metaTitle": "Learn AI for free. Donate to the cause.",

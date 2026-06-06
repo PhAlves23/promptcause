@@ -2,13 +2,13 @@
 
 import { useState } from "react";
 import { useTranslations } from "next-intl";
-import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
+import { DonateButton, type DonateTarget } from "@/components/donate-button";
 
 type Method = "pix" | "card";
 type Freq = "once" | "monthly";
-type OngOption = { slug: string; nome: string; href: string };
+type OngOption = DonateTarget & { slug: string };
 
 const PRESETS = [20, 50, 100, 250];
 const eyebrow = "font-mono text-[0.72rem] font-medium tracking-[0.16em] text-ink-faint uppercase";
@@ -22,9 +22,6 @@ export function DonateWidget({ ongs = [] }: { ongs?: OngOption[] }) {
   const [ongSlug, setOngSlug] = useState(ongs[0]?.slug ?? "");
 
   const selectedOng = ongs.find((o) => o.slug === ongSlug) ?? ongs[0];
-  const goDonate = () => {
-    if (selectedOng) window.open(selectedOng.href, "_blank", "noopener,noreferrer");
-  };
 
   const customNum = Number(custom);
   const amount = custom !== "" && customNum > 0 ? customNum : preset;
@@ -165,15 +162,13 @@ export function DonateWidget({ ongs = [] }: { ongs?: OngOption[] }) {
           </div>
         </div>
 
-        <Button
-          type="button"
-          size="lg"
-          onClick={goDonate}
-          disabled={!selectedOng}
-          className="h-12 w-full rounded-full bg-clay text-base font-semibold text-white shadow-[0_2px_0_var(--clay-deep)] hover:bg-clay-deep disabled:opacity-50"
-        >
-          <span aria-hidden>♥</span> {t("confirm")}
-        </Button>
+        {selectedOng && (
+          <DonateButton
+            target={selectedOng}
+            size="lg"
+            className="h-12 w-full rounded-full bg-clay text-base font-semibold text-white shadow-[0_2px_0_var(--clay-deep)] hover:bg-clay-deep"
+          />
+        )}
         <div className="mt-3 text-center font-mono text-[0.82rem] text-ink-faint">
           R$ {amount.toLocaleString("pt-BR")}
           {freqLabel} {t("summarySuffix")}

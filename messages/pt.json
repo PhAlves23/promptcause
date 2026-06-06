@@ -37,7 +37,13 @@
       "partners": "ONGs parceiras",
       "rights": "Conteúdo aberto. Use, traduza, compartilhe.",
       "copyright": "© 2026 PromptCause"
-    }
+    },
+    "pixModalTitle": "Doar via PIX",
+    "pixKeyLabel": "Chave PIX",
+    "pixCopy": "Copiar",
+    "pixCopied": "Copiado!",
+    "pixHelp": "Copie a chave e doe pelo app do seu banco. 100% vai direto para a ONG — não passa por nós.",
+    "close": "Fechar"
   },
   "home": {
     "metaTitle": "Aprenda IA de graça. Doe para a causa.",

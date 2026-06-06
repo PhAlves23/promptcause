@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useState } from "react";
 import {
   createOng,
   updateOng,
@@ -17,7 +17,12 @@ export type AdminOng = {
   nome: string;
   regiaoUf: string;
   descricao: string;
+  cnpj: string;
+  site: string;
+  donationType: string;
   linkDoacao: string;
+  pixKey: string;
+  pixKeyType: string;
   gateway: string;
   hasSecret: boolean;
   ativo: boolean;
@@ -35,6 +40,88 @@ function Feedback({ state }: { state: ActionState }) {
   if (state.error) return <p className="mt-2 text-sm font-medium text-red-600">{state.error}</p>;
   if (state.ok) return <p className="mt-2 text-sm font-medium text-green-deep">✓ Salvo.</p>;
   return null;
+}
+
+/** Campos compartilhados entre criar e editar ONG. `d` = valores atuais (edição). */
+function OngFields({ d }: { d?: AdminOng }) {
+  const [type, setType] = useState(d?.donationType ?? "link");
+  return (
+    <>
+      <div className="grid grid-cols-2 gap-3">
+        <div>
+          <label className={label}>Nome *</label>
+          <input name="nome" defaultValue={d?.nome} className={input} required />
+        </div>
+        <div>
+          <label className={label}>UF</label>
+          <input name="regiaoUf" defaultValue={d?.regiaoUf} maxLength={2} placeholder="PE" className={input} />
+        </div>
+      </div>
+      {!d && (
+        <div>
+          <label className={label}>Slug (opcional — gerado do nome)</label>
+          <input name="slug" placeholder="mim-social" className={input} />
+        </div>
+      )}
+      <div>
+        <label className={label}>Descrição</label>
+        <textarea name="descricao" defaultValue={d?.descricao} rows={2} className={input} />
+      </div>
+      <div className="grid grid-cols-2 gap-3">
+        <div>
+          <label className={label}>CNPJ</label>
+          <input name="cnpj" defaultValue={d?.cnpj} placeholder="00.000.000/0001-00" className={input} />
+        </div>
+        <div>
+          <label className={label}>Site</label>
+          <input name="site" type="url" defaultValue={d?.site} placeholder="https://…" className={input} />
+        </div>
+      </div>
+
+      <div>
+        <label className={label}>Tipo de doação</label>
+        <select name="donationType" value={type} onChange={(e) => setType(e.target.value)} className={input}>
+          <option value="link">Link (checkout/Benfeitoria)</option>
+          <option value="pix">Chave PIX</option>
+        </select>
+      </div>
+
+      {type === "link" ? (
+        <div>
+          <label className={label}>Link de doação *</label>
+          <input name="linkDoacao" type="url" defaultValue={d?.linkDoacao} placeholder="https://benfeitoria.com/…" className={input} />
+        </div>
+      ) : (
+        <div className="grid grid-cols-2 gap-3">
+          <div>
+            <label className={label}>Chave PIX *</label>
+            <input name="pixKey" defaultValue={d?.pixKey} placeholder="email@ong.org" className={input} />
+          </div>
+          <div>
+            <label className={label}>Tipo da chave</label>
+            <input name="pixKeyType" defaultValue={d?.pixKeyType} placeholder="E-mail" className={input} />
+          </div>
+        </div>
+      )}
+
+      <div className="grid grid-cols-2 gap-3">
+        <div>
+          <label className={label}>Gateway (webhook)</label>
+          <select name="gateway" defaultValue={d?.gateway ?? "manual"} className={input}>
+            {GATEWAYS.map((g) => (
+              <option key={g} value={g}>
+                {g}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div>
+          <label className={label}>Webhook secret {d?.hasSecret && "(definido)"}</label>
+          <input name="webhookSecret" placeholder={d?.hasSecret ? "deixe vazio p/ manter" : "(se houver webhook)"} className={input} />
+        </div>
+      </div>
+    </>
+  );
 }
 
 export function AdminClient({ ongs, totalReais }: { ongs: AdminOng[]; totalReais: number }) {
@@ -81,44 +168,7 @@ function NewOngForm() {
     <section className={card}>
       <h2 className="mb-4 font-display text-lg font-semibold">Nova ONG</h2>
       <form action={action} className="flex flex-col gap-3">
-        <div className="grid grid-cols-2 gap-3">
-          <div>
-            <label className={label}>Nome *</label>
-            <input name="nome" className={input} required />
-          </div>
-          <div>
-            <label className={label}>UF</label>
-            <input name="regiaoUf" maxLength={2} placeholder="SP" className={input} />
-          </div>
-        </div>
-        <div>
-          <label className={label}>Slug (opcional — gerado do nome)</label>
-          <input name="slug" placeholder="instituto-conectar" className={input} />
-        </div>
-        <div>
-          <label className={label}>Descrição</label>
-          <textarea name="descricao" rows={2} className={input} />
-        </div>
-        <div>
-          <label className={label}>Link de doação *</label>
-          <input name="linkDoacao" type="url" placeholder="https://…" className={input} required />
-        </div>
-        <div className="grid grid-cols-2 gap-3">
-          <div>
-            <label className={label}>Gateway (webhook)</label>
-            <select name="gateway" defaultValue="manual" className={input}>
-              {GATEWAYS.map((g) => (
-                <option key={g} value={g}>
-                  {g}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div>
-            <label className={label}>Webhook secret</label>
-            <input name="webhookSecret" placeholder="(se houver webhook)" className={input} />
-          </div>
-        </div>
+        <OngFields />
         <div className="mt-1 flex items-center gap-3">
           <button className={btn} disabled={pending}>
             {pending ? "Salvando…" : "Cadastrar ONG"}
@@ -218,7 +268,9 @@ function OngRow({ ong }: { ong: AdminOng }) {
         <div>
           <span className="font-semibold">{ong.nome}</span>
           <span className="ml-2 font-mono text-xs text-ink-faint">{ong.slug}</span>
-          <span className="ml-2 rounded-full bg-paper-sunk px-2 py-0.5 text-xs text-ink-soft">{ong.gateway}</span>
+          <span className="ml-2 rounded-full bg-paper-sunk px-2 py-0.5 text-xs text-ink-soft">
+            {ong.donationType === "pix" ? "PIX" : "link"}
+          </span>
           {!ong.ativo && <span className="ml-2 text-xs font-medium text-red-600">inativa</span>}
         </div>
         <form action={toggleOng}>
@@ -234,40 +286,7 @@ function OngRow({ ong }: { ong: AdminOng }) {
         <form action={action} className="mt-3 flex flex-col gap-3">
           <input type="hidden" name="id" value={ong.id} />
           <input type="hidden" name="slug" value={ong.slug} />
-          <div className="grid grid-cols-2 gap-3">
-            <div>
-              <label className={label}>Nome *</label>
-              <input name="nome" defaultValue={ong.nome} className={input} required />
-            </div>
-            <div>
-              <label className={label}>UF</label>
-              <input name="regiaoUf" defaultValue={ong.regiaoUf} maxLength={2} className={input} />
-            </div>
-          </div>
-          <div>
-            <label className={label}>Descrição</label>
-            <textarea name="descricao" defaultValue={ong.descricao} rows={2} className={input} />
-          </div>
-          <div>
-            <label className={label}>Link de doação *</label>
-            <input name="linkDoacao" type="url" defaultValue={ong.linkDoacao} className={input} required />
-          </div>
-          <div className="grid grid-cols-2 gap-3">
-            <div>
-              <label className={label}>Gateway</label>
-              <select name="gateway" defaultValue={ong.gateway} className={input}>
-                {GATEWAYS.map((g) => (
-                  <option key={g} value={g}>
-                    {g}
-                  </option>
-                ))}
-              </select>
-            </div>
-            <div>
-              <label className={label}>Webhook secret {ong.hasSecret && "(definido)"}</label>
-              <input name="webhookSecret" placeholder={ong.hasSecret ? "deixe vazio p/ manter" : ""} className={input} />
-            </div>
-          </div>
+          <OngFields d={ong} />
           <div className="flex items-center gap-3">
             <button className={btn} disabled={pending}>
               {pending ? "Salvando…" : "Salvar alterações"}

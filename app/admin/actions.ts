@@ -38,15 +38,32 @@ export async function logout(): Promise<void> {
 }
 
 // ---------- ONG ----------
-const ongSchema = z.object({
-  nome: z.string().trim().min(2, "Nome muito curto"),
-  slug: z.string().trim().optional(),
-  regiaoUf: z.string().trim().max(2).optional().or(z.literal("")),
-  descricao: z.string().trim().optional().or(z.literal("")),
-  linkDoacao: z.string().trim().url("Link de doação inválido"),
-  gateway: z.enum(["manual", "asaas", "mercadopago", "stripe"]),
-  webhookSecret: z.string().trim().optional().or(z.literal("")),
-});
+const ongSchema = z
+  .object({
+    nome: z.string().trim().min(2, "Nome muito curto"),
+    slug: z.string().trim().optional(),
+    regiaoUf: z.string().trim().max(2).optional().or(z.literal("")),
+    descricao: z.string().trim().optional().or(z.literal("")),
+    cnpj: z.string().trim().optional().or(z.literal("")),
+    site: z.string().trim().url("Site inválido").optional().or(z.literal("")),
+    donationType: z.enum(["link", "pix"]),
+    linkDoacao: z.string().trim().optional().or(z.literal("")),
+    pixKey: z.string().trim().optional().or(z.literal("")),
+    pixKeyType: z.string().trim().optional().or(z.literal("")),
+    gateway: z.enum(["manual", "asaas", "mercadopago", "stripe"]),
+    webhookSecret: z.string().trim().optional().or(z.literal("")),
+  })
+  .superRefine((d, ctx) => {
+    if (d.donationType === "link") {
+      try {
+        new URL(d.linkDoacao || "");
+      } catch {
+        ctx.addIssue({ code: "custom", path: ["linkDoacao"], message: "Link de doação inválido" });
+      }
+    } else if (!d.pixKey) {
+      ctx.addIssue({ code: "custom", path: ["pixKey"], message: "Informe a chave PIX" });
+    }
+  });
 
 export async function createOng(_prev: ActionState, formData: FormData): Promise<ActionState> {
   await requireAdmin();
@@ -65,7 +82,12 @@ export async function createOng(_prev: ActionState, formData: FormData): Promise
       nome: d.nome,
       regiaoUf: d.regiaoUf || null,
       descricao: d.descricao || null,
-      linkDoacao: d.linkDoacao,
+      cnpj: d.cnpj || null,
+      site: d.site || null,
+      donationType: d.donationType,
+      linkDoacao: d.donationType === "link" ? d.linkDoacao : null,
+      pixKey: d.donationType === "pix" ? d.pixKey : null,
+      pixKeyType: d.donationType === "pix" ? d.pixKeyType || null : null,
       gateway: d.gateway,
       webhookSecret: d.webhookSecret || null,
       ordem: count + 1,
@@ -88,7 +110,12 @@ export async function updateOng(_prev: ActionState, formData: FormData): Promise
       nome: d.nome,
       regiaoUf: d.regiaoUf || null,
       descricao: d.descricao || null,
-      linkDoacao: d.linkDoacao,
+      cnpj: d.cnpj || null,
+      site: d.site || null,
+      donationType: d.donationType,
+      linkDoacao: d.donationType === "link" ? d.linkDoacao : null,
+      pixKey: d.donationType === "pix" ? d.pixKey : null,
+      pixKeyType: d.donationType === "pix" ? d.pixKeyType || null : null,
       gateway: d.gateway,
       // só altera o segredo se um novo valor foi informado (vazio = mantém)
       ...(d.webhookSecret ? { webhookSecret: d.webhookSecret } : {}),
