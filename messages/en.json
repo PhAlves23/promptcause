@@ -240,24 +240,27 @@
     }
   },
   "skills": {
-    "eyebrow": "Open marketplace",
-    "h1": "Community AI skills.",
-    "lede": "An open catalog of skills for Claude Code, Cursor, Copilot and more. Built by the community, free to use.",
+    "eyebrow": "Open Marketplace",
+    "h1": "Community AI Skills.",
+    "lede": "An open catalog of skills for Claude Code, Cursor, Copilot and more. Created by the community, free to use.",
     "createdBy": "Created by",
     "viewOnGithub": "View on GitHub",
-    "empty": "No skills available right now.",
-    "mpTitle": "One marketplace. Every skill.",
-    "mpLede": "Add one marketplace and install any skill from the catalog. Each skill is pinned to a reviewed commit (sha), so nothing changes under your feet.",
+    "empty": "No skills available at the moment.",
+    "mpTitle": "One marketplace. All skills.",
+    "mpLede": "Add a marketplace and install any skill from the catalog. Each skill is pinned to a reviewed commit (sha), so nothing changes under your feet.",
     "featCurated": "Curated and reviewed, skill by skill",
-    "featSha": "Commit-pinned (sha): safe and reproducible",
+    "featSha": "Pinned by commit (sha): safe and reproducible",
     "featGranular": "Install only the skills you want",
     "featMultiAgent": "Claude Code, Copilot, Cursor, Codex, Gemini and more",
     "installHint": "Paste into your agent:",
-    "starCta": "Star on GitHub",
+    "starCta": "Star",
     "contributeCta": "Contribute a skill",
-    "catalogTitle": "Skills catalog",
+    "catalogTitle": "Skills Catalog",
     "starsLabel": "stars",
-    "forksLabel": "forks"
+    "forksLabel": "forks",
+    "desc": {
+      "prompt-engineering": "Optimizes and rewrites prompts using proven prompt engineering techniques: draft diagnosis, canonical structure and technique selection by task type and target model."
+    }
   },
   "contributors": {
     "eyebrow": "Open community",
