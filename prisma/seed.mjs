@@ -23,6 +23,19 @@ const ongs = [
     gateway: "manual",
     ordem: 1,
   },
+  {
+    slug: "jovens-hackers",
+    nome: "Jovens Hackers",
+    regiaoUf: "SP",
+    descricao:
+      "Escola de programação, robótica e cultura maker por e para as periferias. Mais de mil alunos desde 2017.",
+    site: "https://jovenshackers.com.br",
+    donationType: "link",
+    // PROVISÓRIO: trocar pelo link de campanha Benfeitoria dedicado (com ?ref=promptcause)
+    linkDoacao: "https://jovenshackers.com.br",
+    gateway: "manual",
+    ordem: 2,
+  },
 ];
 
 for (const data of ongs) {
