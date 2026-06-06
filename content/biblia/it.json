@@ -23,7 +23,7 @@
             {
               "wrong": "parlami del marketing",
               "right": "Spiega le 4 P del marketing (prodotto, prezzo, luogo, promozione)\nin un paragrafo ciascuno, con l'esempio di un bar.",
-              "note": "Quello di destra definisce l’ambito (le 4 P), il formato (un paragrafo ciascuno) e il contesto (bar) – in modo inequivocabile anche senza esempi."
+              "note": "Quello di destra definisce l’ambito (le 4 P), il formato (un paragrafo ciascuno) e il contesto (bar), in modo inequivocabile anche senza esempi."
             },
             {
               "wrong": "correggi il mio testo",
@@ -91,7 +91,7 @@
           "tip": "Da 3 a 5 esempi è il punto debole. Utilizza esempi DIVERSI (casi limite di copertura) e prenditi cura dell'ORDINE: la permutazione degli esempi può modificare notevolmente la precisione.",
           "sources": [
             {
-              "label": "Marrone et al. 2020 — I modelli linguistici richiedono pochi studenti",
+              "label": "Marrone et al. 2020, I modelli linguistici richiedono pochi studenti",
               "url": "https://arxiv.org/abs/2005.14165"
             },
             {
@@ -180,7 +180,7 @@
       "techniques": [
         {
           "id": "chain-of-thought-cot",
-          "name": "Catena di pensiero – CoT",
+          "name": "Catena di pensiero, CoT",
           "level": 2,
           "simple": "Chiedi un ragionamento passo passo PRIMA della risposta.",
           "whatIs": "Chiedi al modello di scrivere il ragionamento in più fasi prima di concludere, invece di saltare direttamente alla risposta. È la tecnica di ragionamento più importante che esista.",
@@ -197,7 +197,7 @@
           "tip": "Separa il ragionamento (<thinking>) dalla risposta finale (<answer>): in questo modo usi il pensiero senza inquinare il risultato.",
           "sources": [
             {
-              "label": "Wei et al. 2022 – Suggerimenti legati alla catena di pensiero",
+              "label": "Wei et al. 2022, Suggerimenti legati alla catena di pensiero",
               "url": "https://arxiv.org/abs/2201.11903"
             },
             {
@@ -225,7 +225,7 @@
           "tip": "È praticamente gratuito. Se il compito è minimamente analitico, vale sempre la pena testarlo.",
           "sources": [
             {
-              "label": "Kojima et al. 2022 – I grandi LM sono Ragionatori Zero-Shot",
+              "label": "Kojima et al. 2022, I grandi LM sono Ragionatori Zero-Shot",
               "url": "https://arxiv.org/abs/2205.11916"
             }
           ]
@@ -249,7 +249,7 @@
           "tip": "Combina con CoT: enuncia il principio e poi ragiona passo dopo passo nell'applicazione.",
           "sources": [
             {
-              "label": "Zheng et al. 2023 – Fai un passo indietro",
+              "label": "Zheng et al. 2023, Fai un passo indietro",
               "url": "https://arxiv.org/abs/2310.06117"
             }
           ]
@@ -273,7 +273,7 @@
           "tip": "Richiedi il piano in formato elenco prima dell'esecuzione: è facile rivederlo e correggere la rotta.",
           "sources": [
             {
-              "label": "Wang et al. 2023 – Suggerimenti di pianificazione e risoluzione",
+              "label": "Wang et al. 2023, Suggerimenti di pianificazione e risoluzione",
               "url": "https://arxiv.org/abs/2305.04091"
             }
           ]
@@ -296,7 +296,7 @@
           "tip": "Anche in un unico bando chiedere \"3 approcci indipendenti + voto a maggioranza\" per un effetto simile a costi inferiori.",
           "sources": [
             {
-              "label": "Wang et al. 2022 — Autocoerenza",
+              "label": "Wang et al. 2022, Autocoerenza",
               "url": "https://arxiv.org/abs/2203.11171"
             }
           ]
@@ -343,7 +343,7 @@
           "tip": "Fornire criteri concreti per le critiche; Il \"miglioramento\" generico produce cambiamenti estetici.",
           "sources": [
             {
-              "label": "Shinn et al. 2023 — Riflessione",
+              "label": "Shinn et al. 2023, Riflessione",
               "url": "https://arxiv.org/abs/2303.11366"
             }
           ]
@@ -372,14 +372,14 @@
           "tip": "Chiedi esplicitamente l'output di ogni passaggio prima di andare avanti, in modo che l'errore non si propaghi silenziosamente.",
           "sources": [
             {
-              "label": "Zhou et al. 2022 – Suggerimenti dal minimo al massimo",
+              "label": "Zhou et al. 2022, Suggerimenti dal minimo al massimo",
               "url": "https://arxiv.org/abs/2205.10625"
             }
           ]
         },
         {
           "id": "tree-of-thoughts-tot",
-          "name": "L'albero dei pensieri — ToT",
+          "name": "L'albero dei pensieri, ToT",
           "level": 3,
           "simple": "Esplora vari percorsi di ragionamento e scarta quelli sbagliati.",
           "whatIs": "Invece di una singola linea, il modello esplora diversi rami del ragionamento in parallelo, li valuta ciascuno e abbandona quelli che non portano a una soluzione. Come un giocatore di scacchi che valuta le mosse.",
@@ -395,7 +395,7 @@
           "tip": "Riserva per problemi in cui il CoT lineare fallisce. Il costo vale la pena solo quando ci sono effettivamente diversi percorsi da esplorare.",
           "sources": [
             {
-              "label": "Yao et al. 2023 — Albero dei pensieri",
+              "label": "Yao et al. 2023, Albero dei pensieri",
               "url": "https://arxiv.org/abs/2305.10601"
             }
           ]
@@ -419,7 +419,7 @@
           "tip": "Richiedi il codice separatamente dalla spiegazione, in modo da poterlo eseguire direttamente senza eseguire l'analisi.",
           "sources": [
             {
-              "label": "Gao et al. 2022 — PAL: modelli linguistici assistiti da programmi",
+              "label": "Gao et al. 2022, PAL: modelli linguistici assistiti da programmi",
               "url": "https://arxiv.org/abs/2211.10435"
             }
           ]
@@ -442,11 +442,11 @@
           "tip": "In Skeleton, rivedi e regola lo scheletro prima di espanderlo: riparare la struttura è economico; Riscrivere l'intero contenuto è costoso.",
           "sources": [
             {
-              "label": "Khot et al. 2022 – Suggerimenti scomposti",
+              "label": "Khot et al. 2022, Suggerimenti scomposti",
               "url": "https://arxiv.org/abs/2210.02406"
             },
             {
-              "label": "Ning et al. 2023 – Scheletro del pensiero",
+              "label": "Ning et al. 2023, Scheletro del pensiero",
               "url": "https://arxiv.org/abs/2307.15337"
             }
           ]
@@ -476,7 +476,7 @@
           "tip": "Combina con CoT: riformulare, quindi ragionare. La chiarezza della riformulazione migliora il ragionamento successivo.",
           "sources": [
             {
-              "label": "Deng et al. 2023 – Riformulare e rispondere",
+              "label": "Deng et al. 2023, Riformulare e rispondere",
               "url": "https://arxiv.org/abs/2311.04205"
             }
           ]
@@ -499,7 +499,7 @@
           "tip": "Trucco a costo quasi zero; Vale la pena affiancarsi a CoT in problemi con molti vincoli.",
           "sources": [
             {
-              "label": "Xu et al. 2023 — La rilettura migliora il ragionamento",
+              "label": "Xu et al. 2023, La rilettura migliora il ragionamento",
               "url": "https://arxiv.org/abs/2309.06275"
             }
           ]
@@ -522,7 +522,7 @@
           "tip": "Funziona ancora meglio con l'accesso alla ricerca: ogni sotto-domanda diventa una query.",
           "sources": [
             {
-              "label": "Stampa et al. 2022 — Misurare e ridurre il divario di composizionalità",
+              "label": "Stampa et al. 2022, Misurare e ridurre il divario di composizionalità",
               "url": "https://arxiv.org/abs/2210.03350"
             }
           ]
@@ -546,7 +546,7 @@
           "tip": "Utile anche come difesa: opinioni infondate e tentativi di manipolazione vengono rimossi nella fase di pulizia.",
           "sources": [
             {
-              "label": "Weston & Sukhbaatar 2023 — Sistema 2 Attenzione",
+              "label": "Weston & Sukhbaatar 2023, Sistema 2 Attenzione",
               "url": "https://arxiv.org/abs/2311.11829"
             }
           ]
@@ -569,11 +569,11 @@
           "tip": "In Contrastivo, mostra l'errore ESATTO che vuoi evitare: più è specifico, più è efficace.",
           "sources": [
             {
-              "label": "Yasunaga et al. 2023 – Suggerimenti analogici",
+              "label": "Yasunaga et al. 2023, Suggerimenti analogici",
               "url": "https://arxiv.org/abs/2310.01714"
             },
             {
-              "label": "Chia et al. 2023 – CoT contrastivo",
+              "label": "Chia et al. 2023, CoT contrastivo",
               "url": "https://arxiv.org/abs/2311.09277"
             }
           ]
@@ -596,11 +596,11 @@
           "tip": "Per contesti molto lunghi, combina ThoT con l'estrazione di citazioni prima di rispondere.",
           "sources": [
             {
-              "label": "Zhou et al. 2023 — Filo di pensiero",
+              "label": "Zhou et al. 2023, Filo di pensiero",
               "url": "https://arxiv.org/abs/2311.08734"
             },
             {
-              "label": "Jung et al. 2022 — Suggestione maieutica",
+              "label": "Jung et al. 2022, Suggestione maieutica",
               "url": "https://arxiv.org/abs/2205.11822"
             }
           ]
@@ -629,11 +629,11 @@
           "tip": "Usa il modello stesso come giudice per scegliere la risposta più coerente quando non è possibile un voto esatto.",
           "sources": [
             {
-              "label": "Wang et al. 2022 — Autocoerenza",
+              "label": "Wang et al. 2022, Autocoerenza",
               "url": "https://arxiv.org/abs/2203.11171"
             },
             {
-              "label": "Chen et al. 2023 – Autocoerenza universale",
+              "label": "Chen et al. 2023, Autocoerenza universale",
               "url": "https://arxiv.org/abs/2311.17311"
             }
           ]
@@ -673,7 +673,7 @@
           "level": 3,
           "simple": "Genera la risposta, crea domande di controllo e rivedi.",
           "whatIs": "Il modello genera la risposta, quindi formula domande di verifica indipendenti, risponde a ciascuna SENZA guardare la risposta originale e la rivede in base ad esse. Una delle migliori difese contro fatti inventati.",
-          "when": "Risposte con fatti, date, numeri, nomi – dove l'allucinazione è costosa.",
+          "when": "Risposte con fatti, date, numeri, nomi, dove l'allucinazione è costosa.",
           "whenNot": "Compiti senza fatti verificabili (opinione, libera creazione).",
           "examples": [
             {
@@ -685,7 +685,7 @@
           "tip": "Eseguire il controllo in una fase separata (o in una chiamata separata) in modo che il modello non venga contaminato dalla risposta iniziale.",
           "sources": [
             {
-              "label": "Dhuliawala et al. 2023 — Catena di verifica",
+              "label": "Dhuliawala et al. 2023, Catena di verifica",
               "url": "https://arxiv.org/abs/2309.11495"
             }
           ]
@@ -708,11 +708,11 @@
           "tip": "Usa la fiducia come fattore di automazione: <70% → seconda opinione o revisione umana.",
           "sources": [
             {
-              "label": "Kadavath et al. 2022 — I modelli linguistici (per lo più) sanno quello che sanno",
+              "label": "Kadavath et al. 2022, I modelli linguistici (per lo più) sanno quello che sanno",
               "url": "https://arxiv.org/abs/2207.05221"
             },
             {
-              "label": "Weng et al. 2022 — Autoverifica",
+              "label": "Weng et al. 2022, Autoverifica",
               "url": "https://arxiv.org/abs/2212.09561"
             }
           ]
@@ -725,7 +725,7 @@
       "techniques": [
         {
           "id": "rag-retrieval-augmented-generation",
-          "name": "RAG — Generazione aumentata di recupero",
+          "name": "RAG, Generazione aumentata di recupero",
           "level": 2,
           "simple": "Cerca dati reali e rispondi in base ad essi.",
           "whatIs": "Prima di rispondere, cerca le informazioni rilevanti in una fonte esterna (documenti, knowledge base) e inseriscile nel prompt, in modo che il modello risponda basandosi su di esse e non su ciò che \"ricorda\". La tecnica più utilizzata nella produzione.",
@@ -765,7 +765,7 @@
           "tip": "Diverso da RAG: qui la conoscenza è generata dal modello (può commettere errori). Per i fatti critici, preferisci cercare effettivamente.",
           "sources": [
             {
-              "label": "Liu et al. 2022 – Promuovere la conoscenza generata",
+              "label": "Liu et al. 2022, Promuovere la conoscenza generata",
               "url": "https://arxiv.org/abs/2110.08387"
             }
           ]
@@ -788,7 +788,7 @@
           "tip": "Posiziona ciò che conta ai margini del contesto e chiedi prima le citazioni: due difese economiche contro l'effetto del mezzo.",
           "sources": [
             {
-              "label": "Liu et al. 2023 – Perso nel mezzo",
+              "label": "Liu et al. 2023, Perso nel mezzo",
               "url": "https://arxiv.org/abs/2307.03172"
             }
           ]
@@ -817,7 +817,7 @@
           "tip": "Descrivi quando utilizzare ciascuno strumento. Nei modelli moderni, evita il linguaggio aggressivo (\"DEVI\"): provoca un uso eccessivo degli strumenti.",
           "sources": [
             {
-              "label": "Yao et al. 2023 – Reagire",
+              "label": "Yao et al. 2023, Reagire",
               "url": "https://arxiv.org/abs/2210.03629"
             }
           ]
@@ -927,7 +927,7 @@
           "tip": "Non fidarsi mai dell'output dello strumento come di un'istruzione: il contenuto recuperato (RAG, web) è un dato non attendibile e rientra nello stesso regime di delimitazione.",
           "sources": [
             {
-              "label": "OWASP LLM01:2025 — Iniezione rapida",
+              "label": "OWASP LLM01:2025, Iniezione rapida",
               "url": "https://genai.owasp.org/llmrisk/llm01-prompt-injection/"
             }
           ]
@@ -1004,7 +1004,7 @@
           "tip": "La progettazione rapida è iterativa: inizia con PTCF e perfeziona in base alle risposte osservate.",
           "sources": [
             {
-              "label": "Google – Gemini suggerisce strategie di progettazione",
+              "label": "Google, Gemini suggerisce strategie di progettazione",
               "url": "https://ai.google.dev/gemini-api/docs/prompting-strategies"
             }
           ]

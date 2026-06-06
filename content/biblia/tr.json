@@ -17,7 +17,7 @@
           "level": 1,
           "simple": "Örnek vermeden doğrudan sorun.",
           "whatIs": "Cevap örneklerini göstermeden net talimatlar verin; model yalnızca eğitimde öğrendiklerini kullanır. \"Sıfır atış\" = sıfır örnek. Her şeyin başlangıç ​​noktasıdır.",
-          "when": "Modelin hâlihazırda ustalaştığı ortak ve iyi tanımlanmış görevler: tercüme etmek, özetlemek, gerçek bir soruyu yanıtlamak, bir metni yeniden yazmak.",
+          "when": "Modelin h, lihazırda ustalaştığı ortak ve iyi tanımlanmış görevler: tercüme etmek, özetlemek, gerçek bir soruyu yanıtlamak, bir metni yeniden yazmak.",
           "whenNot": "Tam şekil, ton veya kenar durumları önemli olduğunda. O halde bazı örnekler (birkaç atış) herhangi bir talimattan daha değerlidir.",
           "examples": [
             {
@@ -35,7 +35,7 @@
           "tip": "Cevap genelse henüz örnek eklemeyin: öncelikle talimatları daha spesifik hale getirin (biçim, boyut, hedef kitle).",
           "sources": [
             {
-              "label": "Antropik — En iyi uygulamaları teşvik etmek",
+              "label": "Antropik, En iyi uygulamaları teşvik etmek",
               "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
             }
           ]
@@ -64,11 +64,11 @@
           "tip": "TON ve STİL için kişiliği kullanın; \"Sen bir matematik dehasısın\" ifadesinin puanı yükseltmesini beklemeyin. Doğruluk için açık talimatları ve doğrulamayı tercih edin.",
           "sources": [
             {
-              "label": "PromptHub — Rol teşvik çalışması",
+              "label": "PromptHub, Rol teşvik çalışması",
               "url": "https://www.prompthub.us/blog/role-prompting-does-adding-personas-to-your-prompts-really-make-a-difference"
             },
             {
-              "label": "Antropik — Claude'a bir rol verin",
+              "label": "Antropik, Claude'a bir rol verin",
               "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
             }
           ]
@@ -91,7 +91,7 @@
           "tip": "3 ila 5 örnek tatlı noktadır. FARKLI örnekler kullanın (kapak kenarı durumları) ve SIRALAMA'ya dikkat edin; örneklerin değiştirilmesi doğruluğu büyük ölçüde değiştirebilir.",
           "sources": [
             {
-              "label": "Brown ve ark. 2020 — Dil Modelleri Az Sayıda Öğrenir",
+              "label": "Brown ve ark. 2020, Dil Modelleri Az Sayıda Öğrenir",
               "url": "https://arxiv.org/abs/2005.14165"
             },
             {
@@ -119,7 +119,7 @@
           "tip": "Tutarlı ve açıklayıcı etiket adları kullanın. Hiyerarşi olduğunda iç içe geçin (<belgeler> içinde birkaç <belge>).",
           "sources": [
             {
-              "label": "Antropik — XML etiketlerini kullanın",
+              "label": "Antropik, XML etiketlerini kullanın",
               "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
             }
           ]
@@ -143,7 +143,7 @@
           "tip": "Bir \"bu neden önemli?\" cümlesi genellikle \"bunu bu şekilde yap\" şeklindeki üç cümleye bedeldir.",
           "sources": [
             {
-              "label": "Antropik — Performansı artırmak için bağlam ekleyin",
+              "label": "Antropik, Performansı artırmak için bağlam ekleyin",
               "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
             }
           ]
@@ -167,7 +167,7 @@
           "tip": "JSON'u/yapıyı gerçekten zorlamak için, bunu yalnızca metinde istemek yerine Yapılandırılmış Çıkışları (Claude/OpenAI) kullanın; bu çok daha güvenilirdir.",
           "sources": [
             {
-              "label": "Antropik – Kontrol yanıt formatı",
+              "label": "Antropik, Kontrol yanıt formatı",
               "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
             }
           ]
@@ -180,7 +180,7 @@
       "techniques": [
         {
           "id": "chain-of-thought-cot",
-          "name": "Düşünce Zinciri — CoT",
+          "name": "Düşünce Zinciri, CoT",
           "level": 2,
           "simple": "Cevaptan ÖNCE adım adım akıl yürütmeyi isteyin.",
           "whatIs": "Doğrudan cevaba atlamak yerine, sonuca varmadan önce modelin gerekçeyi aşamalar halinde yazmasını sağlayın. Var olan en önemli akıl yürütme tekniğidir.",
@@ -197,7 +197,7 @@
           "tip": "Akıl yürütmeyi (<düşünme>) son yanıttan (<cevap>) ayırın; bu şekilde, çıktıyı kirletmeden düşünmeyi kullanırsınız.",
           "sources": [
             {
-              "label": "Wei ve diğerleri. 2022 — Düşünce Zinciri Yönlendirmesi",
+              "label": "Wei ve diğerleri. 2022, Düşünce Zinciri Yönlendirmesi",
               "url": "https://arxiv.org/abs/2201.11903"
             },
             {
@@ -225,7 +225,7 @@
           "tip": "Neredeyse ücretsizdir. Görev minimal düzeyde analitikse, her zaman test edilmeye değerdir.",
           "sources": [
             {
-              "label": "Kojima ve ark. 2022 — Büyük LM'ler Sıfır Atışlı Akıl Yürütücülerdir",
+              "label": "Kojima ve ark. 2022, Büyük LM'ler Sıfır Atışlı Akıl Yürütücülerdir",
               "url": "https://arxiv.org/abs/2205.11916"
             }
           ]
@@ -249,7 +249,7 @@
           "tip": "CoT ile birleştirin: Uygulamada ilkeyi ve ardından gerekçeyi adım adım belirtin.",
           "sources": [
             {
-              "label": "Zheng ve diğerleri. 2023 — Bir Adım Geri Atın",
+              "label": "Zheng ve diğerleri. 2023, Bir Adım Geri Atın",
               "url": "https://arxiv.org/abs/2310.06117"
             }
           ]
@@ -273,7 +273,7 @@
           "tip": "Uygulamadan önce planı liste formatında isteyin; rotayı gözden geçirmek ve düzeltmek kolaydır.",
           "sources": [
             {
-              "label": "Wang ve diğerleri. 2023 — Planla ve Çöz Yönlendirmesi",
+              "label": "Wang ve diğerleri. 2023, Planla ve Çöz Yönlendirmesi",
               "url": "https://arxiv.org/abs/2305.04091"
             }
           ]
@@ -285,7 +285,7 @@
           "simple": "Birkaç kez çözün ve çoğunluk cevabıyla devam edin.",
           "whatIs": "Aynı CoT istemini birkaç kez (rastgele) çalıştırın ve en sık görünen yanıtı seçin. Birden fazla uzmana nasıl danışılacağı ve fikir birliğine nasıl uyulacağı.",
           "when": "Tek bir mantığın gözden kaçabileceği ve N sayıda infazı göze alabileceğiniz kritik problemler.",
-          "whenNot": "Basit veya maliyete duyarlı görevler — Nx jetona mal olur.",
+          "whenNot": "Basit veya maliyete duyarlı görevler, Nx jetona mal olur.",
           "examples": [
             {
               "right": "Bu problemi her biri tam mantığa sahip 3 bağımsız yolla çözün. Sonunda, üç sonucu\nkarşılaştırın ve en az ikisinin aynı fikirde olduğu miktarda yanıt verin.",
@@ -296,7 +296,7 @@
           "tip": "Tek bir çağrıda bile, daha az maliyetle benzer bir etki için \"3 bağımsız yaklaşım + çoğunluk oyu\" isteyin.",
           "sources": [
             {
-              "label": "Wang ve diğerleri. 2022 — Kendi Kendine Tutarlılık",
+              "label": "Wang ve diğerleri. 2022, Kendi Kendine Tutarlılık",
               "url": "https://arxiv.org/abs/2203.11171"
             }
           ]
@@ -320,7 +320,7 @@
           "tip": "Açık doğrulama kriterleri verin (\"X, Y, Z ile test edin\") - belirsiz doğrulamanın pek bir faydası yoktur.",
           "sources": [
             {
-              "label": "Antropik — Claude'dan kendi kendini kontrol etmesini isteyin",
+              "label": "Antropik, Claude'dan kendi kendini kontrol etmesini isteyin",
               "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
             }
           ]
@@ -331,7 +331,7 @@
           "level": 3,
           "simple": "Kendi yanıtınızı oluşturun, eleştirin ve daha iyi bir şekilde yeniden yapın.",
           "whatIs": "Döngü: Model kendi yanıtını üretir, ELEŞTİRİR, somut kusurlara işaret eder ve ardından revize edilmiş bir versiyon üretir. Kendi kendini kontrol etmekten daha güçlüdür (ki bu sadece bir kontroldür).",
-          "when": "Kodlama, yazma, sıralı akıl yürütme — ilk denemede genellikle düzeltilebilir hataların olduğu görevler.",
+          "when": "Kodlama, yazma, sıralı akıl yürütme, ilk denemede genellikle düzeltilebilir hataların olduğu görevler.",
           "whenNot": "İlk yanıt zaten iyi ve basit olduğunda döngü yalnızca maliyeti artırır.",
           "examples": [
             {
@@ -343,7 +343,7 @@
           "tip": "Eleştiri için somut kriterler verin; Genel \"iyileştirme\" kozmetik değişikliklere neden olur.",
           "sources": [
             {
-              "label": "Shinn ve diğerleri. 2023 — Yansıma",
+              "label": "Shinn ve diğerleri. 2023, Yansıma",
               "url": "https://arxiv.org/abs/2303.11366"
             }
           ]
@@ -360,7 +360,7 @@
           "level": 2,
           "simple": "En kolaydan en zora doğru alt problemlere ayırın.",
           "whatIs": "Sorunu en kolaydan en zora doğru alt problemlere ayırın ve bunları birinin cevabının diğerine besleneceği sırayla çözün.",
-          "when": "Sıralı bağımlılıkla akıl yürütme — 3. adım, 2. adımın sonucuna ihtiyaç duyar.",
+          "when": "Sıralı bağımlılıkla akıl yürütme, 3. adım, 2. adımın sonucuna ihtiyaç duyar.",
           "whenNot": "Doğal olarak bağımlı aşamalara ayrışmayan sorunlar.",
           "examples": [
             {
@@ -372,19 +372,19 @@
           "tip": "İlerlemeden önce her adımın çıktısını açıkça isteyin; böylece hata sessizce yayılmaz.",
           "sources": [
             {
-              "label": "Zhou ve diğerleri. 2022 — En Azından En Çoğa Yönlendirme",
+              "label": "Zhou ve diğerleri. 2022, En Azından En Çoğa Yönlendirme",
               "url": "https://arxiv.org/abs/2205.10625"
             }
           ]
         },
         {
           "id": "tree-of-thoughts-tot",
-          "name": "Düşünce Ağacı — ToT",
+          "name": "Düşünce Ağacı, ToT",
           "level": 3,
           "simple": "Çeşitli akıl yürütme yollarını keşfedin ve kötü olanları atın.",
           "whatIs": "Model, tek bir çizgi yerine, birden fazla akıl yürütme dalını paralel olarak araştırıyor, her birini değerlendiriyor ve çözüme götürmeyenleri terk ediyor. Tıpkı hamleleri düşünen bir satranç oyuncusu gibi.",
           "when": "Planlama, bulmacalar, optimizasyon gibi karşılaştırmanız ve geriye doğru izlemeniz gereken birden fazla makul yaklaşımla ilgili sorunlar.",
-          "whenNot": "Basit görevler — tokenlerin maliyeti CoT'den çok daha yüksektir.",
+          "whenNot": "Basit görevler, tokenlerin maliyeti CoT'den çok daha yüksektir.",
           "examples": [
             {
               "right": "Bu bilmeceyi çözün. 3 farklı başlangıç ​​stratejisi oluşturun.\nHer biri için, bir cümleyle bunun ümit verici mi yoksa çıkmaz bir yol mu olduğunu değerlendirin. Yalnızca en iyiyi geliştirin; Sıkışırsanız ikinciye dönün.",
@@ -395,7 +395,7 @@
           "tip": "Doğrusal CoT'nin başarısız olduğu sorunlar için rezerve edin. Maliyet yalnızca keşfedilecek birkaç rota olduğunda buna değer.",
           "sources": [
             {
-              "label": "Yao ve ark. 2023 — Düşünce Ağacı",
+              "label": "Yao ve ark. 2023, Düşünce Ağacı",
               "url": "https://arxiv.org/abs/2305.10601"
             }
           ]
@@ -419,7 +419,7 @@
           "tip": "Kodu açıklamadan ayrı olarak isteyin, böylece ayrıştırmadan doğrudan çalıştırabilirsiniz.",
           "sources": [
             {
-              "label": "Gao ve diğerleri. 2022 — PAL: Program Destekli Dil Modelleri",
+              "label": "Gao ve diğerleri. 2022, PAL: Program Destekli Dil Modelleri",
               "url": "https://arxiv.org/abs/2211.10435"
             }
           ]
@@ -431,7 +431,7 @@
           "simple": "Görevi alt görevlere ayırın; veya detaylandırmadan önce eskiz yapın.",
           "whatIs": "DECOMP, görevi parçalara ayırır ve her bir alt görevi özel bir \"işleyiciye\" (başka bir çağrı veya araç) devreder. Düşünce İskeleti önce cevabın (konuların) iskeletini oluşturur ve ardından her noktayı genişletir.",
           "when": "Modüler boru hatlarında DECOMP; Kapsamın ve yapının korunmasının önemli olduğu uzun yanıtlarda iskelet.",
-          "whenNot": "Kısa ve doğrudan cevaplar — ekstra yapı hiçbir şey eklemez.",
+          "whenNot": "Kısa ve doğrudan cevaplar, ekstra yapı hiçbir şey eklemez.",
           "examples": [
             {
               "right": "Özel kahveler hakkında iki adımda bir rapor yazın.\nAdım 1 (iskelet): 6 bölümün yalnızca başlıklarını listeleyin.\nAdım 2 (genişletme): her bölümü 1 paragraf halinde geliştirin.",
@@ -446,7 +446,7 @@
               "url": "https://arxiv.org/abs/2210.02406"
             },
             {
-              "label": "Ning ve ark. 2023 — Düşünce İskeleti",
+              "label": "Ning ve ark. 2023, Düşünce İskeleti",
               "url": "https://arxiv.org/abs/2307.15337"
             }
           ]
@@ -476,7 +476,7 @@
           "tip": "CoT ile birleştirin: yeniden ifade edin, ardından mantık yürütün. Yeniden formülasyonun netliği sonraki akıl yürütmeyi geliştirir.",
           "sources": [
             {
-              "label": "Deng ve diğerleri. 2023 — Yeniden İfade Et ve Yanıt Ver",
+              "label": "Deng ve diğerleri. 2023, Yeniden İfade Et ve Yanıt Ver",
               "url": "https://arxiv.org/abs/2311.04205"
             }
           ]
@@ -499,7 +499,7 @@
           "tip": "Neredeyse sıfır maliyetli hile; Birçok kısıtlamanın olduğu problemlerde CoT'yi kullanmaya değer.",
           "sources": [
             {
-              "label": "Xu ve diğerleri. 2023 — Yeniden Okumak Akıl Yürütmeyi Geliştirir",
+              "label": "Xu ve diğerleri. 2023, Yeniden Okumak Akıl Yürütmeyi Geliştirir",
               "url": "https://arxiv.org/abs/2309.06275"
             }
           ]
@@ -522,7 +522,7 @@
           "tip": "Arama erişimiyle daha da iyi çalışır: her alt soru bir sorguya dönüşür.",
           "sources": [
             {
-              "label": "Basın ve ark. 2022 — Kompozisyon Farkının Ölçülmesi ve Daraltılması",
+              "label": "Basın ve ark. 2022, Kompozisyon Farkının Ölçülmesi ve Daraltılması",
               "url": "https://arxiv.org/abs/2210.03350"
             }
           ]
@@ -546,7 +546,7 @@
           "tip": "Savunma olarak da faydalıdır: Yerleştirilen görüşler ve manipülasyon girişimleri, temizleme aşamasında ortadan kaldırılır.",
           "sources": [
             {
-              "label": "Weston ve Sukhbaatar 2023 — Sistem 2'nin Dikkatine",
+              "label": "Weston ve Sukhbaatar 2023, Sistem 2'nin Dikkatine",
               "url": "https://arxiv.org/abs/2311.11829"
             }
           ]
@@ -569,11 +569,11 @@
           "tip": "Karşılaştırmalı'da kaçınmak istediğiniz TAM hatayı gösterin; ne kadar spesifik olursa o kadar etkili olur.",
           "sources": [
             {
-              "label": "Yasunaga ve ark. 2023 – Analojik İstemde Bulunma",
+              "label": "Yasunaga ve ark. 2023, Analojik İstemde Bulunma",
               "url": "https://arxiv.org/abs/2310.01714"
             },
             {
-              "label": "Chia ve ark. 2023 — Karşılaştırmalı CoT",
+              "label": "Chia ve ark. 2023, Karşılaştırmalı CoT",
               "url": "https://arxiv.org/abs/2311.09277"
             }
           ]
@@ -596,11 +596,11 @@
           "tip": "Çok uzun bağlamlar için yanıt vermeden önce ThoT'yi alıntı çıkarmayla birleştirin.",
           "sources": [
             {
-              "label": "Zhou ve diğerleri. 2023 — Düşünce Konusu",
+              "label": "Zhou ve diğerleri. 2023, Düşünce Konusu",
               "url": "https://arxiv.org/abs/2311.08734"
             },
             {
-              "label": "Jung ve ark. 2022 — Doğurtmaya Yönelik İstem",
+              "label": "Jung ve ark. 2022, Doğurtmaya Yönelik İstem",
               "url": "https://arxiv.org/abs/2205.11822"
             }
           ]
@@ -618,7 +618,7 @@
           "simple": "Çoğunluğa veya tutarlılığa göre birleştirilmiş birden fazla örnek.",
           "whatIs": "Öz Tutarlılık, N CoT yolları arasında çoğunluğun cevabını oyluyor. Evrensel Kendi Kendine Tutarlılık (USC), yanıt serbest metin olduğunda da aynısını yapar (model en tutarlı olanı seçer). DiVeRSe daha da ileri gidiyor: çeşitli istemler × birden fazla yol + puanlama.",
           "when": "Yüksek kritiklik. Kelimenin tam anlamıyla yanıtlar için USC; Maksimum kapsama alanı için DiVerSe.",
-          "whenNot": "Basit veya maliyete duyarlı görevler — bunların tümü N× tokene mal olur.",
+          "whenNot": "Basit veya maliyete duyarlı görevler, bunların tümü N× tokene mal olur.",
           "examples": [
             {
               "right": "Bu raporun 3 bağımsız yönetici özetini oluşturun.\nArdından, yalnızca en az ikisinde\nbulunan noktaları içeren son bir özet oluşturun (yalnızca birinde görünenleri atın).",
@@ -629,11 +629,11 @@
           "tip": "Kesin bir oylamanın mümkün olmadığı durumlarda en tutarlı cevabı seçmek için modelin kendisini bir yargıç olarak kullanın.",
           "sources": [
             {
-              "label": "Wang ve diğerleri. 2022 — Kendi Kendine Tutarlılık",
+              "label": "Wang ve diğerleri. 2022, Kendi Kendine Tutarlılık",
               "url": "https://arxiv.org/abs/2203.11171"
             },
             {
-              "label": "Chen ve diğerleri. 2023 — Evrensel Kendi Kendine Tutarlılık",
+              "label": "Chen ve diğerleri. 2023, Evrensel Kendi Kendine Tutarlılık",
               "url": "https://arxiv.org/abs/2311.17311"
             }
           ]
@@ -685,7 +685,7 @@
           "tip": "Modelin ilk yanıtla kirlenmemesi için kontrolü ayrı bir adımda (veya ayrı çağrıda) gerçekleştirin.",
           "sources": [
             {
-              "label": "Dhuliawala ve ark. 2023 — Doğrulama Zinciri",
+              "label": "Dhuliawala ve ark. 2023, Doğrulama Zinciri",
               "url": "https://arxiv.org/abs/2309.11495"
             }
           ]
@@ -708,11 +708,11 @@
           "tip": "Güveni otomasyon tetikleyicisi olarak kullanın: <%70 → ikinci görüş veya insan incelemesi.",
           "sources": [
             {
-              "label": "Kadavath ve ark. 2022 — Dil Modelleri (Çoğunlukla) Bildiklerini Biliyor",
+              "label": "Kadavath ve ark. 2022, Dil Modelleri (Çoğunlukla) Bildiklerini Biliyor",
               "url": "https://arxiv.org/abs/2207.05221"
             },
             {
-              "label": "Weng ve ark. 2022 — Kendini Doğrulama",
+              "label": "Weng ve ark. 2022, Kendini Doğrulama",
               "url": "https://arxiv.org/abs/2212.09561"
             }
           ]
@@ -725,12 +725,12 @@
       "techniques": [
         {
           "id": "rag-retrieval-augmented-generation",
-          "name": "RAG — Alma-Artırılmış Nesil",
+          "name": "RAG, Alma-Artırılmış Nesil",
           "level": 2,
           "simple": "Gerçek verileri arayın ve buna göre yanıt verin.",
           "whatIs": "Yanıt vermeden önce, harici bir kaynakta (belgeler, bilgi tabanı) ilgili bilgiyi arayın ve onu istemin içine ekleyin; böylece model, \"hatırladığına\" göre değil, buna dayalı olarak yanıt verir. Üretimde en çok kullanılan teknik.",
           "when": "Modelin eğitimde sahip olmadığı özel, güncel veya belirli verilerle (kılavuzlar, politikalar, şirket belgeleri) ilgili sorular.",
-          "whenNot": "Modelin halihazırda hakim olduğu genel bilgi — RAG yalnızca gecikmeyi artırır.",
+          "whenNot": "Modelin halihazırda hakim olduğu genel bilgi, RAG yalnızca gecikmeyi artırır.",
           "examples": [
             {
               "wrong": "Şirketimizin iade politikası nedir?",
@@ -742,7 +742,7 @@
           "tip": "Açıkça \"görünmüyor\" ifadesi, bilgi eksik olduğunda buluşu engelleyen şeydir. Her zaman bu talimatı ekleyin.",
           "sources": [
             {
-              "label": "Lewis ve ark. 2020 — Erişimle Artırılmış Nesil",
+              "label": "Lewis ve ark. 2020, Erişimle Artırılmış Nesil",
               "url": "https://arxiv.org/abs/2005.11401"
             }
           ]
@@ -765,7 +765,7 @@
           "tip": "RAG'dan farklı: Burada bilgi model tarafından üretilir (hata yapabilir). Kritik gerçekler için gerçekten aramayı tercih edin.",
           "sources": [
             {
-              "label": "Liu ve diğerleri. 2022 — Üretilen Bilgi Yönlendirmesi",
+              "label": "Liu ve diğerleri. 2022, Üretilen Bilgi Yönlendirmesi",
               "url": "https://arxiv.org/abs/2110.08387"
             }
           ]
@@ -788,7 +788,7 @@
           "tip": "Önemli olanı bağlamın kenarlarına yerleştirin ve önce alıntı isteyin; aracın etkisine karşı iki ucuz savunma.",
           "sources": [
             {
-              "label": "Liu ve diğerleri. 2023 – Ortada Kayıp",
+              "label": "Liu ve diğerleri. 2023, Ortada Kayıp",
               "url": "https://arxiv.org/abs/2307.03172"
             }
           ]
@@ -817,7 +817,7 @@
           "tip": "Her aracın ne zaman kullanılacağını açıklayın. Modern modellerde agresif dilden kaçının (\"ZORUNLUSUNUZ\"); bu, aşırı alet kullanımına neden olur.",
           "sources": [
             {
-              "label": "Yao ve ark. 2023 – Tepki",
+              "label": "Yao ve ark. 2023, Tepki",
               "url": "https://arxiv.org/abs/2210.03629"
             }
           ]
@@ -840,7 +840,7 @@
           "tip": "Talep üzerine yükleme (tam zamanında): Her şeyi önceden yüklemek yerine, temsilcinize ihtiyaç duydukları şeyi ihtiyaç duydukları anda alabilmeleri için gerekli araçları verin.",
           "sources": [
             {
-              "label": "Antropik — Yapay zeka aracıları için etkili bağlam mühendisliği",
+              "label": "Antropik, Yapay zeka aracıları için etkili bağlam mühendisliği",
               "url": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents"
             }
           ]
@@ -858,7 +858,7 @@
           "simple": "İstemleri yazmak ve geliştirmek için şablonu kullanın.",
           "whatIs": "İstemleri oluşturmak veya geliştirmek için şablonun kendisini kullanın. Anthropic'in \"Prompt Improver\" gibi araçların yaptığı da budur; şablon, bu kılavuzdaki teknikleri taslağınıza otomatik olarak uygular.",
           "when": "Bir taslak isteminiz olduğunda ve tüm teknikleri ezberlemeden onu optimize etmek istediğinizde.",
-          "whenNot": "Önemsiz istemler — meta istemler ek yük haline gelir.",
+          "whenNot": "Önemsiz istemler, meta istemler ek yük haline gelir.",
           "examples": [
             {
               "wrong": "bu metni benim için özetliyor",
@@ -867,10 +867,10 @@
             }
           ],
           "why": "Anthropic's Prompt Improver'ın akışı şu şekildedir: örnekleri tanımlayın → XML ile yapılandırılmış taslak → düşünce zinciriyle hassaslaştırın → örnekleri zenginleştirin. Meta-istem, kendinize uygulanan hızlı mühendisliktir.",
-          "tip": "Meta-isteme hedef modelin bağlamını verin (Claude? GPT gerekçesi?) — en iyi uygulamalar aileler arasında farklılık gösterir.",
+          "tip": "Meta-isteme hedef modelin bağlamını verin (Claude? GPT gerekçesi?), en iyi uygulamalar aileler arasında farklılık gösterir.",
           "sources": [
             {
-              "label": "Antropik – Hızlı iyileştirici",
+              "label": "Antropik, Hızlı iyileştirici",
               "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
             }
           ]
@@ -927,7 +927,7 @@
           "tip": "Araç çıktısına asla talimat olarak güvenmeyin; alınan içerik (RAG, web) güvenilmeyen verilerdir ve aynı sınırlama rejimine girer.",
           "sources": [
             {
-              "label": "OWASP LLM01:2025 — Hızlı Enjeksiyon",
+              "label": "OWASP LLM01:2025, Hızlı Enjeksiyon",
               "url": "https://genai.owasp.org/llmrisk/llm01-prompt-injection/"
             }
           ]
@@ -942,7 +942,7 @@
           "id": "claude-anthropic",
           "name": "Claude (Antropik)",
           "level": 1,
-          "simple": "Değişmez ve yapılandırılmış — kapsamı bildirin, XML kullanın.",
+          "simple": "Değişmez ve yapılandırılmış, kapsamı bildirin, XML kullanın.",
           "whatIs": "Claude talimatları tam anlamıyla takip ediyor: kendi başına genelleme yapmıyor veya sizin yapmadığınız istekleri çıkarmıyor. Yapıya (XML) ve açık kapsama çok iyi yanıt verir.",
           "when": "Bu kılavuzun varsayılanı. Tahmin edilebilir davranış istediğiniz yapılandırılmış çıkarma, kodlama ve işlem hatları için idealdir.",
           "whenNot": "Ne demek istediğinizi \"tahmin etmesini\" beklemeyin; açık olun.",
@@ -954,10 +954,10 @@
             }
           ],
           "why": "Literalizm, API'ler ve işlem hatları için bir güçtür: hassasiyet ve daha az yeniden çalışma. Ancak kapsamı bildirmenizi gerektirir (\"sadece ilkine değil, TÜM bölümlere uygulayın\").",
-          "tip": "Agresif dilden kaçının (\"KRİTİK: YAPMAK ZORUNDASINIZ\") — son modellerde takımın aşırı tetiklenmesine neden olur. \"X'i şu durumlarda kullan...\" seçeneğini tercih edin.",
+          "tip": "Agresif dilden kaçının (\"KRİTİK: YAPMAK ZORUNDASINIZ\"), son modellerde takımın aşırı tetiklenmesine neden olur. \"X'i şu durumlarda kullan...\" seçeneğini tercih edin.",
           "sources": [
             {
-              "label": "Antropik — En iyi uygulamaları teşvik etmek",
+              "label": "Antropik, En iyi uygulamaları teşvik etmek",
               "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
             }
           ]
@@ -981,18 +981,18 @@
           "tip": "GPT-5/o-serisi'nde, zor görevler için muhakeme_eforunu artırın ve uzun örnekler yerine açık bir çıktı sözleşmesi verin.",
           "sources": [
             {
-              "label": "OpenAI — En iyi akıl yürütme uygulamaları",
+              "label": "OpenAI, En iyi akıl yürütme uygulamaları",
               "url": "https://developers.openai.com/api/docs/guides/reasoning-best-practices"
             }
           ]
         },
         {
           "id": "google-gemini-framework-ptcf",
-          "name": "Google Gemini — PTCF çerçevesi",
+          "name": "Google Gemini, PTCF çerçevesi",
           "level": 1,
           "simple": "Kişi · Görev · Bağlam · Biçim.",
           "whatIs": "Gemini PTCF yapısıyla en iyisini yapar: Persona (modelin kim olduğu ve hedef kitle), Görev (arzu edilen sonuç), Bağlam (arka plan bilgisi) ve Format (çıktının nasıl görünmesi gerektiği).",
-          "when": "Gemini'deki herhangi bir istem — PTCF, yapılandırmanın en güvenilir yoludur.",
+          "when": "Gemini'deki herhangi bir istem, PTCF, yapılandırmanın en güvenilir yoludur.",
           "whenNot": "Bu bir deli gömleği değil; bunu bir başlangıç ​​noktası olarak kabul edin ve geliştirin.",
           "examples": [
             {
@@ -1004,7 +1004,7 @@
           "tip": "Hızlı mühendislik yinelemelidir: PTCF ile başlayın ve gözlemlenen yanıtlara göre hassaslaştırın.",
           "sources": [
             {
-              "label": "Google – Gemini hızlı tasarım stratejileri",
+              "label": "Google, Gemini hızlı tasarım stratejileri",
               "url": "https://ai.google.dev/gemini-api/docs/prompting-strategies"
             }
           ]

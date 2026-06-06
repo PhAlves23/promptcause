@@ -40,7 +40,7 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: "home" });
   return {
     title: {
-      default: `PromptCause — ${t("metaTitle")}`,
+      default: `PromptCause · ${t("metaTitle")}`,
       template: "%s · PromptCause",
     },
     description: t("lede"),

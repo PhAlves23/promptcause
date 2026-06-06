@@ -1,6 +1,6 @@
 {
   "title": "De snelle technische bijbel",
-  "subtitle": "Alle technieken die er bestaan – van beginner tot gevorderd, met goede en foute voorbeelden.",
+  "subtitle": "Alle technieken die er bestaan, van beginner tot gevorderd, met goede en foute voorbeelden.",
   "whatIsLabel": "Wat is",
   "whenLabel": "Wanneer te gebruiken",
   "wrongLabel": "Verkeerd",
@@ -23,7 +23,7 @@
             {
               "wrong": "vertel me over marketing",
               "right": "Leg de vier P's van marketing (product, prijs, plaats, promotie) uit\nelk in één paragraaf, met een voorbeeld van een coffeeshop.",
-              "note": "De rechter definieert reikwijdte (de 4 P’s), format (elk één paragraaf) en context (coffeeshop) – ondubbelzinnig, zelfs zonder voorbeelden."
+              "note": "De rechter definieert reikwijdte (de 4 P’s), format (elk één paragraaf) en context (coffeeshop), ondubbelzinnig, zelfs zonder voorbeelden."
             },
             {
               "wrong": "corrigeer mijn tekst",
@@ -31,11 +31,11 @@
               "note": "Vertel het wat het moet repareren, wat het moet behouden en wat het uitvoerformaat is."
             }
           ],
-          "why": "Moderne modellen lossen bekende taken op zonder voorbeelden – zolang de instructie maar specifiek is. Duidelijkheid vervangt voorbeelden.",
+          "why": "Moderne modellen lossen bekende taken op zonder voorbeelden, zolang de instructie maar specifiek is. Duidelijkheid vervangt voorbeelden.",
           "tip": "Als het antwoord generiek is, voeg dan nog geen voorbeelden toe: maak de instructies eerst specifieker (formaat, omvang, publiek).",
           "sources": [
             {
-              "label": "Antropisch – Stimulerende best practices",
+              "label": "Antropisch, Stimulerende best practices",
               "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
             }
           ]
@@ -64,11 +64,11 @@
           "tip": "Gebruik persona voor TONE en STIJL; verwacht niet dat \"Je bent een wiskundig genie\" de score verbetert. Voor nauwkeurigheid geeft u de voorkeur aan duidelijke instructies en verificatie.",
           "sources": [
             {
-              "label": "PromptHub — Onderzoek naar rolaanwijzingen",
+              "label": "PromptHub, Onderzoek naar rolaanwijzingen",
               "url": "https://www.prompthub.us/blog/role-prompting-does-adding-personas-to-your-prompts-really-make-a-difference"
             },
             {
-              "label": "Antropisch — Geef Claude een rol",
+              "label": "Antropisch, Geef Claude een rol",
               "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
             }
           ]
@@ -80,7 +80,7 @@
           "simple": "Toon 2 tot 5 voorbeeldantwoorden voordat u naar uw casus vraagt.",
           "whatIs": "Voeg enkele invoer → uitvoervoorbeelden toe zodat het model het patroon kan imiteren. \"Weinig schot\" = enkele voorbeelden. Het is de sterkste hefboom voor het controleren van vorm, toon en consistentie.",
           "when": "Als het exacte formaat ertoe doet (JSON, tabel), moet de toon consistent zijn, anders is sorteren moeilijk.",
-          "whenNot": "Bij triviale taken (zero-shot lost het al op) of wanneer de voorbeelden naar een enkel patroon neigen – diversifieer of verminder het dan.",
+          "whenNot": "Bij triviale taken (zero-shot lost het al op) of wanneer de voorbeelden naar een enkel patroon neigen, diversifieer of verminder het dan.",
           "examples": [
             {
               "right": "Beoordeel het gevoel. Volg de voorbeelden:\n\"Ik vond het geweldig, ik raad het aan!\" → positief\n\"Het kwam kapot.\" → negatief\n\nReview: \"Snel aangekomen, maar was verpletterd.\" →",
@@ -91,7 +91,7 @@
           "tip": "3 tot 5 voorbeelden is de goede plek. Gebruik VERSCHILLENDE voorbeelden (cover edge cases) en zorg voor VOLGORDE; het wisselen van voorbeelden kan de nauwkeurigheid enorm veranderen.",
           "sources": [
             {
-              "label": "Bruin et al. 2020 — Taalmodellen zijn slechts weinig leerlingen",
+              "label": "Bruin et al. 2020, Taalmodellen zijn slechts weinig leerlingen",
               "url": "https://arxiv.org/abs/2005.14165"
             },
             {
@@ -112,14 +112,14 @@
             {
               "wrong": "Samenvattend: Bijeenkomst van vandaag: we hebben de lancering uitgesteld.\nSamenvatten ook de risico's. Budget oké.",
               "right": "Vat de inhoud van <text> samen in 3 onderwerpen.\n\n<text>\nBijeenkomst van vandaag: we hebben de lancering uitgesteld. Budget ok.\nRisico's: kleiner team en strakke deadline.\n</text>",
-              "note": "De tag maakt duidelijk wat er wordt gegeven en wat instructie is – zonder dubbelzinnigheid."
+              "note": "De tag maakt duidelijk wat er wordt gegeven en wat instructie is, zonder dubbelzinnigheid."
             }
           ],
-          "why": "Tags verminderen de dubbelzinnigheid tussen instructie en inhoud – de meest voorkomende fout bij aanwijzingen met ingesloten tekst. Modellen die zijn getraind met gestructureerde gegevens (zoals Claude) volgen tags nauwkeurig.",
+          "why": "Tags verminderen de dubbelzinnigheid tussen instructie en inhoud, de meest voorkomende fout bij aanwijzingen met ingesloten tekst. Modellen die zijn getraind met gestructureerde gegevens (zoals Claude) volgen tags nauwkeurig.",
           "tip": "Gebruik consistente en beschrijvende tagnamen. Nesten wanneer er sprake is van hiërarchie (meerdere <document> binnen <documenten>).",
           "sources": [
             {
-              "label": "Antropisch — Gebruik XML-tags",
+              "label": "Antropisch, Gebruik XML-tags",
               "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
             }
           ]
@@ -143,7 +143,7 @@
           "tip": "Eén zin ‘waarom doet dit er toe’ is doorgaans drie zinnen ‘doe het op deze manier’ waard.",
           "sources": [
             {
-              "label": "Antropisch — Voeg context toe om de prestaties te verbeteren",
+              "label": "Antropisch, Voeg context toe om de prestaties te verbeteren",
               "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
             }
           ]
@@ -167,7 +167,7 @@
           "tip": "Om JSON/structuur echt te forceren, gebruik je Structured Outputs (Claude/OpenAI) in plaats van er alleen maar om te vragen in de tekst; het is veel betrouwbaarder.",
           "sources": [
             {
-              "label": "Antropisch — Formaat voor controlereacties",
+              "label": "Antropisch, Formaat voor controlereacties",
               "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
             }
           ]
@@ -180,7 +180,7 @@
       "techniques": [
         {
           "id": "chain-of-thought-cot",
-          "name": "Denkketen – CoT",
+          "name": "Denkketen, CoT",
           "level": 2,
           "simple": "Vraag om een stapsgewijze redenering VOOR het antwoord.",
           "whatIs": "Laat het model de redenering in fasen opschrijven voordat hij tot een conclusie komt, in plaats van meteen naar het antwoord te springen. Het is de belangrijkste redeneertechniek die er is.",
@@ -194,10 +194,10 @@
             }
           ],
           "why": "Door de redenering op te schrijven ontstaat er ‘denkruimte’ vóór het antwoord. In het originele artikel (Wei et al., 2022) verhoogde CoT de nauwkeurigheid van wiskundig redeneren van ~18% naar ~57% in grote modellen.",
-          "tip": "Scheid de redenering (<denken>) van het uiteindelijke antwoord (<antwoord>) — op deze manier gebruik je het denken zonder de output te vervuilen.",
+          "tip": "Scheid de redenering (<denken>) van het uiteindelijke antwoord (<antwoord>), op deze manier gebruik je het denken zonder de output te vervuilen.",
           "sources": [
             {
-              "label": "Wei et al. 2022 — Gedachte-aansporing",
+              "label": "Wei et al. 2022, Gedachte-aansporing",
               "url": "https://arxiv.org/abs/2201.11903"
             },
             {
@@ -225,7 +225,7 @@
           "tip": "Het is praktisch gratis. Als de taak minimaal analytisch is, is het altijd de moeite waard om te testen.",
           "sources": [
             {
-              "label": "Kojima et al. 2022 — Grote LM’s zijn Zero-Shot Reasoners",
+              "label": "Kojima et al. 2022, Grote LM’s zijn Zero-Shot Reasoners",
               "url": "https://arxiv.org/abs/2205.11916"
             }
           ]
@@ -249,7 +249,7 @@
           "tip": "Combineer met CoT: geef het principe aan en redeneer vervolgens stap voor stap in de toepassing.",
           "sources": [
             {
-              "label": "Zheng et al. 2023 — Doe een stap terug",
+              "label": "Zheng et al. 2023, Doe een stap terug",
               "url": "https://arxiv.org/abs/2310.06117"
             }
           ]
@@ -266,14 +266,14 @@
             {
               "wrong": "Organiseer een driedaagse reis naar Lissabon door stap voor stap te denken.",
               "right": "Organiseer een driedaagse reis naar Lissabon.\nMaak eerst een plan (afmetingen: accommodatie, reizen, attracties, budget, maaltijden).\nVoer vervolgens uit en vul elke dimensie dag na dag in.",
-              "note": "Door vooraf de afmetingen te vermelden, bent u verzekerd van dekking – vergeet het budget niet."
+              "note": "Door vooraf de afmetingen te vermelden, bent u verzekerd van dekking, vergeet het budget niet."
             }
           ],
           "why": "Door planning en uitvoering te scheiden, wordt de fout dat je onderweg verdwaalt, kleiner. Wang et al. (2023) lieten een consistente winst zien ten opzichte van pure zero-shot CoT.",
           "tip": "Vraag voordat u het plan uitvoert in lijstvorm het plan op; u kunt het eenvoudig bekijken en corrigeren.",
           "sources": [
             {
-              "label": "Wang et al. 2023 — Plan-and-Solve-prompts",
+              "label": "Wang et al. 2023, Plan-and-Solve-prompts",
               "url": "https://arxiv.org/abs/2305.04091"
             }
           ]
@@ -285,7 +285,7 @@
           "simple": "Los meerdere keren op en ga voor het meerderheidsantwoord.",
           "whatIs": "Voer dezelfde CoT-prompt meerdere keren (willekeurig) uit en kies het antwoord dat het vaakst verschijnt. Hoe je meerdere experts kunt raadplegen en de consensus kunt volgen.",
           "when": "Kritieke problemen waarbij een enkele redenering kan mislukken en u zich N executies kunt veroorloven.",
-          "whenNot": "Eenvoudige of kostengevoelige taken — kosten N× tokens.",
+          "whenNot": "Eenvoudige of kostengevoelige taken, kosten N× tokens.",
           "examples": [
             {
               "right": "Los dit probleem op 3 onafhankelijke manieren op, elk met een volledige redenering. Vergelijk aan het einde de drie conclusies\nen reageer met het bedrag waarmee ten minste twee het eens zijn.",
@@ -296,7 +296,7 @@
           "tip": "Vraag zelfs bij één enkele oproep om \"drie onafhankelijke benaderingen + meerderheid van stemmen\" voor een vergelijkbaar effect tegen lagere kosten.",
           "sources": [
             {
-              "label": "Wang et al. 2022 — Zelfconsistentie",
+              "label": "Wang et al. 2022, Zelfconsistentie",
               "url": "https://arxiv.org/abs/2203.11171"
             }
           ]
@@ -317,10 +317,10 @@
             }
           ],
           "why": "Door de controle te forceren, wordt het model uit de \"generatormodus\" gehaald en wordt de \"reviewermodus\" geactiveerd, die fouten ziet die de generator niet ziet.",
-          "tip": "Geef expliciete verificatiecriteria (“test met X, Y, Z”) – vage verificatie heeft weinig zin.",
+          "tip": "Geef expliciete verificatiecriteria (“test met X, Y, Z”), vage verificatie heeft weinig zin.",
           "sources": [
             {
-              "label": "Antropisch — Vraag Claude om het zelf te controleren",
+              "label": "Antropisch, Vraag Claude om het zelf te controleren",
               "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
             }
           ]
@@ -339,11 +339,11 @@
               "note": "Zelfkritiek dwingt ertoe om van de ‘generatormodus’ naar de ‘editormodus’ te gaan."
             }
           ],
-          "why": "Shinn et al. (2023) lieten zien dat de zelfreflectiecyclus de prestaties verbetert bij beslissings-, codeer- en redeneertaken – versie 2 is bijna altijd beter dan 1.",
+          "why": "Shinn et al. (2023) lieten zien dat de zelfreflectiecyclus de prestaties verbetert bij beslissings-, codeer- en redeneertaken, versie 2 is bijna altijd beter dan 1.",
           "tip": "Geef concrete criteria voor kritiek; Generieke \"verbetering\" veroorzaakt cosmetische veranderingen.",
           "sources": [
             {
-              "label": "Shinn et al. 2023 — Reflectie",
+              "label": "Shinn et al. 2023, Reflectie",
               "url": "https://arxiv.org/abs/2303.11366"
             }
           ]
@@ -368,34 +368,34 @@
               "note": "Elk deelprobleem is op zichzelf triviaal; aan elkaar geketend lossen het geheel op."
             }
           ],
-          "why": "Zhou et al. (2022) lieten zien dat het ontleden van eenvoudig naar complex ons in staat stelt te generaliseren naar problemen die moeilijker zijn dan de voorbeelden die we hebben gezien – iets waar pure CoT niet zo goed in is.",
+          "why": "Zhou et al. (2022) lieten zien dat het ontleden van eenvoudig naar complex ons in staat stelt te generaliseren naar problemen die moeilijker zijn dan de voorbeelden die we hebben gezien, iets waar pure CoT niet zo goed in is.",
           "tip": "Vraag expliciet naar de uitkomst van elke stap voordat u verdergaat, zodat de fout zich niet stilletjes voortplant.",
           "sources": [
             {
-              "label": "Zhou et al. 2022 – Minst tot meest aanleidinggevend",
+              "label": "Zhou et al. 2022, Minst tot meest aanleidinggevend",
               "url": "https://arxiv.org/abs/2205.10625"
             }
           ]
         },
         {
           "id": "tree-of-thoughts-tot",
-          "name": "Boom der Gedachten — ToT",
+          "name": "Boom der Gedachten, ToT",
           "level": 3,
           "simple": "Verken verschillende redeneerwijzen en gooi de slechte weg.",
           "whatIs": "In plaats van een enkele lijn onderzoekt het model verschillende takken van redeneren parallel, evalueert ze elk en laat de takken achterwege die niet tot een oplossing leiden. Zoals een schaker die zetten overweegt.",
-          "when": "Problemen met meerdere plausibele benaderingen waarbij je moet vergelijken en terug moet komen – planning, puzzels, optimalisatie.",
-          "whenNot": "Eenvoudige taken – de kosten van tokens zijn veel hoger dan die van CoT.",
+          "when": "Problemen met meerdere plausibele benaderingen waarbij je moet vergelijken en terug moet komen, planning, puzzels, optimalisatie.",
+          "whenNot": "Eenvoudige taken, de kosten van tokens zijn veel hoger dan die van CoT.",
           "examples": [
             {
               "right": "Los dit raadsel op. Genereer drie verschillende initiële strategieën.\nEvalueer voor elke strategie in één zin of deze veelbelovend of\ndoodlopend is. Ontwikkel alleen het beste; Als het vastloopt, ga dan terug naar de tweede.",
               "note": "Expliciete backtracking is wat ToT onderscheidt van lineaire CoT."
             }
           ],
-          "why": "Yao et al. (2023) lieten enorme sprongen zien in zoektaken: in Game of 24 loste ToT 74% versus 4% van CoT op – omdat je terug kunt gaan in plaats van met het eerste idee te trouwen.",
+          "why": "Yao et al. (2023) lieten enorme sprongen zien in zoektaken: in Game of 24 loste ToT 74% versus 4% van CoT op, omdat je terug kunt gaan in plaats van met het eerste idee te trouwen.",
           "tip": "Reserveer voor problemen waarbij lineaire CoT faalt. De kosten zijn alleen de moeite waard als er daadwerkelijk meerdere routes zijn om te verkennen.",
           "sources": [
             {
-              "label": "Yao et al. 2023 — Boom der Gedachten",
+              "label": "Yao et al. 2023, Boom der Gedachten",
               "url": "https://arxiv.org/abs/2305.10601"
             }
           ]
@@ -442,7 +442,7 @@
           "tip": "In Skeleton moet je het skelet bekijken en aanpassen voordat je het uitbreidt. Het repareren van de structuur is goedkoop; Het herschrijven van de volledige inhoud is duur.",
           "sources": [
             {
-              "label": "Khot et al. 2022 — Ontbonden prompts",
+              "label": "Khot et al. 2022, Ontbonden prompts",
               "url": "https://arxiv.org/abs/2210.02406"
             },
             {
@@ -464,7 +464,7 @@
           "simple": "Het model herformuleert uw vraag voordat deze wordt beantwoord.",
           "whatIs": "Instrueer het model om de vraag in hun eigen woorden te herschrijven voordat ze antwoorden. Dit maakt de bedoeling duidelijk en legt onduidelijkheden bloot.",
           "when": "Vage, dubbelzinnige of slecht geformuleerde vragen; wanneer u er zeker van wilt zijn dat het model het begrijpt.",
-          "whenNot": "Vragen die al duidelijk en direct zijn – de herformulering voegt alleen maar tekst toe.",
+          "whenNot": "Vragen die al duidelijk en direct zijn, de herformulering voegt alleen maar tekst toe.",
           "examples": [
             {
               "wrong": "Is de bank gesloten?",
@@ -476,7 +476,7 @@
           "tip": "Combineer met CoT: herformuleren en dan redeneren. De duidelijkheid van de herformulering verbetert de daaropvolgende redenering.",
           "sources": [
             {
-              "label": "Deng et al. 2023 — Herformuleer en reageer",
+              "label": "Deng et al. 2023, Herformuleer en reageer",
               "url": "https://arxiv.org/abs/2311.04205"
             }
           ]
@@ -499,7 +499,7 @@
           "tip": "Bijna nul kostentruc; Het is de moeite waard om met CoT te werken bij problemen met veel beperkingen.",
           "sources": [
             {
-              "label": "Xu et al. 2023 — Herlezen verbetert het redeneren",
+              "label": "Xu et al. 2023, Herlezen verbetert het redeneren",
               "url": "https://arxiv.org/abs/2309.06275"
             }
           ]
@@ -522,7 +522,7 @@
           "tip": "Met zoektoegang werkt het nog beter: elke subvraag wordt een query.",
           "sources": [
             {
-              "label": "Druk et al. 2022 — Het meten en verkleinen van de Compositionaliteitskloof",
+              "label": "Druk et al. 2022, Het meten en verkleinen van de Compositionaliteitskloof",
               "url": "https://arxiv.org/abs/2210.03350"
             }
           ]
@@ -546,7 +546,7 @@
           "tip": "Ook handig als verdediging: geplante meningen en pogingen tot manipulatie worden in de opschoonfase verwijderd.",
           "sources": [
             {
-              "label": "Weston & Sukhbaatar 2023 — Systeem 2 Let op",
+              "label": "Weston & Sukhbaatar 2023, Systeem 2 Let op",
               "url": "https://arxiv.org/abs/2311.11829"
             }
           ]
@@ -569,11 +569,11 @@
           "tip": "Toon in Contrastive de EXACTE fout die u wilt vermijden: hoe specifieker, hoe effectiever.",
           "sources": [
             {
-              "label": "Yasunaga et al. 2023 — Analoge aanwijzingen",
+              "label": "Yasunaga et al. 2023, Analoge aanwijzingen",
               "url": "https://arxiv.org/abs/2310.01714"
             },
             {
-              "label": "Chia et al. 2023 — Contrastieve CoT",
+              "label": "Chia et al. 2023, Contrastieve CoT",
               "url": "https://arxiv.org/abs/2311.09277"
             }
           ]
@@ -596,11 +596,11 @@
           "tip": "Voor zeer lange contexten combineer je ThoT met citatie-extractie voordat je reageert.",
           "sources": [
             {
-              "label": "Zhou et al. 2023 — Denkdraad",
+              "label": "Zhou et al. 2023, Denkdraad",
               "url": "https://arxiv.org/abs/2311.08734"
             },
             {
-              "label": "Jung et al. 2022 — Maieutische aanwijzingen",
+              "label": "Jung et al. 2022, Maieutische aanwijzingen",
               "url": "https://arxiv.org/abs/2205.11822"
             }
           ]
@@ -629,11 +629,11 @@
           "tip": "Gebruik het model zelf als rechter om het meest consistente antwoord te kiezen als er geen exacte stemming mogelijk is.",
           "sources": [
             {
-              "label": "Wang et al. 2022 — Zelfconsistentie",
+              "label": "Wang et al. 2022, Zelfconsistentie",
               "url": "https://arxiv.org/abs/2203.11171"
             },
             {
-              "label": "Chen et al. 2023 — Universele zelfconsistentie",
+              "label": "Chen et al. 2023, Universele zelfconsistentie",
               "url": "https://arxiv.org/abs/2311.17311"
             }
           ]
@@ -673,7 +673,7 @@
           "level": 3,
           "simple": "Genereer het antwoord, maak controlevragen en beoordeel.",
           "whatIs": "Het model genereert het antwoord, formuleert vervolgens onafhankelijke verificatievragen, beantwoordt ze allemaal ZONDER naar het oorspronkelijke antwoord te kijken, en herziet op basis daarvan. Een van de beste verdedigingen tegen verzonnen feiten.",
-          "when": "Antwoorden met feiten, data, cijfers, namen – waar hallucinatie duur is.",
+          "when": "Antwoorden met feiten, data, cijfers, namen, waar hallucinatie duur is.",
           "whenNot": "Taken zonder verifieerbare feiten (mening, vrije creatie).",
           "examples": [
             {
@@ -685,7 +685,7 @@
           "tip": "Voer de controle in een aparte stap (of aparte call) uit, zodat het model niet besmet raakt met de initiële respons.",
           "sources": [
             {
-              "label": "Dhuliawala et al. 2023 — Keten van verificatie",
+              "label": "Dhuliawala et al. 2023, Keten van verificatie",
               "url": "https://arxiv.org/abs/2309.11495"
             }
           ]
@@ -708,11 +708,11 @@
           "tip": "Gebruik vertrouwen als automatiseringstrigger: <70% → second opinion of menselijke beoordeling.",
           "sources": [
             {
-              "label": "Kadavath et al. 2022 — Taalmodellen weten (grotendeels) wat ze weten",
+              "label": "Kadavath et al. 2022, Taalmodellen weten (grotendeels) wat ze weten",
               "url": "https://arxiv.org/abs/2207.05221"
             },
             {
-              "label": "Weng et al. 2022 — Zelfverificatie",
+              "label": "Weng et al. 2022, Zelfverificatie",
               "url": "https://arxiv.org/abs/2212.09561"
             }
           ]
@@ -725,12 +725,12 @@
       "techniques": [
         {
           "id": "rag-retrieval-augmented-generation",
-          "name": "RAG – Retrieval-augmented generatie",
+          "name": "RAG, Retrieval-augmented generatie",
           "level": 2,
           "simple": "Zoek naar echte gegevens en reageer op basis daarvan.",
           "whatIs": "Voordat u reageert, zoekt u naar relevante informatie in een externe bron (documenten, kennisbank) en injecteert u deze in de prompt, zodat het model daarop reageert en niet op wat het \"onthoudt\". De meest gebruikte techniek in de productie.",
           "when": "Vragen over privé-, actuele of specifieke gegevens die het model niet in training heeft (handleidingen, beleid, bedrijfsdocumenten).",
-          "whenNot": "Algemene kennis dat het model al domineert – RAG voegt alleen maar latentie toe.",
+          "whenNot": "Algemene kennis dat het model al domineert, RAG voegt alleen maar latentie toe.",
           "examples": [
             {
               "wrong": "Wat is het terugbetalingsbeleid van ons bedrijf?",
@@ -753,7 +753,7 @@
           "level": 2,
           "simple": "Het model genereert relevante kennis alvorens te reageren.",
           "whatIs": "Vraag het model om relevante kennis over het onderwerp te genereren VOORDAT u reageert, en gebruik die kennis als basis. Een goedkoop alternatief voor RAG als er geen externe bron is.",
-          "when": "Gezond verstand of algemene kennisvragen waarbij het activeren van de juiste context helpt – en je geen basis hebt om naar te zoeken.",
+          "when": "Gezond verstand of algemene kennisvragen waarbij het activeren van de juiste context helpt, en je geen basis hebt om naar te zoeken.",
           "whenNot": "Als je verifieerbare en specifieke feiten nodig hebt, gebruik dan RAG, en geen gegenereerde kennis (die kan hallucineren).",
           "examples": [
             {
@@ -761,11 +761,11 @@
               "note": "Het genereren van de feiten dwingt eerst redeneren vanuit een expliciete basis af."
             }
           ],
-          "why": "Liu et al. (2022) lieten zien dat het genereren van kennis en het vervolgens gebruiken ervan het gezond verstand redeneren verbetert – het antwoord wordt meer gefundeerd en minder generiek.",
+          "why": "Liu et al. (2022) lieten zien dat het genereren van kennis en het vervolgens gebruiken ervan het gezond verstand redeneren verbetert, het antwoord wordt meer gefundeerd en minder generiek.",
           "tip": "Anders dan bij RAG: hier wordt de kennis gegenereerd door het model (het kan fouten maken). Voor kritische feiten liever daadwerkelijk zoeken.",
           "sources": [
             {
-              "label": "Liu et al. 2022 — Gegenereerde kennisprompts",
+              "label": "Liu et al. 2022, Gegenereerde kennisprompts",
               "url": "https://arxiv.org/abs/2110.08387"
             }
           ]
@@ -784,11 +784,11 @@
               "note": "Door aanhalingstekens te extraheren wordt de ruis weggenomen; gegevens bovenaan + vraag aan het einde kunnen de kwaliteit tot 30% verbeteren."
             }
           ],
-          "why": "Het ‘Lost in the Middle’-onderzoek (Liu et al., 2023, Stanford) toonde aan dat de prestaties afnemen wanneer de relevante informatie zich in het MIDDEN van lange contexten bevindt – modellen presteren beter met de belangrijkste informatie aan het begin of einde.",
-          "tip": "Plaats wat belangrijk is aan de randen van de context en vraag eerst om citaten – twee goedkope verdedigingen tegen de invloed van het medium.",
+          "why": "Het ‘Lost in the Middle’-onderzoek (Liu et al., 2023, Stanford) toonde aan dat de prestaties afnemen wanneer de relevante informatie zich in het MIDDEN van lange contexten bevindt, modellen presteren beter met de belangrijkste informatie aan het begin of einde.",
+          "tip": "Plaats wat belangrijk is aan de randen van de context en vraag eerst om citaten, twee goedkope verdedigingen tegen de invloed van het medium.",
           "sources": [
             {
-              "label": "Liu et al. 2023 — Verloren in het midden",
+              "label": "Liu et al. 2023, Verloren in het midden",
               "url": "https://arxiv.org/abs/2307.03172"
             }
           ]
@@ -813,11 +813,11 @@
               "note": "De denk → doe → observeer cyclus verbindt het model met de werkelijkheid in plaats van met uitvinden."
             }
           ],
-          "why": "Yao et al. (2023) toonden aan dat het verweven van redeneren en handelen beter presteert dan zowel pure CoT (die niet handelt) als handelen zonder redenering – en hallucinaties vermindert door te verankeren in echte observaties.",
+          "why": "Yao et al. (2023) toonden aan dat het verweven van redeneren en handelen beter presteert dan zowel pure CoT (die niet handelt) als handelen zonder redenering, en hallucinaties vermindert door te verankeren in echte observaties.",
           "tip": "Beschrijf wanneer je elk hulpmiddel moet gebruiken. Vermijd in moderne modellen agressief taalgebruik (\"je MOET\"); dit veroorzaakt overmatig gereedschapsgebruik.",
           "sources": [
             {
-              "label": "Yao et al. 2023 — ReAct",
+              "label": "Yao et al. 2023, ReAct",
               "url": "https://arxiv.org/abs/2210.03629"
             }
           ]
@@ -836,11 +836,11 @@
               "note": "De meeste agentfouten zijn geen modelfouten, maar contextfouten."
             }
           ],
-          "why": "Het vermogen om te onthouden neemt af naarmate de context groeit (\"contextrot\"). Het beheren van de context bij elke stap – te weinig info → hallucinatie, te veel info → overflow, tegenstrijdige info → verwarring – is wat de agent coherent houdt.",
+          "why": "Het vermogen om te onthouden neemt af naarmate de context groeit (\"contextrot\"). Het beheren van de context bij elke stap, te weinig info → hallucinatie, te veel info → overflow, tegenstrijdige info → verwarring, is wat de agent coherent houdt.",
           "tip": "Uploaden op aanvraag (just-in-time): Geef uw agent de tools om te krijgen wat hij nodig heeft, wanneer hij dat nodig heeft, in plaats van alles vooraf te laden.",
           "sources": [
             {
-              "label": "Antropisch – Effectieve context-engineering voor AI-agenten",
+              "label": "Antropisch, Effectieve context-engineering voor AI-agenten",
               "url": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents"
             }
           ]
@@ -867,10 +867,10 @@
             }
           ],
           "why": "De werkwijze van Anthropic's Prompt Improvementer is: voorbeelden identificeren → gestructureerd opstellen met XML → verfijnen met gedachtegang → voorbeelden verrijken. Meta-prompting is snelle engineering die op jezelf wordt toegepast.",
-          "tip": "Geef de meta-prompt de context van het doelmodel (Claude? GPT-redenering?) – beste praktijken verschillen tussen families.",
+          "tip": "Geef de meta-prompt de context van het doelmodel (Claude? GPT-redenering?), beste praktijken verschillen tussen families.",
           "sources": [
             {
-              "label": "Antropisch – Snelle verbeteraar",
+              "label": "Antropisch, Snelle verbeteraar",
               "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
             }
           ]
@@ -882,7 +882,7 @@
           "simple": "De machine optimaliseert automatisch de prompt op basis van gegevens.",
           "whatIs": "Kaders die aanwijzingen programmatisch optimaliseren op basis van een op sjablonen gebaseerde beoordelingsset. Je schrijft niet de perfecte prompt; de machine komt erachter door variaties te testen.",
           "when": "U beschikt over een gelabelde dataset en een objectieve metriek, en de prompt wordt op schaal uitgevoerd (de moeite waard om te automatiseren).",
-          "whenNot": "Geen dataset/statistieken – blijf bij handmatige meta-prompts.",
+          "whenNot": "Geen dataset/statistieken, blijf bij handmatige meta-prompts.",
           "examples": [
             {
               "right": "Heeft u een sjabloon en statistieken? → DSPy/OPRO compileert de prompt\nop basis van de gegevens.\nWilt u snel winst maken door de instructie te herschrijven? → APE/TextGrad.\nGeen gegevens? → handmatige meta-prompts met de technieken in de gids.",
@@ -897,7 +897,7 @@
               "url": "https://arxiv.org/abs/2309.03409"
             },
             {
-              "label": "DSPy — Stanford NLP",
+              "label": "DSPy, Stanford NLP",
               "url": "https://github.com/stanfordnlp/dspy"
             }
           ]
@@ -927,7 +927,7 @@
           "tip": "Vertrouw de uitvoer van tools nooit als instructie: opgehaalde inhoud (RAG, web) is niet-vertrouwde gegevens en valt onder hetzelfde afbakeningsregime.",
           "sources": [
             {
-              "label": "OWASP LLM01:2025 — Snelle injectie",
+              "label": "OWASP LLM01:2025, Snelle injectie",
               "url": "https://genai.owasp.org/llmrisk/llm01-prompt-injection/"
             }
           ]
@@ -950,14 +950,14 @@
             {
               "wrong": "Kunt u enkele wijzigingen in deze rol voorstellen?",
               "right": "Wijzig deze functie om de prestaties te verbeteren.\nWijzig alleen wat nodig is; Herstructureer de rest niet, voeg geen ongevraagde functies of foutafhandeling toe.",
-              "note": "Vertel het aan ACT (niet alleen suggereren) en vermeld de reikwijdte – Claude is letterlijk."
+              "note": "Vertel het aan ACT (niet alleen suggereren) en vermeld de reikwijdte, Claude is letterlijk."
             }
           ],
           "why": "Letterlijkheid is een kracht van API’s en pijplijnen: precisie en minder nabewerking. Maar het vereist dat u het bereik declareert (\"van toepassing op ALLE secties, niet alleen op de eerste\").",
           "tip": "Vermijd agressieve taal (\"KRITIEK: je MOET\") - bij recente modellen veroorzaakt het overtriggeren van het gereedschap. Geef de voorkeur aan \"Gebruik X wanneer...\".",
           "sources": [
             {
-              "label": "Antropisch – Stimulerende best practices",
+              "label": "Antropisch, Stimulerende best practices",
               "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
             }
           ]
@@ -969,7 +969,7 @@
           "simple": "Doelstelling + beperkingen + exitcontract; zonder micromanagement.",
           "whatIs": "Classic GPT levert met nauwkeurige, resultaatgerichte aanwijzingen. Redeneringsmodellen (o-serie, GPT-5-redenering) leveren een duidelijke doelstelling + sterke beperkingen + outputcontract op, ZONDER elke tussenstap voor te schrijven.",
           "when": "Redeneringsmodellen schitteren in dichte en lange documenten (contracten, financieel) en in complexe beslissingen.",
-          "whenNot": "Instrueer NIET \"stap voor stap nadenken\" / handmatige CoT in redeneermodellen – dit kan in de weg zitten (ze redeneren al intern).",
+          "whenNot": "Instrueer NIET \"stap voor stap nadenken\" / handmatige CoT in redeneermodellen, dit kan in de weg zitten (ze redeneren al intern).",
           "examples": [
             {
               "wrong": "Denk stap voor stap: doe eerst X, dan Y, dan Z...",
@@ -981,7 +981,7 @@
           "tip": "Verhoog in de GPT-5/o-serie de redeneerinspanning voor moeilijke taken en geef een expliciet uitvoercontract in plaats van lange voorbeelden.",
           "sources": [
             {
-              "label": "OpenAI — Best practices voor redenering",
+              "label": "OpenAI, Best practices voor redenering",
               "url": "https://developers.openai.com/api/docs/guides/reasoning-best-practices"
             }
           ]
@@ -1004,7 +1004,7 @@
           "tip": "Prompt engineering is iteratief: begin met PTCF en verfijn op basis van waargenomen reacties.",
           "sources": [
             {
-              "label": "Google — Gemini-promptontwerpstrategieën",
+              "label": "Google, Gemini-promptontwerpstrategieën",
               "url": "https://ai.google.dev/gemini-api/docs/prompting-strategies"
             }
           ]

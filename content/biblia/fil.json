@@ -1,6 +1,6 @@
 {
   "title": "Ang Prompt Engineering Bible",
-  "subtitle": "Lahat ng mga pamamaraan na umiiral — mula sa baguhan hanggang sa advanced, na may tama at maling mga halimbawa.",
+  "subtitle": "Lahat ng mga pamamaraan na umiiral, mula sa baguhan hanggang sa advanced, na may tama at maling mga halimbawa.",
   "whatIsLabel": "Ano ang",
   "whenLabel": "Kailan gagamitin",
   "wrongLabel": "mali",
@@ -16,14 +16,14 @@
           "name": "Zero-shot na pag-udyok",
           "level": 1,
           "simple": "Magtanong nang direkta, nang hindi nagbibigay ng mga halimbawa.",
-          "whatIs": "Magbigay ng malinaw na mga tagubilin nang hindi nagpapakita ng mga halimbawa ng mga sagot — ginagamit lang ng modelo ang natutunan nito sa pagsasanay. \"Zero-shot\" = zero na mga halimbawa. Ito ang simula ng lahat.",
+          "whatIs": "Magbigay ng malinaw na mga tagubilin nang hindi nagpapakita ng mga halimbawa ng mga sagot, ginagamit lang ng modelo ang natutunan nito sa pagsasanay. \"Zero-shot\" = zero na mga halimbawa. Ito ang simula ng lahat.",
           "when": "Karaniwan at mahusay na natukoy na mga gawain na ang modelo ay masters na: pagsasalin, pagbubuod, pagsagot sa isang makatotohanang tanong, muling pagsulat ng isang teksto.",
           "whenNot": "Kapag mahalaga ang eksaktong hugis, tono o gilid na mga kaso. Pagkatapos ang ilang mga halimbawa (few-shot) ay nagkakahalaga ng higit sa anumang pagtuturo.",
           "examples": [
             {
               "wrong": "sabihin sa akin ang tungkol sa marketing",
               "right": "Ipaliwanag ang 4 Ps ng marketing (produkto, presyo, lugar, promosyon)\nsa isang talata bawat isa, na may halimbawa ng coffee shop.",
-              "note": "Ang kanan ay tumutukoy sa saklaw (ang 4 Ps), format (isang talata bawat isa) at konteksto (coffee shop) — hindi malabo kahit na walang mga halimbawa."
+              "note": "Ang kanan ay tumutukoy sa saklaw (ang 4 Ps), format (isang talata bawat isa) at konteksto (coffee shop), hindi malabo kahit na walang mga halimbawa."
             },
             {
               "wrong": "itama ang text ko",
@@ -31,11 +31,11 @@
               "note": "Sabihin dito kung ano ang dapat ayusin, kung ano ang iingatan, at ang format ng output."
             }
           ],
-          "why": "Ang mga modernong modelo ay nilulutas ang mga kilalang gawain nang walang mga halimbawa — hangga't ang pagtuturo ay tiyak. Pinapalitan ng kalinawan ang mga halimbawa.",
+          "why": "Ang mga modernong modelo ay nilulutas ang mga kilalang gawain nang walang mga halimbawa, hangga't ang pagtuturo ay tiyak. Pinapalitan ng kalinawan ang mga halimbawa.",
           "tip": "Kung generic ang sagot, huwag ka nang magdagdag pa ng mga halimbawa: gawing mas partikular ang mga tagubilin (format, laki, audience).",
           "sources": [
             {
-              "label": "Anthropic — Pag-prompt ng pinakamahuhusay na kagawian",
+              "label": "Anthropic, Pag-prompt ng pinakamahuhusay na kagawian",
               "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
             }
           ]
@@ -46,7 +46,7 @@
           "level": 1,
           "simple": "Sabihin sa modelo ang \"sino sila\" bago ang gawain.",
           "whatIs": "Magtalaga ng tungkulin (\"Ikaw ay isang senior na abogado sa buwis\") upang i-calibrate ang tono, bokabularyo, at lalim ng pagtugon. Binago na ng isang pangungusap ang resulta.",
-          "when": "Kapag mahalaga ang tono o teknikal na antas — pagsulat, serbisyo, opinyon, pagtuturo.",
+          "when": "Kapag mahalaga ang tono o teknikal na antas, pagsulat, serbisyo, opinyon, pagtuturo.",
           "whenNot": "Sa mga katanungan ng dalisay na kaalaman (mga katotohanan, mga account, maramihang pagpipilian) ang persona ay maaaring makahadlang. Sa mga pagsubok sa benchmark ng MMLU, bumaba ang katumpakan ng \"eksperto\" na katauhan (mula ~71.6% hanggang ~68%).",
           "examples": [
             {
@@ -64,11 +64,11 @@
           "tip": "Gumamit ng persona para sa TONE at STYLE; huwag asahan na \"Ikaw ay isang henyo sa matematika\" upang mapabuti ang marka. Para sa katumpakan, mas gusto ang malinaw na mga tagubilin at pag-verify.",
           "sources": [
             {
-              "label": "PromptHub — Pag-aaral sa pag-udyok ng tungkulin",
+              "label": "PromptHub, Pag-aaral sa pag-udyok ng tungkulin",
               "url": "https://www.prompthub.us/blog/role-prompting-does-adding-personas-to-your-prompts-really-make-a-difference"
             },
             {
-              "label": "Anthropic — Bigyan ng papel si Claude",
+              "label": "Anthropic, Bigyan ng papel si Claude",
               "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
             }
           ]
@@ -80,7 +80,7 @@
           "simple": "Magpakita ng 2 hanggang 5 sample na sagot bago itanong ang iyong kaso.",
           "whatIs": "Isama ang ilang mga halimbawa ng input→output para sa modelo upang gayahin ang pattern. \"Few-shot\" = ilang halimbawa. Ito ang pinakamalakas na pingga para sa pagkontrol ng hugis, tono at pagkakapare-pareho.",
           "when": "Kapag mahalaga ang eksaktong format (JSON, talahanayan), kailangang pare-pareho ang tono, o mahirap ang pag-uuri.",
-          "whenNot": "Sa mga trivial na gawain (zero-shot na ang lumulutas nito) o kapag ang mga halimbawa ay lumiling patungo sa isang pattern — pagkatapos ay pag-iba-ibahin o bawasan ito.",
+          "whenNot": "Sa mga trivial na gawain (zero-shot na ang lumulutas nito) o kapag ang mga halimbawa ay lumiling patungo sa isang pattern, pagkatapos ay pag-iba-ibahin o bawasan ito.",
           "examples": [
             {
               "right": "I-rate ang pakiramdam. Sundin ang mga halimbawa:\n\"Nagustuhan ko ito, inirerekomenda ko ito!\" → positibo\n\"Nasira ito.\" → negatibo\n\nReview: \"Mabilis na dumating ngunit nadurog.\" →",
@@ -88,10 +88,10 @@
             }
           ],
           "why": "Ang ilang-shot ay nagmula sa GPT-3 na pananaliksik (Brown et al., 2020): natutunan ng mga modelo ang gawain mula lamang sa mga halimbawa sa prompt (in-context learning). Ipinapakita ng mga pag-aaral ang mga pagtalon tulad ng F1 0.51 → 0.62 kapag mula sa zero hanggang 3 halimbawa.",
-          "tip": "3 hanggang 5 halimbawa ang matamis na lugar. Gumamit ng IBA'T IBANG halimbawa (takpan ang mga gilid ng case) at alagaan ang ORDER — ang pag-permute ng mga halimbawa ay maaaring magbago nang malaki sa katumpakan.",
+          "tip": "3 hanggang 5 halimbawa ang matamis na lugar. Gumamit ng IBA'T IBANG halimbawa (takpan ang mga gilid ng case) at alagaan ang ORDER, ang pag-permute ng mga halimbawa ay maaaring magbago nang malaki sa katumpakan.",
           "sources": [
             {
-              "label": "Brown et al. 2020 — Mga Few-Shot Learner ang mga Modelo ng Wika",
+              "label": "Brown et al. 2020, Mga Few-Shot Learner ang mga Modelo ng Wika",
               "url": "https://arxiv.org/abs/2005.14165"
             },
             {
@@ -106,20 +106,20 @@
           "level": 1,
           "simple": "Paghiwalayin ang pagtuturo at data gamit ang \"mga tag\".",
           "whatIs": "I-wrap ang bawat bahagi ng prompt sa mga marker (<context>, <data>, <instructions>) para hindi malito ng modelo kung ano ang ayos at kung ano ang materyal na ipoproseso.",
-          "when": "Sa tuwing hinahalo ng prompt ang pagtuturo sa data — lalo na ang mahaba o self-formatted na data. Ito ang inirerekomendang pattern para kay Claude.",
+          "when": "Sa tuwing hinahalo ng prompt ang pagtuturo sa data, lalo na ang mahaba o self-formatted na data. Ito ang inirerekomendang pattern para kay Claude.",
           "whenNot": "Sa maikling isang linyang prompt na walang naka-embed na data, ito ay hindi kailangan.",
           "examples": [
             {
               "wrong": "Ibuod: Pagpupulong ngayon: ipinagpaliban namin ang paglulunsad.\nIbuod din ang mga panganib. Okay ang budget.",
               "right": "Ibuod ang nilalaman sa loob ng <text> sa 3 paksa.\n\n<text>\nPagpupulong ngayon: ipinagpaliban namin ang paglulunsad. Ok ang badyet.\nMga Panganib: pinababang koponan at mahigpit na deadline.\n</text>",
-              "note": "Nilinaw ng tag kung ano ang ibinigay at kung ano ang pagtuturo — nang walang kalabuan."
+              "note": "Nilinaw ng tag kung ano ang ibinigay at kung ano ang pagtuturo, nang walang kalabuan."
             }
           ],
-          "why": "Binabawasan ng mga tag ang kalabuan sa pagitan ng pagtuturo at nilalaman — ang pinakakaraniwang error sa mga prompt na may naka-embed na text. Ang mga modelong sinanay gamit ang structured data (tulad ni Claude) ay tumpak na sumusunod sa mga tag.",
+          "why": "Binabawasan ng mga tag ang kalabuan sa pagitan ng pagtuturo at nilalaman, ang pinakakaraniwang error sa mga prompt na may naka-embed na text. Ang mga modelong sinanay gamit ang structured data (tulad ni Claude) ay tumpak na sumusunod sa mga tag.",
           "tip": "Gumamit ng pare-pareho at mapaglarawang mga pangalan ng tag. Pugad kapag mayroong hierarchy (maraming <document> sa loob ng <documents>).",
           "sources": [
             {
-              "label": "Anthropic — Gumamit ng mga XML tag",
+              "label": "Anthropic, Gumamit ng mga XML tag",
               "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
             }
           ]
@@ -131,11 +131,11 @@
           "simple": "Ipaliwanag ang dahilan ng pagtuturo, hindi lamang ang pagkakasunud-sunod.",
           "whatIs": "Magbigay ng background na impormasyon at ang dahilan sa likod ng kahilingan. Mas nagiging pangkalahatan ang modelo kapag naiintindihan nito ang layunin, hindi lamang ang panuntunan.",
           "when": "Sa tuwing ang isang tuntunin ay maaaring ma-misinterpret kung ilalapat sa liham nang hindi nauunawaan ang layunin.",
-          "whenNot": "Ito ay bihirang makasagabal — ngunit huwag itong dagdagan ng walang katuturang konteksto, na nagiging ingay at sinasayang ang atensyon ng modelo.",
+          "whenNot": "Ito ay bihirang makasagabal, ngunit huwag itong dagdagan ng walang katuturang konteksto, na nagiging ingay at sinasayang ang atensyon ng modelo.",
           "examples": [
             {
               "wrong": "Huwag gumamit ng ellipsis.",
-              "right": "Ang tugon na ito ay babasahin ng isang speech synthesizer na hindi binibigkas nang tama ang mga ellipse — kaya huwag gumamit ng \"...\".",
+              "right": "Ang tugon na ito ay babasahin ng isang speech synthesizer na hindi binibigkas nang tama ang mga ellipse, kaya huwag gumamit ng \"...\".",
               "note": "Alam kung bakit, inilalapat ng modelo ang panuntunan nang may sentido komun at inaasahan ang mga katulad na kaso."
             }
           ],
@@ -143,7 +143,7 @@
           "tip": "Ang isang pangungusap ng \"bakit ito mahalaga\" ay karaniwang nagkakahalaga ng tatlong pangungusap ng \"gawin ito sa ganitong paraan\".",
           "sources": [
             {
-              "label": "Anthropic — Magdagdag ng konteksto upang mapabuti ang pagganap",
+              "label": "Anthropic, Magdagdag ng konteksto upang mapabuti ang pagganap",
               "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
             }
           ]
@@ -164,10 +164,10 @@
             }
           ],
           "why": "\"Walang frills\" ay subjective; isang schema ay layunin at code-parseable. Ang pagtukoy sa format ay nag-aalis ng variation na sumisira sa mga pagsasama.",
-          "tip": "Para talagang pilitin ang JSON/structure, gumamit ng Structured Outputs (Claude/OpenAI) sa halip na hilingin lang ito sa text — mas maaasahan ito.",
+          "tip": "Para talagang pilitin ang JSON/structure, gumamit ng Structured Outputs (Claude/OpenAI) sa halip na hilingin lang ito sa text, mas maaasahan ito.",
           "sources": [
             {
-              "label": "Anthropic — Kontrolin ang format ng tugon",
+              "label": "Anthropic, Kontrolin ang format ng tugon",
               "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
             }
           ]
@@ -180,12 +180,12 @@
       "techniques": [
         {
           "id": "chain-of-thought-cot",
-          "name": "Chain-of-Thought — CoT",
+          "name": "Chain-of-Thought, CoT",
           "level": 2,
           "simple": "Humingi ng hakbang-hakbang na pangangatwiran BAGO ang sagot.",
           "whatIs": "Ipasulat sa modelo ang pangangatwiran sa mga yugto bago magtapos, sa halip na dumiretso sa sagot. Ito ang pinakamahalagang pamamaraan ng pangangatwiran.",
           "when": "Matematika, lohika, mga desisyon na may mga trade-off, mahirap na pag-uuri.",
-          "whenNot": "Sa mga modelo ng pangangatwiran (o-series ng OpenAI, GPT-5 na pangangatwiran): internal na pangangatuwiran na nila at ang pagtatanong ng \"hakbang-hakbang\" ay maaari pang magpalala. Sa Claude na naka-off ang pag-iisip, mas gusto ang \"analyze/evaluate\" — ang salitang \"think\" ay sensitibo.",
+          "whenNot": "Sa mga modelo ng pangangatwiran (o-series ng OpenAI, GPT-5 na pangangatwiran): internal na pangangatuwiran na nila at ang pagtatanong ng \"hakbang-hakbang\" ay maaari pang magpalala. Sa Claude na naka-off ang pag-iisip, mas gusto ang \"analyze/evaluate\", ang salitang \"think\" ay sensitibo.",
           "examples": [
             {
               "wrong": "Ang isang produkto ay nagkakahalaga ng R$80. Sa 15% na diskwento at pagkatapos ay 8%\nbuwis, ano ang pinal na presyo? Sagutin lang ang numero.",
@@ -194,10 +194,10 @@
             }
           ],
           "why": "Ang pagsusulat ng pangangatwiran ay lumilikha ng \"puwang sa pag-iisip\" bago ang sagot. Sa orihinal na papel (Wei et al., 2022), nadagdagan ng CoT ang katumpakan sa pangangatwiran sa matematika mula ~18% hanggang ~57% sa malalaking modelo.",
-          "tip": "Paghiwalayin ang pangangatwiran (<pag-iisip>) mula sa panghuling sagot (<answer>) — sa ganitong paraan ginagamit mo ang pag-iisip nang hindi nadudumihan ang output.",
+          "tip": "Paghiwalayin ang pangangatwiran (<pag-iisip>) mula sa panghuling sagot (<answer>), sa ganitong paraan ginagamit mo ang pag-iisip nang hindi nadudumihan ang output.",
           "sources": [
             {
-              "label": "Wei et al. 2022 — Pag-udyok sa Chain-of-Thought",
+              "label": "Wei et al. 2022, Pag-udyok sa Chain-of-Thought",
               "url": "https://arxiv.org/abs/2201.11903"
             },
             {
@@ -221,11 +221,11 @@
               "note": "Ang parirala ay sapat na para sa modelo upang tipunin ang mga equation sa halip na hulaan."
             }
           ],
-          "why": "Ang pananaliksik ni Kojima et al. (2022) ay nagpakita na ang \"Let's think step by step\" lang ang nagpapataas ng katumpakan sa GSM8K mula 17.7% hanggang 78.7% — nang walang anumang mga halimbawa.",
+          "why": "Ang pananaliksik ni Kojima et al. (2022) ay nagpakita na ang \"Let's think step by step\" lang ang nagpapataas ng katumpakan sa GSM8K mula 17.7% hanggang 78.7%, nang walang anumang mga halimbawa.",
           "tip": "Ito ay halos libre. Kung ang gawain ay minimally analytical, ito ay palaging nagkakahalaga ng pagsubok.",
           "sources": [
             {
-              "label": "Kojima et al. 2022 — Ang mga malalaking LM ay Zero-Shot Reasoners",
+              "label": "Kojima et al. 2022, Ang mga malalaking LM ay Zero-Shot Reasoners",
               "url": "https://arxiv.org/abs/2205.11916"
             }
           ]
@@ -236,7 +236,7 @@
           "level": 2,
           "simple": "Bumalik sa isang pangkalahatang prinsipyo bago lutasin ang kaso.",
           "whatIs": "Bago harapin ang partikular na problema, hilingin sa modelo na sabihin ang konsepto o pangkalahatang tuntunin. Pagkatapos ay inilalapat niya ang panuntunang ito sa kaso.",
-          "when": "Ang mga problema kung saan ang paglalapat ng tamang panuntunan ay mas mahalaga kaysa sa pagkalkula — pisika, batas, diagnosis.",
+          "when": "Ang mga problema kung saan ang paglalapat ng tamang panuntunan ay mas mahalaga kaysa sa pagkalkula, pisika, batas, diagnosis.",
           "whenNot": "Sa direkta at simpleng mga gawain, magdagdag ng mga hakbang nang walang pakinabang.",
           "examples": [
             {
@@ -245,11 +245,11 @@
               "note": "Ang pag-angkla sa tamang batas (Gay-Lussac) ay umiiwas sa paghahalo ng mga formula."
             }
           ],
-          "why": "Ang pagbabalik sa isang prinsipyo ay binabawasan ang mga error sa premise — ang modelo ay nagre-resolve mula sa tamang konsepto, hindi mula sa isang mababaw na asosasyon.",
+          "why": "Ang pagbabalik sa isang prinsipyo ay binabawasan ang mga error sa premise, ang modelo ay nagre-resolve mula sa tamang konsepto, hindi mula sa isang mababaw na asosasyon.",
           "tip": "Pagsamahin sa CoT: sabihin ang prinsipyo at pagkatapos ay mangatuwiran nang hakbang-hakbang sa aplikasyon.",
           "sources": [
             {
-              "label": "Zheng et al. 2023 — Bumalik ng isang Hakbang",
+              "label": "Zheng et al. 2023, Bumalik ng isang Hakbang",
               "url": "https://arxiv.org/abs/2310.06117"
             }
           ]
@@ -261,19 +261,19 @@
           "simple": "Magplano muna, isagawa mamaya.",
           "whatIs": "Isang pagpapabuti sa \"mag-isip nang hakbang-hakbang\": humihiling sa modelo na MUNA na gumuhit ng isang plano at pagkatapos ay isagawa ito. Binabawasan ang error sa paglaktaw ng mga hakbang.",
           "when": "Mga multi-step na gawain kung saan ang simpleng \"step by step\" ay minsan nakakalimutan ang mga bahagi.",
-          "whenNot": "Isang hakbang na gawain — ang pagpaplano ay nagiging burukrasya.",
+          "whenNot": "Isang hakbang na gawain, ang pagpaplano ay nagiging burukrasya.",
           "examples": [
             {
               "wrong": "Ayusin ang isang 3-araw na paglalakbay sa Lisbon na nag-iisip nang hakbang-hakbang.",
               "right": "Mag-ayos ng 3-araw na biyahe sa Lisbon.\nBumuo muna ng plano (mga dimensyon: tirahan, paglalakbay, atraksyon, badyet, pagkain).\nPagkatapos ay isagawa, pinupunan ang bawat dimensyon araw-araw.",
-              "note": "Tinitiyak ng paglilista ng mga dimensyon nang maaga ang saklaw — huwag kalimutan ang badyet."
+              "note": "Tinitiyak ng paglilista ng mga dimensyon nang maaga ang saklaw, huwag kalimutan ang badyet."
             }
           ],
           "why": "Ang paghihiwalay ng pagpaplano mula sa pagpapatupad ay binabawasan ang error ng \"naliligaw sa daan\". Wang et al. (2023) ay nagpakita ng pare-parehong pakinabang sa purong zero-shot na CoT.",
-          "tip": "Hilingin ang plano sa format ng listahan bago isagawa — madali itong suriin at itama ang kurso.",
+          "tip": "Hilingin ang plano sa format ng listahan bago isagawa, madali itong suriin at itama ang kurso.",
           "sources": [
             {
-              "label": "Wang et al. 2023 — Plan-and-Solve Prompting",
+              "label": "Wang et al. 2023, Plan-and-Solve Prompting",
               "url": "https://arxiv.org/abs/2305.04091"
             }
           ]
@@ -285,7 +285,7 @@
           "simple": "Lutasin ng ilang beses at sumama sa karamihan ng sagot.",
           "whatIs": "Patakbuhin ang parehong CoT prompt nang ilang beses (random) at piliin ang sagot na pinakamadalas na lumalabas. Paano kumunsulta sa maraming eksperto at sundin ang pinagkasunduan.",
           "when": "Mga kritikal na problema kung saan ang isang pangangatwiran ay maaaring madulas at maaari mong bayaran ang N executions.",
-          "whenNot": "Simple o cost-sensitive na mga gawain — nagkakahalaga ng N× token.",
+          "whenNot": "Simple o cost-sensitive na mga gawain, nagkakahalaga ng N× token.",
           "examples": [
             {
               "right": "Lutasin ang problemang ito sa 3 malayang paraan, bawat isa ay may kumpletong pangangatwiran. Sa dulo, ihambing ang tatlong konklusyon\nat tumugon sa halaga kung saan hindi bababa sa dalawa ang sumang-ayon.",
@@ -296,7 +296,7 @@
           "tip": "Kahit sa isang tawag, humingi ng \"3 independent approach + majority vote\" para sa katulad na epekto sa mas murang halaga.",
           "sources": [
             {
-              "label": "Wang et al. 2022 — Pagpapanatili sa Sarili",
+              "label": "Wang et al. 2022, Pagpapanatili sa Sarili",
               "url": "https://arxiv.org/abs/2203.11171"
             }
           ]
@@ -307,7 +307,7 @@
           "level": 2,
           "simple": "Hilingin sa modelo na suriin ang kanilang sariling sagot bago isumite.",
           "whatIs": "Magdagdag ng hakbang kung saan sinusuri ng modelo ang sagot laban sa isang pamantayan bago tapusin. Mura at mabisa.",
-          "when": "Halos sa bawat oras na ang sagot ay mabe-verify — code, math, extraction.",
+          "when": "Halos sa bawat oras na ang sagot ay mabe-verify, code, math, extraction.",
           "whenNot": "Kapag walang objective na criterion sa pag-verify, nagiging text lang ito.",
           "examples": [
             {
@@ -317,10 +317,10 @@
             }
           ],
           "why": "Ang pagpilit sa tseke ay inaalis ang modelo sa \"generator mode\" at ina-activate ang \"reviewer mode\", na nakakakita ng mga error na hindi nakikita ng generator.",
-          "tip": "Magbigay ng tahasang pamantayan sa pag-verify (\"pagsubok sa X, Y, Z\") — hindi gaanong maganda ang naidudulot ng malabong pag-verify.",
+          "tip": "Magbigay ng tahasang pamantayan sa pag-verify (\"pagsubok sa X, Y, Z\"), hindi gaanong maganda ang naidudulot ng malabong pag-verify.",
           "sources": [
             {
-              "label": "Anthropic — Hilingin kay Claude na mag-self-check",
+              "label": "Anthropic, Hilingin kay Claude na mag-self-check",
               "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
             }
           ]
@@ -331,19 +331,19 @@
           "level": 3,
           "simple": "Bumuo, punahin ang iyong sariling tugon, at gawin itong mas mahusay.",
           "whatIs": "Isang loop: ang modelo ay bumubuo, PINAPUUNA ang sarili nitong tugon, itinuturo ang mga kongkretong bahid, at pagkatapos ay gumagawa ng isang binagong bersyon. Mas malakas kaysa sa self-check (na isang tseke lamang).",
-          "when": "Code, pagsulat, sequential reasoning — mga gawain kung saan ang unang pagtatangka ay karaniwang may mga naitatama na error.",
-          "whenNot": "Kapag ang unang sagot ay mabuti at simple na — ang loop ay nagdaragdag lamang ng gastos.",
+          "when": "Code, pagsulat, sequential reasoning, mga gawain kung saan ang unang pagtatangka ay karaniwang may mga naitatama na error.",
+          "whenNot": "Kapag ang unang sagot ay mabuti at simple na, ang loop ay nagdaragdag lamang ng gastos.",
           "examples": [
             {
               "right": "1. Isulat ang teksto ng landing page.\n2. Punahin ang iyong sariling teksto: nananatili ba ang pamagat? Malinaw ba ang value proposition? Mayroon bang isang CTA? Ilista ang bawat pagkabigo.\n3. Isulat muli, itinatama ang mga error na naka-highlight.",
               "note": "Pinipilit ng pagpuna sa sarili na lumabas mula sa \"generator mode\" patungo sa \"editor mode\"."
             }
           ],
-          "why": "Shinn et al. (2023) ay nagpakita na ang self-reflection cycle ay nagpapabuti sa pagganap sa mga gawain sa pagpapasya, coding at pangangatwiran — ang bersyon 2 ay halos palaging mas mahusay kaysa sa 1.",
+          "why": "Shinn et al. (2023) ay nagpakita na ang self-reflection cycle ay nagpapabuti sa pagganap sa mga gawain sa pagpapasya, coding at pangangatwiran, ang bersyon 2 ay halos palaging mas mahusay kaysa sa 1.",
           "tip": "Magbigay ng konkretong pamantayan para sa pagpuna; Ang generic na \"pagbuti\" ay gumagawa ng mga pagbabago sa kosmetiko.",
           "sources": [
             {
-              "label": "Shinn et al. 2023 — Pagninilay",
+              "label": "Shinn et al. 2023, Pagninilay",
               "url": "https://arxiv.org/abs/2303.11366"
             }
           ]
@@ -360,7 +360,7 @@
           "level": 2,
           "simple": "Hatiin ito sa mga subproblema mula sa pinakamadali hanggang sa pinakamahirap.",
           "whatIs": "I-decompose ang problema sa mga subproblema na inayos mula sa pinakamadali hanggang sa pinakamahirap at lutasin ang mga ito sa pagkakasunud-sunod, kung saan ang sagot sa isa ay pumapasok sa susunod.",
-          "when": "Nangangatuwiran na may sequential dependence — kailangan ng hakbang 3 ang resulta ng step 2.",
+          "when": "Nangangatuwiran na may sequential dependence, kailangan ng hakbang 3 ang resulta ng step 2.",
           "whenNot": "Ang mga problemang hindi natural na nabubulok sa mga umaasang yugto.",
           "examples": [
             {
@@ -368,30 +368,30 @@
               "note": "Ang bawat subproblema ay walang halaga sa paghihiwalay; nakakadena nang magkasama lutasin ang kabuuan."
             }
           ],
-          "why": "Zhou et al. (2022) ay nagpakita na ang decomposing mula sa simple hanggang sa kumplikado ay nagbibigay-daan sa amin na mag-generalize sa mga problemang mas mahirap kaysa sa mga halimbawang nakikita — isang bagay na hindi nagagawa ng purong CoT.",
-          "tip": "Tahasang hilingin ang output ng bawat hakbang bago sumulong — para hindi tahimik na lumaganap ang error.",
+          "why": "Zhou et al. (2022) ay nagpakita na ang decomposing mula sa simple hanggang sa kumplikado ay nagbibigay-daan sa amin na mag-generalize sa mga problemang mas mahirap kaysa sa mga halimbawang nakikita, isang bagay na hindi nagagawa ng purong CoT.",
+          "tip": "Tahasang hilingin ang output ng bawat hakbang bago sumulong, para hindi tahimik na lumaganap ang error.",
           "sources": [
             {
-              "label": "Zhou et al. 2022 — Pinakamaliit hanggang sa Pinaka-prompting",
+              "label": "Zhou et al. 2022, Pinakamaliit hanggang sa Pinaka-prompting",
               "url": "https://arxiv.org/abs/2205.10625"
             }
           ]
         },
         {
           "id": "tree-of-thoughts-tot",
-          "name": "Puno ng Kaisipan — ToT",
+          "name": "Puno ng Kaisipan, ToT",
           "level": 3,
           "simple": "Galugarin ang iba't ibang mga landas ng pangangatwiran at itapon ang mga masasama.",
           "whatIs": "Sa halip na isang linya, ang modelo ay nagsasaliksik ng ilang sangay ng pangangatwiran nang magkatulad, sinusuri ang bawat isa at inabandona ang mga hindi humahantong sa isang solusyon. Parang chess player na nag-iisip ng mga galaw.",
-          "when": "Mga problema sa maraming makatwirang diskarte kung saan kailangan mong ihambing at i-backtrack — pagpaplano, palaisipan, pag-optimize.",
-          "whenNot": "Mga simpleng gawain — ang halaga ng mga token ay mas mataas kaysa sa CoT.",
+          "when": "Mga problema sa maraming makatwirang diskarte kung saan kailangan mong ihambing at i-backtrack, pagpaplano, palaisipan, pag-optimize.",
+          "whenNot": "Mga simpleng gawain, ang halaga ng mga token ay mas mataas kaysa sa CoT.",
           "examples": [
             {
               "right": "Lutasin ang bugtong na ito. Bumuo ng 3 iba't ibang paunang diskarte.\nPara sa bawat isa, suriin sa isang pangungusap kung ito ay promising o isang\ndead end. Bumuo lamang ng pinakamahusay; Kung ito ay natigil, bumalik sa pangalawa.",
               "note": "Ang tahasang backtracking ang pinagkaiba ng ToT sa linear CoT."
             }
           ],
-          "why": "Yao et al. (2023) ay nagpakita ng malalaking hakbang sa mga gawain sa paghahanap: sa Game of 24, nalutas ng ToT ang 74% kumpara sa 4% ng CoT — dahil maaari kang bumalik sa halip na pakasalan ang unang ideya.",
+          "why": "Yao et al. (2023) ay nagpakita ng malalaking hakbang sa mga gawain sa paghahanap: sa Game of 24, nalutas ng ToT ang 74% kumpara sa 4% ng CoT, dahil maaari kang bumalik sa halip na pakasalan ang unang ideya.",
           "tip": "Magreserba para sa mga problema kung saan nabigo ang linear CoT. Sulit lang ang gastos kapag mayroon talagang maraming ruta na dapat galugarin.",
           "sources": [
             {
@@ -415,11 +415,11 @@
               "note": "Ang pagtatalaga ng pagkalkula sa Python (na hindi kailanman gumagawa ng mga pagkakamali sa aritmetika) ay nag-aalis ng error sa modelo."
             }
           ],
-          "why": "Gao et al. (2022) ay nagpakita na ang paglilipat ng kalkulasyon sa isang interpreter ay higit na gumaganap sa CoT sa mga mathematical benchmark — kailangan lang isalin ng modelo ang problema sa code, na kung ano ang ginagawa nito nang maayos.",
+          "why": "Gao et al. (2022) ay nagpakita na ang paglilipat ng kalkulasyon sa isang interpreter ay higit na gumaganap sa CoT sa mga mathematical benchmark, kailangan lang isalin ng modelo ang problema sa code, na kung ano ang ginagawa nito nang maayos.",
           "tip": "Hilingin ang code nang hiwalay sa paliwanag, para mapatakbo mo ito nang direkta nang walang pag-parse.",
           "sources": [
             {
-              "label": "Gao et al. 2022 — PAL: Program-Aided Language Models",
+              "label": "Gao et al. 2022, PAL: Program-Aided Language Models",
               "url": "https://arxiv.org/abs/2211.10435"
             }
           ]
@@ -431,7 +431,7 @@
           "simple": "Hatiin ang gawain sa mga sub-gawain; o sketch bago magdetalye.",
           "whatIs": "Pinaghihiwa-hiwalay ng DECOMP ang gawain at itinatalaga ang bawat sub-task sa isang espesyal na \"handler\" (isa pang tawag o tool). Ang Skeleton-of-Thought ay unang bumubuo ng balangkas ng sagot (ang mga paksa) at pagkatapos ay lumalawak sa bawat punto.",
           "when": "DECOMP sa modular pipelines; Skeleton sa mahabang tugon kung saan mahalaga ang pagpapanatili ng saklaw at istraktura.",
-          "whenNot": "Maikli at direktang mga sagot — ang dagdag na istraktura ay hindi nagdaragdag ng anuman.",
+          "whenNot": "Maikli at direktang mga sagot, ang dagdag na istraktura ay hindi nagdaragdag ng anuman.",
           "examples": [
             {
               "right": "Sumulat ng ulat tungkol sa mga espesyal na kape sa dalawang hakbang.\nHakbang 1 (skeleton): ilista lamang ang mga pamagat ng 6 na seksyon.\nHakbang 2 (pagpapalawak): gawing 1 talata ang bawat seksyon.",
@@ -439,14 +439,14 @@
             }
           ],
           "why": "Ang paghihiwalay ng \"ano\" (istraktura) mula sa \"paano\" (nilalaman) ay maiiwasan ang pagkagumon sa pag-uunat sa mga unang seksyon at pagmamadali sa huli. Ang Skeleton-of-Thought ay nagpapahintulot din sa iyo na iparallelize ang pagpapalawak.",
-          "tip": "Sa Skeleton, suriin at ayusin ang skeleton bago palawakin — mura ang pag-aayos ng istraktura; Mahal ang muling pagsusulat ng buong nilalaman.",
+          "tip": "Sa Skeleton, suriin at ayusin ang skeleton bago palawakin, mura ang pag-aayos ng istraktura; Mahal ang muling pagsusulat ng buong nilalaman.",
           "sources": [
             {
-              "label": "Khot et al. 2022 — Decomposed Prompting",
+              "label": "Khot et al. 2022, Decomposed Prompting",
               "url": "https://arxiv.org/abs/2210.02406"
             },
             {
-              "label": "Ning et al. 2023 — Skeleton-of-Thought",
+              "label": "Ning et al. 2023, Skeleton-of-Thought",
               "url": "https://arxiv.org/abs/2307.15337"
             }
           ]
@@ -464,7 +464,7 @@
           "simple": "Nire-rephrase ng modelo ang iyong tanong bago ito sagutin.",
           "whatIs": "Atasan ang modelo na muling isulat ang tanong sa sarili nilang mga salita bago sumagot. Nililinaw nito ang layunin at inilalantad ang mga kalabuan.",
           "when": "Malabo, malabo o hindi maganda ang pagkakabalangkas ng mga tanong; kapag gusto mong matiyak na naiintindihan ng modelo.",
-          "whenNot": "Mga tanong na malinaw at direkta na — nagdaragdag lamang ng teksto ang repormasyon.",
+          "whenNot": "Mga tanong na malinaw at direkta na, nagdaragdag lamang ng teksto ang repormasyon.",
           "examples": [
             {
               "wrong": "Sarado ba ang bangko?",
@@ -472,11 +472,11 @@
               "note": "Sa pamamagitan ng reformulating, inilalantad ng modelo ang kalabuan (institusyon? upuan?) at mas mahusay na tumugon."
             }
           ],
-          "why": "Deng et al. (2023) ay nagpakita na ang pagpapahintulot sa modelo na muling ipahayag ang tanong mismo ay nagpapabuti sa pagganap sa ilang mga gawain — ang mga malilinaw na tanong ay bumubuo ng mas magagandang sagot.",
+          "why": "Deng et al. (2023) ay nagpakita na ang pagpapahintulot sa modelo na muling ipahayag ang tanong mismo ay nagpapabuti sa pagganap sa ilang mga gawain, ang mga malilinaw na tanong ay bumubuo ng mas magagandang sagot.",
           "tip": "Pagsamahin sa CoT: muling parirala, pagkatapos ay mangatwiran. Ang kalinawan ng repormulasyon ay nagpapabuti sa kasunod na pangangatwiran.",
           "sources": [
             {
-              "label": "Deng et al. 2023 — Muling parirala at Tumugon",
+              "label": "Deng et al. 2023, Muling parirala at Tumugon",
               "url": "https://arxiv.org/abs/2311.04205"
             }
           ]
@@ -495,11 +495,11 @@
               "note": "Ang muling pagbabasa ay ginagawang mapansin ng modelo ang mga kundisyon na napagtagumpayan ng isang pagbabasa."
             }
           ],
-          "why": "Xu et al. (2023) ay nagpakita na ang muling pagbabasa lamang ng pahayag ay nagpapabuti sa pangangatwiran — binibigyang-pansin ng modelo ang mga kundisyon (hal. \"maliban sa Martes\") na laktawan nito sa isang solong pagbabasa.",
+          "why": "Xu et al. (2023) ay nagpakita na ang muling pagbabasa lamang ng pahayag ay nagpapabuti sa pangangatwiran, binibigyang-pansin ng modelo ang mga kundisyon (hal. \"maliban sa Martes\") na laktawan nito sa isang solong pagbabasa.",
           "tip": "Halos zero cost trick; Ito ay nagkakahalaga ng pagsasalansan sa CoT sa mga problema na may maraming mga hadlang.",
           "sources": [
             {
-              "label": "Xu et al. 2023 — Napapahusay ng Muling Pagbasa ang Pangangatuwiran",
+              "label": "Xu et al. 2023, Napapahusay ng Muling Pagbasa ang Pangangatuwiran",
               "url": "https://arxiv.org/abs/2309.06275"
             }
           ]
@@ -511,18 +511,18 @@
           "simple": "Ang modelo ay nagtatanong sa sarili ng mga sub-tanong bago ang huling sagot.",
           "whatIs": "Ang modelo ay magpapasya kung kailangan nito ng mga follow-up na sub-tanong, sasagutin ang bawat isa at pagkatapos ay bubuo ng huling sagot. Tamang-tama para sa mga tanong na nangangailangan ng pagsali sa ilang mga katotohanan (multi-hop).",
           "when": "Mga tanong na nakasalalay sa mga intermediate na katotohanan (\"Sino ang nagdirek ng pelikulang nanalo ng Oscar noong taong X ay ipinanganak?\").",
-          "whenNot": "Mga tanong ng isang katotohanan lamang — walang dapat masira.",
+          "whenNot": "Mga tanong ng isang katotohanan lamang, walang dapat masira.",
           "examples": [
             {
               "right": "Sagutin gamit ang mga sub-question. Bago ang huling sagot,\nitanong at sagutin ang iyong sarili kung ano ang kinakailangan.\nTanong: Ano ang pag-asa sa buhay sa bansang pinagmulan\nng lumikha ng Linux?",
               "note": "Ang paghahati-hati nito sa \"sino ang lumikha nito → kung saan ito nagmula → mga inaasahan doon\" ay nag-iwas sa paglaktaw ng link at pag-hallucinate."
             }
           ],
-          "why": "Pindutin ang et al. (2022) ay nagpakita na ang paggawa ng mga sub-tanong na tahasan ay binabawasan ang \"compositionality gap\" — ang modelo ay gumagawa ng mas kaunting mga pagkakamali kapag sinasagot ang bawat link nang hiwalay.",
+          "why": "Pindutin ang et al. (2022) ay nagpakita na ang paggawa ng mga sub-tanong na tahasan ay binabawasan ang \"compositionality gap\", ang modelo ay gumagawa ng mas kaunting mga pagkakamali kapag sinasagot ang bawat link nang hiwalay.",
           "tip": "Mas mahusay itong gumagana sa pag-access sa paghahanap: ang bawat sub-tanong ay nagiging isang query.",
           "sources": [
             {
-              "label": "Pindutin ang et al. 2022 — Pagsukat at Paliitin ang Compositionality Gap",
+              "label": "Pindutin ang et al. 2022, Pagsukat at Paliitin ang Compositionality Gap",
               "url": "https://arxiv.org/abs/2210.03350"
             }
           ]
@@ -546,7 +546,7 @@
           "tip": "Kapaki-pakinabang din bilang isang depensa: ang mga nakatanim na opinyon at mga pagtatangka sa pagmamanipula ay tinanggal sa yugto ng paglilinis.",
           "sources": [
             {
-              "label": "Weston at Sukhbaatar 2023 — System 2 Attention",
+              "label": "Weston at Sukhbaatar 2023, System 2 Attention",
               "url": "https://arxiv.org/abs/2311.11829"
             }
           ]
@@ -558,7 +558,7 @@
           "simple": "Ang modelo ay bumubuo ng mga katulad na halimbawa; o matuto sa tama AT mali.",
           "whatIs": "Ang analogical ay gumagawa ng modelo na bumuo ng sarili nitong mga halimbawa na kahalintulad sa problema bago malutas (auto-few-shot). Nagbibigay ang Contrastive CoT ng mga pagpapakita ng tama AT maling pangangatwiran, kaya natututo ang modelo kung ano ang dapat iwasan.",
           "when": "Analogical: kapag wala kang mga halimbawang handa. Contrastive: kapag may paulit-ulit na pagkakamali sa pangangatwiran upang maiwasan.",
-          "whenNot": "Mga walang kuwentang gawain — ang pagbuo ng mga analogue o contrast ay nasa itaas.",
+          "whenNot": "Mga walang kuwentang gawain, ang pagbuo ng mga analogue o contrast ay nasa itaas.",
           "examples": [
             {
               "right": "Contrastive: tingnan ang TAMA at MALI na pangangatwiran na\nporsiyento:\n✓ \"20% ng 50 = 0.20 × 50 = 10\"\n✗ \"20% ng 50 = 50 / 20 = 2.5\" (hatiin sa halip na i-multiply)\nNgayon, iniiwasan ang error sa 3?",
@@ -566,14 +566,14 @@
             }
           ],
           "why": "Yasunaga et al. (2023) ay nagpakita na ang pagbuo ng tamang analogues outperforms fixed few-shot; Chia et al. (2023) ay nagpakita na ang mga negatibong demonstrasyon (tama + mali) ay nagpapababa ng mga pagkakamali sa pangangatwiran.",
-          "tip": "Sa Contrastive, ipakita ang EXACT na error na gusto mong iwasan — kung mas partikular, mas epektibo.",
+          "tip": "Sa Contrastive, ipakita ang EXACT na error na gusto mong iwasan, kung mas partikular, mas epektibo.",
           "sources": [
             {
-              "label": "Yasunaga et al. 2023 — Analogical Prompting",
+              "label": "Yasunaga et al. 2023, Analogical Prompting",
               "url": "https://arxiv.org/abs/2310.01714"
             },
             {
-              "label": "Chia et al. 2023 — Contrastive CoT",
+              "label": "Chia et al. 2023, Contrastive CoT",
               "url": "https://arxiv.org/abs/2311.09277"
             }
           ]
@@ -596,11 +596,11 @@
           "tip": "Para sa napakahabang konteksto, pagsamahin ang ThoT sa pagkuha ng pagsipi bago tumugon.",
           "sources": [
             {
-              "label": "Zhou et al. 2023 — Thread of Thought",
+              "label": "Zhou et al. 2023, Thread of Thought",
               "url": "https://arxiv.org/abs/2311.08734"
             },
             {
-              "label": "Jung et al. 2022 — Maieutic Prompting",
+              "label": "Jung et al. 2022, Maieutic Prompting",
               "url": "https://arxiv.org/abs/2205.11822"
             }
           ]
@@ -618,7 +618,7 @@
           "simple": "Maramihang mga sample, pinagsama-sama ng karamihan o pagkakapare-pareho.",
           "whatIs": "Binoboto ng Self-Consistency ang sagot ng karamihan sa mga landas ng N CoT. Gayon din ang ginagawa ng Universal Self-Consistency (USC) kapag ang sagot ay libreng text (pinili ng modelo ang pinaka-pare-pareho). Ang DiVeRSe ay higit pa: magkakaibang mga senyas × maramihang mga landas + pagmamarka.",
           "when": "Mataas na pagiging kritikal. USC para sa mga verbatim na tugon; DiVerSe para sa maximum na saklaw.",
-          "whenNot": "Simple o cost-sensitive na mga gawain — lahat ng ito ay nagkakahalaga ng N× token.",
+          "whenNot": "Simple o cost-sensitive na mga gawain, lahat ng ito ay nagkakahalaga ng N× token.",
           "examples": [
             {
               "right": "Bumuo ng 3 independiyenteng executive summary ng ulat na ito.\nPagkatapos ay gumawa ng pangwakas na buod kung saan ang mga puntos lang ang naroroon\nsa hindi bababa sa dalawa sa mga ito (i-discard kung ano ang makikita sa isa lang).",
@@ -629,11 +629,11 @@
           "tip": "Gamitin ang mismong modelo bilang isang hukom upang piliin ang pinaka-pare-parehong sagot kapag walang eksaktong boto na posible.",
           "sources": [
             {
-              "label": "Wang et al. 2022 — Pagpapanatili sa Sarili",
+              "label": "Wang et al. 2022, Pagpapanatili sa Sarili",
               "url": "https://arxiv.org/abs/2203.11171"
             },
             {
-              "label": "Chen et al. 2023 — Universal Self-Consistency",
+              "label": "Chen et al. 2023, Universal Self-Consistency",
               "url": "https://arxiv.org/abs/2311.17311"
             }
           ]
@@ -643,13 +643,13 @@
           "name": "Maagap na Paraphrasing/Ensemble",
           "level": 3,
           "simple": "Magtanong sa iba't ibang paraan at pagsama-samahin ang mga sagot.",
-          "whatIs": "Reformulate ang parehong kahilingan sa maraming paraan, paikutin ang lahat at pagsama-samahin. Binabawasan ang sensitivity ng resulta sa partikular na parirala — minsan iba ang tugon ng mga modelo dahil lang sa kung paano ka nagtanong.",
+          "whatIs": "Reformulate ang parehong kahilingan sa maraming paraan, paikutin ang lahat at pagsama-samahin. Binabawasan ang sensitivity ng resulta sa partikular na parirala, minsan iba ang tugon ng mga modelo dahil lang sa kung paano ka nagtanong.",
           "when": "Kapag pinaghihinalaan mo na ang resulta ay masyadong nakasalalay sa kung paano isinulat ang tanong.",
           "whenNot": "Matatag at mahusay na tinukoy na mga gawain, kung saan ang pagbigkas ay hindi nagbabago sa resulta.",
           "examples": [
             {
               "right": "Magtatanong ako ng parehong tanong sa 3 paraan. Sagutin ang bawat isa\nat sabihin kung sumasang-ayon ka; kung magkaiba sila, ipaliwanag kung bakit at alin\nang pinaka-maaasahan.\n(a) ... (b) ... (c) ...",
-              "note": "Convergence = solidong tugon. Ang divergence ay nagpapakita ng kalabuan—mahahalagang impormasyon sa sarili nitong karapatan."
+              "note": "Convergence = solidong tugon. Ang divergence ay nagpapakita ng kalabuan, mahahalagang impormasyon sa sarili nitong karapatan."
             }
           ],
           "why": "Ang mga LLM ay sensitibo sa pagbigkas: ang parehong tanong na nire-rephrase ay maaaring magbago ng katumpakan. Ang pagdaragdag ng mga paraphrase ay nagpapababa sa pagkakaiba-iba na ito at naglalantad ng mga marupok na tugon.",
@@ -673,7 +673,7 @@
           "level": 3,
           "simple": "Bumuo ng tugon, gumawa ng mga tanong sa pagsusuri at pagsusuri.",
           "whatIs": "Binubuo ng modelo ang sagot, pagkatapos ay bumubuo ng mga independiyenteng tanong sa pag-verify, sinasagot ang bawat isa nang HINDI tumitingin sa orihinal na sagot, at nagre-rebisa batay sa mga ito. Isa sa mga pinakamahusay na depensa laban sa mga naimbentong katotohanan.",
-          "when": "Mga sagot na may mga katotohanan, petsa, numero, pangalan — kung saan mahal ang hallucination.",
+          "when": "Mga sagot na may mga katotohanan, petsa, numero, pangalan, kung saan mahal ang hallucination.",
           "whenNot": "Mga gawain na walang nabe-verify na katotohanan (opinyon, libreng paglikha).",
           "examples": [
             {
@@ -685,7 +685,7 @@
           "tip": "Isagawa ang pagsusuri sa isang hiwalay na hakbang (o hiwalay na tawag) upang ang modelo ay hindi mahawa sa unang tugon.",
           "sources": [
             {
-              "label": "Dhuliawala et al. 2023 — Chain-of-Verification",
+              "label": "Dhuliawala et al. 2023, Chain-of-Verification",
               "url": "https://arxiv.org/abs/2309.11495"
             }
           ]
@@ -708,11 +708,11 @@
           "tip": "Gamitin ang tiwala bilang pag-trigger ng automation: <70% → pangalawang opinyon o pagsusuri ng tao.",
           "sources": [
             {
-              "label": "Kadavath et al. 2022 — Mga Modelo ng Wika (Kadalasan) Alam ang Alam Nila",
+              "label": "Kadavath et al. 2022, Mga Modelo ng Wika (Kadalasan) Alam ang Alam Nila",
               "url": "https://arxiv.org/abs/2207.05221"
             },
             {
-              "label": "Weng et al. 2022 — Self-Verification",
+              "label": "Weng et al. 2022, Self-Verification",
               "url": "https://arxiv.org/abs/2212.09561"
             }
           ]
@@ -725,24 +725,24 @@
       "techniques": [
         {
           "id": "rag-retrieval-augmented-generation",
-          "name": "RAG — Retrieval-Augmented Generation",
+          "name": "RAG, Retrieval-Augmented Generation",
           "level": 2,
           "simple": "Maghanap ng totoong data at tumugon batay dito.",
           "whatIs": "Bago tumugon, maghanap ng nauugnay na impormasyon sa isang panlabas na mapagkukunan (mga dokumento, base ng kaalaman) at ipasok ito sa prompt, upang tumugon ang modelo batay dito at hindi sa kung ano ang \"naaalala\" nito. Ang pinaka ginagamit na pamamaraan sa produksyon.",
           "when": "Mga tanong tungkol sa pribado, kasalukuyan o partikular na data na wala ang modelo sa pagsasanay (mga manual, patakaran, doc ng kumpanya).",
-          "whenNot": "Pangkalahatang kaalaman na nangingibabaw na ang modelo — nagdaragdag lamang ng latency ang RAG.",
+          "whenNot": "Pangkalahatang kaalaman na nangingibabaw na ang modelo, nagdaragdag lamang ng latency ang RAG.",
           "examples": [
             {
               "wrong": "Ano ang patakaran sa refund ng aming kumpanya?",
-              "right": "Tumugon gamit LAMANG ang nilalaman sa <patakaran>. Kung wala ito\ndoon, sabihin ang \"wala ito sa dokumento\" — huwag na huwag itong buuin.\nSipiin ang sipi na sumusuporta dito.\n<policy>[retrieved text]</politica>\nTanong: Ano ang patakaran sa refund?",
+              "right": "Tumugon gamit LAMANG ang nilalaman sa <patakaran>. Kung wala ito\ndoon, sabihin ang \"wala ito sa dokumento\", huwag na huwag itong buuin.\nSipiin ang sipi na sumusuporta dito.\n<policy>[retrieved text]</politica>\nTanong: Ano ang patakaran sa refund?",
               "note": "Limitahan sa dokumento + nangangailangan ng pagsipi anchor ang tugon sa katotohanan ng kumpanya."
             }
           ],
-          "why": "Lewis et al. (2020) ipinakilala ang RAG upang pagsamahin ang parametric memory (ang modelo) sa non-parametric memory (ang base) — binabawasan ang hallucination at pinapayagan ang mga naa-update na tugon nang walang muling pagsasanay.",
+          "why": "Lewis et al. (2020) ipinakilala ang RAG upang pagsamahin ang parametric memory (ang modelo) sa non-parametric memory (ang base), binabawasan ang hallucination at pinapayagan ang mga naa-update na tugon nang walang muling pagsasanay.",
           "tip": "Ang tahasang \"hindi lumalabas\" ay ang pumipigil sa pag-imbento kapag nawawala ang impormasyon. Palaging isama ang tagubiling ito.",
           "sources": [
             {
-              "label": "Lewis et al. 2020 — Retrieval-Augmented Generation",
+              "label": "Lewis et al. 2020, Retrieval-Augmented Generation",
               "url": "https://arxiv.org/abs/2005.11401"
             }
           ]
@@ -753,19 +753,19 @@
           "level": 2,
           "simple": "Ang modelo ay bumubuo ng may-katuturang kaalaman bago tumugon.",
           "whatIs": "Hilingin sa modelo na bumuo ng may-katuturang kaalaman tungkol sa paksa BAGO tumugon, at gamitin ang kaalamang iyon bilang batayan. Isang murang alternatibo sa RAG kapag walang panlabas na mapagkukunan.",
-          "when": "Mga tanong sa sentido komun o pangkalahatang kaalaman kung saan nakakatulong ang pag-activate ng tamang konteksto — at wala kang batayan na hahanapin.",
-          "whenNot": "Kapag kailangan mo ng mabe-verify at tiyak na mga katotohanan — pagkatapos ay gamitin ang RAG, hindi nabuong kaalaman (na maaaring mag-hallucinate).",
+          "when": "Mga tanong sa sentido komun o pangkalahatang kaalaman kung saan nakakatulong ang pag-activate ng tamang konteksto, at wala kang batayan na hahanapin.",
+          "whenNot": "Kapag kailangan mo ng mabe-verify at tiyak na mga katotohanan, pagkatapos ay gamitin ang RAG, hindi nabuong kaalaman (na maaaring mag-hallucinate).",
           "examples": [
             {
               "right": "Bago sagutin kung ang isang de-koryenteng sasakyan ay mabubuhay para sa mga paghahatid sa lungsod, maglista ng 5 nauugnay na katotohanan tungkol sa awtonomiya, muling pagkarga, gastos sa bawat km at imprastraktura. Pagkatapos, batay sa mga katotohanang ito, ibigay ang rekomendasyon.",
               "note": "Ang pagbuo ng mga katotohanan ay pinipilit muna ang pangangatwiran mula sa isang tahasang batayan."
             }
           ],
-          "why": "Liu et al. (2022) ay nagpakita na ang pagbuo ng kaalaman at pagkatapos ay ang paggamit nito ay nagpapabuti sa bait na pangangatwiran — ang sagot ay nagiging mas batayan at hindi gaanong generic.",
+          "why": "Liu et al. (2022) ay nagpakita na ang pagbuo ng kaalaman at pagkatapos ay ang paggamit nito ay nagpapabuti sa bait na pangangatwiran, ang sagot ay nagiging mas batayan at hindi gaanong generic.",
           "tip": "Iba sa RAG: dito ang kaalaman ay nabuo ng modelo (ito ay maaaring magkamali). Para sa mga kritikal na katotohanan, mas gusto na talagang maghanap.",
           "sources": [
             {
-              "label": "Liu et al. 2022 — Binuo ng Knowledge Prompting",
+              "label": "Liu et al. 2022, Binuo ng Knowledge Prompting",
               "url": "https://arxiv.org/abs/2110.08387"
             }
           ]
@@ -775,7 +775,7 @@
           "name": "Pinagbabatayan ng mga quote at ang \"Nawala sa Gitna\" na epekto",
           "level": 2,
           "simple": "I-extract ang mga nauugnay na quote bago tumugon; at ilagay ang mahahalagang punto sa dulo.",
-          "whatIs": "Sa mga gawain tungkol sa mahahabang dokumento, hilingin sa modelo na kunin muna ang mga kaugnay na pagsipi at pagkatapos lamang gawin ang gawain. At ang pangunahing impormasyon ng posisyon sa simula o dulo — hindi sa gitna.",
+          "whatIs": "Sa mga gawain tungkol sa mahahabang dokumento, hilingin sa modelo na kunin muna ang mga kaugnay na pagsipi at pagkatapos lamang gawin ang gawain. At ang pangunahing impormasyon ng posisyon sa simula o dulo, hindi sa gitna.",
           "when": "Anumang mahabang pagsusuri ng dokumento (20k+ token).",
           "whenNot": "Mga maiikling teksto kung saan lahat ay akma sa atensyon ng modelo.",
           "examples": [
@@ -784,11 +784,11 @@
               "note": "Ang pag-extract ng mga quote ay pinuputol ang ingay; ang data sa tuktok + tanong sa dulo ay maaaring mapabuti ang kalidad ng hanggang 30%."
             }
           ],
-          "why": "Ipinakita ng pananaliksik na \"Nawala sa Gitna\" (Liu et al., 2023, Stanford) na bumababa ang pagganap kapag ang nauugnay na impormasyon ay nasa GITNA ng mahabang konteksto — ang mga modelo ay gumaganap nang mas mahusay sa pangunahing impormasyon sa simula o dulo.",
-          "tip": "Iposisyon ang mahalaga sa mga gilid ng konteksto at humingi muna ng mga pagsipi—dalawang murang depensa laban sa epekto ng medium.",
+          "why": "Ipinakita ng pananaliksik na \"Nawala sa Gitna\" (Liu et al., 2023, Stanford) na bumababa ang pagganap kapag ang nauugnay na impormasyon ay nasa GITNA ng mahabang konteksto, ang mga modelo ay gumaganap nang mas mahusay sa pangunahing impormasyon sa simula o dulo.",
+          "tip": "Iposisyon ang mahalaga sa mga gilid ng konteksto at humingi muna ng mga pagsipi, dalawang murang depensa laban sa epekto ng medium.",
           "sources": [
             {
-              "label": "Liu et al. 2023 — Nawala sa Gitna",
+              "label": "Liu et al. 2023, Nawala sa Gitna",
               "url": "https://arxiv.org/abs/2307.03172"
             }
           ]
@@ -805,19 +805,19 @@
           "level": 3,
           "simple": "Kahaliling pangangatwiran at pagkilos (paggamit ng mga kasangkapan).",
           "whatIs": "Ang pattern na nagtutulak sa bawat ahente ng AI. Ang modelo ay kahalili sa pagitan ng pangangatwiran (ano ang kailangan kong gawin ngayon?) at pagkilos (gamit ang isang tool: paghahanap, pagbabasa ng file, pagtawag sa API), pagmamasid sa resulta bago ang susunod na hakbang.",
-          "when": "Sa tuwing kailangan ng modelo ang panlabas na impormasyon o upang magsagawa ng mga aksyon — mga paghahanap, code, automation.",
-          "whenNot": "Mga gawain na niresolba ng modelo sa sarili nitong gamit ang alam na nito — nagdaragdag lamang ng latency ang mga tool doon.",
+          "when": "Sa tuwing kailangan ng modelo ang panlabas na impormasyon o upang magsagawa ng mga aksyon, mga paghahanap, code, automation.",
+          "whenNot": "Mga gawain na niresolba ng modelo sa sarili nitong gamit ang alam na nito, nagdaragdag lamang ng latency ang mga tool doon.",
           "examples": [
             {
               "right": "Mayroon kang tool sa paghahanap. Para sagutin:\n1. Isipin: anong impormasyon ang kailangan ko at kung saan ito makukuha.\n2. Kumilos: gumamit ng paghahanap para makuha ang totoong data.\n3. Obserbahan ang resulta; kung sapat, tumugon; kung hindi ay ulitin.",
               "note": "Ang think→act→observe cycle ay nag-uugnay sa modelo sa katotohanan sa halip na mag-imbento."
             }
           ],
-          "why": "Yao et al. (2023) ay nagpakita na ang interleaving na pangangatwiran at mga aksyon ay higit na gumaganap sa parehong purong CoT (na hindi kumikilos) at kumikilos nang walang pangangatwiran — at binabawasan ang guni-guni sa pamamagitan ng pag-angkla sa mga tunay na obserbasyon.",
-          "tip": "Ilarawan kung kailan gagamitin ang bawat tool. Sa modernong mga modelo, iwasan ang agresibong pananalita (\"IKAW DAPAT\") — nagdudulot ito ng labis na paggamit ng tool.",
+          "why": "Yao et al. (2023) ay nagpakita na ang interleaving na pangangatwiran at mga aksyon ay higit na gumaganap sa parehong purong CoT (na hindi kumikilos) at kumikilos nang walang pangangatwiran, at binabawasan ang guni-guni sa pamamagitan ng pag-angkla sa mga tunay na obserbasyon.",
+          "tip": "Ilarawan kung kailan gagamitin ang bawat tool. Sa modernong mga modelo, iwasan ang agresibong pananalita (\"IKAW DAPAT\"), nagdudulot ito ng labis na paggamit ng tool.",
           "sources": [
             {
-              "label": "Yao et al. 2023 — ReAct",
+              "label": "Yao et al. 2023, ReAct",
               "url": "https://arxiv.org/abs/2210.03629"
             }
           ]
@@ -827,20 +827,20 @@
           "name": "Context Engineering",
           "level": 3,
           "simple": "Pamahalaan ang LAHAT ng daloy ng konteksto ng ahente, hindi lang ang prompt.",
-          "whatIs": "Ang disiplina ay mas malaki kaysa sa maagap na engineering. Habang nag-o-optimize ang PE ng isang pagtuturo, pinamamahalaan ng context engineering ang buong daloy ng impormasyon sa modelo sa paglipas ng panahon — mga tagubilin ng system, mga tool, kasaysayan, data.",
+          "whatIs": "Ang disiplina ay mas malaki kaysa sa maagap na engineering. Habang nag-o-optimize ang PE ng isang pagtuturo, pinamamahalaan ng context engineering ang buong daloy ng impormasyon sa modelo sa paglipas ng panahon, mga tagubilin ng system, mga tool, kasaysayan, data.",
           "when": "Kapag ang \"prompt\" ay talagang isang multi-turn agentic system, hindi isang one-shot.",
-          "whenNot": "Mga simpleng pakikipag-ugnayan sa isang tanong — ang kailangan lang ay isang magandang prompt.",
+          "whenNot": "Mga simpleng pakikipag-ugnayan sa isang tanong, ang kailangan lang ay isang magandang prompt.",
           "examples": [
             {
               "right": "Mga Prinsipyo: ang konteksto ay isang may hangganang mapagkukunan (mayroong \"context rot\").\nGamitin ang PINAKAMALIIT na hanay ng mga high-signal na token. Para sa mahahabang\nmga gawain: compaction (summarize history), note-taking (notes\nout of context) at sub-agents (malinis na konteksto).",
               "note": "Karamihan sa mga pagkabigo ng ahente ay hindi mga pagkabigo sa modelo, ang mga ito ay mga pagkabigo sa konteksto."
             }
           ],
-          "why": "Ang kakayahang matandaan ay bumababa habang lumalaki ang konteksto (\"context rot\"). Ang pag-curate ng konteksto sa bawat hakbang — masyadong maliit na impormasyon → guni-guni, masyadong maraming impormasyon → overflow, magkasalungat na impormasyon → kalituhan — ang nagpapanatili sa ahente na magkakaugnay.",
+          "why": "Ang kakayahang matandaan ay bumababa habang lumalaki ang konteksto (\"context rot\"). Ang pag-curate ng konteksto sa bawat hakbang, masyadong maliit na impormasyon → guni-guni, masyadong maraming impormasyon → overflow, magkasalungat na impormasyon → kalituhan, ang nagpapanatili sa ahente na magkakaugnay.",
           "tip": "Mag-upload on demand (just-in-time): Sa halip na paunang i-load ang lahat, bigyan ang iyong ahente ng mga tool upang makuha ang kailangan nila kapag kailangan nila ito.",
           "sources": [
             {
-              "label": "Anthropic — Epektibong context engineering para sa mga ahente ng AI",
+              "label": "Anthropic, Epektibong context engineering para sa mga ahente ng AI",
               "url": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents"
             }
           ]
@@ -856,9 +856,9 @@
           "name": "Meta-prompting",
           "level": 2,
           "simple": "Gamitin ang template para magsulat at pagbutihin ang mga prompt.",
-          "whatIs": "Gamitin ang mismong template para bumuo o pagbutihin ang mga prompt. Iyan ang ginagawa ng mga tool tulad ng \"Prompt Improver\" ng Anthropic — awtomatikong inilalapat ng template ang mga diskarte sa gabay na ito sa iyong draft.",
+          "whatIs": "Gamitin ang mismong template para bumuo o pagbutihin ang mga prompt. Iyan ang ginagawa ng mga tool tulad ng \"Prompt Improver\" ng Anthropic, awtomatikong inilalapat ng template ang mga diskarte sa gabay na ito sa iyong draft.",
           "when": "Kapag mayroon kang draft prompt at nais mong i-optimize ito nang hindi sinasaulo ang lahat ng mga diskarte.",
-          "whenNot": "Trivial prompt — meta-prompting nagiging overhead.",
+          "whenNot": "Trivial prompt, meta-prompting nagiging overhead.",
           "examples": [
             {
               "wrong": "nagbubuod sa tekstong ito para sa akin",
@@ -867,10 +867,10 @@
             }
           ],
           "why": "Ang daloy ng Anthropic's Prompt Improver ay: tukuyin ang mga halimbawa → draft na nakabalangkas sa XML → pinuhin gamit ang chain-of-thought → pagyamanin ang mga halimbawa. Ang meta-prompting ay agarang engineering na inilapat sa iyong sarili.",
-          "tip": "Ibigay sa meta-prompt ang konteksto ng target na modelo (Claude? GPT reasoning?) — ang pinakamahuhusay na kagawian ay naiiba sa pagitan ng mga pamilya.",
+          "tip": "Ibigay sa meta-prompt ang konteksto ng target na modelo (Claude? GPT reasoning?), ang pinakamahuhusay na kagawian ay naiiba sa pagitan ng mga pamilya.",
           "sources": [
             {
-              "label": "Anthropic — agarang pagpapabuti",
+              "label": "Anthropic, agarang pagpapabuti",
               "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
             }
           ]
@@ -880,9 +880,9 @@
           "name": "APE, OPRO, DSPy at kumpanya",
           "level": 3,
           "simple": "Awtomatikong ino-optimize ng makina ang prompt laban sa data.",
-          "whatIs": "Mga framework na nag-o-optimize ng mga prompt ayon sa program laban sa isang naka-template na hanay ng pagtatasa. Hindi mo isinulat ang perpektong prompt—naiintindihan ito ng makina sa pamamagitan ng pagsubok ng mga variation.",
+          "whatIs": "Mga framework na nag-o-optimize ng mga prompt ayon sa program laban sa isang naka-template na hanay ng pagtatasa. Hindi mo isinulat ang perpektong prompt, naiintindihan ito ng makina sa pamamagitan ng pagsubok ng mga variation.",
           "when": "Mayroon kang naka-label na dataset at isang sukatan ng layunin, at ang prompt ay tumatakbo sa sukat (na nagkakahalaga ng pag-automate).",
-          "whenNot": "Walang dataset/sukatan — manatili sa manu-manong meta-prompting.",
+          "whenNot": "Walang dataset/sukatan, manatili sa manu-manong meta-prompting.",
           "examples": [
             {
               "right": "Mayroon ka bang template at sukatan? → I-compile ng DSPy/OPRO ang prompt\nlaban sa data.\nGusto mo ng mabilis na pakinabang sa pamamagitan ng muling pagsulat ng pagtuturo? → APE/TextGrad.\nWalang data? → manu-manong meta-prompting gamit ang mga diskarte sa gabay.",
@@ -915,7 +915,7 @@
           "simple": "Protektahan ang prompt kapag nagpoproseso ito ng third-party na text.",
           "whatIs": "Ang agarang pag-iniksyon ay kapag ang isang panlabas na input ay naglalaman ng mga tagubilin na \"nag-hijack\" sa system (direkta, mula sa user, o hindi direkta, mula sa isang website/doc na binabasa ng ahente). Ang Jailbreak ay isang input na nagpapabaya sa modelo ng mga pananggalang nito.",
           "when": "Sa tuwing ang prompt ay tumatanggap ng text ng end-user, nagbabasa ng panlabas na nilalaman (RAG, web) o nagpapatakbo bilang isang ahente na may mga tool.",
-          "whenNot": "Huwag kailanman \"hindi ipagtanggol\" — ngunit sa 100% panloob na mga senyas na walang panlabas na input ay mas mababa ang panganib.",
+          "whenNot": "Huwag kailanman \"hindi ipagtanggol\", ngunit sa 100% panloob na mga senyas na walang panlabas na input ay mas mababa ang panganib.",
           "examples": [
             {
               "wrong": "Ibuod ang komentong ito: {{comment}}",
@@ -923,11 +923,11 @@
               "note": "Ang pagtanggal sa input + pagdedeklara ng priyoridad ay lubhang nakakabawas sa iniksyon."
             }
           ],
-          "why": "Ang pinakamahuhusay na depensa ngayon ay binabawasan ang matagumpay na pag-atake mula ~73% hanggang ~9% — iyon ay pagpapagaan, hindi pag-aalis. Iyon ang dahilan kung bakit ito ay nagkakahalaga ng pagtatanggol sa mga layer: mga delimiter, modelo ng tagapag-alaga, pinakamababang saklaw ng mga pahintulot at kumpirmasyon ng tao para sa mga hindi maibabalik na aksyon.",
-          "tip": "Huwag kailanman magtiwala sa output ng tool bilang pagtuturo — ang nakuhang content (RAG, web) ay hindi pinagkakatiwalaang data at nahuhulog sa parehong rehimeng delimitasyon.",
+          "why": "Ang pinakamahuhusay na depensa ngayon ay binabawasan ang matagumpay na pag-atake mula ~73% hanggang ~9%, iyon ay pagpapagaan, hindi pag-aalis. Iyon ang dahilan kung bakit ito ay nagkakahalaga ng pagtatanggol sa mga layer: mga delimiter, modelo ng tagapag-alaga, pinakamababang saklaw ng mga pahintulot at kumpirmasyon ng tao para sa mga hindi maibabalik na aksyon.",
+          "tip": "Huwag kailanman magtiwala sa output ng tool bilang pagtuturo, ang nakuhang content (RAG, web) ay hindi pinagkakatiwalaang data at nahuhulog sa parehong rehimeng delimitasyon.",
           "sources": [
             {
-              "label": "OWASP LLM01:2025 — Maagap na Iniksyon",
+              "label": "OWASP LLM01:2025, Maagap na Iniksyon",
               "url": "https://genai.owasp.org/llmrisk/llm01-prompt-injection/"
             }
           ]
@@ -942,10 +942,10 @@
           "id": "claude-anthropic",
           "name": "Claude (Anthropic)",
           "level": 1,
-          "simple": "Literal at nakabalangkas — ipahayag ang saklaw, gumamit ng XML.",
+          "simple": "Literal at nakabalangkas, ipahayag ang saklaw, gumamit ng XML.",
           "whatIs": "Si Claude ay literal na sumusunod sa mga tagubilin: hindi siya nagsa-generalize sa kanyang sarili o naghihinuha ng mga kahilingan na hindi mo pa ginawa. Napakahusay na tumutugon ito sa istraktura (XML) at tahasang saklaw.",
           "when": "Default ng gabay na ito. Mahusay para sa structured extraction, coding at pipelines kung saan mo gustong mahuhulaan ang gawi.",
-          "whenNot": "Huwag asahan na \"hulaan\" niya ang ibig mong sabihin—maging tahasan.",
+          "whenNot": "Huwag asahan na \"hulaan\" niya ang ibig mong sabihin, maging tahasan.",
           "examples": [
             {
               "wrong": "Maaari ka bang magmungkahi ng ilang pagbabago sa tungkuling ito?",
@@ -954,10 +954,10 @@
             }
           ],
           "why": "Ang Literalism ay isang lakas para sa mga API at pipeline: katumpakan at mas kaunting rework. Ngunit kailangan mong ideklara ang saklaw (\"ilapat sa LAHAT ng mga seksyon, hindi lamang sa una\").",
-          "tip": "Iwasan ang agresibong pananalita (\"KRITIKAL: DAPAT ka\") — sa mga kamakailang modelo ay nagiging sanhi ng pag-overtrigger ng tool. Mas gusto ang \"Gamitin ang X kapag...\".",
+          "tip": "Iwasan ang agresibong pananalita (\"KRITIKAL: DAPAT ka\"), sa mga kamakailang modelo ay nagiging sanhi ng pag-overtrigger ng tool. Mas gusto ang \"Gamitin ang X kapag...\".",
           "sources": [
             {
-              "label": "Anthropic — Pag-prompt ng pinakamahuhusay na kagawian",
+              "label": "Anthropic, Pag-prompt ng pinakamahuhusay na kagawian",
               "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
             }
           ]
@@ -969,7 +969,7 @@
           "simple": "Layunin + mga hadlang + paglabas ng kontrata; walang micromanaging.",
           "whatIs": "Naghahatid ang klasikong GPT nang may tumpak, mga senyas na nakatuon sa resulta. Ang mga modelo ng pangangatwiran (o-series, GPT-5 na pangangatwiran) ay nagbubunga ng isang malinaw na layunin + malakas na hadlang + kontrata sa output, NA WALANG inireseta ang bawat intermediate na hakbang.",
           "when": "Ang mga modelo ng pangangatwiran ay kumikinang sa siksik at mahabang mga dokumento (mga kontrata, pananalapi) at sa mga kumplikadong desisyon.",
-          "whenNot": "HUWAG turuan ang \"think step by step\" / manu-manong CoT sa mga modelo ng pangangatwiran — maaari itong makahadlang (nangatuwiran na sila sa loob).",
+          "whenNot": "HUWAG turuan ang \"think step by step\" / manu-manong CoT sa mga modelo ng pangangatwiran, maaari itong makahadlang (nangatuwiran na sila sa loob).",
           "examples": [
             {
               "wrong": "Mag-isip nang hakbang-hakbang: gawin muna ang X, pagkatapos ay Y, pagkatapos ay Z...",
@@ -981,18 +981,18 @@
           "tip": "Sa GPT-5/o-series, dagdagan ang reasoning_effort para sa mahihirap na gawain at magbigay ng tahasang kontrata ng output sa halip na mahahabang halimbawa.",
           "sources": [
             {
-              "label": "OpenAI — Mga pinakamahusay na kasanayan sa pangangatwiran",
+              "label": "OpenAI, Mga pinakamahusay na kasanayan sa pangangatwiran",
               "url": "https://developers.openai.com/api/docs/guides/reasoning-best-practices"
             }
           ]
         },
         {
           "id": "google-gemini-framework-ptcf",
-          "name": "Google Gemini — PTCF framework",
+          "name": "Google Gemini, PTCF framework",
           "level": 1,
           "simple": "Persona · Gawain · Konteksto · Format.",
           "whatIs": "Pinakamahusay na nagagawa ng Gemini ang istruktura ng PTCF: Persona (kung sino ang modelo at ang madla), Gawain (ang gustong resulta), Konteksto (impormasyon sa background), at Format (kung ano dapat ang hitsura ng output).",
-          "when": "Anumang prompt sa Gemini — PTCF ay ang pinaka-maaasahang paraan sa istraktura.",
+          "when": "Anumang prompt sa Gemini, PTCF ay ang pinaka-maaasahang paraan sa istraktura.",
           "whenNot": "Ito ay hindi isang straitjacket; ituring ito bilang panimulang punto at pinuhin.",
           "examples": [
             {
@@ -1004,7 +1004,7 @@
           "tip": "Ang mabilis na engineering ay umuulit: magsimula sa PTCF at pinuhin batay sa mga naobserbahang tugon.",
           "sources": [
             {
-              "label": "Google — Gemini prompt na mga diskarte sa disenyo",
+              "label": "Google, Gemini prompt na mga diskarte sa disenyo",
               "url": "https://ai.google.dev/gemini-api/docs/prompting-strategies"
             }
           ]

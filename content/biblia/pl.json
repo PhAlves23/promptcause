@@ -1,6 +1,6 @@
 {
   "title": "Biblia szybkiej inżynierii",
-  "subtitle": "Wszystkie istniejące techniki — od początkujących do zaawansowanych, z dobrymi i złymi przykładami.",
+  "subtitle": "Wszystkie istniejące techniki, od początkujących do zaawansowanych, z dobrymi i złymi przykładami.",
   "whatIsLabel": "Co jest",
   "whenLabel": "Kiedy używać",
   "wrongLabel": "Źle",
@@ -16,14 +16,14 @@
           "name": "Monit o zerowy strzał",
           "level": 1,
           "simple": "Zapytaj bezpośrednio, bez podawania przykładów.",
-          "whatIs": "Podaj jasne instrukcje, nie pokazując przykładów odpowiedzi – model wykorzystuje tylko to, czego nauczył się podczas szkolenia. „Zero-shot” = zero przykładów. To punkt wyjścia wszystkiego.",
+          "whatIs": "Podaj jasne instrukcje, nie pokazując przykładów odpowiedzi, model wykorzystuje tylko to, czego nauczył się podczas szkolenia. „Zero-shot” = zero przykładów. To punkt wyjścia wszystkiego.",
           "when": "Wspólne i dobrze określone zadania, które model już opanował: tłumaczenie, streszczanie, odpowiadanie na pytanie merytoryczne, przepisywanie tekstu.",
           "whenNot": "Kiedy dokładny kształt, ton lub krawędzie mają znaczenie. Wtedy kilka przykładów (kilka strzałów) jest wartych więcej niż jakakolwiek instrukcja.",
           "examples": [
             {
               "wrong": "opowiedz mi o marketingu",
               "right": "Wyjaśnij 4 zasady marketingu (produkt, cena, miejsce, promocja) \nw każdym akapicie, na przykładzie kawiarni.",
-              "note": "Prawidłowa określa zakres (4 P), format (po jednym akapicie) i kontekst (kawiarnia) – jednoznaczny nawet bez przykładów."
+              "note": "Prawidłowa określa zakres (4 P), format (po jednym akapicie) i kontekst (kawiarnia), jednoznaczny nawet bez przykładów."
             },
             {
               "wrong": "popraw mój tekst",
@@ -31,11 +31,11 @@
               "note": "Powiedz mu, co naprawić, co zachować i format wyjściowy."
             }
           ],
-          "why": "Nowoczesne modele rozwiązują dobrze znane zadania bez przykładów — pod warunkiem, że instrukcja jest konkretna. Jasność zastępuje przykłady.",
+          "why": "Nowoczesne modele rozwiązują dobrze znane zadania bez przykładów, pod warunkiem, że instrukcja jest konkretna. Jasność zastępuje przykłady.",
           "tip": "Jeśli odpowiedź jest ogólna, nie dodawaj jeszcze przykładów: najpierw doprecyzuj instrukcje (format, rozmiar, odbiorcy).",
           "sources": [
             {
-              "label": "Antropiczne — podpowiadanie najlepszych praktyk",
+              "label": "Antropiczne, podpowiadanie najlepszych praktyk",
               "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
             }
           ]
@@ -46,7 +46,7 @@
           "level": 1,
           "simple": "Przed zadaniem powiedz modelowi „kim jest”.",
           "whatIs": "Przypisz rolę („Jesteś starszym prawnikiem podatkowym”), aby dostosować ton, słownictwo i głębię odpowiedzi. Już jedno zdanie zmienia wynik.",
-          "when": "Kiedy liczy się ton lub poziom techniczny — pisanie, obsługa, opinie, nauczanie.",
+          "when": "Kiedy liczy się ton lub poziom techniczny, pisanie, obsługa, opinie, nauczanie.",
           "whenNot": "W kwestiach czystej wiedzy (fakty, relacje, wielokrotny wybór) osoba może przeszkodzić. W testach benchmarku MMLU osoby „eksperci” spadły z dokładnością (z ~71,6% do ~68%).",
           "examples": [
             {
@@ -64,11 +64,11 @@
           "tip": "Użyj persony dla TONU i STYLU; nie oczekuj, że stwierdzenie „Jesteś geniuszem matematyki” poprawi wynik. Aby uzyskać dokładność, preferuj jasne instrukcje i weryfikację.",
           "sources": [
             {
-              "label": "PromptHub — badanie dotyczące podejmowania ról",
+              "label": "PromptHub, badanie dotyczące podejmowania ról",
               "url": "https://www.prompthub.us/blog/role-prompting-does-adding-personas-to-your-prompts-really-make-a-difference"
             },
             {
-              "label": "Antropiczny — daj rolę Claude'owi",
+              "label": "Antropiczny, daj rolę Claude'owi",
               "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
             }
           ]
@@ -80,7 +80,7 @@
           "simple": "Zanim zapytasz o swoją sprawę, pokaż od 2 do 5 przykładowych odpowiedzi.",
           "whatIs": "Dołącz kilka przykładów wejść i wyjść, aby model imitował wzorzec. „Few-shot” = kilka przykładów. Jest to najsilniejsza dźwignia kontroli kształtu, tonu i konsystencji.",
           "when": "Gdy liczy się dokładny format (JSON, tabela), ton musi być spójny, w przeciwnym razie sortowanie jest trudne.",
-          "whenNot": "W trywialnych zadaniach (zero-shot już to rozwiązuje) lub gdy przykłady kierują się w stronę jednego schematu – wtedy różnicuj lub ograniczaj.",
+          "whenNot": "W trywialnych zadaniach (zero-shot już to rozwiązuje) lub gdy przykłady kierują się w stronę jednego schematu, wtedy różnicuj lub ograniczaj.",
           "examples": [
             {
               "right": "Oceń uczucie. Kieruj się przykładami:\n\"Podobało mi się, polecam!\" → pozytywne\n„Przyszło zepsute.” → negatywna\n\nOpinia: „Przybyła szybko, ale została zmiażdżona.” →",
@@ -88,10 +88,10 @@
             }
           ],
           "why": "Few-shot pochodzi z badania GPT-3 (Brown i in., 2020): modele uczą się zadania wyłącznie na podstawie przykładów podanych w podpowiedzi (uczenie się w kontekście). Badania pokazują skoki takie jak F1 0,51 → 0,62 przy przejściu od zera do 3 przykładów.",
-          "tip": "Najlepszym rozwiązaniem będzie 3–5 przykładów. Używaj RÓŻNYCH przykładów (przykłady na krawędzi okładki) i dbaj o ZAMÓWIENIE — zamiana przykładów może znacznie zmienić dokładność.",
+          "tip": "Najlepszym rozwiązaniem będzie 3, 5 przykładów. Używaj RÓŻNYCH przykładów (przykłady na krawędzi okładki) i dbaj o ZAMÓWIENIE, zamiana przykładów może znacznie zmienić dokładność.",
           "sources": [
             {
-              "label": "Brown i in. 2020 — Modele językowe to nieliczni uczniowie",
+              "label": "Brown i in. 2020, Modele językowe to nieliczni uczniowie",
               "url": "https://arxiv.org/abs/2005.14165"
             },
             {
@@ -106,20 +106,20 @@
           "level": 1,
           "simple": "Oddziel instrukcje i dane za pomocą „tagów”.",
           "whatIs": "Owiń każdą część podpowiedzi znacznikami (<kontekst>, <dane>, <instrukcje>), aby model nie pomylił porządku z materiałem do przetworzenia.",
-          "when": "Zawsze, gdy monit łączy instrukcje z danymi — szczególnie długimi lub samodzielnie sformatowanymi danymi. Jest to wzór zalecany dla Claude'a.",
+          "when": "Zawsze, gdy monit łączy instrukcje z danymi, szczególnie długimi lub samodzielnie sformatowanymi danymi. Jest to wzór zalecany dla Claude'a.",
           "whenNot": "Krótko mówiąc, jednowierszowe podpowiedzi bez osadzonych danych są niepotrzebne.",
           "examples": [
             {
               "wrong": "Podsumuj: dzisiejsze spotkanie: przełożyliśmy start.\nPodsumuj także ryzyko. Budżet w porządku.",
               "right": "Podsumuj zawartość <text> w 3 tematach.\n\n<text>\nDzisiejsze spotkanie: przełożyliśmy premierę. Budżet ok.\nRyzyko: mniejszy zespół i napięty termin.\n</text>",
-              "note": "Etykieta wyjaśnia, co jest podane i czym jest instrukcja – bez dwuznaczności."
+              "note": "Etykieta wyjaśnia, co jest podane i czym jest instrukcja, bez dwuznaczności."
             }
           ],
-          "why": "Tagi zmniejszają niejednoznaczność pomiędzy instrukcją a treścią — najczęstszy błąd w podpowiedziach z osadzonym tekstem. Modele wyszkolone przy użyciu danych strukturalnych (takich jak Claude) dokładnie podążają za tagami.",
+          "why": "Tagi zmniejszają niejednoznaczność pomiędzy instrukcją a treścią, najczęstszy błąd w podpowiedziach z osadzonym tekstem. Modele wyszkolone przy użyciu danych strukturalnych (takich jak Claude) dokładnie podążają za tagami.",
           "tip": "Używaj spójnych i opisowych nazw tagów. Zagnieżdżaj, jeśli istnieje hierarchia (kilka <dokumentów> w <dokumentach>).",
           "sources": [
             {
-              "label": "Antropiczne — używaj tagów XML",
+              "label": "Antropiczne, używaj tagów XML",
               "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
             }
           ]
@@ -135,7 +135,7 @@
           "examples": [
             {
               "wrong": "Nigdy nie używaj elipsy.",
-              "right": "Ta odpowiedź zostanie odczytana przez syntezator mowy, który nie wymawia poprawnie wielokropków — więc nie używaj „…”.",
+              "right": "Ta odpowiedź zostanie odczytana przez syntezator mowy, który nie wymawia poprawnie wielokropków, więc nie używaj „…”.",
               "note": "Wiedząc dlaczego, model stosuje regułę ze zdrowym rozsądkiem i przewiduje podobne przypadki."
             }
           ],
@@ -143,7 +143,7 @@
           "tip": "Jedno zdanie „dlaczego to ma znaczenie” jest zwykle warte trzech zdań „zrób to w ten sposób”.",
           "sources": [
             {
-              "label": "Antropiczne — Dodaj kontekst, aby poprawić wydajność",
+              "label": "Antropiczne, Dodaj kontekst, aby poprawić wydajność",
               "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
             }
           ]
@@ -164,10 +164,10 @@
             }
           ],
           "why": "„Bez fanaberii” jest subiektywne; schemat jest obiektywny i można go analizować. Zdefiniowanie formatu usuwa różnice, które zakłócają integrację.",
-          "tip": "Aby naprawdę wymusić JSON/strukturę, użyj strukturalnych wyników wyjściowych (Claude/OpenAI) zamiast po prostu pytać o to w tekście — jest to znacznie bardziej niezawodne.",
+          "tip": "Aby naprawdę wymusić JSON/strukturę, użyj strukturalnych wyników wyjściowych (Claude/OpenAI) zamiast po prostu pytać o to w tekście, jest to znacznie bardziej niezawodne.",
           "sources": [
             {
-              "label": "Antropiczny — format odpowiedzi kontrolnej",
+              "label": "Antropiczny, format odpowiedzi kontrolnej",
               "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
             }
           ]
@@ -180,12 +180,12 @@
       "techniques": [
         {
           "id": "chain-of-thought-cot",
-          "name": "Łańcuch myślowy – CoT",
+          "name": "Łańcuch myślowy, CoT",
           "level": 2,
           "simple": "PRZED odpowiedzią poproś o uzasadnienie krok po kroku.",
           "whatIs": "Zamiast od razu przechodzić do odpowiedzi, poproś modela o zapisanie uzasadnienia etapami przed zakończeniem. Jest to najważniejsza dostępna technika rozumowania.",
           "when": "Matematyka, logika, decyzje wymagające kompromisów, trudna klasyfikacja.",
-          "whenNot": "W modelach rozumowania (seria o OpenAI, rozumowanie GPT-5): rozumują już wewnętrznie, a proszenie o „krok po kroku” może nawet pogorszyć sprawę. W przypadku Claude'a z wyłączonym myśleniem preferuj „analizuj/oceniaj” — słowo „myśl” jest wrażliwe.",
+          "whenNot": "W modelach rozumowania (seria o OpenAI, rozumowanie GPT-5): rozumują już wewnętrznie, a proszenie o „krok po kroku” może nawet pogorszyć sprawę. W przypadku Claude'a z wyłączonym myśleniem preferuj „analizuj/oceniaj”, słowo „myśl” jest wrażliwe.",
           "examples": [
             {
               "wrong": "Produkt kosztuje 80 R$. Jaka jest ostateczna cena po 15% zniżce i 8%\npodatku? Po prostu odpowiedz na numer.",
@@ -194,10 +194,10 @@
             }
           ],
           "why": "Zapisanie uzasadnienia tworzy „przestrzeń do myślenia” przed odpowiedzią. W oryginalnej pracy (Wei i in., 2022) CoT zwiększyło dokładność rozumowań matematycznych z ~18% do ~57% w dużych modelach.",
-          "tip": "Oddziel rozumowanie (<myślenie>) od ostatecznej odpowiedzi (<odpowiedź>) — w ten sposób użyjesz myślenia bez zanieczyszczania wyników.",
+          "tip": "Oddziel rozumowanie (<myślenie>) od ostatecznej odpowiedzi (<odpowiedź>), w ten sposób użyjesz myślenia bez zanieczyszczania wyników.",
           "sources": [
             {
-              "label": "Wei i in. 2022 — Podpowiadanie w łańcuchu myśli",
+              "label": "Wei i in. 2022, Podpowiadanie w łańcuchu myśli",
               "url": "https://arxiv.org/abs/2201.11903"
             },
             {
@@ -221,11 +221,11 @@
               "note": "To zdanie wystarczy, aby model ułożył równania zamiast zgadywać."
             }
           ],
-          "why": "Badania Kojimy i in. (2022) wykazali, że samo „Pomyślmy krok po kroku” zwiększyło dokładność w GSM8K z 17,7% do 78,7% – bez żadnych przykładów.",
+          "why": "Badania Kojimy i in. (2022) wykazali, że samo „Pomyślmy krok po kroku” zwiększyło dokładność w GSM8K z 17,7% do 78,7%, bez żadnych przykładów.",
           "tip": "To praktycznie darmowe. Jeśli zadanie jest minimalnie analityczne, zawsze warto je przetestować.",
           "sources": [
             {
-              "label": "Kojima i in. 2022 — Duże LM to racjonaliści zero-shot",
+              "label": "Kojima i in. 2022, Duże LM to racjonaliści zero-shot",
               "url": "https://arxiv.org/abs/2205.11916"
             }
           ]
@@ -236,7 +236,7 @@
           "level": 2,
           "simple": "Przed rozwiązaniem sprawy odwołaj się do ogólnej zasady.",
           "whatIs": "Zanim zajmiesz się konkretnym problemem, poproś modela o przedstawienie koncepcji lub ogólnej zasady. Następnie stosuje tę zasadę do sprawy.",
-          "when": "Problemy, w których zastosowanie właściwej reguły jest ważniejsze niż obliczenia — fizyka, prawo, diagnoza.",
+          "when": "Problemy, w których zastosowanie właściwej reguły jest ważniejsze niż obliczenia, fizyka, prawo, diagnoza.",
           "whenNot": "W prostych i bezpośrednich zadaniach dodawaj kroki bez zysku.",
           "examples": [
             {
@@ -245,11 +245,11 @@
               "note": "Zakotwiczenie w właściwym prawie (Gay-Lussac) pozwala uniknąć mieszania formuł."
             }
           ],
-          "why": "Powrót do zasady ogranicza błędy w założeniach – model opiera się na prawidłowej koncepcji, a nie na powierzchownym skojarzeniu.",
+          "why": "Powrót do zasady ogranicza błędy w założeniach, model opiera się na prawidłowej koncepcji, a nie na powierzchownym skojarzeniu.",
           "tip": "Połącz z CoT: podaj zasadę, a następnie uzasadnij krok po kroku zastosowanie.",
           "sources": [
             {
-              "label": "Zheng i in. 2023 — Zrób krok w tył",
+              "label": "Zheng i in. 2023, Zrób krok w tył",
               "url": "https://arxiv.org/abs/2310.06117"
             }
           ]
@@ -261,19 +261,19 @@
           "simple": "Najpierw zaplanuj, później wykonaj.",
           "whatIs": "Ulepszenie „myślenia krok po kroku”: poproszenie modelu o NAJPIERW sporządzenie planu, a NASTĘPNIE jego wykonanie. Zmniejsza błąd pomijania kroków.",
           "when": "Zadania wieloetapowe, w których przy prostym „kroku po kroku” czasami zapomina się o częściach.",
-          "whenNot": "Zadania jednoetapowe — planowanie staje się biurokracją.",
+          "whenNot": "Zadania jednoetapowe, planowanie staje się biurokracją.",
           "examples": [
             {
               "wrong": "Zorganizuj 3-dniowy wyjazd do Lizbony myśląc krok po kroku.",
               "right": "Zorganizuj 3-dniową wycieczkę do Lizbony.\nNajpierw sporządź plan (wymiary: zakwaterowanie, podróż, atrakcje, budżet, posiłki).\nNastępnie wykonaj, wypełniając każdy wymiar dzień po dniu.",
-              "note": "Podanie wymiarów z góry zapewnia pokrycie — nie zapomnij o budżecie."
+              "note": "Podanie wymiarów z góry zapewnia pokrycie, nie zapomnij o budżecie."
             }
           ],
           "why": "Oddzielenie planowania od wykonania zmniejsza błąd „zagubienia się po drodze”. Wang i in. (2023) wykazali stały wzrost w porównaniu z czystym CoT typu zero-shot.",
-          "tip": "Przed wykonaniem poproś o plan w formie listy — łatwo jest go przejrzeć i skorygować kurs.",
+          "tip": "Przed wykonaniem poproś o plan w formie listy, łatwo jest go przejrzeć i skorygować kurs.",
           "sources": [
             {
-              "label": "Wang i in. 2023 — Podpowiadanie „Zaplanuj i rozwiąż”.",
+              "label": "Wang i in. 2023, Podpowiadanie „Zaplanuj i rozwiąż”.",
               "url": "https://arxiv.org/abs/2305.04091"
             }
           ]
@@ -285,7 +285,7 @@
           "simple": "Rozwiąż kilka razy i wybierz odpowiedź większości.",
           "whatIs": "Uruchom ten sam monit CoT kilka razy (losowo) i wybierz odpowiedź, która pojawia się najczęściej. Jak konsultować się z wieloma ekspertami i postępować zgodnie z konsensusem.",
           "when": "Krytyczne problemy, w których pojedyncze rozumowanie może się przesunąć i możesz sobie pozwolić na N egzekucji.",
-          "whenNot": "Zadania proste lub wrażliwe na koszty — kosztują N× tokenów.",
+          "whenNot": "Zadania proste lub wrażliwe na koszty, kosztują N× tokenów.",
           "examples": [
             {
               "right": "Rozwiąż ten problem na 3 niezależne sposoby, każdy z pełnym uzasadnieniem. Na koniec porównaj trzy wnioski\ni odpowiedz podając kwotę, w której zgadzają się co najmniej dwa.",
@@ -296,7 +296,7 @@
           "tip": "Nawet w ramach jednego połączenia poproś o „3 niezależne podejścia + głos większościowy”, aby uzyskać podobny efekt mniejszym kosztem.",
           "sources": [
             {
-              "label": "Wang i in. 2022 — Samokonsekwencja",
+              "label": "Wang i in. 2022, Samokonsekwencja",
               "url": "https://arxiv.org/abs/2203.11171"
             }
           ]
@@ -307,7 +307,7 @@
           "level": 2,
           "simple": "Poproś modelkę, aby sprawdziła swoją odpowiedź przed przesłaniem.",
           "whatIs": "Dodaj krok, w którym model sprawdza odpowiedź pod kątem kryterium przed sfinalizowaniem. Tani i skuteczny.",
-          "when": "Niemal za każdym razem odpowiedź jest możliwa do zweryfikowania — kod, matematyka, ekstrakcja.",
+          "when": "Niemal za każdym razem odpowiedź jest możliwa do zweryfikowania, kod, matematyka, ekstrakcja.",
           "whenNot": "Gdy nie ma obiektywnego kryterium weryfikacji, staje się to po prostu tekstem.",
           "examples": [
             {
@@ -317,10 +317,10 @@
             }
           ],
           "why": "Wymuszenie sprawdzenia wyprowadza model z „trybu generatora” i aktywuje „tryb recenzenta”, który widzi błędy, których nie widzi generator.",
-          "tip": "Podaj jednoznaczne kryteria weryfikacji („test z X, Y, Z”) — niejasna weryfikacja niewiele daje.",
+          "tip": "Podaj jednoznaczne kryteria weryfikacji („test z X, Y, Z”), niejasna weryfikacja niewiele daje.",
           "sources": [
             {
-              "label": "Antropiczny — poproś Claude'a o samokontrolę",
+              "label": "Antropiczny, poproś Claude'a o samokontrolę",
               "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
             }
           ]
@@ -331,19 +331,19 @@
           "level": 3,
           "simple": "Generuj, krytykuj własną odpowiedź i przerób ją lepiej.",
           "whatIs": "Pętla: model generuje, KRYTYKUJE własną reakcję, wskazując konkretne wady, a następnie tworzy poprawioną wersję. Silniejszy niż samokontrola (która jest tylko sprawdzeniem).",
-          "when": "Kodowanie, pisanie, rozumowanie sekwencyjne — zadania, w których już przy pierwszej próbie zwykle pojawiają się błędy możliwe do naprawienia.",
-          "whenNot": "Kiedy pierwsza odpowiedź jest już dobra i prosta — pętla tylko zwiększa koszty.",
+          "when": "Kodowanie, pisanie, rozumowanie sekwencyjne, zadania, w których już przy pierwszej próbie zwykle pojawiają się błędy możliwe do naprawienia.",
+          "whenNot": "Kiedy pierwsza odpowiedź jest już dobra i prosta, pętla tylko zwiększa koszty.",
           "examples": [
             {
               "right": "1. Napisz tekst strony docelowej.\n2. Krytykuj własny tekst: czy tytuł się trzyma? Czy propozycja wartości jest jasna? Czy istnieje jedno wezwanie do działania? Wypisz każdą awarię.\n3. Przepisz, poprawiając zaznaczone błędy.",
               "note": "Samokrytyka wymusza wyjście z „trybu generatora” do „trybu edytora”."
             }
           ],
-          "why": "Shinn i in. (2023) wykazali, że cykl autorefleksji poprawia wydajność w zadaniach związanych z podejmowaniem decyzji, kodowaniem i rozumowaniem — wersja 2 jest prawie zawsze lepsza niż 1.",
+          "why": "Shinn i in. (2023) wykazali, że cykl autorefleksji poprawia wydajność w zadaniach związanych z podejmowaniem decyzji, kodowaniem i rozumowaniem, wersja 2 jest prawie zawsze lepsza niż 1.",
           "tip": "Podaj konkretne kryteria krytyki; Ogólne „poprawa” powoduje zmiany kosmetyczne.",
           "sources": [
             {
-              "label": "Shinn i in. 2023 — Refleksja",
+              "label": "Shinn i in. 2023, Refleksja",
               "url": "https://arxiv.org/abs/2303.11366"
             }
           ]
@@ -360,7 +360,7 @@
           "level": 2,
           "simple": "Podziel go na podproblemy od najłatwiejszego do najtrudniejszego.",
           "whatIs": "Rozłóż problem na podproblemy uporządkowane od najłatwiejszego do najtrudniejszego i rozwiązuj je w kolejności, w której odpowiedź na jedno przekłada się na następny.",
-          "when": "Rozumowanie z zależnością sekwencyjną — krok 3 wymaga wyniku kroku 2.",
+          "when": "Rozumowanie z zależnością sekwencyjną, krok 3 wymaga wyniku kroku 2.",
           "whenNot": "Problemy, które w naturalny sposób nie rozkładają się na zależne etapy.",
           "examples": [
             {
@@ -368,34 +368,34 @@
               "note": "Każdy podproblem jest trywialny oddzielnie; połączone ze sobą rozwiązują całość."
             }
           ],
-          "why": "Zhou i in. (2022) wykazali, że dekompozycja od prostych do złożonych pozwala nam uogólniać problemy, które są trudniejsze niż w przedstawionych przykładach – coś, czego czysta CoT nie radzi sobie zbyt dobrze.",
-          "tip": "Wyraźnie pytaj o wynik każdego kroku przed przejściem dalej — aby błąd nie rozprzestrzeniał się po cichu.",
+          "why": "Zhou i in. (2022) wykazali, że dekompozycja od prostych do złożonych pozwala nam uogólniać problemy, które są trudniejsze niż w przedstawionych przykładach, coś, czego czysta CoT nie radzi sobie zbyt dobrze.",
+          "tip": "Wyraźnie pytaj o wynik każdego kroku przed przejściem dalej, aby błąd nie rozprzestrzeniał się po cichu.",
           "sources": [
             {
-              "label": "Zhou i in. 2022 — Od najmniej do najbardziej podpowiadającego",
+              "label": "Zhou i in. 2022, Od najmniej do najbardziej podpowiadającego",
               "url": "https://arxiv.org/abs/2205.10625"
             }
           ]
         },
         {
           "id": "tree-of-thoughts-tot",
-          "name": "Drzewo Myśli — ToT",
+          "name": "Drzewo Myśli, ToT",
           "level": 3,
           "simple": "Eksploruj różne ścieżki rozumowania i odrzucaj te złe.",
           "whatIs": "Zamiast jednej linii model bada równolegle kilka gałęzi rozumowania, ocenia każdą z nich i porzuca te, które nie prowadzą do rozwiązania. Jak szachista rozważający ruchy.",
-          "when": "Problemy z wieloma wiarygodnymi podejściami, które wymagają porównania i cofnięcia się – planowanie, zagadki, optymalizacja.",
-          "whenNot": "Proste zadania — koszt tokenów jest znacznie wyższy niż CoT.",
+          "when": "Problemy z wieloma wiarygodnymi podejściami, które wymagają porównania i cofnięcia się, planowanie, zagadki, optymalizacja.",
+          "whenNot": "Proste zadania, koszt tokenów jest znacznie wyższy niż CoT.",
           "examples": [
             {
               "right": "Rozwiąż tę zagadkę. Wygeneruj 3 różne strategie początkowe.\nDla każdej z nich oceń w jednym zdaniu, czy jest obiecująca, czy\nślepa uliczka. Rozwijaj tylko najlepszych; Jeśli utknie, wróć do drugiego.",
               "note": "Wyraźne wycofywanie się jest tym, co odróżnia ToT od liniowego CoT."
             }
           ],
-          "why": "Yao i in. (2023) wykazali ogromny wzrost liczby zadań wyszukiwania: w grze 24 ToT rozwiązało 74% w porównaniu z 4% CoT — ponieważ możesz wrócić, zamiast wiązać się z pierwszym pomysłem.",
+          "why": "Yao i in. (2023) wykazali ogromny wzrost liczby zadań wyszukiwania: w grze 24 ToT rozwiązało 74% w porównaniu z 4% CoT, ponieważ możesz wrócić, zamiast wiązać się z pierwszym pomysłem.",
           "tip": "Rezerwa na problemy, w których zawodzi liniowy CoT. Koszt jest tego wart tylko wtedy, gdy faktycznie istnieje kilka tras do odkrycia.",
           "sources": [
             {
-              "label": "Yao i in. 2023 — Drzewo Myśli",
+              "label": "Yao i in. 2023, Drzewo Myśli",
               "url": "https://arxiv.org/abs/2305.10601"
             }
           ]
@@ -415,11 +415,11 @@
               "note": "Delegowanie obliczeń do Pythona (który nigdy nie popełnia błędów arytmetycznych) usuwa błąd z modelu."
             }
           ],
-          "why": "Gao i in. (2022) wykazali, że przeniesienie obliczeń do interpretera przewyższa CoT w matematycznych wzorcach porównawczych — model musi jedynie przełożyć problem na kod, co robi dobrze.",
+          "why": "Gao i in. (2022) wykazali, że przeniesienie obliczeń do interpretera przewyższa CoT w matematycznych wzorcach porównawczych, model musi jedynie przełożyć problem na kod, co robi dobrze.",
           "tip": "Poproś o kod oddzielnie od wyjaśnienia, abyś mógł go uruchomić bezpośrednio, bez analizowania.",
           "sources": [
             {
-              "label": "Gao i in. 2022 — PAL: Modele językowe wspomagane programowo",
+              "label": "Gao i in. 2022, PAL: Modele językowe wspomagane programowo",
               "url": "https://arxiv.org/abs/2211.10435"
             }
           ]
@@ -431,7 +431,7 @@
           "simple": "Podziel zadanie na podzadania; lub szkic przed opisywaniem szczegółów.",
           "whatIs": "DECOMP dzieli zadanie i deleguje każde podzadanie wyspecjalizowanemu „opiekunowi” (innemu wywołaniu lub narzędziu). Szkielet Myśli najpierw generuje szkielet odpowiedzi (tematy), a następnie rozwija każdy punkt.",
           "when": "DECOMP w rurociągach modułowych; Szkielet w długich odpowiedziach, w których liczy się utrzymanie zasięgu i struktury.",
-          "whenNot": "Krótkie i bezpośrednie odpowiedzi — dodatkowa struktura nic nie wnosi.",
+          "whenNot": "Krótkie i bezpośrednie odpowiedzi, dodatkowa struktura nic nie wnosi.",
           "examples": [
             {
               "right": "Napisz raport na temat kaw speciality w dwóch krokach.\nKrok 1 (szkielet): wymień tylko tytuły 6 sekcji.\nKrok 2 (rozszerzenie): rozwiń każdą sekcję w 1 akapicie.",
@@ -439,14 +439,14 @@
             }
           ],
           "why": "Oddzielenie „co” (struktura) od „jak” (treść) pozwala uniknąć uzależnienia od rozciągania w pierwszych sekcjach i pośpiechu w ostatniej. Skeleton-of-Thought pozwala także na równoległą ekspansję.",
-          "tip": "W Skeleton przejrzyj i dostosuj szkielet przed rozwinięciem — naprawa konstrukcji jest tania; Przepisanie całej treści jest kosztowne.",
+          "tip": "W Skeleton przejrzyj i dostosuj szkielet przed rozwinięciem, naprawa konstrukcji jest tania; Przepisanie całej treści jest kosztowne.",
           "sources": [
             {
-              "label": "Khot i in. 2022 — Podpowiedź rozłożona",
+              "label": "Khot i in. 2022, Podpowiedź rozłożona",
               "url": "https://arxiv.org/abs/2210.02406"
             },
             {
-              "label": "Ning i in. 2023 — Szkielet Myśli",
+              "label": "Ning i in. 2023, Szkielet Myśli",
               "url": "https://arxiv.org/abs/2307.15337"
             }
           ]
@@ -464,7 +464,7 @@
           "simple": "Model formułuje Twoje pytanie przed udzieleniem na nie odpowiedzi.",
           "whatIs": "Poinstruuj modela, aby przed udzieleniem odpowiedzi przepisał pytanie własnymi słowami. Wyjaśnia to intencję i ujawnia niejasności.",
           "when": "Niejasne, niejednoznaczne lub źle sformułowane pytania; kiedy chcesz mieć pewność, że model rozumie.",
-          "whenNot": "Pytania, które są już jasne i bezpośrednie – przeformułowanie dodaje jedynie tekst.",
+          "whenNot": "Pytania, które są już jasne i bezpośrednie, przeformułowanie dodaje jedynie tekst.",
           "examples": [
             {
               "wrong": "Czy bank jest zamknięty?",
@@ -472,11 +472,11 @@
               "note": "Poprzez przeformułowanie model eksponuje niejednoznaczność (instytucja? siedziba?) i lepiej reaguje."
             }
           ],
-          "why": "Denga i in. (2023) wykazali, że pozwolenie modelowi na ponowne sformułowanie samego pytania poprawia wydajność w przypadku kilku zadań — jasne pytania generują lepsze odpowiedzi.",
+          "why": "Denga i in. (2023) wykazali, że pozwolenie modelowi na ponowne sformułowanie samego pytania poprawia wydajność w przypadku kilku zadań, jasne pytania generują lepsze odpowiedzi.",
           "tip": "Połącz z CoT: przeformułuj, a następnie uzasadnij. Jasność przeformułowania poprawia późniejsze rozumowanie.",
           "sources": [
             {
-              "label": "Denga i in. 2023 — Formułuj inaczej i odpowiadaj",
+              "label": "Denga i in. 2023, Formułuj inaczej i odpowiadaj",
               "url": "https://arxiv.org/abs/2311.04205"
             }
           ]
@@ -495,11 +495,11 @@
               "note": "Ponowne odczytanie sprawia, że model zauważa warunki, które przezwycięża pojedynczy odczyt."
             }
           ],
-          "why": "Xu i in. (2023) wykazali, że samo ponowne przeczytanie stwierdzenia poprawia rozumowanie — model zwraca uwagę na warunki (np. „z wyjątkiem wtorków”), które pominąłby w jednym czytaniu.",
+          "why": "Xu i in. (2023) wykazali, że samo ponowne przeczytanie stwierdzenia poprawia rozumowanie, model zwraca uwagę na warunki (np. „z wyjątkiem wtorków”), które pominąłby w jednym czytaniu.",
           "tip": "Sztuczka o prawie zerowym koszcie; Warto łączyć się z CoT w przypadku problemów z wieloma ograniczeniami.",
           "sources": [
             {
-              "label": "Xu i in. 2023 — Ponowne czytanie poprawia rozumowanie",
+              "label": "Xu i in. 2023, Ponowne czytanie poprawia rozumowanie",
               "url": "https://arxiv.org/abs/2309.06275"
             }
           ]
@@ -511,18 +511,18 @@
           "simple": "Model zadaje sobie pytania cząstkowe przed udzieleniem ostatecznej odpowiedzi.",
           "whatIs": "Model decyduje, czy potrzebuje dodatkowych pytań uzupełniających, odpowiada na każde z nich, a następnie formułuje ostateczną odpowiedź. Idealny w przypadku pytań wymagających połączenia kilku faktów (multi-hop).",
           "when": "Pytania zależne od faktów pośrednich („Kto wyreżyserował film, który zdobył Oscara w roku, w którym urodził się X?”).",
-          "whenNot": "Pytania dotyczą tylko jednego faktu – nie ma się co załamywać.",
+          "whenNot": "Pytania dotyczą tylko jednego faktu, nie ma się co załamywać.",
           "examples": [
             {
               "right": "Odpowiedz za pomocą pytań podrzędnych. Przed ostateczną odpowiedzią\nzadawaj sobie pytania i odpowiadaj sobie na wszystko, co konieczne.\nPytanie: Jaka jest średnia długość życia w kraju pochodzenia\ntwórcy Linuksa?",
               "note": "Podział tego na „kto to stworzył → skąd pochodzi → oczekiwania tam” pozwala uniknąć pomijania linku i halucynacji."
             }
           ],
-          "why": "Naciśnij i in. (2022) wykazali, że wyraźne sformułowanie pytań dodatkowych zmniejsza „lukę w kompozycyjności” — model popełnia mniej błędów, odpowiadając na każde łącze osobno.",
+          "why": "Naciśnij i in. (2022) wykazali, że wyraźne sformułowanie pytań dodatkowych zmniejsza „lukę w kompozycyjności”, model popełnia mniej błędów, odpowiadając na każde łącze osobno.",
           "tip": "Działa to jeszcze lepiej z dostępem do wyszukiwania: każde pytanie podrzędne staje się zapytaniem.",
           "sources": [
             {
-              "label": "Naciśnij i in. 2022 — Pomiar i zawężanie luki kompozycyjnej",
+              "label": "Naciśnij i in. 2022, Pomiar i zawężanie luki kompozycyjnej",
               "url": "https://arxiv.org/abs/2210.03350"
             }
           ]
@@ -546,7 +546,7 @@
           "tip": "Przydatny również jako obrona: na etapie czyszczenia usuwane są zasiane opinie i próby manipulacji.",
           "sources": [
             {
-              "label": "Weston i Sukhbaatar 2023 — System 2 Uwaga",
+              "label": "Weston i Sukhbaatar 2023, System 2 Uwaga",
               "url": "https://arxiv.org/abs/2311.11829"
             }
           ]
@@ -558,7 +558,7 @@
           "simple": "Model generuje analogiczne przykłady; lub ucz się od dobra I zła.",
           "whatIs": "Analogicznie sprawia, że ​​model generuje własne przykłady analogiczne do problemu przed rozwiązaniem (auto-few-shot). Kontrastywna CoT zapewnia demonstracje prawidłowego I błędnego rozumowania, dzięki czemu model uczy się, czego unikać.",
           "when": "Analogicznie: gdy nie masz gotowych przykładów. Kontrastywny: gdy występuje powtarzający się błąd w rozumowaniu, któremu należy zapobiec.",
-          "whenNot": "Zadania trywialne — generowanie analogii lub kontrastów jest narzutem.",
+          "whenNot": "Zadania trywialne, generowanie analogii lub kontrastów jest narzutem.",
           "examples": [
             {
               "right": "Kontrast: zobacz PRAWIDŁOWE i ZŁE rozumowanie\nprocentu:\n✓ \"20% z 50 = 0,20 × 50 = 10\"\n✗ \"20% z 50 = 50/20 = 2,5\" (dziel zamiast mnożyć)\nTeraz rozwiąż, unikając błędu: ile wynosi 35% z 80?",
@@ -566,14 +566,14 @@
             }
           ],
           "why": "Yasunaga i in. (2023) wykazali, że generowanie odpowiednich analogów jest lepsze niż generowanie ustalonych kilku strzałów; Chia i in. (2023) wykazali, że negatywne demonstracje (dobro + zło) zmniejszają błędy w rozumowaniu.",
-          "tip": "W trybie Kontrastowym pokaż DOKŁADNY błąd, którego chcesz uniknąć — im bardziej szczegółowy, tym skuteczniejszy.",
+          "tip": "W trybie Kontrastowym pokaż DOKŁADNY błąd, którego chcesz uniknąć, im bardziej szczegółowy, tym skuteczniejszy.",
           "sources": [
             {
-              "label": "Yasunaga i in. 2023 — Podpowiadanie analogiczne",
+              "label": "Yasunaga i in. 2023, Podpowiadanie analogiczne",
               "url": "https://arxiv.org/abs/2310.01714"
             },
             {
-              "label": "Chia i in. 2023 — Kontrastowy CoT",
+              "label": "Chia i in. 2023, Kontrastowy CoT",
               "url": "https://arxiv.org/abs/2311.09277"
             }
           ]
@@ -596,11 +596,11 @@
           "tip": "W przypadku bardzo długich kontekstów przed udzieleniem odpowiedzi połącz ThoT z wyodrębnianiem cytatów.",
           "sources": [
             {
-              "label": "Zhou i in. 2023 — Wątek Myśli",
+              "label": "Zhou i in. 2023, Wątek Myśli",
               "url": "https://arxiv.org/abs/2311.08734"
             },
             {
-              "label": "Junga i in. 2022 — Podpowiadanie Maieutyczne",
+              "label": "Junga i in. 2022, Podpowiadanie Maieutyczne",
               "url": "https://arxiv.org/abs/2205.11822"
             }
           ]
@@ -618,7 +618,7 @@
           "simple": "Wiele próbek zagregowanych według większości lub spójności.",
           "whatIs": "Własna spójność głosuje za większością odpowiedzi wśród N ścieżek CoT. Uniwersalna samospójność (USC) robi to samo, gdy odpowiedź jest dowolnym tekstem (model wybiera najbardziej spójną). DiVeRSe idzie dalej: różnorodne podpowiedzi × wiele ścieżek + punktacja.",
           "when": "Wysoka krytyczność. USC za dosłowne odpowiedzi; DiVerSe dla maksymalnego zasięgu.",
-          "whenNot": "Zadania proste lub wrażliwe na koszty — wszystkie kosztują N× tokenów.",
+          "whenNot": "Zadania proste lub wrażliwe na koszty, wszystkie kosztują N× tokenów.",
           "examples": [
             {
               "right": "Wygeneruj 3 niezależne streszczenia tego raportu.\nNastępnie przygotuj końcowe podsumowanie zawierające tylko punkty występujące\nw co najmniej dwóch z nich (odrzuć to, co pojawia się tylko w jednym).",
@@ -629,11 +629,11 @@
           "tip": "Użyj samego modelu jako sędziego, aby wybrać najbardziej spójną odpowiedź, gdy nie jest możliwe dokładne głosowanie.",
           "sources": [
             {
-              "label": "Wang i in. 2022 — Samokonsekwencja",
+              "label": "Wang i in. 2022, Samokonsekwencja",
               "url": "https://arxiv.org/abs/2203.11171"
             },
             {
-              "label": "Chena i in. 2023 — Powszechna samospójność",
+              "label": "Chena i in. 2023, Powszechna samospójność",
               "url": "https://arxiv.org/abs/2311.17311"
             }
           ]
@@ -643,17 +643,17 @@
           "name": "Szybka parafraza/zespół",
           "level": 3,
           "simple": "Zadawaj pytania na różne sposoby i sumuj odpowiedzi.",
-          "whatIs": "Przeformułuj to samo żądanie na kilka sposobów, obróć je wszystkie i zagreguj. Zmniejsza czułość wyniku na określone sformułowania — modele czasami reagują inaczej tylko ze względu na to, jak zapytałeś.",
+          "whatIs": "Przeformułuj to samo żądanie na kilka sposobów, obróć je wszystkie i zagreguj. Zmniejsza czułość wyniku na określone sformułowania, modele czasami reagują inaczej tylko ze względu na to, jak zapytałeś.",
           "when": "Kiedy podejrzewasz, że wynik w zbyt dużym stopniu zależy od sposobu napisania pytania.",
           "whenNot": "Stabilne i dobrze zdefiniowane zadania, w których frazowanie nie zmienia wyniku.",
           "examples": [
             {
               "right": "Zadam to samo pytanie na 3 sposoby. Odpowiedz na każde\ni powiedz, czy się zgadzasz; jeśli się różnią, wyjaśnij dlaczego i który\njest najbardziej wiarygodny.\n(a) ... (b) ... (c) ...",
-              "note": "Konwergencja = solidna reakcja. Rozbieżność ujawnia dwuznaczność – cenną informację samą w sobie."
+              "note": "Konwergencja = solidna reakcja. Rozbieżność ujawnia dwuznaczność, cenną informację samą w sobie."
             }
           ],
           "why": "LLM są wrażliwe na frazowanie: przeformułowanie tego samego pytania może zmienić dokładność. Dodanie parafraz zmniejsza tę rozbieżność i ujawnia kruche reakcje.",
-          "tip": "Jeśli parafrazy bardzo się od siebie różnią, problem zazwyczaj leży w niejednoznaczności pytania – warto najpierw je doprecyzować.",
+          "tip": "Jeśli parafrazy bardzo się od siebie różnią, problem zazwyczaj leży w niejednoznaczności pytania, warto najpierw je doprecyzować.",
           "sources": [
             {
               "label": "Szybki raport (arXiv:2406.06608)",
@@ -673,7 +673,7 @@
           "level": 3,
           "simple": "Wygeneruj odpowiedź, utwórz pytania sprawdzające i przejrzyj.",
           "whatIs": "Model generuje odpowiedź, następnie formułuje niezależne pytania weryfikacyjne, na każde z nich udziela odpowiedzi BEZ patrzenia na pierwotną odpowiedź i na ich podstawie weryfikuje. Jedna z najlepszych obrony przed wymyślonymi faktami.",
-          "when": "Odpowiedzi oparte na faktach, datach, liczbach, nazwiskach – tam, gdzie halucynacje są drogie.",
+          "when": "Odpowiedzi oparte na faktach, datach, liczbach, nazwiskach, tam, gdzie halucynacje są drogie.",
           "whenNot": "Zadania bez sprawdzalnych faktów (opinia, swobodna twórczość).",
           "examples": [
             {
@@ -685,7 +685,7 @@
           "tip": "Wykonaj kontrolę w oddzielnym kroku (lub osobnym wywołaniu), aby model nie został zanieczyszczony reakcją początkową.",
           "sources": [
             {
-              "label": "Dhuliawala i in. 2023 — Łańcuch weryfikacji",
+              "label": "Dhuliawala i in. 2023, Łańcuch weryfikacji",
               "url": "https://arxiv.org/abs/2309.11495"
             }
           ]
@@ -708,11 +708,11 @@
           "tip": "Użyj zaufania jako wyzwalacza automatyzacji: <70% → druga opinia lub weryfikacja manualna.",
           "sources": [
             {
-              "label": "Kadavat i in. 2022 — Modele językowe (w większości) wiedzą, co wiedzą",
+              "label": "Kadavat i in. 2022, Modele językowe (w większości) wiedzą, co wiedzą",
               "url": "https://arxiv.org/abs/2207.05221"
             },
             {
-              "label": "Weng i in. 2022 — Samoweryfikacja",
+              "label": "Weng i in. 2022, Samoweryfikacja",
               "url": "https://arxiv.org/abs/2212.09561"
             }
           ]
@@ -725,24 +725,24 @@
       "techniques": [
         {
           "id": "rag-retrieval-augmented-generation",
-          "name": "RAG — pokolenie wzmocnione odzyskiwaniem",
+          "name": "RAG, pokolenie wzmocnione odzyskiwaniem",
           "level": 2,
           "simple": "Szukaj prawdziwych danych i na ich podstawie reaguj.",
           "whatIs": "Zanim odpowiesz, poszukaj odpowiednich informacji w źródle zewnętrznym (dokumenty, baza wiedzy) i wstrzyknij je do podpowiedzi, tak aby model odpowiedział w oparciu o nie, a nie o to, co „pamięta”. Najczęściej stosowana technika w produkcji.",
           "when": "Pytania o prywatne, aktualne lub konkretne dane, których modelka nie posiada na szkoleniu (instrukcje, polityki, dokumenty firmowe).",
-          "whenNot": "Ogólna wiedza, że ​​model już dominuje – RAG dodaje tylko opóźnienia.",
+          "whenNot": "Ogólna wiedza, że ​​model już dominuje, RAG dodaje tylko opóźnienia.",
           "examples": [
             {
               "wrong": "Jaka jest polityka zwrotów naszej firmy?",
-              "right": "Odpowiadaj, używając WYŁĄCZNIE treści z <policy>. Jeśli tego nie ma,\npowiedz „nie ma tego w dokumencie” – nigdy tego nie wymyślaj.\nPrzytocz fragment, który to potwierdza.\n<policy>[tekst odzyskany]</politica>\nPytanie: Jakie są zasady zwrotów?",
+              "right": "Odpowiadaj, używając WYŁĄCZNIE treści z <policy>. Jeśli tego nie ma,\npowiedz „nie ma tego w dokumencie”, nigdy tego nie wymyślaj.\nPrzytocz fragment, który to potwierdza.\n<policy>[tekst odzyskany]</politica>\nPytanie: Jakie są zasady zwrotów?",
               "note": "Ogranicz do dokumentu + wymagaj cytowania, zakotwicza odpowiedź w prawdzie firmy."
             }
           ],
-          "why": "Lewisa i in. (2020) wprowadzili RAG w celu połączenia pamięci parametrycznej (model) z pamięcią nieparametryczną (podstawa) — zmniejsza halucynacje i umożliwia aktualizowanie odpowiedzi bez ponownego szkolenia.",
+          "why": "Lewisa i in. (2020) wprowadzili RAG w celu połączenia pamięci parametrycznej (model) z pamięcią nieparametryczną (podstawa), zmniejsza halucynacje i umożliwia aktualizowanie odpowiedzi bez ponownego szkolenia.",
           "tip": "Wyraźne „nie pojawia się” uniemożliwia inwencję w przypadku braku informacji. Zawsze dołączaj tę instrukcję.",
           "sources": [
             {
-              "label": "Lewisa i in. 2020 — Generacja wzmocniona wyszukiwaniem",
+              "label": "Lewisa i in. 2020, Generacja wzmocniona wyszukiwaniem",
               "url": "https://arxiv.org/abs/2005.11401"
             }
           ]
@@ -753,19 +753,19 @@
           "level": 2,
           "simple": "Model generuje odpowiednią wiedzę przed udzieleniem odpowiedzi.",
           "whatIs": "Poproś modela o wygenerowanie odpowiedniej wiedzy na dany temat PRZED udzieleniem odpowiedzi i wykorzystaj tę wiedzę jako podstawę. Tania alternatywa dla RAG, gdy nie ma zewnętrznego źródła.",
-          "when": "Pytania związane ze zdrowym rozsądkiem lub wiedzą ogólną, w których pomaga aktywowanie odpowiedniego kontekstu – a nie masz podstawy do szukania.",
-          "whenNot": "Gdy potrzebujesz weryfikowalnych i konkretnych faktów – wtedy użyj RAG, a nie wiedzy generowanej (która może powodować halucynacje).",
+          "when": "Pytania związane ze zdrowym rozsądkiem lub wiedzą ogólną, w których pomaga aktywowanie odpowiedniego kontekstu, a nie masz podstawy do szukania.",
+          "whenNot": "Gdy potrzebujesz weryfikowalnych i konkretnych faktów, wtedy użyj RAG, a nie wiedzy generowanej (która może powodować halucynacje).",
           "examples": [
             {
               "right": "Zanim odpowiesz, czy samochód elektryczny nadaje się do dostaw miejskich, wymień 5 istotnych faktów dotyczących autonomii, ładowania, kosztu przejechania kilometra i infrastruktury. Następnie w oparciu o te fakty przedstaw rekomendację.",
               "note": "Generowanie faktów wymusza najpierw rozumowanie na wyraźnej podstawie."
             }
           ],
-          "why": "Liu i in. (2022) wykazali, że generowanie wiedzy, a następnie jej wykorzystywanie poprawia zdroworozsądkowe rozumowanie – odpowiedź staje się bardziej ugruntowana i mniej ogólna.",
+          "why": "Liu i in. (2022) wykazali, że generowanie wiedzy, a następnie jej wykorzystywanie poprawia zdroworozsądkowe rozumowanie, odpowiedź staje się bardziej ugruntowana i mniej ogólna.",
           "tip": "Inaczej niż w przypadku RAG: tutaj wiedza jest generowana przez model (może popełniać błędy). Jeśli chodzi o najważniejsze fakty, wolę faktycznie szukać.",
           "sources": [
             {
-              "label": "Liu i in. 2022 — Generowane podpowiadanie wiedzy",
+              "label": "Liu i in. 2022, Generowane podpowiadanie wiedzy",
               "url": "https://arxiv.org/abs/2110.08387"
             }
           ]
@@ -775,7 +775,7 @@
           "name": "Uziemienie cytatami i efekt „Lost in the Middle”.",
           "level": 2,
           "simple": "Przed udzieleniem odpowiedzi wyodrębnij odpowiednie cytaty; i umieść ważne punkty na końcach.",
-          "whatIs": "W zadaniach dotyczących długich dokumentów poproś modela, aby najpierw wyodrębnił odpowiednie cytaty, a dopiero potem wykonał zadanie. I umieszczaj kluczowe informacje na początku lub na końcu – nigdy pośrodku.",
+          "whatIs": "W zadaniach dotyczących długich dokumentów poproś modela, aby najpierw wyodrębnił odpowiednie cytaty, a dopiero potem wykonał zadanie. I umieszczaj kluczowe informacje na początku lub na końcu, nigdy pośrodku.",
           "when": "Analiza dowolnych długich dokumentów (20 tys.+ tokenów).",
           "whenNot": "Krótkie teksty, w których wszystko mieści się w uwadze modela.",
           "examples": [
@@ -784,11 +784,11 @@
               "note": "Wyodrębnianie cudzysłowów eliminuje hałas; dane na górze + pytanie na końcu mogą poprawić jakość nawet o 30%."
             }
           ],
-          "why": "Badanie „Lost in the Middle” (Liu i in., 2023, Stanford) wykazało, że wydajność spada, gdy istotne informacje znajdują się w ŚRODKU długich kontekstów — modele radzą sobie lepiej, gdy kluczowe informacje znajdują się na początku lub na końcu.",
-          "tip": "Umieść to, co istotne, na obrzeżach kontekstu i najpierw poproś o cytaty – dwie tanie metody obrony przed wpływem medium.",
+          "why": "Badanie „Lost in the Middle” (Liu i in., 2023, Stanford) wykazało, że wydajność spada, gdy istotne informacje znajdują się w ŚRODKU długich kontekstów, modele radzą sobie lepiej, gdy kluczowe informacje znajdują się na początku lub na końcu.",
+          "tip": "Umieść to, co istotne, na obrzeżach kontekstu i najpierw poproś o cytaty, dwie tanie metody obrony przed wpływem medium.",
           "sources": [
             {
-              "label": "Liu i in. 2023 — Zagubieni w środku",
+              "label": "Liu i in. 2023, Zagubieni w środku",
               "url": "https://arxiv.org/abs/2307.03172"
             }
           ]
@@ -805,19 +805,19 @@
           "level": 3,
           "simple": "Alternatywne rozumowanie i działanie (użycie narzędzi).",
           "whatIs": "Wzór, który kieruje każdym agentem AI. Model na przemian rozumuje (co mam teraz zrobić?) i działa (używając narzędzia: wyszukiwanie, czytanie pliku, wywoływanie API), obserwując wynik przed kolejnym krokiem.",
-          "when": "Zawsze, gdy model potrzebuje informacji zewnętrznych lub do wykonania działań – wyszukiwania, kodu, automatyzacji.",
-          "whenNot": "Zadania, które model rozwiązuje samodzielnie, korzystając z tego, co już wie — dostępne tam narzędzia jedynie zwiększają opóźnienia.",
+          "when": "Zawsze, gdy model potrzebuje informacji zewnętrznych lub do wykonania działań, wyszukiwania, kodu, automatyzacji.",
+          "whenNot": "Zadania, które model rozwiązuje samodzielnie, korzystając z tego, co już wie, dostępne tam narzędzia jedynie zwiększają opóźnienia.",
           "examples": [
             {
               "right": "Masz narzędzie do wyszukiwania. Aby odpowiedzieć:\n1. Pomyśl: jakich informacji potrzebuję i gdzie je zdobyć.\n2. Podejmij działanie: użyj wyszukiwania, aby uzyskać prawdziwe dane.\n3. Obserwuj wynik; jeśli to wystarczy, odpowiedz; w przeciwnym razie powtórz.",
               "note": "Cykl myśl → działaj → obserwuj, zamiast wymyślać, łączy model z rzeczywistością."
             }
           ],
-          "why": "Yao i in. (2023) wykazali, że przeplatanie rozumowania i działań przewyższa zarówno czystą CoT (która nie działa), jak i działanie bez rozumowania – i zmniejsza halucynacje poprzez zakotwiczenie w rzeczywistych obserwacjach.",
-          "tip": "Opisz, kiedy używać każdego narzędzia. W nowoczesnych modelach unikaj języka agresywnego („MUSISZ”) – powoduje to nadmierne zużycie narzędzi.",
+          "why": "Yao i in. (2023) wykazali, że przeplatanie rozumowania i działań przewyższa zarówno czystą CoT (która nie działa), jak i działanie bez rozumowania, i zmniejsza halucynacje poprzez zakotwiczenie w rzeczywistych obserwacjach.",
+          "tip": "Opisz, kiedy używać każdego narzędzia. W nowoczesnych modelach unikaj języka agresywnego („MUSISZ”), powoduje to nadmierne zużycie narzędzi.",
           "sources": [
             {
-              "label": "Yao i in. 2023 — ReAkt",
+              "label": "Yao i in. 2023, ReAkt",
               "url": "https://arxiv.org/abs/2210.03629"
             }
           ]
@@ -827,20 +827,20 @@
           "name": "Inżynieria kontekstu",
           "level": 3,
           "simple": "Zarządzaj WSZYSTKIM przepływem kontekstu agenta, a nie tylko monitem.",
-          "whatIs": "Dyscyplina jest większa niż szybka inżynieria. Podczas gdy PE optymalizuje instrukcję, inżynieria kontekstu zarządza całym przepływem informacji do modelu w czasie – instrukcjami systemowymi, narzędziami, historią, danymi.",
+          "whatIs": "Dyscyplina jest większa niż szybka inżynieria. Podczas gdy PE optymalizuje instrukcję, inżynieria kontekstu zarządza całym przepływem informacji do modelu w czasie, instrukcjami systemowymi, narzędziami, historią, danymi.",
           "when": "Kiedy „podpowiedź” jest w rzeczywistości wieloetapowym systemem agentowym, a nie jednorazowym.",
-          "whenNot": "Proste interakcje składające się z jednego pytania — wystarczy dobra podpowiedź.",
+          "whenNot": "Proste interakcje składające się z jednego pytania, wystarczy dobra podpowiedź.",
           "examples": [
             {
               "right": "Zasady: kontekst jest zasobem ograniczonym (występuje „zgnilizna kontekstu”).\nUżyj NAJMNIEJSZEGO zestawu tokenów o wysokim sygnale. Do długich\nzadań: zagęszczanie (podsumowywanie historii), robienie notatek (notatki\nwyrwane z kontekstu) i podagenci (czysty kontekst).",
               "note": "Większość awarii agentów nie jest awariami modelu, są to awarie kontekstu."
             }
           ],
-          "why": "Zdolność do zapamiętywania pogarsza się wraz ze wzrostem kontekstu („gnicie kontekstu”). Dopasowywanie kontekstu na każdym etapie — za mało informacji → halucynacje, za dużo informacji → przepełnienie, sprzeczne informacje → zamieszanie — jest tym, co utrzymuje agenta w spójności.",
+          "why": "Zdolność do zapamiętywania pogarsza się wraz ze wzrostem kontekstu („gnicie kontekstu”). Dopasowywanie kontekstu na każdym etapie, za mało informacji → halucynacje, za dużo informacji → przepełnienie, sprzeczne informacje → zamieszanie, jest tym, co utrzymuje agenta w spójności.",
           "tip": "Przesyłaj na żądanie (dokładnie na czas): zamiast wstępnie ładować wszystko, daj swojemu agentowi narzędzia, aby mógł uzyskać to, czego potrzebuje, wtedy, gdy tego potrzebuje.",
           "sources": [
             {
-              "label": "Anthropic — Efektywna inżynieria kontekstowa dla agentów AI",
+              "label": "Anthropic, Efektywna inżynieria kontekstowa dla agentów AI",
               "url": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents"
             }
           ]
@@ -856,9 +856,9 @@
           "name": "Meta-podpowiadanie",
           "level": 2,
           "simple": "Użyj szablonu, aby pisać i ulepszać podpowiedzi.",
-          "whatIs": "Użyj samego szablonu, aby wygenerować lub ulepszyć podpowiedzi. To właśnie robią narzędzia takie jak „Prompt Improver” firmy Anthropic — szablon automatycznie stosuje techniki opisane w tym przewodniku do Twojej wersji roboczej.",
+          "whatIs": "Użyj samego szablonu, aby wygenerować lub ulepszyć podpowiedzi. To właśnie robią narzędzia takie jak „Prompt Improver” firmy Anthropic, szablon automatycznie stosuje techniki opisane w tym przewodniku do Twojej wersji roboczej.",
           "when": "Gdy masz wersję roboczą podpowiedzi i chcesz ją zoptymalizować bez zapamiętywania wszystkich technik.",
-          "whenNot": "Trywialne podpowiedzi — metapodpowiadanie staje się narzutem.",
+          "whenNot": "Trywialne podpowiedzi, metapodpowiadanie staje się narzutem.",
           "examples": [
             {
               "wrong": "podsumowuje dla mnie ten tekst",
@@ -867,10 +867,10 @@
             }
           ],
           "why": "Zasada działania narzędzia Anthropic Prompt Improver jest następująca: identyfikacja przykładów → wersja robocza ustrukturyzowana w formacie XML → dopracowanie za pomocą łańcucha myślowego → wzbogacenie przykładów. Meta-podpowiadanie to szybka inżynieria zastosowana w Twoim przypadku.",
-          "tip": "Nadaj meta-podpowiedź kontekst modelu docelowego (Claude? rozumowanie GPT?) — najlepsze praktyki różnią się w zależności od rodziny.",
+          "tip": "Nadaj meta-podpowiedź kontekst modelu docelowego (Claude? rozumowanie GPT?), najlepsze praktyki różnią się w zależności od rodziny.",
           "sources": [
             {
-              "label": "Antropiczny — Szybki ulepszacz",
+              "label": "Antropiczny, Szybki ulepszacz",
               "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
             }
           ]
@@ -880,9 +880,9 @@
           "name": "APE, OPRO, DSPy i firma",
           "level": 3,
           "simple": "Maszyna automatycznie optymalizuje monit na podstawie danych.",
-          "whatIs": "Struktury, które programowo optymalizują podpowiedzi w oparciu o szablonowy zestaw ocen. Nie piszesz idealnego podpowiedzi — maszyna sprawdza to, testując odmiany.",
+          "whatIs": "Struktury, które programowo optymalizują podpowiedzi w oparciu o szablonowy zestaw ocen. Nie piszesz idealnego podpowiedzi, maszyna sprawdza to, testując odmiany.",
           "when": "Masz oznaczony zestaw danych i obiektywną metrykę, a podpowiedzi działają na dużą skalę (warto zautomatyzować).",
-          "whenNot": "Brak zbioru danych/metryki – trzymaj się ręcznego metapodpowiadania.",
+          "whenNot": "Brak zbioru danych/metryki, trzymaj się ręcznego metapodpowiadania.",
           "examples": [
             {
               "right": "Czy masz szablon i metryki? → DSPy/OPRO kompiluje zachętę\nna podstawie danych.\nChcesz szybkiego zysku poprzez przepisanie instrukcji? → APE/TextGrad.\nBrak danych? → ręczne meta-podpowiadanie przy użyciu technik opisanych w przewodniku.",
@@ -897,7 +897,7 @@
               "url": "https://arxiv.org/abs/2309.03409"
             },
             {
-              "label": "DSPy — Stanford NLP",
+              "label": "DSPy, Stanford NLP",
               "url": "https://github.com/stanfordnlp/dspy"
             }
           ]
@@ -915,7 +915,7 @@
           "simple": "Chroń monit podczas przetwarzania tekstu strony trzeciej.",
           "whatIs": "Natychmiastowe wstrzyknięcie ma miejsce, gdy zewnętrzne dane wejściowe zawierają instrukcje „przejmujące” system (bezpośrednio, od użytkownika lub pośrednio, ze strony internetowej/dokumentu czytanego przez agenta). Jailbreak jest sygnałem wejściowym, który sprawia, że ​​model ignoruje swoje zabezpieczenia.",
           "when": "Za każdym razem, gdy zachęta otrzymuje tekst użytkownika końcowego, odczytuje zawartość zewnętrzną (RAG, sieć) lub działa jako agent z narzędziami.",
-          "whenNot": "Nigdy nie „nie broń się” – ale w przypadku 100% wewnętrznych podpowiedzi bez zewnętrznego wkładu ryzyko jest mniejsze.",
+          "whenNot": "Nigdy nie „nie broń się”, ale w przypadku 100% wewnętrznych podpowiedzi bez zewnętrznego wkładu ryzyko jest mniejsze.",
           "examples": [
             {
               "wrong": "Podsumuj ten komentarz: {{comment}}",
@@ -923,11 +923,11 @@
               "note": "Ograniczenie wejścia + zadeklarowanie priorytetu drastycznie zmniejsza zastrzyk."
             }
           ],
-          "why": "Najlepsze dzisiejsze zabezpieczenia redukują skuteczne ataki z ~73% do ~9% — to jest łagodzenie, a nie eliminacja. Dlatego warto bronić się warstwowo: ograniczniki, model opiekuna, minimalny zakres uprawnień i ludzkie potwierdzenie nieodwracalnych działań.",
-          "tip": "Nigdy nie ufaj wynikom narzędzia jako instrukcjom — pobrana treść (RAG, sieć) jest danymi niezaufanymi i podlega temu samemu reżimowi rozgraniczenia.",
+          "why": "Najlepsze dzisiejsze zabezpieczenia redukują skuteczne ataki z ~73% do ~9%, to jest łagodzenie, a nie eliminacja. Dlatego warto bronić się warstwowo: ograniczniki, model opiekuna, minimalny zakres uprawnień i ludzkie potwierdzenie nieodwracalnych działań.",
+          "tip": "Nigdy nie ufaj wynikom narzędzia jako instrukcjom, pobrana treść (RAG, sieć) jest danymi niezaufanymi i podlega temu samemu reżimowi rozgraniczenia.",
           "sources": [
             {
-              "label": "OWASP LLM01:2025 — Natychmiastowy zastrzyk",
+              "label": "OWASP LLM01:2025, Natychmiastowy zastrzyk",
               "url": "https://genai.owasp.org/llmrisk/llm01-prompt-injection/"
             }
           ]
@@ -942,22 +942,22 @@
           "id": "claude-anthropic",
           "name": "Claude (antropiczny)",
           "level": 1,
-          "simple": "Dosłowny i ustrukturyzowany — zadeklaruj zakres, użyj XML.",
+          "simple": "Dosłowny i ustrukturyzowany, zadeklaruj zakres, użyj XML.",
           "whatIs": "Claude dosłownie postępuje zgodnie z instrukcjami: nie generalizuje samodzielnie ani nie wnioskuje o prośby, których nie zadałeś. Bardzo dobrze reaguje na strukturę (XML) i wyraźny zakres.",
           "when": "Wartość domyślna tego przewodnika. Świetnie nadaje się do strukturalnego wyodrębniania, kodowania i potoków, gdzie potrzebne jest przewidywalne zachowanie.",
-          "whenNot": "Nie oczekuj, że „odgadnie”, co masz na myśli – wyrażaj się wyraźnie.",
+          "whenNot": "Nie oczekuj, że „odgadnie”, co masz na myśli, wyrażaj się wyraźnie.",
           "examples": [
             {
               "wrong": "Czy możesz zasugerować jakieś zmiany w tej roli?",
               "right": "Zmień tę funkcję, aby poprawić wydajność.\nZmieniaj tylko to, co jest konieczne; Nie refaktoryzuj reszty, nie dodawaj niechcianych funkcji ani obsługi błędów.",
-              "note": "Powiedz to ACT (a nie tylko zasugeruj) i określ zakres – Claude mówi dosłownie."
+              "note": "Powiedz to ACT (a nie tylko zasugeruj) i określ zakres, Claude mówi dosłownie."
             }
           ],
           "why": "Dosłowność jest mocną stroną interfejsów API i potoków: precyzja i mniej przeróbek. Wymaga to jednak zadeklarowania zakresu („zastosuj do WSZYSTKICH sekcji, a nie tylko pierwszej”).",
-          "tip": "Unikaj agresywnego języka („KRYTYCZNE: MUSISZ”) — w najnowszych modelach powoduje nadmierne wyzwalanie narzędzia. Preferuj „Użyj X, gdy…”.",
+          "tip": "Unikaj agresywnego języka („KRYTYCZNE: MUSISZ”), w najnowszych modelach powoduje nadmierne wyzwalanie narzędzia. Preferuj „Użyj X, gdy…”.",
           "sources": [
             {
-              "label": "Antropiczne — podpowiadanie najlepszych praktyk",
+              "label": "Antropiczne, podpowiadanie najlepszych praktyk",
               "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
             }
           ]
@@ -969,7 +969,7 @@
           "simple": "Cel + ograniczenia + umowa wyjścia; bez mikrozarządzania.",
           "whatIs": "Klasyczny GPT zapewnia dokładne, zorientowane na wyniki podpowiedzi. Modele rozumowania (seria o, rozumowanie GPT-5) dają jasny cel + silne ograniczenia + umowę wyników, BEZ przepisywania każdego etapu pośredniego.",
           "when": "Modele rozumowania sprawdzają się w gęstych i długich dokumentach (umowy, finansowe) oraz w skomplikowanych decyzjach.",
-          "whenNot": "NIE instruuj „myśl krok po kroku” / ręcznego CoT w modelach rozumowania — może to przeszkodzić (już rozumują wewnętrznie).",
+          "whenNot": "NIE instruuj „myśl krok po kroku” / ręcznego CoT w modelach rozumowania, może to przeszkodzić (już rozumują wewnętrznie).",
           "examples": [
             {
               "wrong": "Myśl krok po kroku: najpierw wykonaj X, potem Y, potem Z...",
@@ -981,18 +981,18 @@
           "tip": "W serii GPT-5/o zwiększ wysiłek rozumowania w przypadku trudnych zadań i podaj wyraźny kontrakt wyjściowy zamiast długich przykładów.",
           "sources": [
             {
-              "label": "OpenAI — najlepsze praktyki rozumowania",
+              "label": "OpenAI, najlepsze praktyki rozumowania",
               "url": "https://developers.openai.com/api/docs/guides/reasoning-best-practices"
             }
           ]
         },
         {
           "id": "google-gemini-framework-ptcf",
-          "name": "Google Gemini — framework PTCF",
+          "name": "Google Gemini, framework PTCF",
           "level": 1,
           "simple": "Osoba · Zadanie · Kontekst · Format.",
           "whatIs": "Gemini najlepiej radzi sobie ze strukturą PTCF: Persona (kim jest model i odbiorca), Zadanie (pożądany wynik), Kontekst (podstawowe informacje) i Format (jak powinien wyglądać wynik).",
-          "when": "Dowolny znak zachęty w Gemini — PTCF to najbardziej niezawodny sposób tworzenia struktury.",
+          "when": "Dowolny znak zachęty w Gemini, PTCF to najbardziej niezawodny sposób tworzenia struktury.",
           "whenNot": "To nie jest kaftan bezpieczeństwa; potraktuj to jako punkt wyjścia i udoskonalaj.",
           "examples": [
             {
@@ -1004,7 +1004,7 @@
           "tip": "Szybka inżynieria jest iteracyjna: zacznij od PTCF i udoskonalaj w oparciu o zaobserwowane reakcje.",
           "sources": [
             {
-              "label": "Google — strategie szybkiego projektowania Gemini",
+              "label": "Google, strategie szybkiego projektowania Gemini",
               "url": "https://ai.google.dev/gemini-api/docs/prompting-strategies"
             }
           ]

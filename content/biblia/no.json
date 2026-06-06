@@ -16,7 +16,7 @@
           "name": "Null-skudd-forespørsel",
           "level": 1,
           "simple": "Spør direkte, uten å gi eksempler.",
-          "whatIs": "Gi klare instruksjoner uten å vise eksempler på svar — modellen bruker kun det den har lært i trening. \"Zero-shot\" = null eksempler. Det er utgangspunktet for alt.",
+          "whatIs": "Gi klare instruksjoner uten å vise eksempler på svar, modellen bruker kun det den har lært i trening. \"Zero-shot\" = null eksempler. Det er utgangspunktet for alt.",
           "when": "Vanlige og veldefinerte oppgaver som modellen allerede mestrer: oversette, oppsummere, svare på et saklig spørsmål, omskrive en tekst.",
           "whenNot": "Når den nøyaktige formen, tonen eller kantsakene betyr noe. Da er noen eksempler (few-shot) verdt mer enn noen instruksjon.",
           "examples": [
@@ -35,7 +35,7 @@
           "tip": "Hvis svaret er generisk, ikke legg til eksempler ennå: Gjør først instruksjonene mer spesifikke (format, størrelse, publikum).",
           "sources": [
             {
-              "label": "Antropisk – Be om beste praksis",
+              "label": "Antropisk, Be om beste praksis",
               "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
             }
           ]
@@ -64,7 +64,7 @@
           "tip": "Bruk persona for TONE og STIL; ikke forvent at \"Du er et mattegeni\" for å forbedre poengsummen. For nøyaktighet, foretrekk klare instruksjoner og bekreftelse.",
           "sources": [
             {
-              "label": "PromptHub — Rolleanmodningsstudie",
+              "label": "PromptHub, Rolleanmodningsstudie",
               "url": "https://www.prompthub.us/blog/role-prompting-does-adding-personas-to-your-prompts-really-make-a-difference"
             },
             {
@@ -88,10 +88,10 @@
             }
           ],
           "why": "Few-shot kommer fra GPT-3-forskning (Brown et al., 2020): modeller lærer oppgaven bare fra eksemplene i ledeteksten (in-context learning). Studier viser hopp som F1 0,51 → 0,62 når man går fra null til 3 eksempler.",
-          "tip": "3 til 5 eksempler er sweet spot. Bruk ULIKE eksempler (dekselkantsaker) og ta vare på ORDER — permuterende eksempler kan i stor grad endre nøyaktigheten.",
+          "tip": "3 til 5 eksempler er sweet spot. Bruk ULIKE eksempler (dekselkantsaker) og ta vare på ORDER, permuterende eksempler kan i stor grad endre nøyaktigheten.",
           "sources": [
             {
-              "label": "Brown et al. 2020 — Språkmodeller er få-skudd-lærere",
+              "label": "Brown et al. 2020, Språkmodeller er få-skudd-lærere",
               "url": "https://arxiv.org/abs/2005.14165"
             },
             {
@@ -106,20 +106,20 @@
           "level": 1,
           "simple": "Skill instruksjon og data med \"tags\".",
           "whatIs": "Pakk hver del av ledeteksten inn i markører (<kontekst>, <data>, <instruksjoner>) slik at modellen ikke forveksler det som er orden med det som er materiell å behandle.",
-          "when": "Hver gang ledeteksten blander instruksjoner med data – spesielt lange eller selvformaterte data. Det er det anbefalte mønsteret for Claude.",
+          "when": "Hver gang ledeteksten blander instruksjoner med data, spesielt lange eller selvformaterte data. Det er det anbefalte mønsteret for Claude.",
           "whenNot": "I korte én-linjes meldinger uten innebygde data, er det unødvendig.",
           "examples": [
             {
               "wrong": "Oppsummer: Dagens møte: vi har utsatt lanseringen.\nOpsummer risikoen også. Budsjett ok.",
               "right": "Oppsummer innholdet i <tekst> i 3 emner.\n\n<text>\nDagens møte: vi utsatte lanseringen. Budsjett ok.\nRisiko: redusert team og stram tidsfrist.\n</text>",
-              "note": "Taggen gjør det klart hva som er gitt og hva som er instruksjon – uten tvetydighet."
+              "note": "Taggen gjør det klart hva som er gitt og hva som er instruksjon, uten tvetydighet."
             }
           ],
-          "why": "Tagger reduserer tvetydighet mellom instruksjoner og innhold – den vanligste feilen i forespørsler med innebygd tekst. Modeller trent med strukturerte data (som Claude) følger tagger nøyaktig.",
+          "why": "Tagger reduserer tvetydighet mellom instruksjoner og innhold, den vanligste feilen i forespørsler med innebygd tekst. Modeller trent med strukturerte data (som Claude) følger tagger nøyaktig.",
           "tip": "Bruk konsistente og beskrivende tagnavn. Nest når det er hierarki (flere <dokument> i <dokumenter>).",
           "sources": [
             {
-              "label": "Antropisk — Bruk XML-koder",
+              "label": "Antropisk, Bruk XML-koder",
               "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
             }
           ]
@@ -131,7 +131,7 @@
           "simple": "Forklar årsaken til instruksjonen, ikke bare ordren.",
           "whatIs": "Gi bakgrunnsinformasjon og årsaken bak forespørselen. Modellen generaliserer bedre når den forstår målet, ikke bare regelen.",
           "when": "Når en regel kan mistolkes hvis den brukes til bokstaven uten å forstå formålet.",
-          "whenNot": "Den er sjelden i veien — men ikke blås den opp med irrelevant kontekst, som blir til støy og sløser med modellens oppmerksomhet.",
+          "whenNot": "Den er sjelden i veien, men ikke blås den opp med irrelevant kontekst, som blir til støy og sløser med modellens oppmerksomhet.",
           "examples": [
             {
               "wrong": "Bruk aldri ellipse.",
@@ -143,7 +143,7 @@
           "tip": "En setning med \"hvorfor betyr dette noe\" er vanligvis verdt tre setninger med \"gjør det på denne måten\".",
           "sources": [
             {
-              "label": "Antropisk – Legg til kontekst for å forbedre ytelsen",
+              "label": "Antropisk, Legg til kontekst for å forbedre ytelsen",
               "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
             }
           ]
@@ -164,10 +164,10 @@
             }
           ],
           "why": "\"Ingen dikkedarer\" er subjektivt; et skjema er objektivt og kodeparsebart. Å definere formatet fjerner variasjoner som bryter integrasjoner.",
-          "tip": "For å virkelig tvinge JSON/struktur, bruk Structured Outputs (Claude/OpenAI) i stedet for bare å be om det i teksten – det er mye mer pålitelig.",
+          "tip": "For å virkelig tvinge JSON/struktur, bruk Structured Outputs (Claude/OpenAI) i stedet for bare å be om det i teksten, det er mye mer pålitelig.",
           "sources": [
             {
-              "label": "Antropisk — Kontrollresponsformat",
+              "label": "Antropisk, Kontrollresponsformat",
               "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
             }
           ]
@@ -180,7 +180,7 @@
       "techniques": [
         {
           "id": "chain-of-thought-cot",
-          "name": "Tankekjede — CoT",
+          "name": "Tankekjede, CoT",
           "level": 2,
           "simple": "Be om en trinnvis begrunnelse FØR svaret.",
           "whatIs": "La modellen skrive resonnementet trinnvis før du konkluderer, i stedet for å hoppe rett til svaret. Det er den viktigste resonneringsteknikken som finnes.",
@@ -197,7 +197,7 @@
           "tip": "Skill resonnementet (<tenking>) fra det endelige svaret (<svar>) - på denne måten bruker du tenkning uten å forurense produksjonen.",
           "sources": [
             {
-              "label": "Wei et al. 2022 — Tankekjede",
+              "label": "Wei et al. 2022, Tankekjede",
               "url": "https://arxiv.org/abs/2201.11903"
             },
             {
@@ -221,11 +221,11 @@
               "note": "Uttrykket er nok til at modellen kan sette sammen ligningene i stedet for å gjette."
             }
           ],
-          "why": "Forskningen til Kojima et al. (2022) viste at bare «La oss tenke steg for steg» økte nøyaktigheten i GSM8K fra 17,7 % til 78,7 % — uten noen eksempler.",
+          "why": "Forskningen til Kojima et al. (2022) viste at bare «La oss tenke steg for steg» økte nøyaktigheten i GSM8K fra 17,7 % til 78,7 %, uten noen eksempler.",
           "tip": "Det er praktisk talt gratis. Hvis oppgaven er minimalt analytisk, er den alltid verdt å teste.",
           "sources": [
             {
-              "label": "Kojima et al. 2022 — Store LM-er er Zero-Shot Reasoners",
+              "label": "Kojima et al. 2022, Store LM-er er Zero-Shot Reasoners",
               "url": "https://arxiv.org/abs/2205.11916"
             }
           ]
@@ -249,7 +249,7 @@
           "tip": "Kombiner med CoT: oppgi prinsippet og begrunn deretter trinn for trinn i søknaden.",
           "sources": [
             {
-              "label": "Zheng et al. 2023 — Ta et skritt tilbake",
+              "label": "Zheng et al. 2023, Ta et skritt tilbake",
               "url": "https://arxiv.org/abs/2310.06117"
             }
           ]
@@ -261,19 +261,19 @@
           "simple": "Planlegg først, utfør senere.",
           "whatIs": "En forbedring på \"tenk steg for steg\": å be modellen om FØRST å lage en plan og SÅ gjennomføre den. Reduserer feilen ved å hoppe over trinn.",
           "when": "Flertrinnsoppgaver hvor det enkle «steg for steg» noen ganger glemmer deler.",
-          "whenNot": "Ett-trinns oppgaver — planlegging blir byråkrati.",
+          "whenNot": "Ett-trinns oppgaver, planlegging blir byråkrati.",
           "examples": [
             {
               "wrong": "Organiser en 3-dagers tur til Lisboa med tanke på trinn for trinn.",
               "right": "Organiser en 3-dagers tur til Lisboa.\nLag først en plan (dimensjoner: overnatting, reise, attraksjoner, budsjett, måltider).\nUtfør deretter og fyll ut hver dimensjon dag for dag.",
-              "note": "Oppføring av dimensjonene på forhånd sikrer dekning – ikke glem budsjettet."
+              "note": "Oppføring av dimensjonene på forhånd sikrer dekning, ikke glem budsjettet."
             }
           ],
           "why": "Å skille planlegging fra utførelse reduserer feilen med å \"gå seg vill underveis\". Wang et al. (2023) viste konsekvent gevinst i forhold til ren zero-shot CoT.",
           "tip": "Be om planen i listeformat før utførelse - det er enkelt å gjennomgå og korrigere kurs.",
           "sources": [
             {
-              "label": "Wang et al. 2023 — Plan-og-løs-forespørsel",
+              "label": "Wang et al. 2023, Plan-og-løs-forespørsel",
               "url": "https://arxiv.org/abs/2305.04091"
             }
           ]
@@ -285,7 +285,7 @@
           "simple": "Løs flere ganger og gå med flertallets svar.",
           "whatIs": "Kjør den samme CoT-forespørselen flere ganger (tilfeldig) og velg svaret som dukker opp oftest. Hvordan konsultere flere eksperter og følge konsensus.",
           "when": "Kritiske problemer der et enkelt resonnement kan glippe og du har råd til N henrettelser.",
-          "whenNot": "Enkle eller kostnadssensitive oppgaver — koster N× tokens.",
+          "whenNot": "Enkle eller kostnadssensitive oppgaver, koster N× tokens.",
           "examples": [
             {
               "right": "Løs dette problemet på 3 uavhengige måter, hver med fullstendig resonnement. Til slutt, sammenlign de tre konklusjonene\nog svar med mengden der minst to er enige.",
@@ -296,7 +296,7 @@
           "tip": "Selv i en enkelt samtale, be om \"3 uavhengige tilnærminger + flertallstemme\" for en lignende effekt til lavere kostnad.",
           "sources": [
             {
-              "label": "Wang et al. 2022 — Selvstendighet",
+              "label": "Wang et al. 2022, Selvstendighet",
               "url": "https://arxiv.org/abs/2203.11171"
             }
           ]
@@ -331,7 +331,7 @@
           "level": 3,
           "simple": "Generer, kritiser ditt eget svar, og gjør det bedre på nytt.",
           "whatIs": "En løkke: modellen genererer, KRITISERER sin egen respons, påpeker konkrete feil, og produserer deretter en revidert versjon. Sterkere enn selvsjekk (som bare er en sjekk).",
-          "when": "Kode, skriving, sekvensiell resonnement — oppgaver der 1. forsøk vanligvis har feil som kan korrigeres.",
+          "when": "Kode, skriving, sekvensiell resonnement, oppgaver der 1. forsøk vanligvis har feil som kan korrigeres.",
           "whenNot": "Når det første svaret allerede er godt og enkelt - løkken øker bare kostnader.",
           "examples": [
             {
@@ -343,7 +343,7 @@
           "tip": "Gi konkrete kriterier for kritikk; Generisk \"forbedre\" produserer kosmetiske endringer.",
           "sources": [
             {
-              "label": "Shinn et al. 2023 — Refleksjon",
+              "label": "Shinn et al. 2023, Refleksjon",
               "url": "https://arxiv.org/abs/2303.11366"
             }
           ]
@@ -360,7 +360,7 @@
           "level": 2,
           "simple": "Del det ned i delproblemer fra enkleste til vanskeligste.",
           "whatIs": "Dekomponer problemet i deloppgaver sortert fra enkleste til vanskeligste og løs dem i rekkefølge, der svaret på det ene strømmer inn i det neste.",
-          "when": "Resonnering med sekvensiell avhengighet — trinn 3 trenger resultatet av trinn 2.",
+          "when": "Resonnering med sekvensiell avhengighet, trinn 3 trenger resultatet av trinn 2.",
           "whenNot": "Problemer som ikke naturlig brytes ned i avhengige stadier.",
           "examples": [
             {
@@ -368,18 +368,18 @@
               "note": "Hvert delproblem er isolert sett trivielt; lenket sammen løse helheten."
             }
           ],
-          "why": "Zhou et al. (2022) viste at dekomponering fra enkel til kompleks lar oss generalisere til problemer som er vanskeligere enn eksemplene sett – noe ren CoT ikke gjør så godt.",
+          "why": "Zhou et al. (2022) viste at dekomponering fra enkel til kompleks lar oss generalisere til problemer som er vanskeligere enn eksemplene sett, noe ren CoT ikke gjør så godt.",
           "tip": "Spør eksplisitt om utdata fra hvert trinn før du går videre - slik at feilen ikke sprer seg stille.",
           "sources": [
             {
-              "label": "Zhou et al. 2022 — Minst til mest spørrende",
+              "label": "Zhou et al. 2022, Minst til mest spørrende",
               "url": "https://arxiv.org/abs/2205.10625"
             }
           ]
         },
         {
           "id": "tree-of-thoughts-tot",
-          "name": "Tankenes tre — ToT",
+          "name": "Tankenes tre, ToT",
           "level": 3,
           "simple": "Utforsk ulike veier for resonnement og forkast de dårlige.",
           "whatIs": "I stedet for en enkelt linje, utforsker modellen flere grener av resonnement parallelt, evaluerer hver enkelt og forlater de som ikke fører til en løsning. Som en sjakkspiller som vurderer trekk.",
@@ -391,7 +391,7 @@
               "note": "Eksplisitt tilbakesporing er det som skiller ToT fra lineær CoT."
             }
           ],
-          "why": "Yao et al. (2023) viste store sprang i søkeoppgaver: i Game of 24 løste ToT 74 % vs. 4 % av CoT – fordi du kan gå tilbake i stedet for å gifte deg med den første ideen.",
+          "why": "Yao et al. (2023) viste store sprang i søkeoppgaver: i Game of 24 løste ToT 74 % vs. 4 % av CoT, fordi du kan gå tilbake i stedet for å gifte deg med den første ideen.",
           "tip": "Reserver for problemer der lineær CoT svikter. Kostnaden er bare verdt det når det faktisk er flere ruter å utforske.",
           "sources": [
             {
@@ -419,7 +419,7 @@
           "tip": "Be om koden separat fra forklaringen, slik at du kan kjøre den direkte uten å analysere.",
           "sources": [
             {
-              "label": "Gao et al. 2022 — PAL: Program-Aided Language Models",
+              "label": "Gao et al. 2022, PAL: Program-Aided Language Models",
               "url": "https://arxiv.org/abs/2211.10435"
             }
           ]
@@ -431,7 +431,7 @@
           "simple": "Bryt oppgaven inn i deloppgaver; eller skisse før detaljering.",
           "whatIs": "DECOMP bryter ned oppgaven og delegerer hver deloppgave til en spesialisert \"handler\" (et annet kall eller verktøy). Skjelett-of-Thought genererer først skjelettet til svaret (emnene) og utvider deretter hvert punkt.",
           "when": "DEKOMP i modulære rørledninger; Skjelett i lange svar der det er viktig å opprettholde dekning og struktur.",
-          "whenNot": "Korte og direkte svar — den ekstra strukturen tilfører ingenting.",
+          "whenNot": "Korte og direkte svar, den ekstra strukturen tilfører ingenting.",
           "examples": [
             {
               "right": "Skriv en rapport om spesialkaffe i to trinn.\nTrinn 1 (skjelett): skriv bare titlene på de 6 seksjonene.\nTrinn 2 (utvidelse): utvikle hver seksjon til 1 avsnitt.",
@@ -439,10 +439,10 @@
             }
           ],
           "why": "Ved å skille \"hva\" (struktur) fra \"hvordan\" (innhold) unngår du avhengigheten av å strekke seg i de første seksjonene og rushing i de siste. Skeleton-of-Thought lar deg også parallellisere utvidelse.",
-          "tip": "I Skeleton, gjennomgå og juster skjelettet før du utvider — å fikse strukturen er billig; Å skrive om hele innholdet er dyrt.",
+          "tip": "I Skeleton, gjennomgå og juster skjelettet før du utvider, å fikse strukturen er billig; Å skrive om hele innholdet er dyrt.",
           "sources": [
             {
-              "label": "Khot et al. 2022 — Dekomponert prompting",
+              "label": "Khot et al. 2022, Dekomponert prompting",
               "url": "https://arxiv.org/abs/2210.02406"
             },
             {
@@ -464,7 +464,7 @@
           "simple": "Modellen omformulerer spørsmålet ditt før du svarer på det.",
           "whatIs": "Be modellen om å skrive om spørsmålet med egne ord før de svarer. Dette tydeliggjør hensikten og avdekker uklarheter.",
           "when": "Vage, tvetydige eller dårlig formulerte spørsmål; når du vil sikre at modellen forstår.",
-          "whenNot": "Spørsmål som allerede er klare og direkte — omformuleringen legger bare til tekst.",
+          "whenNot": "Spørsmål som allerede er klare og direkte, omformuleringen legger bare til tekst.",
           "examples": [
             {
               "wrong": "Er banken stengt?",
@@ -472,11 +472,11 @@
               "note": "Ved å omformulere avslører modellen tvetydigheten (institusjon? sete?) og svarer bedre."
             }
           ],
-          "why": "Deng et al. (2023) viste at å la modellen omformulere spørsmålet i seg selv forbedrer ytelsen på flere oppgaver – klare spørsmål gir bedre svar.",
+          "why": "Deng et al. (2023) viste at å la modellen omformulere spørsmålet i seg selv forbedrer ytelsen på flere oppgaver, klare spørsmål gir bedre svar.",
           "tip": "Kombiner med CoT: omformuler, så begrunn. Klarheten i omformuleringen forbedrer påfølgende resonnement.",
           "sources": [
             {
-              "label": "Deng et al. 2023 – Omformuler og svar",
+              "label": "Deng et al. 2023, Omformuler og svar",
               "url": "https://arxiv.org/abs/2311.04205"
             }
           ]
@@ -495,11 +495,11 @@
               "note": "Omlesing gjør at modellen legger merke til forhold som en enkelt lesing overvinner."
             }
           ],
-          "why": "Xu et al. (2023) viste at bare å lese utsagnet på nytt forbedrer resonnementet – modellen tar hensyn til forhold (f.eks. \"unntatt på tirsdager\") som den ville hoppe over i en enkelt lesing.",
+          "why": "Xu et al. (2023) viste at bare å lese utsagnet på nytt forbedrer resonnementet, modellen tar hensyn til forhold (f.eks. \"unntatt på tirsdager\") som den ville hoppe over i en enkelt lesing.",
           "tip": "Nesten null kostnader triks; Det er verdt å stable med CoT i problemer med mange begrensninger.",
           "sources": [
             {
-              "label": "Xu et al. 2023 — Re-lesing forbedrer resonnement",
+              "label": "Xu et al. 2023, Re-lesing forbedrer resonnement",
               "url": "https://arxiv.org/abs/2309.06275"
             }
           ]
@@ -518,11 +518,11 @@
               "note": "Å bryte det ned i \"hvem har laget det → hvor det er fra → forventninger der\" unngår å hoppe over en lenke og hallusinere."
             }
           ],
-          "why": "Press et al. (2022) viste at å gjøre underspørsmål eksplisitt reduserer «komposisjonsgapet» – modellen gjør færre feil når den besvarer hver lenke separat.",
+          "why": "Press et al. (2022) viste at å gjøre underspørsmål eksplisitt reduserer «komposisjonsgapet», modellen gjør færre feil når den besvarer hver lenke separat.",
           "tip": "Det fungerer enda bedre med søketilgang: hvert underspørsmål blir et søk.",
           "sources": [
             {
-              "label": "Press et al. 2022 — Måling og innsnevring av komposisjonsgapet",
+              "label": "Press et al. 2022, Måling og innsnevring av komposisjonsgapet",
               "url": "https://arxiv.org/abs/2210.03350"
             }
           ]
@@ -546,7 +546,7 @@
           "tip": "Også nyttig som forsvar: plantede meninger og forsøk på manipulasjon fjernes i rensestadiet.",
           "sources": [
             {
-              "label": "Weston & Sukhbaatar 2023 — System 2 Oppmerksomhet",
+              "label": "Weston & Sukhbaatar 2023, System 2 Oppmerksomhet",
               "url": "https://arxiv.org/abs/2311.11829"
             }
           ]
@@ -558,7 +558,7 @@
           "simple": "Modellen genererer analoge eksempler; eller lære av rett OG galt.",
           "whatIs": "Analogisk gjør at modellen genererer sine egne eksempler analogt med problemet før den løses (auto-få-skudd). Contrastive CoT gir demonstrasjoner av riktig OG galt resonnement, slik at modellen lærer hva den skal unngå.",
           "when": "Analogisk: når du ikke har eksempler klare. Kontrastiv: når det er en tilbakevendende feil i resonnement for å forhindre.",
-          "whenNot": "Trivielle oppgaver – å generere analoger eller kontraster er overhead.",
+          "whenNot": "Trivielle oppgaver, å generere analoger eller kontraster er overhead.",
           "examples": [
             {
               "right": "Kontrasterende: se en RIKTIG og en FEIL begrunnelse for\nprosent:\n✓ \"20 % av 50 = 0,20 × 50 = 10\"\n✗ \"20 % av 50 = 50 / 20 = 2,5\" (divider i stedet for å multiplisere)\nHva er nå 3 % løs, 8",
@@ -573,7 +573,7 @@
               "url": "https://arxiv.org/abs/2310.01714"
             },
             {
-              "label": "Chia et al. 2023 — Kontrasterende CoT",
+              "label": "Chia et al. 2023, Kontrasterende CoT",
               "url": "https://arxiv.org/abs/2311.09277"
             }
           ]
@@ -629,11 +629,11 @@
           "tip": "Bruk selve modellen som dommer for å velge det mest konsistente svaret når det ikke er mulig å stemme nøyaktig.",
           "sources": [
             {
-              "label": "Wang et al. 2022 — Selvstendighet",
+              "label": "Wang et al. 2022, Selvstendighet",
               "url": "https://arxiv.org/abs/2203.11171"
             },
             {
-              "label": "Chen et al. 2023 – Universell selvkonsistens",
+              "label": "Chen et al. 2023, Universell selvkonsistens",
               "url": "https://arxiv.org/abs/2311.17311"
             }
           ]
@@ -673,7 +673,7 @@
           "level": 3,
           "simple": "Generer responsen, lag sjekkespørsmål og gjennomgå.",
           "whatIs": "Modellen genererer svaret, formulerer deretter uavhengige verifikasjonsspørsmål, svarer på hvert enkelt UTEN å se på det opprinnelige svaret, og reviderer basert på dem. Et av de beste forsvarene mot oppfunne fakta.",
-          "when": "Svar med fakta, datoer, tall, navn — der hallusinasjoner er dyrt.",
+          "when": "Svar med fakta, datoer, tall, navn, der hallusinasjoner er dyrt.",
           "whenNot": "Oppgaver uten etterprøvbare fakta (mening, fri opprettelse).",
           "examples": [
             {
@@ -685,7 +685,7 @@
           "tip": "Utfør kontrollen i et eget trinn (eller separat anrop) slik at modellen ikke blir kontaminert med den første responsen.",
           "sources": [
             {
-              "label": "Dhuliawala et al. 2023 – Chain-of-Verification",
+              "label": "Dhuliawala et al. 2023, Chain-of-Verification",
               "url": "https://arxiv.org/abs/2309.11495"
             }
           ]
@@ -708,11 +708,11 @@
           "tip": "Bruk tillit som en automatiseringstrigger: <70 % → second opinion eller menneskelig vurdering.",
           "sources": [
             {
-              "label": "Kadavath et al. 2022 — Språkmodeller (for det meste) vet hva de vet",
+              "label": "Kadavath et al. 2022, Språkmodeller (for det meste) vet hva de vet",
               "url": "https://arxiv.org/abs/2207.05221"
             },
             {
-              "label": "Weng et al. 2022 – Selvverifisering",
+              "label": "Weng et al. 2022, Selvverifisering",
               "url": "https://arxiv.org/abs/2212.09561"
             }
           ]
@@ -725,7 +725,7 @@
       "techniques": [
         {
           "id": "rag-retrieval-augmented-generation",
-          "name": "RAG — Retrieval-Augmented Generation",
+          "name": "RAG, Retrieval-Augmented Generation",
           "level": 2,
           "simple": "Søk ekte data og svar basert på dem.",
           "whatIs": "Før du svarer, se etter relevant informasjon i en ekstern kilde (dokumenter, kunnskapsbase) og injiser den i ledeteksten, slik at modellen svarer basert på den og ikke på hva den \"husker\". Den mest brukte teknikken i produksjonen.",
@@ -734,15 +734,15 @@
           "examples": [
             {
               "wrong": "Hva er vårt selskaps refusjonspolicy?",
-              "right": "Svar med BARE innholdet i <policy>. Hvis det ikke\ner der, si «det er ikke i dokumentet» – aldri finn det opp.\nSitér utdraget som støtter det.\n<policy>[hentet tekst]</politica>\nSpørsmål: Hva er refusjonsreglene?",
+              "right": "Svar med BARE innholdet i <policy>. Hvis det ikke\ner der, si «det er ikke i dokumentet», aldri finn det opp.\nSitér utdraget som støtter det.\n<policy>[hentet tekst]</politica>\nSpørsmål: Hva er refusjonsreglene?",
               "note": "Begrens til dokument + krever sitering forankrer svaret i selskapets sannhet."
             }
           ],
-          "why": "Lewis et al. (2020) introduserte RAG for å kombinere parametrisk minne (modellen) med ikke-parametrisk minne (basen) – reduserer hallusinasjoner og tillater oppdaterbare svar uten omtrening.",
+          "why": "Lewis et al. (2020) introduserte RAG for å kombinere parametrisk minne (modellen) med ikke-parametrisk minne (basen), reduserer hallusinasjoner og tillater oppdaterbare svar uten omtrening.",
           "tip": "Det eksplisitte «vises ikke» er det som hindrer oppfinnelsen når informasjonen mangler. Ta alltid med denne instruksjonen.",
           "sources": [
             {
-              "label": "Lewis et al. 2020 — Gjenvinningsutvidet generasjon",
+              "label": "Lewis et al. 2020, Gjenvinningsutvidet generasjon",
               "url": "https://arxiv.org/abs/2005.11401"
             }
           ]
@@ -753,7 +753,7 @@
           "level": 2,
           "simple": "Modellen genererer relevant kunnskap før den svarer.",
           "whatIs": "Be modellen generere relevant kunnskap om temaet FØR du svarer, og bruk den kunnskapen som grunnlag. Et billig alternativ til RAG når det ikke finnes en ekstern kilde.",
-          "when": "Spørsmål om sunn fornuft eller generell kunnskap der aktivering av den rette konteksten hjelper — og du ikke har en base å se etter.",
+          "when": "Spørsmål om sunn fornuft eller generell kunnskap der aktivering av den rette konteksten hjelper, og du ikke har en base å se etter.",
           "whenNot": "Når du trenger verifiserbare og spesifikke fakta - bruk RAG, ikke generert kunnskap (som kan hallusinere).",
           "examples": [
             {
@@ -761,11 +761,11 @@
               "note": "Å generere fakta tvinger først resonnement fra et eksplisitt grunnlag."
             }
           ],
-          "why": "Liu et al. (2022) viste at å generere kunnskap og deretter bruke den forbedrer sunn fornuft resonnement – ​​svaret blir mer forankret og mindre generisk.",
+          "why": "Liu et al. (2022) viste at å generere kunnskap og deretter bruke den forbedrer sunn fornuft resonnement, ​​svaret blir mer forankret og mindre generisk.",
           "tip": "Forskjellig fra RAG: her genereres kunnskapen av modellen (den kan gjøre feil). For kritiske fakta, foretrekk å faktisk søke.",
           "sources": [
             {
-              "label": "Liu et al. 2022 – Generert kunnskapsforespørsel",
+              "label": "Liu et al. 2022, Generert kunnskapsforespørsel",
               "url": "https://arxiv.org/abs/2110.08387"
             }
           ]
@@ -784,8 +784,8 @@
               "note": "Å trekke ut sitater kutter ut støyen; data øverst + spørsmål på slutten kan forbedre kvaliteten med opptil 30 %."
             }
           ],
-          "why": "«Lost in the Middle»-forskningen (Liu et al., 2023, Stanford) viste at ytelsen synker når den relevante informasjonen er midt i lange sammenhenger — modeller gir bedre resultater med nøkkelinformasjonen i begynnelsen eller slutten.",
-          "tip": "Plasser det som betyr noe i utkanten av konteksten og be om sitater først – to billige forsvar mot effekten av mediet.",
+          "why": "«Lost in the Middle»-forskningen (Liu et al., 2023, Stanford) viste at ytelsen synker når den relevante informasjonen er midt i lange sammenhenger, modeller gir bedre resultater med nøkkelinformasjonen i begynnelsen eller slutten.",
+          "tip": "Plasser det som betyr noe i utkanten av konteksten og be om sitater først, to billige forsvar mot effekten av mediet.",
           "sources": [
             {
               "label": "Liu et al. 2023 - Lost in the Middle",
@@ -806,18 +806,18 @@
           "simple": "Alternativ resonnement og handling (bruk av verktøy).",
           "whatIs": "Mønsteret som driver hver AI-agent. Modellen veksler mellom resonnering (hva må jeg gjøre nå?) og å handle (ved å bruke et verktøy: søk, lese fil, kalle API), observere resultatet før neste trinn.",
           "when": "Når modellen trenger ekstern informasjon eller for å utføre handlinger - søk, kode, automatisering.",
-          "whenNot": "Oppgaver som modellen løser på egen hånd med det den allerede kan – verktøyene der legger bare til latens.",
+          "whenNot": "Oppgaver som modellen løser på egen hånd med det den allerede kan, verktøyene der legger bare til latens.",
           "examples": [
             {
               "right": "Du har et søkeverktøy. For å svare:\n1. Tenk: hvilken informasjon trenger jeg og hvor jeg kan få den.\n2. Ta handling: bruk søk ​​for å få de virkelige dataene.\n3. Observer resultatet; hvis tilstrekkelig, svar; ellers gjenta.",
               "note": "Tenk→handling→observer-syklusen kobler modellen til virkeligheten i stedet for å finne på."
             }
           ],
-          "why": "Yao et al. (2023) viste at interleaving resonnement og handlinger utkonkurrerer både ren CoT (som ikke virker) og handling uten resonnement – ​​og reduserer hallusinasjoner ved å forankre i reelle observasjoner.",
+          "why": "Yao et al. (2023) viste at interleaving resonnement og handlinger utkonkurrerer både ren CoT (som ikke virker) og handling uten resonnement, ​​og reduserer hallusinasjoner ved å forankre i reelle observasjoner.",
           "tip": "Beskriv når du skal bruke hvert verktøy. I moderne modeller, unngå aggressivt språk (\"du MÅ\") - det forårsaker overdreven bruk av verktøy.",
           "sources": [
             {
-              "label": "Yao et al. 2023 – React",
+              "label": "Yao et al. 2023, React",
               "url": "https://arxiv.org/abs/2210.03629"
             }
           ]
@@ -836,11 +836,11 @@
               "note": "De fleste agentfeil er ikke modellfeil, de er kontekstfeil."
             }
           ],
-          "why": "Evnen til å huske forringes etter hvert som konteksten vokser (\"kontekstråte\"). Å kurere konteksten ved hvert trinn – for lite info → hallusinasjoner, for mye info → overløp, motstridende info → forvirring – er det som holder agenten koherent.",
+          "why": "Evnen til å huske forringes etter hvert som konteksten vokser (\"kontekstråte\"). Å kurere konteksten ved hvert trinn, for lite info → hallusinasjoner, for mye info → overløp, motstridende info → forvirring, er det som holder agenten koherent.",
           "tip": "Last opp på forespørsel (just-in-time): I stedet for å forhåndslaste alt, gi agenten din verktøyene til å få det de trenger når de trenger det.",
           "sources": [
             {
-              "label": "Antropisk — Effektiv kontekstutvikling for AI-agenter",
+              "label": "Antropisk, Effektiv kontekstutvikling for AI-agenter",
               "url": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents"
             }
           ]
@@ -867,7 +867,7 @@
             }
           ],
           "why": "Flyten til Anthropics promptforbedring er: identifiser eksempler → utkast strukturert med XML → avgrens med tankekjede → berik eksempler. Meta-spørring er prompt engineering brukt på deg selv.",
-          "tip": "Gi meta-prompten konteksten til målmodellen (Claude? GPT-resonnement?) – beste praksis er forskjellig mellom familier.",
+          "tip": "Gi meta-prompten konteksten til målmodellen (Claude? GPT-resonnement?), beste praksis er forskjellig mellom familier.",
           "sources": [
             {
               "label": "Antropisk - rask forbedring",
@@ -880,9 +880,9 @@
           "name": "APE, OPRO, DSPy og selskap",
           "level": 3,
           "simple": "Maskinen optimerer automatisk forespørselen mot data.",
-          "whatIs": "Rammer som programmatisk optimaliserer forespørsler mot et malt vurderingssett. Du skriver ikke den perfekte ledeteksten – maskinen finner ut av det ved å teste varianter.",
+          "whatIs": "Rammer som programmatisk optimaliserer forespørsler mot et malt vurderingssett. Du skriver ikke den perfekte ledeteksten, maskinen finner ut av det ved å teste varianter.",
           "when": "Du har et merket datasett og en objektiv beregning, og ledeteksten kjører i skala (verdt å automatisere).",
-          "whenNot": "Ingen datasett/metrikk – hold deg til manuell meta-spørring.",
+          "whenNot": "Ingen datasett/metrikk, hold deg til manuell meta-spørring.",
           "examples": [
             {
               "right": "Har du en mal og beregninger? → DSPy/OPRO kompiler ledeteksten\nmot dataene.\nVil du ha rask gevinst ved å skrive om instruksjonen? → APE/TextGrad.\nIngen data? → manuell meta-spørring med teknikkene i veiledningen.",
@@ -897,7 +897,7 @@
               "url": "https://arxiv.org/abs/2309.03409"
             },
             {
-              "label": "DSPy – Stanford NLP",
+              "label": "DSPy, Stanford NLP",
               "url": "https://github.com/stanfordnlp/dspy"
             }
           ]
@@ -924,10 +924,10 @@
             }
           ],
           "why": "Dagens beste forsvar reduserer vellykkede angrep fra ~73% til ~9% - det er avbøtende, ikke eliminering. Derfor er det verdt å forsvare i lag: avgrensninger, vergemodell, minimumsomfang av tillatelser og menneskelig bekreftelse for irreversible handlinger.",
-          "tip": "Stol aldri på verktøyutgang som instruksjon — hentet innhold (RAG, web) er upålitelige data og faller inn under samme avgrensningsregime.",
+          "tip": "Stol aldri på verktøyutgang som instruksjon, hentet innhold (RAG, web) er upålitelige data og faller inn under samme avgrensningsregime.",
           "sources": [
             {
-              "label": "OWASP LLM01:2025 — Rask injeksjon",
+              "label": "OWASP LLM01:2025, Rask injeksjon",
               "url": "https://genai.owasp.org/llmrisk/llm01-prompt-injection/"
             }
           ]
@@ -945,7 +945,7 @@
           "simple": "Bokstavelig og strukturert - erklær omfanget, bruk XML.",
           "whatIs": "Claude følger instruksjonene bokstavelig talt: han generaliserer ikke på egen hånd eller utleder forespørsler som du ikke har gjort. Den reagerer veldig godt på strukturen (XML) og eksplisitt omfang.",
           "when": "Standard for denne veiledningen. Flott for strukturert utvinning, koding og rørledninger der du ønsker forutsigbar oppførsel.",
-          "whenNot": "Ikke forvent at han skal \"gjette\" hva du mener – vær eksplisitt.",
+          "whenNot": "Ikke forvent at han skal \"gjette\" hva du mener, vær eksplisitt.",
           "examples": [
             {
               "wrong": "Kan du foreslå noen endringer i denne rollen?",
@@ -957,7 +957,7 @@
           "tip": "Unngå aggressivt språk (\"KRITISK: du MÅ\") - på nyere modeller forårsaker verktøyet overtrigging. Foretrekk \"Bruk X når...\".",
           "sources": [
             {
-              "label": "Antropisk – Be om beste praksis",
+              "label": "Antropisk, Be om beste praksis",
               "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
             }
           ]
@@ -969,7 +969,7 @@
           "simple": "Mål + begrensninger + utgangskontrakt; uten mikrostyring.",
           "whatIs": "Klassisk GPT leverer med nøyaktige, resultatorienterte spørsmål. Begrunnelsesmodeller (o-serien, GPT-5-resonnement) gir et klart mål + sterke begrensninger + utgangskontrakt, UTEN å foreskrive hvert mellomtrinn.",
           "when": "Begrunnelsesmodeller skinner i tette og lange dokumenter (kontrakter, økonomiske) og i komplekse beslutninger.",
-          "whenNot": "IKKE instruer \"tenk steg for steg\" / manuell CoT i resonneringsmodeller — det kan komme i veien (de resonnerer allerede internt).",
+          "whenNot": "IKKE instruer \"tenk steg for steg\" / manuell CoT i resonneringsmodeller, det kan komme i veien (de resonnerer allerede internt).",
           "examples": [
             {
               "wrong": "Tenk steg for steg: Gjør først X, så Y, så Z...",
@@ -981,14 +981,14 @@
           "tip": "I GPT-5/o-serien, øk reasoning_efort for vanskelige oppgaver og gi en eksplisitt produksjonskontrakt i stedet for lange eksempler.",
           "sources": [
             {
-              "label": "OpenAI — Begrunnelse for beste praksis",
+              "label": "OpenAI, Begrunnelse for beste praksis",
               "url": "https://developers.openai.com/api/docs/guides/reasoning-best-practices"
             }
           ]
         },
         {
           "id": "google-gemini-framework-ptcf",
-          "name": "Google Gemini – PTCF-rammeverk",
+          "name": "Google Gemini, PTCF-rammeverk",
           "level": 1,
           "simple": "Persona · Oppgave · Kontekst · Format.",
           "whatIs": "Gemini klarer seg best med PTCF-strukturen: Persona (hvem modellen er og publikum), Task (ønsket resultat), Context (bakgrunnsinformasjon) og Format (hvordan utdataene skal se ut).",
@@ -1004,7 +1004,7 @@
           "tip": "Rask konstruksjon er iterativ: start med PTCF og avgrens basert på observerte svar.",
           "sources": [
             {
-              "label": "Google — Gemini prompte designstrategier",
+              "label": "Google, Gemini prompte designstrategier",
               "url": "https://ai.google.dev/gemini-api/docs/prompting-strategies"
             }
           ]
