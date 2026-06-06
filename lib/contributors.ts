@@ -8,7 +8,7 @@ export type Contributor = {
 };
 
 const SITE_REPO = "PhAlves23/promptcause";
-const MARKET_REPO = "PhAlves23/prompt-cause-marketplace";
+const MARKET_REPO = "PhAlves23/promptcause-marketplace";
 const MARKETPLACE_URL = `https://raw.githubusercontent.com/${MARKET_REPO}/main/.claude-plugin/marketplace.json`;
 
 function githubRepo(url?: string): string {

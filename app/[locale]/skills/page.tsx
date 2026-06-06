@@ -6,9 +6,9 @@ import { getSkills, getMarketplaceStats } from "@/lib/skills";
 
 const eyebrow = "font-mono text-[0.72rem] font-medium tracking-[0.16em] text-ink-faint uppercase";
 
-const REPO_URL = "https://github.com/PhAlves23/prompt-cause-marketplace";
+const REPO_URL = "https://github.com/PhAlves23/promptcause-marketplace";
 const CONTRIBUTING_URL = `${REPO_URL}/blob/main/CONTRIBUTING.md`;
-const ADD_CMD = "/plugin marketplace add PhAlves23/prompt-cause-marketplace";
+const ADD_CMD = "/plugin marketplace add PhAlves23/promptcause-marketplace";
 
 export const dynamic = "force-dynamic";
 

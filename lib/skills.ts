@@ -31,7 +31,7 @@ async function fetchRepoStats(repo: string): Promise<{ stars: number; forks: num
   }
 }
 
-const MARKETPLACE_REPO = "PhAlves23/prompt-cause-marketplace";
+const MARKETPLACE_REPO = "PhAlves23/promptcause-marketplace";
 const MARKETPLACE_URL = `https://raw.githubusercontent.com/${MARKETPLACE_REPO}/main/.claude-plugin/marketplace.json`;
 
 /** Estrelas e forks do repositório do marketplace (GitHub API). */
