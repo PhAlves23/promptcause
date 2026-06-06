@@ -51,6 +51,10 @@ export default async function DoarPage({ params }: { params: Promise<{ locale: s
             href: o.linkDoacao ? donationHref(o.linkDoacao) : null,
             pixKey: o.pixKey,
             pixKeyType: o.pixKeyType,
+            descricao: o.descricao,
+            logoUrl: o.logoUrl,
+            regiaoUf: o.regiaoUf,
+            site: o.site,
           }))}
         />
       </div>
