@@ -20,7 +20,7 @@ export function BrandLogo({
       />
       <span
         className={cn(
-          "font-display text-[1.32rem] font-semibold tracking-tight",
+          "font-display text-[1.32rem] font-semibold leading-none tracking-tight",
           variant === "footer" ? "text-white" : "text-ink",
         )}
       >

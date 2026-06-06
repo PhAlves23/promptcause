@@ -23,7 +23,7 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-line bg-paper/90 backdrop-blur-md backdrop-saturate-150">
       <div className="mx-auto flex h-[68px] max-w-[1180px] items-center gap-7 px-7">
-        <Link href="/" className="shrink-0" aria-label="PromptCause">
+        <Link href="/" className="flex shrink-0 items-center" aria-label="PromptCause">
           <BrandLogo />
         </Link>
 
