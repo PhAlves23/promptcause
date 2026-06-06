@@ -56,7 +56,7 @@ export function SiteHeader() {
           <Button
             variant="ghost"
             size="icon"
-            className="md:hidden"
+            className="size-11 text-[1.75rem] leading-none md:hidden"
             aria-label={t("cta.openMenu")}
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
