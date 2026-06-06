@@ -1,8 +1,8 @@
 {
   "title": "Biblia Prompt Engineering",
-  "subtitle": "Toate tehnicile care există — de la începător la avansat, cu exemple corecte și greșite.",
+  "subtitle": "Toate tehnicile care există, de la începător la avansat, cu exemple corecte și greșite.",
   "whatIsLabel": "Ce este",
-  "whenLabel": "Când să utilizați",
+  "whenLabel": "C, nd să utilizați",
   "wrongLabel": "Greșit",
   "rightLabel": "Corect",
   "whyLabel": "De ce",
@@ -16,9 +16,9 @@
           "name": "Solicitare zero-shot",
           "level": 1,
           "simple": "Întrebați direct, fără a da exemple.",
-          "whatIs": "Dați instrucțiuni clare, fără a afișa exemple de răspunsuri — modelul folosește doar ceea ce a învățat la antrenament. „Zero-shot” = zero exemple. Este punctul de plecare al tuturor.",
-          "when": "Sarcini comune și bine definite pe care modelul le stăpânește deja: traducerea, rezumatul, răspunsul la o întrebare de fapt, rescrierea unui text.",
-          "whenNot": "Când forma exactă, tonul sau carcasele de margine contează. Apoi, unele exemple (puține lovituri) valorează mai mult decât orice instrucțiune.",
+          "whatIs": "Dați instrucțiuni clare, fără a afișa exemple de răspunsuri, modelul folosește doar ceea ce a învățat la antrenament. „Zero-shot” = zero exemple. Este punctul de plecare al tuturor.",
+          "when": "Sarcini comune și bine definite pe care modelul le stăp, nește deja: traducerea, rezumatul, răspunsul la o întrebare de fapt, rescrierea unui text.",
+          "whenNot": "C, nd forma exactă, tonul sau carcasele de margine contează. Apoi, unele exemple (puține lovituri) valorează mai mult dec, t orice instrucțiune.",
           "examples": [
             {
               "wrong": "spune-mi despre marketing",
@@ -31,11 +31,11 @@
               "note": "Spune-i ce să repare, ce să păstreze și formatul de ieșire."
             }
           ],
-          "why": "Modelele moderne rezolvă sarcini binecunoscute fără exemple - atâta timp cât instrucțiunile sunt specifice. Claritatea înlocuiește exemplele.",
-          "tip": "Dacă răspunsul este generic, nu adăugați încă exemple: mai întâi faceți instrucțiunile mai specifice (format, dimensiune, audiență).",
+          "why": "Modelele moderne rezolvă sarcini binecunoscute fără exemple - at, ta timp c, t instrucțiunile sunt specifice. Claritatea înlocuiește exemplele.",
+          "tip": "Dacă răspunsul este generic, nu adăugați încă exemple: mai înt, i faceți instrucțiunile mai specifice (format, dimensiune, audiență).",
           "sources": [
             {
-              "label": "Antropic – promovarea celor mai bune practici",
+              "label": "Antropic, promovarea celor mai bune practici",
               "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
             }
           ]
@@ -46,7 +46,7 @@
           "level": 1,
           "simple": "Spune-i modelului „cine sunt” înainte de sarcină.",
           "whatIs": "Atribuiți un rol („Sunteți un avocat fiscal senior”) pentru a calibra tonul, vocabularul și profunzimea răspunsului. O singură propoziție schimbă deja rezultatul.",
-          "when": "Când tonul sau nivelul tehnic contează - scris, serviciu, opinii, predare.",
+          "when": "C, nd tonul sau nivelul tehnic contează - scris, serviciu, opinii, predare.",
           "whenNot": "În problemele de cunoaștere pură (fapte, relatări, alegere multiplă) persoana poate sta în cale. În testele de referință MMLU, persoanele „experte” au scăzut precizia (de la ~71,6% la ~68%).",
           "examples": [
             {
@@ -64,34 +64,34 @@
           "tip": "Utilizați persona pentru TON și STIL; nu vă așteptați ca „Ești un geniu în matematică” să îmbunătățească scorul. Pentru acuratețe, preferați instrucțiuni clare și verificare.",
           "sources": [
             {
-              "label": "PromptHub — Studiu de sugestii de rol",
+              "label": "PromptHub, Studiu de sugestii de rol",
               "url": "https://www.prompthub.us/blog/role-prompting-does-adding-personas-to-your-prompts-really-make-a-difference"
             },
             {
-              "label": "Antropic — Dă-i lui Claude un rol",
+              "label": "Antropic, Dă-i lui Claude un rol",
               "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
             }
           ]
         },
         {
           "id": "few-shot-multishot",
-          "name": "Câteva lovituri / Multishot",
+          "name": "C, teva lovituri / Multishot",
           "level": 1,
-          "simple": "Afișați 2 până la 5 exemple de răspunsuri înainte de a cere cazul dvs.",
-          "whatIs": "Includeți câteva exemple de intrare→ieșire pentru ca modelul să imite modelul. „Few-shot” = câteva exemple. Este cea mai puternică pârghie pentru controlul formei, tonului și consistenței.",
-          "when": "Când formatul exact contează (JSON, tabel), tonul trebuie să fie consecvent sau sortarea este dificilă.",
-          "whenNot": "În sarcinile banale (zero-shot deja o rezolvă) sau când exemplele se înclină spre un singur model — apoi diversificați sau reduceți-l.",
+          "simple": "Afișați 2 p, nă la 5 exemple de răspunsuri înainte de a cere cazul dvs.",
+          "whatIs": "Includeți c, teva exemple de intrare→ieșire pentru ca modelul să imite modelul. „Few-shot” = c, teva exemple. Este cea mai puternică p, rghie pentru controlul formei, tonului și consistenței.",
+          "when": "C, nd formatul exact contează (JSON, tabel), tonul trebuie să fie consecvent sau sortarea este dificilă.",
+          "whenNot": "În sarcinile banale (zero-shot deja o rezolvă) sau c, nd exemplele se înclină spre un singur model, apoi diversificați sau reduceți-l.",
           "examples": [
             {
               "right": "Evaluează sentimentul. Urmează exemplele:\n„Mi-a plăcut, îl recomand!” → pozitiv\n„A venit stricat”. → negativ\n\nRecenzie: „A sosit repede, dar a fost zdrobit”. →",
               "note": "Două exemple fixează formatul de ieșire și vocabularul; includeți un caz negativ pentru a evita părtinirea."
             }
           ],
-          "why": "Few-shot provine din cercetarea GPT-3 (Brown et al., 2020): modelele învață sarcina doar din exemplele din prompt (învățare în context). Studiile arată salturi ca F1 0,51 → 0,62 atunci când se trece de la zero la 3 exemple.",
-          "tip": "3 până la 5 exemple este punctul ideal. Folosiți DIFERITE exemple (cazuri de margine de acoperire) și aveți grijă de COMANDĂ - exemplele de permutare pot schimba foarte mult precizia.",
+          "why": "Few-shot provine din cercetarea GPT-3 (Brown et al., 2020): modelele învață sarcina doar din exemplele din prompt (învățare în context). Studiile arată salturi ca F1 0,51 → 0,62 atunci c, nd se trece de la zero la 3 exemple.",
+          "tip": "3 p, nă la 5 exemple este punctul ideal. Folosiți DIFERITE exemple (cazuri de margine de acoperire) și aveți grijă de COMANDĂ - exemplele de permutare pot schimba foarte mult precizia.",
           "sources": [
             {
-              "label": "Brown şi colab. 2020 — Modelele lingvistice sunt elevi puțini",
+              "label": "Brown şi colab. 2020, Modelele lingvistice sunt elevi puțini",
               "url": "https://arxiv.org/abs/2005.14165"
             },
             {
@@ -105,21 +105,21 @@
           "name": "Structurare cu XML/delimitatori",
           "level": 1,
           "simple": "Separați instrucțiunile și datele cu „etichete”.",
-          "whatIs": "Înfășurați fiecare parte a promptului în markeri (<context>, <date>, <instructions>), astfel încât modelul să nu confunde ceea ce este ordine cu ceea ce este material de procesat.",
-          "when": "Ori de câte ori promptul combină instrucțiunile cu date - în special date lungi sau autoformatate. Este modelul recomandat pentru Claude.",
+          "whatIs": "Înfășurați fiecare parte a promptului în markeri (<context>, <date>, <instructions>), astfel înc, t modelul să nu confunde ceea ce este ordine cu ceea ce este material de procesat.",
+          "when": "Ori de c, te ori promptul combină instrucțiunile cu date - în special date lungi sau autoformatate. Este modelul recomandat pentru Claude.",
           "whenNot": "În solicitări scurte de o singură linie, fără date încorporate, nu este necesar.",
           "examples": [
             {
-              "wrong": "Rezumat: Întâlnirea de astăzi: am amânat lansarea.\nRezumați și riscurile. Buget ok.",
-              "right": "Rezumați conținutul din <text> în 3 subiecte.\n\n<text>\nÎntâlnirea de astăzi: am amânat lansarea. Buget ok.\nRiscuri: echipă redusă și termen limită strâns.\n</text>",
+              "wrong": "Rezumat: Înt, lnirea de astăzi: am am, nat lansarea.\nRezumați și riscurile. Buget ok.",
+              "right": "Rezumați conținutul din <text> în 3 subiecte.\n\n<text>\nÎnt, lnirea de astăzi: am am, nat lansarea. Buget ok.\nRiscuri: echipă redusă și termen limită str, ns.\n</text>",
               "note": "Eticheta arată clar ce este dat și ce este instrucțiune - fără ambiguitate."
             }
           ],
-          "why": "Etichetele reduc ambiguitatea dintre instrucțiuni și conținut — cea mai frecventă eroare în solicitările cu text încorporat. Modelele instruite cu date structurate (cum ar fi Claude) urmează etichetele cu acuratețe.",
-          "tip": "Utilizați nume de etichete consecvente și descriptive. Cuibări atunci când există ierarhie (mai multe <document> în cadrul <documente>).",
+          "why": "Etichetele reduc ambiguitatea dintre instrucțiuni și conținut, cea mai frecventă eroare în solicitările cu text încorporat. Modelele instruite cu date structurate (cum ar fi Claude) urmează etichetele cu acuratețe.",
+          "tip": "Utilizați nume de etichete consecvente și descriptive. Cuibări atunci c, nd există ierarhie (mai multe <document> în cadrul <documente>).",
           "sources": [
             {
-              "label": "Antropic — Folosiți etichete XML",
+              "label": "Antropic, Folosiți etichete XML",
               "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
             }
           ]
@@ -129,8 +129,8 @@
           "name": "Context + motivație",
           "level": 1,
           "simple": "Explicați motivul instrucțiunii, nu doar comanda.",
-          "whatIs": "Oferiți informații de fundal și motivul din spatele solicitării. Modelul generalizează mai bine atunci când înțelege obiectivul, nu doar regula.",
-          "when": "Ori de câte ori o regulă poate fi interpretată greșit dacă este aplicată la literă fără a înțelege scopul.",
+          "whatIs": "Oferiți informații de fundal și motivul din spatele solicitării. Modelul generalizează mai bine atunci c, nd înțelege obiectivul, nu doar regula.",
+          "when": "Ori de c, te ori o regulă poate fi interpretată greșit dacă este aplicată la literă fără a înțelege scopul.",
           "whenNot": "Rareori iese în cale - dar nu-l umfla cu context irelevant, care se transformă în zgomot și irosește atenția modelului.",
           "examples": [
             {
@@ -139,11 +139,11 @@
               "note": "Știind de ce, modelul aplică regula cu bun simț și anticipează cazuri similare."
             }
           ],
-          "why": "Atunci când modelul înțelege motivația, extinde regula la cazurile nerostite și evită aplicațiile absurde. Instruirea crudă este o regulă oarbă.",
+          "why": "Atunci c, nd modelul înțelege motivația, extinde regula la cazurile nerostite și evită aplicațiile absurde. Instruirea crudă este o regulă oarbă.",
           "tip": "O propoziție de „de ce contează asta” valorează de obicei trei propoziții de „fă-o așa”.",
           "sources": [
             {
-              "label": "Antropic — Adăugați context pentru a îmbunătăți performanța",
+              "label": "Antropic, Adăugați context pentru a îmbunătăți performanța",
               "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
             }
           ]
@@ -154,12 +154,12 @@
           "level": 1,
           "simple": "Precizați formatul EXACT al răspunsului.",
           "whatIs": "Specificați cum ar trebui să apară rezultatul: schema JSON, etichete, „doar rezultatul fără introducere”, dimensiune. Spuneți ce să faceți, nu ce să evitați.",
-          "when": "Ori de câte ori răspunsul este consumat de un sistem (parsing) sau are nevoie de un format consistent între apeluri.",
+          "when": "Ori de c, te ori răspunsul este consumat de un sistem (parsing) sau are nevoie de un format consistent între apeluri.",
           "whenNot": "Într-o conversație liberă sau exploratorie, un contract rigid poate înăbuși răspunsurile care ar beneficia de flexibilitate.",
           "examples": [
             {
               "wrong": "Dă-mi detaliile clientului, fără tam-tam",
-              "right": "Extrageți datele clienților. Răspundeți NUMAI cu acest JSON,\nfără text înainte sau după. Folosiți null pentru câmpurile lipsă:\n{\"nume\": șir, \"email\": șir|null, \"telefon\": șir|null}",
+              "right": "Extrageți datele clienților. Răspundeți NUMAI cu acest JSON,\nfără text înainte sau după. Folosiți null pentru c, mpurile lipsă:\n{\"nume\": șir, \"email\": șir|null, \"telefon\": șir|null}",
               "note": "Schema explicită + „null pentru lipsă” împiedică modelul să inventeze date."
             }
           ],
@@ -167,7 +167,7 @@
           "tip": "Pentru a forța într-adevăr JSON/structura, utilizați Structured Outputs (Claude/OpenAI) în loc să le cereți doar în text - este mult mai fiabil.",
           "sources": [
             {
-              "label": "Antropic — Format de răspuns de control",
+              "label": "Antropic, Format de răspuns de control",
               "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
             }
           ]
@@ -180,12 +180,12 @@
       "techniques": [
         {
           "id": "chain-of-thought-cot",
-          "name": "Lanțul de gândire - CoT",
+          "name": "Lanțul de g, ndire - CoT",
           "level": 2,
           "simple": "Cereți un raționament pas cu pas ÎNAINTE de răspuns.",
           "whatIs": "Rugați modelul să scrie raționamentul în etape înainte de a încheia, în loc să sară direct la răspuns. Este cea mai importantă tehnică de raționament care există.",
           "when": "Matematică, logică, decizii cu compromisuri, clasificare dificilă.",
-          "whenNot": "În modelele de raționament (seria o de la OpenAI, raționamentul GPT-5): ei deja raționează intern și solicitarea „pas cu pas” poate chiar să înrăutățească situația. În Claude, cu gândirea oprită, preferați „analiza/evaluează” — cuvântul „gândește” este sensibil.",
+          "whenNot": "În modelele de raționament (seria o de la OpenAI, raționamentul GPT-5): ei deja raționează intern și solicitarea „pas cu pas” poate chiar să înrăutățească situația. În Claude, cu g, ndirea oprită, preferați „analiza/evaluează”, cuv, ntul „g, ndește” este sensibil.",
           "examples": [
             {
               "wrong": "Un produs costă 80 R$. Cu 15% reducere și apoi 8%\ntaxa, care este prețul final? Doar răspunde la număr.",
@@ -193,11 +193,11 @@
               "note": "Afișarea fiecărei operații reduce drastic eroarea de calcul."
             }
           ],
-          "why": "Scrierea raționamentului creează „spațiu de gândire” înainte de răspuns. În lucrarea originală (Wei et al., 2022), CoT a crescut acuratețea raționamentului matematic de la ~18% la ~57% în modelele mari.",
-          "tip": "Separați raționamentul (<gândirea>) de răspunsul final (<răspunsul>) - în acest fel folosiți gândirea fără a polua rezultatul.",
+          "why": "Scrierea raționamentului creează „spațiu de g, ndire” înainte de răspuns. În lucrarea originală (Wei et al., 2022), CoT a crescut acuratețea raționamentului matematic de la ~18% la ~57% în modelele mari.",
+          "tip": "Separați raționamentul (<g, ndirea>) de răspunsul final (<răspunsul>) - în acest fel folosiți g, ndirea fără a polua rezultatul.",
           "sources": [
             {
-              "label": "Wei și colab. 2022 — Îndemnarea lanțului de gândire",
+              "label": "Wei și colab. 2022, Îndemnarea lanțului de g, ndire",
               "url": "https://arxiv.org/abs/2201.11903"
             },
             {
@@ -210,22 +210,22 @@
           "id": "zero-shot-cot",
           "name": "CoT zero-shot",
           "level": 2,
-          "simple": "Doar adăugați „gândește pas cu pas”, fără exemple.",
-          "whatIs": "Cea mai simplă versiune a CoT: atașați o propoziție de genul „Hai să gândim pas cu pas” fără a oferi exemple de raționament.",
-          "when": "Când vrei să câștigi CoT fără a configura exemple.",
-          "whenNot": "În modele de raționament (deja raționează singure). În gândirea lui Claude sem, schimbă „gândește” cu „a lua în considerare/analiza”.",
+          "simple": "Doar adăugați „g, ndește pas cu pas”, fără exemple.",
+          "whatIs": "Cea mai simplă versiune a CoT: atașați o propoziție de genul „Hai să g, ndim pas cu pas” fără a oferi exemple de raționament.",
+          "when": "C, nd vrei să c, știgi CoT fără a configura exemple.",
+          "whenNot": "În modele de raționament (deja raționează singure). În g, ndirea lui Claude sem, schimbă „g, ndește” cu „a lua în considerare/analiza”.",
           "examples": [
             {
-              "wrong": "João are de două ori vârsta Mariei. Împreună însumează 36.\nVârsta Mariei?",
-              "right": "João are de două ori vârsta Mariei. Împreună au 36 de ani.\nCâți ani are Maria? Să rezolvăm pas cu pas.",
+              "wrong": "João are de două ori v, rsta Mariei. Împreună însumează 36.\nV, rsta Mariei?",
+              "right": "João are de două ori v, rsta Mariei. Împreună au 36 de ani.\nC, ți ani are Maria? Să rezolvăm pas cu pas.",
               "note": "Fraza este suficientă pentru ca modelul să asambleze ecuațiile în loc să ghicească."
             }
           ],
-          "why": "Cercetarea lui Kojima et al. (2022) a arătat că doar „Să gândim pas cu pas” a crescut precizia în GSM8K de la 17,7% la 78,7% - fără exemple.",
+          "why": "Cercetarea lui Kojima et al. (2022) a arătat că doar „Să g, ndim pas cu pas” a crescut precizia în GSM8K de la 17,7% la 78,7% - fără exemple.",
           "tip": "Este practic gratuit. Dacă sarcina este minim analitică, merită întotdeauna testată.",
           "sources": [
             {
-              "label": "Kojima și colab. 2022 — LM-urile mari sunt raționori zero-shot",
+              "label": "Kojima și colab. 2022, LM-urile mari sunt raționori zero-shot",
               "url": "https://arxiv.org/abs/2205.11916"
             }
           ]
@@ -236,20 +236,20 @@
           "level": 2,
           "simple": "Retrageți-vă la un principiu general înainte de a rezolva cazul.",
           "whatIs": "Înainte de a aborda problema specifică, cereți modelului să precizeze conceptul sau regula generală. Apoi aplică această regulă în caz.",
-          "when": "Probleme în care aplicarea regulii corecte contează mai mult decât calculul — fizică, drept, diagnostic.",
-          "whenNot": "În sarcini directe și simple, adăugați pași fără câștig.",
+          "when": "Probleme în care aplicarea regulii corecte contează mai mult dec, t calculul, fizică, drept, diagnostic.",
+          "whenNot": "În sarcini directe și simple, adăugați pași fără c, știg.",
           "examples": [
             {
               "wrong": "Un gaz la 2 atm și 300K este încălzit la 600K la volum constant. Care este noua presiune?",
-              "right": "În primul rând, care lege a gazelor se aplică atunci când volumul este constant și temperatura se modifică? Prezentați relația.\nApoi aplicați-o în cazul: 2 atm, 300K → 600K.",
+              "right": "În primul r, nd, care lege a gazelor se aplică atunci c, nd volumul este constant și temperatura se modifică? Prezentați relația.\nApoi aplicați-o în cazul: 2 atm, 300K → 600K.",
               "note": "Ancorarea în legea corectă (Gay-Lussac) evită amestecarea formulelor."
             }
           ],
-          "why": "Revenirea la un principiu reduce erorile de premisă — modelul se rezolvă din conceptul corect, nu dintr-o asociere superficială.",
+          "why": "Revenirea la un principiu reduce erorile de premisă, modelul se rezolvă din conceptul corect, nu dintr-o asociere superficială.",
           "tip": "Combinați cu CoT: precizați principiul și apoi argumentați pas cu pas în aplicare.",
           "sources": [
             {
-              "label": "Zheng şi colab. 2023 — Fă un pas înapoi",
+              "label": "Zheng şi colab. 2023, Fă un pas înapoi",
               "url": "https://arxiv.org/abs/2310.06117"
             }
           ]
@@ -258,22 +258,22 @@
           "id": "plan-and-solve",
           "name": "Planificați și rezolvați",
           "level": 2,
-          "simple": "Planificați mai întâi, executați mai târziu.",
-          "whatIs": "O îmbunătățire a „gândiți pas cu pas”: cereți modelului să întocmească mai întâi un plan și ULTI să-l execute. Reduce eroarea de ignorare a pașilor.",
+          "simple": "Planificați mai înt, i, executați mai t, rziu.",
+          "whatIs": "O îmbunătățire a „g, ndiți pas cu pas”: cereți modelului să întocmească mai înt, i un plan și ULTI să-l execute. Reduce eroarea de ignorare a pașilor.",
           "when": "Sarcini cu mai mulți pași în care simplul „pas cu pas” uită uneori părți.",
-          "whenNot": "Sarcini într-un singur pas — planificarea devine birocrație.",
+          "whenNot": "Sarcini într-un singur pas, planificarea devine birocrație.",
           "examples": [
             {
-              "wrong": "Organizați o excursie de 3 zile la Lisabona gândind pas cu pas.",
-              "right": "Organizați o excursie de 3 zile la Lisabona.\nMai întâi întocmește un plan (dimensiuni: cazare, călătorie, atracții, buget, masă).\nApoi executați, completând fiecare dimensiune zi de zi.",
+              "wrong": "Organizați o excursie de 3 zile la Lisabona g, ndind pas cu pas.",
+              "right": "Organizați o excursie de 3 zile la Lisabona.\nMai înt, i întocmește un plan (dimensiuni: cazare, călătorie, atracții, buget, masă).\nApoi executați, complet, nd fiecare dimensiune zi de zi.",
               "note": "Listarea dimensiunilor în avans asigură acoperire - nu uitați de buget."
             }
           ],
-          "why": "Separarea planificării de execuție reduce eroarea de „a te pierde pe parcurs”. Wang şi colab. (2023) au arătat un câștig consistent față de CoT pur zero-shot.",
+          "why": "Separarea planificării de execuție reduce eroarea de „a te pierde pe parcurs”. Wang şi colab. (2023) au arătat un c, știg consistent față de CoT pur zero-shot.",
           "tip": "Cereți planul în format de listă înainte de execuție - este ușor să revizuiți și să corectați cursul.",
           "sources": [
             {
-              "label": "Wang şi colab. 2023 — Planificare și rezolvare",
+              "label": "Wang şi colab. 2023, Planificare și rezolvare",
               "url": "https://arxiv.org/abs/2305.04091"
             }
           ]
@@ -285,7 +285,7 @@
           "simple": "Rezolvați de mai multe ori și mergeți cu răspunsul majoritar.",
           "whatIs": "Rulați același prompt CoT de mai multe ori (aleatoriu) și alegeți răspunsul care apare cel mai frecvent. Cum să consultați mai mulți experți și să urmați consensul.",
           "when": "Probleme critice în care un singur raționament poate aluneca și vă puteți permite N execuții.",
-          "whenNot": "Sarcini simple sau sensibile la costuri — costă N× jetoane.",
+          "whenNot": "Sarcini simple sau sensibile la costuri, costă N× jetoane.",
           "examples": [
             {
               "right": "Rezolvați această problemă în 3 moduri independente, fiecare cu raționament complet. La final, comparați cele trei concluzii\nși răspundeți cu cantitatea în care cel puțin două sunt de acord.",
@@ -296,7 +296,7 @@
           "tip": "Chiar și într-un singur apel, cereți „3 abordări independente + vot majoritar” pentru un efect similar la un cost mai mic.",
           "sources": [
             {
-              "label": "Wang şi colab. 2022 — Autoconsistență",
+              "label": "Wang şi colab. 2022, Autoconsistență",
               "url": "https://arxiv.org/abs/2203.11171"
             }
           ]
@@ -307,8 +307,8 @@
           "level": 2,
           "simple": "Cereți modelului să își verifice propriul răspuns înainte de a trimite.",
           "whatIs": "Adăugați un pas în care modelul verifică răspunsul cu un criteriu înainte de finalizare. Ieftin și eficient.",
-          "when": "Aproape de fiecare dată când răspunsul este verificabil — cod, matematică, extracție.",
-          "whenNot": "Când nu există un criteriu de verificare obiectiv, acesta devine doar mai mult text.",
+          "when": "Aproape de fiecare dată c, nd răspunsul este verificabil, cod, matematică, extracție.",
+          "whenNot": "C, nd nu există un criteriu de verificare obiectiv, acesta devine doar mai mult text.",
           "examples": [
             {
               "wrong": "Scrieți o funcție care validează CPF.",
@@ -317,10 +317,10 @@
             }
           ],
           "why": "Forțarea verificării scoate modelul din „modul generator” și activează „modul examinator”, care vede erori pe care generatorul nu le vede.",
-          "tip": "Dați criterii de verificare explicite („test cu X, Y, Z”) — verificarea vagă nu are niciun efect benefic.",
+          "tip": "Dați criterii de verificare explicite („test cu X, Y, Z”), verificarea vagă nu are niciun efect benefic.",
           "sources": [
             {
-              "label": "Antropic — Cere-i lui Claude să se autoverifice",
+              "label": "Antropic, Cere-i lui Claude să se autoverifice",
               "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
             }
           ]
@@ -330,20 +330,20 @@
           "name": "Reflecție / Auto-Rafinare",
           "level": 3,
           "simple": "Generați, criticați-vă propriul răspuns și refaceți-l mai bine.",
-          "whatIs": "O buclă: modelul generează, își critică propriul răspuns, subliniind defecte concrete și apoi produce o versiune revizuită. Mai puternic decât autoverificarea (care este doar o verificare).",
-          "when": "Cod, scriere, raționament secvenţial — sarcini în care prima încercare are de obicei erori corectabile.",
-          "whenNot": "Când primul răspuns este deja bun și simplu, bucla adaugă doar costuri.",
+          "whatIs": "O buclă: modelul generează, își critică propriul răspuns, subliniind defecte concrete și apoi produce o versiune revizuită. Mai puternic dec, t autoverificarea (care este doar o verificare).",
+          "when": "Cod, scriere, raționament secvenţial, sarcini în care prima încercare are de obicei erori corectabile.",
+          "whenNot": "C, nd primul răspuns este deja bun și simplu, bucla adaugă doar costuri.",
           "examples": [
             {
-              "right": "1. Scrieți textul paginii de destinație.\n2. Criticați-vă propriul text: titlul rămâne? Este propunerea de valoare clară? Există un singur CTA? Enumerați fiecare eșec.\n3. Rescrie, corectând erorile evidențiate.",
+              "right": "1. Scrieți textul paginii de destinație.\n2. Criticați-vă propriul text: titlul răm, ne? Este propunerea de valoare clară? Există un singur CTA? Enumerați fiecare eșec.\n3. Rescrie, corect, nd erorile evidențiate.",
               "note": "Autocritica obligă să iasă din „modul generator” în „modul editor”."
             }
           ],
-          "why": "Shinn și colab. (2023) au arătat că ciclul de autoreflecție îmbunătățește performanța în sarcinile de decizie, codare și raționament - versiunea 2 este aproape întotdeauna mai bună decât 1.",
+          "why": "Shinn și colab. (2023) au arătat că ciclul de autoreflecție îmbunătățește performanța în sarcinile de decizie, codare și raționament - versiunea 2 este aproape întotdeauna mai bună dec, t 1.",
           "tip": "Dați criterii concrete de critică; „Îmbunătățirea” generică produce modificări cosmetice.",
           "sources": [
             {
-              "label": "Shinn și colab. 2023 — Reflecție",
+              "label": "Shinn și colab. 2023, Reflecție",
               "url": "https://arxiv.org/abs/2303.11366"
             }
           ]
@@ -360,31 +360,31 @@
           "level": 2,
           "simple": "Împărțiți-l în subprobleme de la cel mai ușor la cel mai greu.",
           "whatIs": "Descompuneți problema în subprobleme ordonate de la cel mai ușor la cel mai dificil și rezolvați-le în succesiune, unde răspunsul la una se alimentează în următorul.",
-          "when": "Raționamentul cu dependență secvențială — pasul 3 necesită rezultatul pasului 2.",
+          "when": "Raționamentul cu dependență secvențială, pasul 3 necesită rezultatul pasului 2.",
           "whenNot": "Probleme care nu se descompun în mod natural în etape dependente.",
           "examples": [
             {
-              "right": "Rezolvați în pași, de la cel mai simplu la cel mai complex:\n1. Câte articole în luna 1?\n2. Folosind rezultatul, câți în luna 2 (cu +10%)?\n3. Și în luna 3? 4. Adăugați cele trei luni.",
+              "right": "Rezolvați în pași, de la cel mai simplu la cel mai complex:\n1. C, te articole în luna 1?\n2. Folosind rezultatul, c, ți în luna 2 (cu +10%)?\n3. Și în luna 3? 4. Adăugați cele trei luni.",
               "note": "Fiecare subproblemă este banală în mod izolat; înlănțuite împreună rezolvă întregul."
             }
           ],
-          "why": "Zhou şi colab. (2022) au arătat că descompunerea de la simplu la complex ne permite să generalizăm la probleme care sunt mai dificile decât exemplele văzute - ceva ce CoT pur nu face atât de bine.",
-          "tip": "Solicitați în mod explicit rezultatul fiecărui pas înainte de a merge mai departe - astfel încât eroarea să nu se propagă în tăcere.",
+          "why": "Zhou şi colab. (2022) au arătat că descompunerea de la simplu la complex ne permite să generalizăm la probleme care sunt mai dificile dec, t exemplele văzute - ceva ce CoT pur nu face at, t de bine.",
+          "tip": "Solicitați în mod explicit rezultatul fiecărui pas înainte de a merge mai departe - astfel înc, t eroarea să nu se propagă în tăcere.",
           "sources": [
             {
-              "label": "Zhou şi colab. 2022 — De la cel mai puțin la cel mai îndemn",
+              "label": "Zhou şi colab. 2022, De la cel mai puțin la cel mai îndemn",
               "url": "https://arxiv.org/abs/2205.10625"
             }
           ]
         },
         {
           "id": "tree-of-thoughts-tot",
-          "name": "Arborele gândurilor — ToT",
+          "name": "Arborele g, ndurilor, ToT",
           "level": 3,
           "simple": "Explorează diverse căi de raționament și aruncă-le pe cele rele.",
-          "whatIs": "În loc de o singură linie, modelul explorează mai multe ramuri ale raționamentului în paralel, le evaluează pe fiecare și le abandonează pe cele care nu duc la o soluție. Ca un jucător de șah care se gândește la mișcări.",
-          "when": "Probleme cu abordări multiple plauzibile în care trebuie să comparați și să reveniți — planificare, puzzle-uri, optimizare.",
-          "whenNot": "Sarcini simple — costul jetoanelor este mult mai mare decât CoT.",
+          "whatIs": "În loc de o singură linie, modelul explorează mai multe ramuri ale raționamentului în paralel, le evaluează pe fiecare și le abandonează pe cele care nu duc la o soluție. Ca un jucător de șah care se g, ndește la mișcări.",
+          "when": "Probleme cu abordări multiple plauzibile în care trebuie să comparați și să reveniți, planificare, puzzle-uri, optimizare.",
+          "whenNot": "Sarcini simple, costul jetoanelor este mult mai mare dec, t CoT.",
           "examples": [
             {
               "right": "Rezolvă această ghicitoare. Generați 3 strategii inițiale diferite.\nPentru fiecare dintre ele, evaluați într-o singură propoziție dacă este promițătoare sau un\nfundă. Dezvoltați numai ce este mai bun; Dacă se blochează, reveniți la al doilea.",
@@ -392,10 +392,10 @@
             }
           ],
           "why": "Yao și colab. (2023) au arătat salturi uriașe în sarcinile de căutare: în Game of 24, ToT a rezolvat 74% față de 4% din CoT - pentru că poți să te întorci în loc să te căsătorești cu prima idee.",
-          "tip": "Rezervați pentru problemele în care CoT liniar eșuează. Costul merită doar atunci când există de fapt mai multe rute de explorat.",
+          "tip": "Rezervați pentru problemele în care CoT liniar eșuează. Costul merită doar atunci c, nd există de fapt mai multe rute de explorat.",
           "sources": [
             {
-              "label": "Yao și colab. 2023 — Arborele gândurilor",
+              "label": "Yao și colab. 2023, Arborele g, ndurilor",
               "url": "https://arxiv.org/abs/2305.10601"
             }
           ]
@@ -407,31 +407,31 @@
           "simple": "Modelul scrie cod; un interpret face calculele.",
           "whatIs": "În loc să calculeze mental, modelul scrie cod (de obicei Python) care reprezintă raționamentul, iar calculul este efectuat de un interpret. Elimină erorile aritmetice.",
           "when": "Matematică, logică și manipulare a datelor unde precizia numerică este critică și trebuie să executați codul.",
-          "whenNot": "Când nu există timp de execuție de executat sau sarcina nu este numerică/algoritmică.",
+          "whenNot": "C, nd nu există timp de execuție de executat sau sarcina nu este numerică/algoritmică.",
           "examples": [
             {
-              "wrong": "Care este dobânda compusă de 10.000 R$ la 1,3% pe lună timp de\n18 luni? Calculează în capul tău.",
-              "right": "Scrieți Python care calculează dobânda compusă de 10.000 R$ la \n1,3% pe lună timp de 18 luni. Nu calculați singur: generați\ncodul, care va fi executat.\n# 10000 * (1,013 ** 18)",
+              "wrong": "Care este dob, nda compusă de 10.000 R$ la 1,3% pe lună timp de\n18 luni? Calculează în capul tău.",
+              "right": "Scrieți Python care calculează dob, nda compusă de 10.000 R$ la \n1,3% pe lună timp de 18 luni. Nu calculați singur: generați\ncodul, care va fi executat.\n# 10000 * (1,013 ** 18)",
               "note": "Delegarea calculului către Python (care nu face niciodată greșeli aritmetice) elimină eroarea din model."
             }
           ],
           "why": "Gao şi colab. (2022) au arătat că transferul calculului către un interpret depășește CoT în reperele matematice - modelul trebuie doar să traducă problema în cod, ceea ce face bine.",
-          "tip": "Solicitați codul separat de explicație, astfel încât să îl puteți rula direct fără analizare.",
+          "tip": "Solicitați codul separat de explicație, astfel înc, t să îl puteți rula direct fără analizare.",
           "sources": [
             {
-              "label": "Gao şi colab. 2022 — PAL: Modele de limbaj asistate de programe",
+              "label": "Gao şi colab. 2022, PAL: Modele de limbaj asistate de programe",
               "url": "https://arxiv.org/abs/2211.10435"
             }
           ]
         },
         {
           "id": "decomposed-prompting-decomp-e-skeleton-of-thought",
-          "name": "Îndemnarea descompusă (DECOMP) și scheletul gândirii",
+          "name": "Îndemnarea descompusă (DECOMP) și scheletul g, ndirii",
           "level": 3,
           "simple": "Împărțiți sarcina în sub-sarcini; sau schițați înainte de detaliere.",
-          "whatIs": "DECOMP defalcă sarcina și delegă fiecare subsarcină unui „handler” specializat (alt apel sau instrument). Scheletul Gândirii generează mai întâi scheletul răspunsului (subiectele) și apoi se extinde pe fiecare punct.",
+          "whatIs": "DECOMP defalcă sarcina și delegă fiecare subsarcină unui „handler” specializat (alt apel sau instrument). Scheletul G, ndirii generează mai înt, i scheletul răspunsului (subiectele) și apoi se extinde pe fiecare punct.",
           "when": "DECOMP în conducte modulare; Scheletul în răspunsuri lungi unde menținerea acoperirii și structurii contează.",
-          "whenNot": "Răspunsuri scurte și directe — structura suplimentară nu adaugă nimic.",
+          "whenNot": "Răspunsuri scurte și directe, structura suplimentară nu adaugă nimic.",
           "examples": [
             {
               "right": "Scrieți un raport despre cafeaua de specialitate în doi pași.\nPasul 1 (schelet): enumerați doar titlurile celor 6 secțiuni.\nPasul 2 (extindere): dezvoltați fiecare secțiune în 1 paragraf.",
@@ -442,11 +442,11 @@
           "tip": "În Skeleton, revizuiți și ajustați scheletul înainte de a-l extinde - fixarea structurii este ieftină; Rescrierea întregului conținut este costisitoare.",
           "sources": [
             {
-              "label": "Khot și colab. 2022 — Prompting descompus",
+              "label": "Khot și colab. 2022, Prompting descompus",
               "url": "https://arxiv.org/abs/2210.02406"
             },
             {
-              "label": "Ning și colab. 2023 — Scheletul-Gândirii",
+              "label": "Ning și colab. 2023, Scheletul-G, ndirii",
               "url": "https://arxiv.org/abs/2307.15337"
             }
           ]
@@ -463,8 +463,8 @@
           "level": 2,
           "simple": "Modelul îți reformulează întrebarea înainte de a-i răspunde.",
           "whatIs": "Instruiți modelul să rescrie întrebarea cu propriile cuvinte înainte de a răspunde. Acest lucru clarifică intenția și expune ambiguitățile.",
-          "when": "Întrebări vagi, ambigue sau prost formulate; atunci când doriți să vă asigurați că modelul înțelege.",
-          "whenNot": "Întrebări care sunt deja clare și directe — reformularea adaugă doar text.",
+          "when": "Întrebări vagi, ambigue sau prost formulate; atunci c, nd doriți să vă asigurați că modelul înțelege.",
+          "whenNot": "Întrebări care sunt deja clare și directe, reformularea adaugă doar text.",
           "examples": [
             {
               "wrong": "Banca este închisă?",
@@ -476,7 +476,7 @@
           "tip": "Combinați cu CoT: reformulați, apoi raționați. Claritatea reformulării îmbunătățește raționamentul ulterior.",
           "sources": [
             {
-              "label": "Deng şi colab. 2023 — Reformulați și răspundeți",
+              "label": "Deng şi colab. 2023, Reformulați și răspundeți",
               "url": "https://arxiv.org/abs/2311.04205"
             }
           ]
@@ -486,20 +486,20 @@
           "name": "Recitire (RE2)",
           "level": 2,
           "simple": "Cereți modelului să recitească întrebarea înainte de a răspunde.",
-          "whatIs": "Pur și simplu instruiți modelul să recitească declarația, repetând introducerea. Ieftin, îmbunătățește înțelegerea întrebărilor complexe.",
+          "whatIs": "Pur și simplu instruiți modelul să recitească declarația, repet, nd introducerea. Ieftin, îmbunătățește înțelegerea întrebărilor complexe.",
           "when": "Declarații lungi sau declarații cu multe condiții, în care detaliile sunt ușor de sărit.",
           "whenNot": "Întrebări scurte și simple.",
           "examples": [
             {
-              "right": "Citiți întrebarea de mai jos. Apoi citiți-l din nou, acordând atenție fiecărei afecțiuni. Abia apoi răspunde.\nÎntrebare: [afirmație lungă cu mai multe restricții]",
+              "right": "Citiți întrebarea de mai jos. Apoi citiți-l din nou, acord, nd atenție fiecărei afecțiuni. Abia apoi răspunde.\nÎntrebare: [afirmație lungă cu mai multe restricții]",
               "note": "Recitirea face ca modelul să observe condițiile pe care o singură lectură le depășește."
             }
           ],
           "why": "Xu și colab. (2023) au arătat că doar recitirea afirmației îmbunătățește raționamentul - modelul acordă atenție condițiilor (de exemplu, „cu excepția zilei de marți”) pe care le-ar sări peste o singură lectură.",
-          "tip": "Truc cu cost aproape zero; Merită să stivuiți cu CoT în probleme cu multe constrângeri.",
+          "tip": "Truc cu cost aproape zero; Merită să stivuiți cu CoT în probleme cu multe constr, ngeri.",
           "sources": [
             {
-              "label": "Xu și colab. 2023 — Recitirea îmbunătățește raționamentul",
+              "label": "Xu și colab. 2023, Recitirea îmbunătățește raționamentul",
               "url": "https://arxiv.org/abs/2309.06275"
             }
           ]
@@ -510,7 +510,7 @@
           "level": 2,
           "simple": "Modelul își pune subîntrebări înainte de răspunsul final.",
           "whatIs": "Modelul decide dacă are nevoie de subîntrebări suplimentare, răspunde la fiecare și apoi compune răspunsul final. Ideal pentru întrebări care necesită unirea mai multor fapte (multi-hop).",
-          "when": "Întrebări care depind de fapte intermediare („Cine a regizat filmul care a câștigat Oscarul în anul în care sa născut X?”).",
+          "when": "Întrebări care depind de fapte intermediare („Cine a regizat filmul care a c, știgat Oscarul în anul în care sa născut X?”).",
           "whenNot": "Întrebări cu un singur fapt - nu există nimic de descompus.",
           "examples": [
             {
@@ -518,11 +518,11 @@
               "note": "Împărțirea lui în „cine l-a creat → de unde este → așteptări acolo” evită sărirea peste un link și halucinarea."
             }
           ],
-          "why": "Press și colab. (2022) au arătat că explicitatea subîntrebărilor reduce „decalajul de compoziționalitate” - modelul face mai puține greșeli atunci când răspunde la fiecare link separat.",
+          "why": "Press și colab. (2022) au arătat că explicitatea subîntrebărilor reduce „decalajul de compoziționalitate” - modelul face mai puține greșeli atunci c, nd răspunde la fiecare link separat.",
           "tip": "Funcționează și mai bine cu accesul la căutare: fiecare subîntrebare devine o interogare.",
           "sources": [
             {
-              "label": "Press și colab. 2022 — Măsurarea și reducerea decalajului de compoziționalitate",
+              "label": "Press și colab. 2022, Măsurarea și reducerea decalajului de compoziționalitate",
               "url": "https://arxiv.org/abs/2210.03350"
             }
           ]
@@ -532,21 +532,21 @@
           "name": "Atenție Sistemul 2 (S2A)",
           "level": 3,
           "simple": "Eliminați zgomotul de context înainte de a răspunde.",
-          "whatIs": "Mai întâi, modelul rescrie contextul eliminând informațiile irelevante sau care distrag atenția și abia apoi răspunde despre contextul curățat. Reduce efectul zgomotului și al opiniilor plantate.",
+          "whatIs": "Mai înt, i, modelul rescrie contextul elimin, nd informațiile irelevante sau care distrag atenția și abia apoi răspunde despre contextul curățat. Reduce efectul zgomotului și al opiniilor plantate.",
           "when": "Intrări cu mult zgomot, opinie încorporată sau informații contradictorii.",
           "whenNot": "Intrări deja curate și obiective.",
           "examples": [
             {
               "wrong": "Cred că este 50. Ce înseamnă 17×4? Vărul meu a spus 70.",
-              "right": "Mai întâi rescrieți întrebarea, eliminând opiniile și presupunerile.\nApoi rezolvați versiunea curată.\n\"Cred că este 50... ce înseamnă 17×4? Vărul meu a spus 70.\"",
-              "note": "Când clarifică pentru „Cât costă 17x4?”, modelul răspunde la 68 fără a fi tras în presupuneri greșite."
+              "right": "Mai înt, i rescrieți întrebarea, elimin, nd opiniile și presupunerile.\nApoi rezolvați versiunea curată.\n\"Cred că este 50... ce înseamnă 17×4? Vărul meu a spus 70.\"",
+              "note": "C, nd clarifică pentru „C, t costă 17x4?”, modelul răspunde la 68 fără a fi tras în presupuneri greșite."
             }
           ],
           "why": "Weston & Sukhbaatar (2023) au arătat că LLM-urile sunt influențate de informații irelevante pentru context; filtrarea zgomotului înainte de raționament îmbunătățește robustețea și realitatea.",
           "tip": "Util și ca apărare: opiniile plantate și încercările de manipulare sunt eliminate în etapa de curățare.",
           "sources": [
             {
-              "label": "Weston & Sukhbaatar 2023 — Sistemul 2 Atenție",
+              "label": "Weston & Sukhbaatar 2023, Sistemul 2 Atenție",
               "url": "https://arxiv.org/abs/2311.11829"
             }
           ]
@@ -556,8 +556,8 @@
           "name": "CoT analogic și contrastant",
           "level": 3,
           "simple": "Modelul generează exemple analoge; sau invata din bine SI din gresit.",
-          "whatIs": "Analogic face ca modelul să genereze propriile exemple analoge cu problema înainte de rezolvare (auto-few-shot). CoT contrastant oferă demonstrații ale raționamentului corect ȘI greșit, astfel încât modelul învață ce să evite.",
-          "when": "Analogic: când nu ai exemple pregătite. Contrastiv: când există o eroare recurentă în raționament pentru a preveni.",
+          "whatIs": "Analogic face ca modelul să genereze propriile exemple analoge cu problema înainte de rezolvare (auto-few-shot). CoT contrastant oferă demonstrații ale raționamentului corect ȘI greșit, astfel înc, t modelul învață ce să evite.",
+          "when": "Analogic: c, nd nu ai exemple pregătite. Contrastiv: c, nd există o eroare recurentă în raționament pentru a preveni.",
           "whenNot": "Sarcini banale - generarea de analogi sau contraste este peste cap.",
           "examples": [
             {
@@ -566,29 +566,29 @@
             }
           ],
           "why": "Yasunaga și colab. (2023) au arătat că generarea de analogi corespunzătoare depășește performanța fixed few-shot; Chia și colab. (2023) au arătat că demonstrațiile negative (corect + greșit) reduc erorile de raționament.",
-          "tip": "În Contrastive, afișați eroarea EXACT pe care doriți să o evitați - cu cât este mai specifică, cu atât mai eficientă.",
+          "tip": "În Contrastive, afișați eroarea EXACT pe care doriți să o evitați - cu c, t este mai specifică, cu at, t mai eficientă.",
           "sources": [
             {
-              "label": "Yasunaga și colab. 2023 — Prompting analogic",
+              "label": "Yasunaga și colab. 2023, Prompting analogic",
               "url": "https://arxiv.org/abs/2310.01714"
             },
             {
-              "label": "Chia și colab. 2023 — CoT contrastant",
+              "label": "Chia și colab. 2023, CoT contrastant",
               "url": "https://arxiv.org/abs/2311.09277"
             }
           ]
         },
         {
           "id": "thread-of-thought-e-maieutic",
-          "name": "Firul-Gândirii și Maieutică",
+          "name": "Firul-G, ndirii și Maieutică",
           "level": 3,
           "simple": "CoT pentru context lung; sau arborele explicațiilor logice.",
           "whatIs": "Thread-of-Thought (ThoT) este un CoT adaptat la contexte lungi și haotice („parse into handleable chunks”). Îndemnul maieutic generează un arbore de explicații recursive și rezolvă contradicțiile în mod logic.",
           "when": "ThoT: Documente/istorii lungi și dezordonate. Maieutic: raționament logic extrem de critic.",
-          "whenNot": "Maieutica este scumpă; rezervă pentru când consecvența logică este esențială.",
+          "whenNot": "Maieutica este scumpă; rezervă pentru c, nd consecvența logică este esențială.",
           "examples": [
             {
-              "right": "Parcurgeți acest lung istoric de chat în bucăți ușor de gestionat.\nRezumați fiecare parte relevantă pe măsură ce treceți și, la sfârșit,\nrăspundeți cine a promis raportul și când.",
+              "right": "Parcurgeți acest lung istoric de chat în bucăți ușor de gestionat.\nRezumați fiecare parte relevantă pe măsură ce treceți și, la sf, rșit,\nrăspundeți cine a promis raportul și c, nd.",
               "note": "Săriți înainte în blocuri cu rezumate menține firul pe intrări uriașe."
             }
           ],
@@ -596,11 +596,11 @@
           "tip": "Pentru contexte foarte lungi, combinați ThoT cu extragerea citatelor înainte de a răspunde.",
           "sources": [
             {
-              "label": "Zhou şi colab. 2023 — Firul Gândului",
+              "label": "Zhou şi colab. 2023, Firul G, ndului",
               "url": "https://arxiv.org/abs/2311.08734"
             },
             {
-              "label": "Jung et al. 2022 — Prompting maieutic",
+              "label": "Jung et al. 2022, Prompting maieutic",
               "url": "https://arxiv.org/abs/2205.11822"
             }
           ]
@@ -616,7 +616,7 @@
           "name": "Auto-consecvență, auto-consecvență universală și DIVERS",
           "level": 3,
           "simple": "Mostre multiple, agregate după majoritate sau consistență.",
-          "whatIs": "Self-Consistency votează răspunsul majoritar dintre N căi CoT. Universal Self-Consistency (USC) face același lucru atunci când răspunsul este text liber (modelul alege cel mai consistent). DiVeRSe merge mai departe: diverse solicitări × căi multiple + punctaj.",
+          "whatIs": "Self-Consistency votează răspunsul majoritar dintre N căi CoT. Universal Self-Consistency (USC) face același lucru atunci c, nd răspunsul este text liber (modelul alege cel mai consistent). DiVeRSe merge mai departe: diverse solicitări × căi multiple + punctaj.",
           "when": "Criticitate ridicată. USC pentru răspunsuri textuale; DiVerSe pentru o acoperire maximă.",
           "whenNot": "Sarcini simple sau sensibile la costuri - toate acestea costă N× jetoane.",
           "examples": [
@@ -625,15 +625,15 @@
               "note": "Punctele care apar în mai multe generații sunt de încredere; singurele sunt de obicei zgomotul sau halucinațiile."
             }
           ],
-          "why": "Consensul dintre probele independente filtrează halucinațiile și alunecările aleatorii. USC (Chen et al., 2023) extinde câștigul de auto-consistență la textul liber, unde nu este posibil să „votezi” exact.",
-          "tip": "Utilizați modelul în sine ca judecător pentru a alege răspunsul cel mai consistent atunci când nu este posibil un vot exact.",
+          "why": "Consensul dintre probele independente filtrează halucinațiile și alunecările aleatorii. USC (Chen et al., 2023) extinde c, știgul de auto-consistență la textul liber, unde nu este posibil să „votezi” exact.",
+          "tip": "Utilizați modelul în sine ca judecător pentru a alege răspunsul cel mai consistent atunci c, nd nu este posibil un vot exact.",
           "sources": [
             {
-              "label": "Wang şi colab. 2022 — Autoconsistență",
+              "label": "Wang şi colab. 2022, Autoconsistență",
               "url": "https://arxiv.org/abs/2203.11171"
             },
             {
-              "label": "Chen şi colab. 2023 — Autoconsistență universală",
+              "label": "Chen şi colab. 2023, Autoconsistență universală",
               "url": "https://arxiv.org/abs/2311.17311"
             }
           ]
@@ -643,8 +643,8 @@
           "name": "Parafrazare/Ansamblu prompt",
           "level": 3,
           "simple": "Întrebați în moduri diferite și agregați răspunsurile.",
-          "whatIs": "Reformulați aceeași cerere în mai multe moduri, rotiți-le pe toate și agregați. Reduce sensibilitatea rezultatului la formularea specifică — modelele răspund uneori diferit doar din cauza modului în care ați întrebat.",
-          "when": "Când bănuiești că rezultatul depinde prea mult de modul în care este scrisă întrebarea.",
+          "whatIs": "Reformulați aceeași cerere în mai multe moduri, rotiți-le pe toate și agregați. Reduce sensibilitatea rezultatului la formularea specifică, modelele răspund uneori diferit doar din cauza modului în care ați întrebat.",
+          "when": "C, nd bănuiești că rezultatul depinde prea mult de modul în care este scrisă întrebarea.",
           "whenNot": "Sarcini stabile și bine definite, unde formularea nu schimbă rezultatul.",
           "examples": [
             {
@@ -653,7 +653,7 @@
             }
           ],
           "why": "LLM-urile sunt sensibile la frazare: aceeași întrebare reformulată poate schimba acuratețea. Adăugarea de parafraze reduce această variație și expune răspunsuri fragile.",
-          "tip": "Dacă parafrazele diferă mult, problema constă de obicei în ambiguitatea întrebării - merită mai întâi clarificată.",
+          "tip": "Dacă parafrazele diferă mult, problema constă de obicei în ambiguitatea întrebării - merită mai înt, i clarificată.",
           "sources": [
             {
               "label": "Raportul prompt (arXiv:2406.06608)",
@@ -682,10 +682,10 @@
             }
           ],
           "why": "Dhuliawala și colab. (2023) au arătat că verificarea fiecărui fapt izolat, fără contextul răspunsului inițial, reduce semnificativ rata halucinațiilor faptice.",
-          "tip": "Efectuați verificarea într-un pas separat (sau apel separat), astfel încât modelul să nu fie contaminat cu răspunsul inițial.",
+          "tip": "Efectuați verificarea într-un pas separat (sau apel separat), astfel înc, t modelul să nu fie contaminat cu răspunsul inițial.",
           "sources": [
             {
-              "label": "Dhuliawala și colab. 2023 — Lanț de verificare",
+              "label": "Dhuliawala și colab. 2023, Lanț de verificare",
               "url": "https://arxiv.org/abs/2309.11495"
             }
           ]
@@ -697,22 +697,22 @@
           "simple": "Verificați candidații, estimați încrederea, reconstruiți problema.",
           "whatIs": "Autoverificarea generează mai multe soluții și le verifică pe fiecare prin reconstruirea problemei. Autocalibrarea cere modelului să estimeze încrederea în propriul răspuns. Reversing CoT (RCoT) reconstruiește enunțul din răspuns pentru a detecta inconsecvența.",
           "when": "Autocalibrarea este cea mai practică: utilizați pentru rutare (încredere scăzută → revizuire sau escaladare la om).",
-          "whenNot": "Când nu acționați în baza încrederii/verificării, devine pur și simplu peste cap.",
+          "whenNot": "C, nd nu acționați în baza încrederii/verificării, devine pur și simplu peste cap.",
           "examples": [
             {
               "right": "Răspundeți la întrebare și, la final, oferiți un nivel de încredere\nde la 0 la 100% cu o justificare pe o singură linie. Dacă\nîncrederea este sub 70%, enumerați ceea ce lipsește pentru a\nfie sigur.",
               "note": "Un răspuns cu 95% și altul cu 40% merită un tratament diferit."
             }
           ],
-          "why": "A face încrederea explicită vă permite să direcționați deciziile (Kadavath și colab., 2022, a arătat că modelele au o calibrare rezonabilă atunci când sunt solicitate direct). RCoT detectează când răspunsul nu „conformă” declarației.",
+          "why": "A face încrederea explicită vă permite să direcționați deciziile (Kadavath și colab., 2022, a arătat că modelele au o calibrare rezonabilă atunci c, nd sunt solicitate direct). RCoT detectează c, nd răspunsul nu „conformă” declarației.",
           "tip": "Utilizați încrederea ca declanșator de automatizare: <70% → a doua opinie sau recenzie umană.",
           "sources": [
             {
-              "label": "Kadavath şi colab. 2022 — Modelele lingvistice (în mare parte) știu ce știu",
+              "label": "Kadavath şi colab. 2022, Modelele lingvistice (în mare parte) știu ce știu",
               "url": "https://arxiv.org/abs/2207.05221"
             },
             {
-              "label": "Weng şi colab. 2022 — Autoverificare",
+              "label": "Weng şi colab. 2022, Autoverificare",
               "url": "https://arxiv.org/abs/2212.09561"
             }
           ]
@@ -725,24 +725,24 @@
       "techniques": [
         {
           "id": "rag-retrieval-augmented-generation",
-          "name": "RAG — Retrieval-Augmented Generation",
+          "name": "RAG, Retrieval-Augmented Generation",
           "level": 2,
           "simple": "Căutați date reale și răspundeți pe baza acestora.",
-          "whatIs": "Înainte de a răspunde, căutați informații relevante într-o sursă externă (documente, bază de cunoștințe) și injectați-o în prompt, astfel încât modelul să răspundă pe baza acesteia și nu pe ceea ce „își amintește”. Cea mai folosită tehnică în producție.",
+          "whatIs": "Înainte de a răspunde, căutați informații relevante într-o sursă externă (documente, bază de cunoștințe) și injectați-o în prompt, astfel înc, t modelul să răspundă pe baza acesteia și nu pe ceea ce „își amintește”. Cea mai folosită tehnică în producție.",
           "when": "Întrebări despre date private, curente sau specifice pe care modelul nu le are în curs de formare (manuale, politici, documente ale companiei).",
-          "whenNot": "Cunoștințe generale că modelul domină deja — RAG adaugă doar latență.",
+          "whenNot": "Cunoștințe generale că modelul domină deja, RAG adaugă doar latență.",
           "examples": [
             {
               "wrong": "Care este politica de rambursare a companiei noastre?",
-              "right": "Răspunde folosind NUMAI conținutul din <politică>. Dacă nu este\nacolo, spuneți „nu este în document” – nu inventați niciodată.\nCitați fragmentul care îl susține.\n<policy>[text preluat]</politica>\nÎntrebare: Care este politica de rambursare?",
+              "right": "Răspunde folosind NUMAI conținutul din <politică>. Dacă nu este\nacolo, spuneți „nu este în document”, nu inventați niciodată.\nCitați fragmentul care îl susține.\n<policy>[text preluat]</politica>\nÎntrebare: Care este politica de rambursare?",
               "note": "Restricționați la documentare + solicitați citare ancorează răspunsul în adevărul companiei."
             }
           ],
           "why": "Lewis şi colab. (2020) au introdus RAG pentru a combina memoria parametrică (modelul) cu memoria neparametrică (baza) - reduce halucinațiile și permite răspunsuri actualizabile fără re-antrenare.",
-          "tip": "Explicit „nu apare” este ceea ce împiedică invenția atunci când informația lipsește. Includeți întotdeauna această instrucțiune.",
+          "tip": "Explicit „nu apare” este ceea ce împiedică invenția atunci c, nd informația lipsește. Includeți întotdeauna această instrucțiune.",
           "sources": [
             {
-              "label": "Lewis şi colab. 2020 — Recuperare-Augmented Generation",
+              "label": "Lewis şi colab. 2020, Recuperare-Augmented Generation",
               "url": "https://arxiv.org/abs/2005.11401"
             }
           ]
@@ -752,20 +752,20 @@
           "name": "Cunoștințe generate",
           "level": 2,
           "simple": "Modelul generează cunoștințe relevante înainte de a răspunde.",
-          "whatIs": "Cereți modelului să genereze cunoștințe relevante despre subiect ÎNAINTE de a răspunde și utilizați aceste cunoștințe ca bază. O alternativă ieftină la RAG atunci când nu există o sursă externă.",
+          "whatIs": "Cereți modelului să genereze cunoștințe relevante despre subiect ÎNAINTE de a răspunde și utilizați aceste cunoștințe ca bază. O alternativă ieftină la RAG atunci c, nd nu există o sursă externă.",
           "when": "Întrebări de bun simț sau de cunoștințe generale în care activarea contextului potrivit vă ajută - și nu aveți o bază pe care să o căutați.",
-          "whenNot": "Când aveți nevoie de fapte verificabile și specifice, atunci utilizați RAG, nu cunoștințele generate (care pot halucinate).",
+          "whenNot": "C, nd aveți nevoie de fapte verificabile și specifice, atunci utilizați RAG, nu cunoștințele generate (care pot halucinate).",
           "examples": [
             {
               "right": "Înainte de a răspunde dacă o mașină electrică este viabilă pentru livrările urbane, enumerați 5 fapte relevante despre autonomie, reîncărcare, cost pe km și infrastructură. Apoi, pe baza acestor fapte, dați recomandarea.",
-              "note": "Generarea faptelor forțează mai întâi raționamentul pe o bază explicită."
+              "note": "Generarea faptelor forțează mai înt, i raționamentul pe o bază explicită."
             }
           ],
           "why": "Liu și colab. (2022) au arătat că generarea de cunoștințe și apoi utilizarea lor îmbunătățește raționamentul de bun simț - răspunsul devine mai fundamentat și mai puțin generic.",
           "tip": "Diferit de RAG: aici cunoștințele sunt generate de model (se poate face greșeli). Pentru fapte critice, preferă să cauți efectiv.",
           "sources": [
             {
-              "label": "Liu și colab. 2022 — Generarea de cunoștințe prompte",
+              "label": "Liu și colab. 2022, Generarea de cunoștințe prompte",
               "url": "https://arxiv.org/abs/2110.08387"
             }
           ]
@@ -775,20 +775,20 @@
           "name": "Întemeierea prin ghilimele și efectul „Pierdut în mijloc”.",
           "level": 2,
           "simple": "Extrage citate relevante înainte de a răspunde; și pune punctele importante la capete.",
-          "whatIs": "În sarcinile despre documente lungi, cereți modelului să extragă mai întâi citatele relevante și abia apoi să execute sarcina. Și poziționați informațiile cheie la început sau la sfârșit - niciodată la mijloc.",
+          "whatIs": "În sarcinile despre documente lungi, cereți modelului să extragă mai înt, i citatele relevante și abia apoi să execute sarcina. Și poziționați informațiile cheie la început sau la sf, rșit - niciodată la mijloc.",
           "when": "Orice analiză de document lungă (20.000 + jetoane).",
           "whenNot": "Texte scurte în care totul se potrivește în atenția modelului.",
           "examples": [
             {
-              "right": "<document>[long text at TOP]</document>\nMai întâi extrageți extrasele relevante la\nîntrebarea din <ghilimele>. Apoi, pe baza DOAR pe aceste citate, răspundeți.\nÎntrebare: [goes to the END]",
-              "note": "Extragerea citatelor reduce zgomotul; datele din partea de sus + întrebarea de la sfârșit pot îmbunătăți calitatea cu până la 30%."
+              "right": "<document>[long text at TOP]</document>\nMai înt, i extrageți extrasele relevante la\nîntrebarea din <ghilimele>. Apoi, pe baza DOAR pe aceste citate, răspundeți.\nÎntrebare: [goes to the END]",
+              "note": "Extragerea citatelor reduce zgomotul; datele din partea de sus + întrebarea de la sf, rșit pot îmbunătăți calitatea cu p, nă la 30%."
             }
           ],
-          "why": "Cercetarea „Lost in the Middle” (Liu și colab., 2023, Stanford) a arătat că performanța scade atunci când informațiile relevante se află în MIJLOCUL contextelor lungi - modelele funcționează mai bine cu informațiile cheie la început sau la sfârșit.",
-          "tip": "Poziționați ceea ce contează la marginile contextului și cereți mai întâi citări - două apărări ieftine împotriva efectului mediului.",
+          "why": "Cercetarea „Lost in the Middle” (Liu și colab., 2023, Stanford) a arătat că performanța scade atunci c, nd informațiile relevante se află în MIJLOCUL contextelor lungi - modelele funcționează mai bine cu informațiile cheie la început sau la sf, rșit.",
+          "tip": "Poziționați ceea ce contează la marginile contextului și cereți mai înt, i citări - două apărări ieftine împotriva efectului mediului.",
           "sources": [
             {
-              "label": "Liu și colab. 2023 — Pierdut în mijloc",
+              "label": "Liu și colab. 2023, Pierdut în mijloc",
               "url": "https://arxiv.org/abs/2307.03172"
             }
           ]
@@ -804,20 +804,20 @@
           "name": "ReAct (Motiv + Act)",
           "level": 3,
           "simple": "Raționament alternativ și acțiune (utilizarea instrumentelor).",
-          "whatIs": "Modelul care conduce fiecare agent AI. Modelul alternează între raționament (ce trebuie să fac acum?) și acțiune (folosind un instrument: căutare, citire fișier, apelare API), observând rezultatul înainte de pasul următor.",
-          "when": "Ori de câte ori modelul are nevoie de informații externe sau pentru a efectua acțiuni — căutări, cod, automatizare.",
+          "whatIs": "Modelul care conduce fiecare agent AI. Modelul alternează între raționament (ce trebuie să fac acum?) și acțiune (folosind un instrument: căutare, citire fișier, apelare API), observ, nd rezultatul înainte de pasul următor.",
+          "when": "Ori de c, te ori modelul are nevoie de informații externe sau pentru a efectua acțiuni, căutări, cod, automatizare.",
           "whenNot": "Sarcini pe care modelul le rezolvă singur cu ceea ce știe deja - instrumentele de acolo adaugă doar latență.",
           "examples": [
             {
-              "right": "Ai un instrument de căutare. Pentru a răspunde:\n1. Gândiți-vă: de ce informații am nevoie și de unde să le obțin.\n2. Luați măsuri: utilizați căutarea pentru a obține date reale.\n3. Observați rezultatul; dacă este suficient, răspunde; altfel repeta.",
-              "note": "Ciclul gândire→acționare→observare conectează modelul la realitate în loc să inventeze."
+              "right": "Ai un instrument de căutare. Pentru a răspunde:\n1. G, ndiți-vă: de ce informații am nevoie și de unde să le obțin.\n2. Luați măsuri: utilizați căutarea pentru a obține date reale.\n3. Observați rezultatul; dacă este suficient, răspunde; altfel repeta.",
+              "note": "Ciclul g, ndire→acționare→observare conectează modelul la realitate în loc să inventeze."
             }
           ],
-          "why": "Yao și colab. (2023) au arătat că intercalarea raționamentului și acțiunilor depășește atât CoT pur (care nu acționează), cât și acționarea fără raționament - și reduce halucinația prin ancorarea în observații reale.",
-          "tip": "Descrieți când să utilizați fiecare instrument. În modelele moderne, evitați limbajul agresiv (\"TREBUIE\") - provoacă utilizarea excesivă a instrumentelor.",
+          "why": "Yao și colab. (2023) au arătat că intercalarea raționamentului și acțiunilor depășește at, t CoT pur (care nu acționează), c, t și acționarea fără raționament - și reduce halucinația prin ancorarea în observații reale.",
+          "tip": "Descrieți c, nd să utilizați fiecare instrument. În modelele moderne, evitați limbajul agresiv (\"TREBUIE\") - provoacă utilizarea excesivă a instrumentelor.",
           "sources": [
             {
-              "label": "Yao și colab. 2023 — ReAct",
+              "label": "Yao și colab. 2023, ReAct",
               "url": "https://arxiv.org/abs/2210.03629"
             }
           ]
@@ -827,20 +827,20 @@
           "name": "Ingineria contextului",
           "level": 3,
           "simple": "Gestionați TOT fluxul de context al agentului, nu doar promptul.",
-          "whatIs": "Disciplina este mai mare decât inginerie promptă. În timp ce PE optimizează o instrucțiune, ingineria contextului gestionează întregul flux de informații către model în timp - instrucțiuni de sistem, instrumente, istoric, date.",
-          "when": "Când „promptul” este de fapt un sistem agentic cu mai multe rânduri, nu un singur shot.",
-          "whenNot": "Interacțiuni simple cu o singură întrebare — tot ce este nevoie este un prompt bun.",
+          "whatIs": "Disciplina este mai mare dec, t inginerie promptă. În timp ce PE optimizează o instrucțiune, ingineria contextului gestionează întregul flux de informații către model în timp - instrucțiuni de sistem, instrumente, istoric, date.",
+          "when": "C, nd „promptul” este de fapt un sistem agentic cu mai multe r, nduri, nu un singur shot.",
+          "whenNot": "Interacțiuni simple cu o singură întrebare, tot ce este nevoie este un prompt bun.",
           "examples": [
             {
               "right": "Principii: contextul este o resursă finită (există „putrecerea contextului”).\nUtilizați cel mai mic set de jetoane cu semnal ridicat. Pentru sarcini lungi\n: compactare (rezumat istoric), luare de note (note\nîn afara contextului) și sub-agenți (context curat).",
               "note": "Majoritatea eșecurilor de agent nu sunt eșecuri de model, sunt eșecuri de context."
             }
           ],
-          "why": "Capacitatea de a-ți aminti se degradează pe măsură ce contextul crește („putrezirea contextului”). Curatarea contextului la fiecare pas — prea puține informații → halucinații, prea multe informații → debordare, informații conflictuale → confuzie — este ceea ce menține agentul coerent.",
-          "tip": "Încărcați la cerere (just-in-time): în loc să preîncărcați totul, oferiți agentului dvs. instrumentele pentru a obține ceea ce are nevoie atunci când are nevoie.",
+          "why": "Capacitatea de a-ți aminti se degradează pe măsură ce contextul crește („putrezirea contextului”). Curatarea contextului la fiecare pas, prea puține informații → halucinații, prea multe informații → debordare, informații conflictuale → confuzie, este ceea ce menține agentul coerent.",
+          "tip": "Încărcați la cerere (just-in-time): în loc să preîncărcați totul, oferiți agentului dvs. instrumentele pentru a obține ceea ce are nevoie atunci c, nd are nevoie.",
           "sources": [
             {
-              "label": "Antropic — Inginerie eficientă a contextului pentru agenții AI",
+              "label": "Antropic, Inginerie eficientă a contextului pentru agenții AI",
               "url": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents"
             }
           ]
@@ -856,18 +856,18 @@
           "name": "Meta-prompting",
           "level": 2,
           "simple": "Utilizați șablonul pentru a scrie și îmbunătăți solicitările.",
-          "whatIs": "Utilizați șablonul în sine pentru a genera sau îmbunătăți solicitările. Asta fac instrumente precum „Prompt Improver” de la Anthropic — șablonul aplică automat tehnicile din acest ghid pentru schița dvs.",
-          "when": "Când aveți un prompt prompt și doriți să o optimizați fără să memorați toate tehnicile.",
-          "whenNot": "Solicitări banale — meta-promptingul devine peste cap.",
+          "whatIs": "Utilizați șablonul în sine pentru a genera sau îmbunătăți solicitările. Asta fac instrumente precum „Prompt Improver” de la Anthropic, șablonul aplică automat tehnicile din acest ghid pentru schița dvs.",
+          "when": "C, nd aveți un prompt prompt și doriți să o optimizați fără să memorați toate tehnicile.",
+          "whenNot": "Solicitări banale, meta-promptingul devine peste cap.",
           "examples": [
             {
               "wrong": "rezumă acest text pentru mine",
-              "right": "Sunteți un expert în inginerie promptă. Rescrie\npromptul de mai jos aplicând cele mai bune practici: adăugați rol,\nstructură cu XML, definiți formatul de ieșire și includeți\nraționament dacă sarcina o cere. Explicați ce s-a schimbat.\nSolicitare originală: „rezumați acest text pentru mine”",
+              "right": "Sunteți un expert în inginerie promptă. Rescrie\npromptul de mai jos aplic, nd cele mai bune practici: adăugați rol,\nstructură cu XML, definiți formatul de ieșire și includeți\nraționament dacă sarcina o cere. Explicați ce s-a schimbat.\nSolicitare originală: „rezumați acest text pentru mine”",
               "note": "În loc să memorezi totul, modelul aplică tehnicile."
             }
           ],
-          "why": "Fluxul Anthropic's Prompt Improver este: identificarea exemplelor → schiță structurată cu XML → rafinarea cu lanțul de gândire → îmbogățirea exemplelor. Meta-promptingul este o inginerie promptă aplicată ție.",
-          "tip": "Dați meta-promptului contextul modelului țintă (Claude? Raționament GPT?) — cele mai bune practici diferă între familii.",
+          "why": "Fluxul Anthropic's Prompt Improver este: identificarea exemplelor → schiță structurată cu XML → rafinarea cu lanțul de g, ndire → îmbogățirea exemplelor. Meta-promptingul este o inginerie promptă aplicată ție.",
+          "tip": "Dați meta-promptului contextul modelului țintă (Claude? Raționament GPT?), cele mai bune practici diferă între familii.",
           "sources": [
             {
               "label": "Antropic - Ameliorator prompt",
@@ -880,24 +880,24 @@
           "name": "APE, OPRO, DSPy și companie",
           "level": 3,
           "simple": "Aparatul optimizează automat promptul în funcție de date.",
-          "whatIs": "Framework-uri care optimizează programatic solicitările față de un set de evaluare șablon. Nu scrieți promptul perfect - mașina își dă seama testând variații.",
+          "whatIs": "Framework-uri care optimizează programatic solicitările față de un set de evaluare șablon. Nu scrieți promptul perfect - mașina își dă seama test, nd variații.",
           "when": "Aveți un set de date etichetat și o metrică obiectivă, iar promptul rulează la scară (merită automatizat).",
-          "whenNot": "Fără set de date/valori - rămâneți la meta-prompting manual.",
+          "whenNot": "Fără set de date/valori - răm, neți la meta-prompting manual.",
           "examples": [
             {
-              "right": "Aveți un șablon și valori? → DSPy/OPRO alcătuiește promptul\nîn funcție de date.\nVrei câștig rapid prin rescrierea instrucțiunii? → APE/TextGrad.\nFără date? → meta-prompting manual cu tehnicile din ghid.",
-              "note": "OPRO a depășit solicitările umane cu până la 50% în unele benchmark-uri."
+              "right": "Aveți un șablon și valori? → DSPy/OPRO alcătuiește promptul\nîn funcție de date.\nVrei c, știg rapid prin rescrierea instrucțiunii? → APE/TextGrad.\nFără date? → meta-prompting manual cu tehnicile din ghid.",
+              "note": "OPRO a depășit solicitările umane cu p, nă la 50% în unele benchmark-uri."
             }
           ],
           "why": "OPRO (Yang et al., 2023) folosește un meta-prompt care descrie problema + soluțiile anterioare și notele acestora, iar modelul propune prompturi mai bune în mod iterativ. DSPy tratează solicitările ca pe un cod compilabil pentru adevărul de bază.",
-          "tip": "Chiar și fără un cadru, o puteți face manual: definiți metrica, generați K variații, măsurați, obțineți cel mai bun și iterați (urcând panta).",
+          "tip": "Chiar și fără un cadru, o puteți face manual: definiți metrica, generați K variații, măsurați, obțineți cel mai bun și iterați (urc, nd panta).",
           "sources": [
             {
               "label": "OPRO (arXiv:2309.03409)",
               "url": "https://arxiv.org/abs/2309.03409"
             },
             {
-              "label": "DSPy — Stanford NLP",
+              "label": "DSPy, Stanford NLP",
               "url": "https://github.com/stanfordnlp/dspy"
             }
           ]
@@ -912,10 +912,10 @@
           "id": "prompt-injection-e-jailbreak",
           "name": "Injectare promptă și Jailbreak",
           "level": 3,
-          "simple": "Protejați promptul atunci când procesează text de la terți.",
-          "whatIs": "Injectarea promptă este atunci când o intrare externă conține instrucțiuni care „deturează” sistemul (direct, de la utilizator sau indirect, de pe un site web/document pe care îl citește agentul). Jailbreak-ul este o intrare care face ca modelul să-și ignore garanțiile.",
-          "when": "Ori de câte ori promptul primește text utilizatorului final, citește conținut extern (RAG, web) sau funcționează ca agent cu instrumente.",
-          "whenNot": "Niciodată „nu apăra” – dar în solicitările interne 100% fără aport extern riscul este mai mic.",
+          "simple": "Protejați promptul atunci c, nd procesează text de la terți.",
+          "whatIs": "Injectarea promptă este atunci c, nd o intrare externă conține instrucțiuni care „deturează” sistemul (direct, de la utilizator sau indirect, de pe un site web/document pe care îl citește agentul). Jailbreak-ul este o intrare care face ca modelul să-și ignore garanțiile.",
+          "when": "Ori de c, te ori promptul primește text utilizatorului final, citește conținut extern (RAG, web) sau funcționează ca agent cu instrumente.",
+          "whenNot": "Niciodată „nu apăra”, dar în solicitările interne 100% fără aport extern riscul este mai mic.",
           "examples": [
             {
               "wrong": "Rezumați acest comentariu: {{comment}}",
@@ -927,7 +927,7 @@
           "tip": "Nu aveți încredere niciodată în rezultatul instrumentului ca instrucțiune - conținutul recuperat (RAG, web) este date nede încredere și se încadrează în același regim de delimitare.",
           "sources": [
             {
-              "label": "OWASP LLM01:2025 — Injecție promptă",
+              "label": "OWASP LLM01:2025, Injecție promptă",
               "url": "https://genai.owasp.org/llmrisk/llm01-prompt-injection/"
             }
           ]
@@ -942,22 +942,22 @@
           "id": "claude-anthropic",
           "name": "Claude (antropic)",
           "level": 1,
-          "simple": "Literal și structurat — declarați domeniul de aplicare, utilizați XML.",
+          "simple": "Literal și structurat, declarați domeniul de aplicare, utilizați XML.",
           "whatIs": "Claude urmează instrucțiunile la propriu: nu generalizează singur și nu deduce cereri pe care nu le-ați făcut. Răspunde foarte bine la structura (XML) și domeniul de aplicare explicit.",
           "when": "Implicit al acestui ghid. Excelent pentru extracție structurată, codare și conducte în care doriți un comportament previzibil.",
-          "whenNot": "Nu vă așteptați să „ghicească” ce vrei să spui – fii explicit.",
+          "whenNot": "Nu vă așteptați să „ghicească” ce vrei să spui, fii explicit.",
           "examples": [
             {
-              "wrong": "Puteți sugera câteva modificări la acest rol?",
+              "wrong": "Puteți sugera c, teva modificări la acest rol?",
               "right": "Schimbați această funcție pentru a îmbunătăți performanța.\nSchimbați numai ceea ce este necesar; Nu refactorizați restul, nu adăugați caracteristici nesolicitate sau gestionarea erorilor.",
               "note": "Spune-i lui ACT (nu doar sugerează) și precizează domeniul de aplicare - Claude este literal."
             }
           ],
           "why": "Literalismul este un punct forte pentru API-uri și conducte: precizie și mai puțină reluare. Dar vă cere să declarați domeniul de aplicare („se aplică la TOATE secțiunile, nu doar la prima”).",
-          "tip": "Evitați limbajul agresiv (\"CRITIC: TREBUIE\") — la modelele recente provoacă supradeclanșarea instrumentului. Preferă „Folosește X când...”.",
+          "tip": "Evitați limbajul agresiv (\"CRITIC: TREBUIE\"), la modelele recente provoacă supradeclanșarea instrumentului. Preferă „Folosește X c, nd...”.",
           "sources": [
             {
-              "label": "Antropic – promovarea celor mai bune practici",
+              "label": "Antropic, promovarea celor mai bune practici",
               "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
             }
           ]
@@ -966,33 +966,33 @@
           "id": "openai-gpt-e-reasoning-models-o-series-gpt-5",
           "name": "OpenAI GPT și modele de raționament (o-series, GPT-5)",
           "level": 1,
-          "simple": "Obiectiv + constrângeri + contract de ieșire; fără microgestionare.",
-          "whatIs": "GPT clasic oferă solicitări precise, orientate spre rezultate. Modelele de raționament (serie o, raționament GPT-5) dau un obiectiv clar + constrângeri puternice + contract de ieșire, FĂRĂ a prescrie fiecare pas intermediar.",
+          "simple": "Obiectiv + constr, ngeri + contract de ieșire; fără microgestionare.",
+          "whatIs": "GPT clasic oferă solicitări precise, orientate spre rezultate. Modelele de raționament (serie o, raționament GPT-5) dau un obiectiv clar + constr, ngeri puternice + contract de ieșire, FĂRĂ a prescrie fiecare pas intermediar.",
           "when": "Modelele de raționament strălucesc în documente dense și lungi (contracte, financiare) și în decizii complexe.",
-          "whenNot": "NU instruiți „gândește pas cu pas”/CoT manual în modelele de raționament – ​​poate sta în cale (ea deja raționează intern).",
+          "whenNot": "NU instruiți „g, ndește pas cu pas”/CoT manual în modelele de raționament, ​​poate sta în cale (ea deja raționează intern).",
           "examples": [
             {
-              "wrong": "Gândește-te pas cu pas: mai întâi fă X, apoi Y, apoi Z...",
-              "right": "Obiectiv: [rezultatul dorit]\nConstrângeri: [limite stricte]\nDovezi: [date]\nIeșire: [contract de ieșire exact]\n(lăsați modelul să aleagă calea)",
+              "wrong": "G, ndește-te pas cu pas: mai înt, i fă X, apoi Y, apoi Z...",
+              "right": "Obiectiv: [rezultatul dorit]\nConstr, ngeri: [limite stricte]\nDovezi: [date]\nIeșire: [contract de ieșire exact]\n(lăsați modelul să aleagă calea)",
               "note": "Modelele de raționament doresc nivel înalt, nu micro-pași."
             }
           ],
-          "why": "Rezervarea ÎNTOTDEAUNA/NICIODATĂ pentru invarianții reali și oferirea de libertate pe parcurs oferă modele de raționament mai bune. Parametrul reasoning_effort controlează cât de mult „gândesc”.",
+          "why": "Rezervarea ÎNTOTDEAUNA/NICIODATĂ pentru invarianții reali și oferirea de libertate pe parcurs oferă modele de raționament mai bune. Parametrul reasoning_effort controlează c, t de mult „g, ndesc”.",
           "tip": "În seria GPT-5/o, creșteți efortul de raționament pentru sarcini dificile și dați un contract de ieșire explicit în loc de exemple lungi.",
           "sources": [
             {
-              "label": "OpenAI — Cele mai bune practici de raționament",
+              "label": "OpenAI, Cele mai bune practici de raționament",
               "url": "https://developers.openai.com/api/docs/guides/reasoning-best-practices"
             }
           ]
         },
         {
           "id": "google-gemini-framework-ptcf",
-          "name": "Google Gemini — cadru PTCF",
+          "name": "Google Gemini, cadru PTCF",
           "level": 1,
           "simple": "Persona · Sarcină · Context · Format.",
           "whatIs": "Gemenii se descurcă cel mai bine cu structura PTCF: Persona (cine este modelul și publicul), Sarcina (rezultatul dorit), Context (informații de fundal) și Format (cum ar trebui să arate rezultatul).",
-          "when": "Orice prompt în Gemeni — PTCF este cel mai fiabil mod de structurare.",
+          "when": "Orice prompt în Gemeni, PTCF este cel mai fiabil mod de structurare.",
           "whenNot": "Nu este o cămașă de forță; tratați-l ca pe un punct de plecare și perfecționați.",
           "examples": [
             {
@@ -1004,7 +1004,7 @@
           "tip": "Ingineria promptă este iterativă: începeți cu PTCF și rafinați pe baza răspunsurilor observate.",
           "sources": [
             {
-              "label": "Google — Gemini strategii de proiectare prompte",
+              "label": "Google, Gemini strategii de proiectare prompte",
               "url": "https://ai.google.dev/gemini-api/docs/prompting-strategies"
             }
           ]
@@ -1014,7 +1014,7 @@
   ],
   "tocTitle": "Pe această pagină",
   "simpleLabel": "În rezumat",
-  "whenNotLabel": "Când să evitați",
+  "whenNotLabel": "C, nd să evitați",
   "tipLabel": "Sfat",
   "sourcesLabel": "Surse"
 }

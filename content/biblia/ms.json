@@ -1,6 +1,6 @@
 {
   "title": "Alkitab Kejuruteraan Prompt",
-  "subtitle": "Semua teknik yang ada — dari pemula hingga mahir, dengan contoh yang betul dan salah.",
+  "subtitle": "Semua teknik yang ada, dari pemula hingga mahir, dengan contoh yang betul dan salah.",
   "whatIsLabel": "Apa itu",
   "whenLabel": "Bila nak guna",
   "wrongLabel": "salah",
@@ -16,14 +16,14 @@
           "name": "Gesaan sifar pukulan",
           "level": 1,
           "simple": "Tanya terus, tanpa memberi contoh.",
-          "whatIs": "Berikan arahan yang jelas tanpa menunjukkan contoh jawapan — model hanya menggunakan apa yang dipelajari dalam latihan. \"Sifar pukulan\" = sifar contoh. Ia adalah titik permulaan segala-galanya.",
+          "whatIs": "Berikan arahan yang jelas tanpa menunjukkan contoh jawapan, model hanya menggunakan apa yang dipelajari dalam latihan. \"Sifar pukulan\" = sifar contoh. Ia adalah titik permulaan segala-galanya.",
           "when": "Tugas biasa dan jelas yang model sudah kuasai: menterjemah, meringkaskan, menjawab soalan fakta, menulis semula teks.",
           "whenNot": "Apabila bentuk, ton atau kes tepi yang tepat penting. Kemudian beberapa contoh (sedikit pukulan) bernilai lebih daripada sebarang arahan.",
           "examples": [
             {
               "wrong": "beritahu saya tentang pemasaran",
               "right": "Terangkan 4 P pemasaran (produk, harga, tempat, promosi)\ndalam satu perenggan setiap satu, dengan contoh kedai kopi.",
-              "note": "Yang betul mentakrifkan skop (4 Ps), format (satu perenggan setiap satu) dan konteks (kedai kopi) — jelas walaupun tanpa contoh."
+              "note": "Yang betul mentakrifkan skop (4 Ps), format (satu perenggan setiap satu) dan konteks (kedai kopi), jelas walaupun tanpa contoh."
             },
             {
               "wrong": "betulkan teks saya",
@@ -31,11 +31,11 @@
               "note": "Beritahu perkara yang perlu diperbaiki, perkara yang perlu disimpan dan format output."
             }
           ],
-          "why": "Model moden menyelesaikan tugas yang terkenal tanpa contoh — selagi arahan itu khusus. Kejelasan menggantikan contoh.",
+          "why": "Model moden menyelesaikan tugas yang terkenal tanpa contoh, selagi arahan itu khusus. Kejelasan menggantikan contoh.",
           "tip": "Jika jawapannya adalah generik, jangan tambahkan contoh lagi: mula-mula buat arahan lebih khusus (format, saiz, khalayak).",
           "sources": [
             {
-              "label": "Anthropic — Mendorong amalan terbaik",
+              "label": "Anthropic, Mendorong amalan terbaik",
               "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
             }
           ]
@@ -46,7 +46,7 @@
           "level": 1,
           "simple": "Beritahu model \"siapa mereka\" sebelum tugasan.",
           "whatIs": "Berikan peranan (\"Anda seorang peguam cukai kanan\") untuk menentukur nada, perbendaharaan kata dan kedalaman respons. Satu ayat sudah mengubah hasilnya.",
-          "when": "Apabila nada atau tahap teknikal penting — penulisan, perkhidmatan, pendapat, pengajaran.",
+          "when": "Apabila nada atau tahap teknikal penting, penulisan, perkhidmatan, pendapat, pengajaran.",
           "whenNot": "Dalam persoalan pengetahuan tulen (fakta, akaun, aneka pilihan) persona boleh menghalangnya. Dalam ujian pada penanda aras MMLU, persona \"pakar\" menurunkan ketepatan (dari ~71.6% kepada ~68%).",
           "examples": [
             {
@@ -64,11 +64,11 @@
           "tip": "Gunakan persona untuk NADA dan GAYA; jangan mengharapkan \"Anda seorang genius matematik\" untuk meningkatkan markah. Untuk ketepatan, lebih suka arahan dan pengesahan yang jelas.",
           "sources": [
             {
-              "label": "PromptHub — Kajian dorongan peranan",
+              "label": "PromptHub, Kajian dorongan peranan",
               "url": "https://www.prompthub.us/blog/role-prompting-does-adding-personas-to-your-prompts-really-make-a-difference"
             },
             {
-              "label": "Anthropic — Berikan Claude peranan",
+              "label": "Anthropic, Berikan Claude peranan",
               "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
             }
           ]
@@ -80,7 +80,7 @@
           "simple": "Tunjukkan 2 hingga 5 contoh jawapan sebelum menanyakan kes anda.",
           "whatIs": "Sertakan beberapa contoh input→output untuk model untuk meniru corak. \"Few-shot\" = beberapa contoh. Ia adalah tuas terkuat untuk mengawal bentuk, ton dan konsistensi.",
           "when": "Apabila format yang tepat penting (JSON, jadual), nada perlu konsisten, atau pengisihan adalah sukar.",
-          "whenNot": "Dalam tugas remeh (sifar pukulan sudah menyelesaikannya) atau apabila contoh condong ke arah satu corak — kemudian pelbagaikan atau kurangkannya.",
+          "whenNot": "Dalam tugas remeh (sifar pukulan sudah menyelesaikannya) atau apabila contoh condong ke arah satu corak, kemudian pelbagaikan atau kurangkannya.",
           "examples": [
             {
               "right": "Nilaikan perasaan. Ikuti contoh:\n\"Saya menyukainya, saya mengesyorkannya!\" → positif\n\"Ia datang rosak.\" → negatif\n\nUlasan: \"Tiba dengan cepat tetapi hancur.\" →",
@@ -88,10 +88,10 @@
             }
           ],
           "why": "Beberapa pukulan datang daripada penyelidikan GPT-3 (Brown et al., 2020): model mempelajari tugas hanya daripada contoh dalam gesaan (pembelajaran dalam konteks). Kajian menunjukkan lompatan seperti F1 0.51 → 0.62 apabila pergi dari sifar kepada 3 contoh.",
-          "tip": "3 hingga 5 contoh adalah titik manis. Gunakan contoh BERBEZA (sarung tepi penutup) dan jaga ORDER — mengubah suai contoh boleh mengubah ketepatan dengan ketara.",
+          "tip": "3 hingga 5 contoh adalah titik manis. Gunakan contoh BERBEZA (sarung tepi penutup) dan jaga ORDER, mengubah suai contoh boleh mengubah ketepatan dengan ketara.",
           "sources": [
             {
-              "label": "Brown et al. 2020 — Model Bahasa adalah Pelajar Sedikit",
+              "label": "Brown et al. 2020, Model Bahasa adalah Pelajar Sedikit",
               "url": "https://arxiv.org/abs/2005.14165"
             },
             {
@@ -106,20 +106,20 @@
           "level": 1,
           "simple": "Asingkan arahan dan data dengan \"tag\".",
           "whatIs": "Balut setiap bahagian gesaan dalam penanda (<konteks>, <data>, <arahan>) supaya model tidak mengelirukan apa susunan dengan bahan untuk diproses.",
-          "when": "Setiap kali gesaan mencampurkan arahan dengan data — terutamanya data yang panjang atau diformat sendiri. Ia adalah corak yang disyorkan untuk Claude.",
+          "when": "Setiap kali gesaan mencampurkan arahan dengan data, terutamanya data yang panjang atau diformat sendiri. Ia adalah corak yang disyorkan untuk Claude.",
           "whenNot": "Secara ringkas gesaan satu baris tanpa data terbenam, ia adalah tidak perlu.",
           "examples": [
             {
               "wrong": "Ringkaskan: Mesyuarat hari ini: kami telah menangguhkan pelancaran.\nRingkaskan risiko juga. Bajet ok.",
               "right": "Ringkaskan kandungan dalam <text> kepada 3 topik.\n\n<text>\nMesyuarat hari ini: kami menangguhkan pelancaran. Belanjawan ok.\nRisiko: pasukan berkurangan dan tarikh akhir yang ketat.\n</text>",
-              "note": "Teg menjelaskan apa yang diberikan dan apa itu arahan — tanpa kesamaran."
+              "note": "Teg menjelaskan apa yang diberikan dan apa itu arahan, tanpa kesamaran."
             }
           ],
-          "why": "Teg mengurangkan kesamaran antara arahan dan kandungan — ralat paling biasa dalam gesaan dengan teks terbenam. Model yang dilatih dengan data berstruktur (seperti Claude) mengikut teg dengan tepat.",
+          "why": "Teg mengurangkan kesamaran antara arahan dan kandungan, ralat paling biasa dalam gesaan dengan teks terbenam. Model yang dilatih dengan data berstruktur (seperti Claude) mengikut teg dengan tepat.",
           "tip": "Gunakan nama teg yang konsisten dan deskriptif. Sarang apabila terdapat hierarki (beberapa <dokumen> dalam <dokumen>).",
           "sources": [
             {
-              "label": "Anthropic — Gunakan tag XML",
+              "label": "Anthropic, Gunakan tag XML",
               "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
             }
           ]
@@ -131,11 +131,11 @@
           "simple": "Terangkan sebab arahan, bukan hanya pesanan.",
           "whatIs": "Berikan maklumat latar belakang dan sebab di sebalik permintaan itu. Model membuat generalisasi lebih baik apabila ia memahami objektif, bukan hanya peraturan.",
           "when": "Apabila sesuatu peraturan boleh disalah tafsir jika digunakan pada surat itu tanpa memahami tujuannya.",
-          "whenNot": "Ia jarang mengganggu — tetapi jangan kembangkannya dengan konteks yang tidak relevan, yang bertukar menjadi bunyi bising dan membazirkan perhatian model.",
+          "whenNot": "Ia jarang mengganggu, tetapi jangan kembangkannya dengan konteks yang tidak relevan, yang bertukar menjadi bunyi bising dan membazirkan perhatian model.",
           "examples": [
             {
               "wrong": "Jangan sekali-kali menggunakan elipsis.",
-              "right": "Respons ini akan dibaca oleh pensintesis pertuturan yang tidak menyebut elips dengan betul — jadi jangan gunakan \"…\".",
+              "right": "Respons ini akan dibaca oleh pensintesis pertuturan yang tidak menyebut elips dengan betul, jadi jangan gunakan \"…\".",
               "note": "Mengetahui sebabnya, model itu menggunakan peraturan dengan akal yang waras dan menjangkakan kes yang serupa."
             }
           ],
@@ -143,7 +143,7 @@
           "tip": "Satu ayat \"mengapa ini penting\" biasanya bernilai tiga ayat \"lakukan dengan cara ini\".",
           "sources": [
             {
-              "label": "Anthropic — Tambahkan konteks untuk meningkatkan prestasi",
+              "label": "Anthropic, Tambahkan konteks untuk meningkatkan prestasi",
               "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
             }
           ]
@@ -164,10 +164,10 @@
             }
           ],
           "why": "\"Tiada embel-embel\" adalah subjektif; skema adalah objektif dan boleh dihuraikan kod. Menentukan format mengalih keluar variasi yang memecahkan integrasi.",
-          "tip": "Untuk benar-benar memaksa JSON/struktur, gunakan Output Berstruktur (Claude/OpenAI) dan bukannya hanya memintanya dalam teks — ia lebih dipercayai.",
+          "tip": "Untuk benar-benar memaksa JSON/struktur, gunakan Output Berstruktur (Claude/OpenAI) dan bukannya hanya memintanya dalam teks, ia lebih dipercayai.",
           "sources": [
             {
-              "label": "Anthropic — Kawalan format tindak balas",
+              "label": "Anthropic, Kawalan format tindak balas",
               "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
             }
           ]
@@ -180,12 +180,12 @@
       "techniques": [
         {
           "id": "chain-of-thought-cot",
-          "name": "Rantaian Pemikiran — CoT",
+          "name": "Rantaian Pemikiran, CoT",
           "level": 2,
           "simple": "Minta alasan langkah demi langkah SEBELUM jawapan.",
           "whatIs": "Minta model menulis penaakulan secara berperingkat sebelum membuat kesimpulan, bukannya melompat terus kepada jawapan. Ia adalah teknik penaakulan yang paling penting yang ada.",
           "when": "Matematik, logik, keputusan dengan pertukaran, klasifikasi yang sukar.",
-          "whenNot": "Dalam model penaakulan (siri o OpenAI, penaakulan GPT-5): mereka sudah membuat alasan secara dalaman dan meminta \"langkah demi langkah\" malah boleh memburukkan lagi keadaan. Dalam Claude dengan pemikiran dimatikan, pilih \"analisis/nilai\" — perkataan \"berfikir\" adalah sensitif.",
+          "whenNot": "Dalam model penaakulan (siri o OpenAI, penaakulan GPT-5): mereka sudah membuat alasan secara dalaman dan meminta \"langkah demi langkah\" malah boleh memburukkan lagi keadaan. Dalam Claude dengan pemikiran dimatikan, pilih \"analisis/nilai\", perkataan \"berfikir\" adalah sensitif.",
           "examples": [
             {
               "wrong": "Satu produk berharga R$80. Dengan diskaun 15% dan kemudian 8%\ncukai, apakah harga akhir? Jawab nombor sahaja.",
@@ -194,10 +194,10 @@
             }
           ],
           "why": "Menulis alasan mewujudkan \"ruang berfikir\" sebelum jawapan. Dalam kertas asal (Wei et al., 2022), CoT meningkatkan ketepatan dalam penaakulan matematik daripada ~ 18% kepada ~ 57% dalam model besar.",
-          "tip": "Asingkan penaakulan (<thinking>) daripada jawapan akhir (<answer>) — dengan cara ini anda menggunakan pemikiran tanpa mencemarkan output.",
+          "tip": "Asingkan penaakulan (<thinking>) daripada jawapan akhir (<answer>), dengan cara ini anda menggunakan pemikiran tanpa mencemarkan output.",
           "sources": [
             {
-              "label": "Wei et al. 2022 — Rangkaian Pemikiran",
+              "label": "Wei et al. 2022, Rangkaian Pemikiran",
               "url": "https://arxiv.org/abs/2201.11903"
             },
             {
@@ -221,11 +221,11 @@
               "note": "Frasa itu sudah cukup untuk model memasang persamaan dan bukannya meneka."
             }
           ],
-          "why": "Penyelidikan oleh Kojima et al. (2022) menunjukkan bahawa hanya \"Mari kita fikir langkah demi langkah\" meningkatkan ketepatan dalam GSM8K daripada 17.7% kepada 78.7% — tanpa sebarang contoh.",
+          "why": "Penyelidikan oleh Kojima et al. (2022) menunjukkan bahawa hanya \"Mari kita fikir langkah demi langkah\" meningkatkan ketepatan dalam GSM8K daripada 17.7% kepada 78.7%, tanpa sebarang contoh.",
           "tip": "Ia boleh dikatakan percuma. Jika tugas itu adalah analisis minimum, ia sentiasa bernilai untuk diuji.",
           "sources": [
             {
-              "label": "Kojima et al. 2022 — LM Besar ialah Penalaran Sifar Pukulan",
+              "label": "Kojima et al. 2022, LM Besar ialah Penalaran Sifar Pukulan",
               "url": "https://arxiv.org/abs/2205.11916"
             }
           ]
@@ -236,7 +236,7 @@
           "level": 2,
           "simple": "Berundur kepada prinsip umum sebelum menyelesaikan kes itu.",
           "whatIs": "Sebelum menangani masalah khusus, minta model menyatakan konsep atau peraturan am. Kemudian dia menggunakan peraturan ini untuk kes itu.",
-          "when": "Masalah apabila menggunakan peraturan yang betul lebih penting daripada pengiraan — fizik, undang-undang, diagnosis.",
+          "when": "Masalah apabila menggunakan peraturan yang betul lebih penting daripada pengiraan, fizik, undang-undang, diagnosis.",
           "whenNot": "Dalam tugas langsung dan mudah, tambah langkah tanpa keuntungan.",
           "examples": [
             {
@@ -245,11 +245,11 @@
               "note": "Berlabuh dalam undang-undang yang betul (Gay-Lussac) mengelakkan campuran formula."
             }
           ],
-          "why": "Berbalik kepada prinsip mengurangkan ralat premis — model diselesaikan daripada konsep yang betul, bukan daripada perkaitan dangkal.",
+          "why": "Berbalik kepada prinsip mengurangkan ralat premis, model diselesaikan daripada konsep yang betul, bukan daripada perkaitan dangkal.",
           "tip": "Gabungkan dengan CoT: nyatakan prinsip dan kemudian sebabkan langkah demi langkah dalam aplikasi.",
           "sources": [
             {
-              "label": "Zheng et al. 2023 — Ambil Selangkah ke Belakang",
+              "label": "Zheng et al. 2023, Ambil Selangkah ke Belakang",
               "url": "https://arxiv.org/abs/2310.06117"
             }
           ]
@@ -261,19 +261,19 @@
           "simple": "Rancang dahulu, laksana kemudian.",
           "whatIs": "Penambahbaikan pada \"berfikir langkah demi langkah\": meminta model MULA-MULA merangka pelan dan KEMUDIAN melaksanakannya. Mengurangkan ralat melangkau langkah.",
           "when": "Tugasan berbilang langkah di mana \"langkah demi langkah\" mudah kadangkala melupakan bahagian.",
-          "whenNot": "Tugas satu langkah — perancangan menjadi birokrasi.",
+          "whenNot": "Tugas satu langkah, perancangan menjadi birokrasi.",
           "examples": [
             {
               "wrong": "Atur perjalanan 3 hari ke Lisbon dengan berfikir langkah demi langkah.",
               "right": "Atur perjalanan 3 hari ke Lisbon.\nMula-mula sediakan pelan (dimensi: penginapan, perjalanan, tarikan, belanjawan, makanan).\nKemudian laksanakan, isi setiap dimensi hari demi hari.",
-              "note": "Menyenaraikan dimensi terlebih dahulu memastikan liputan — jangan lupa belanjawan."
+              "note": "Menyenaraikan dimensi terlebih dahulu memastikan liputan, jangan lupa belanjawan."
             }
           ],
           "why": "Memisahkan perancangan daripada pelaksanaan mengurangkan ralat \"tersesat di sepanjang jalan\". Wang et al. (2023) menunjukkan keuntungan yang konsisten berbanding CoT tembakan sifar tulen.",
-          "tip": "Minta pelan dalam format senarai sebelum pelaksanaan — mudah untuk menyemak dan membetulkan kursus.",
+          "tip": "Minta pelan dalam format senarai sebelum pelaksanaan, mudah untuk menyemak dan membetulkan kursus.",
           "sources": [
             {
-              "label": "Wang et al. 2023 — Merancang-dan-Menyelesaikan Gesaan",
+              "label": "Wang et al. 2023, Merancang-dan-Menyelesaikan Gesaan",
               "url": "https://arxiv.org/abs/2305.04091"
             }
           ]
@@ -285,7 +285,7 @@
           "simple": "Selesaikan beberapa kali dan pergi dengan jawapan majoriti.",
           "whatIs": "Jalankan gesaan CoT yang sama beberapa kali (secara rawak) dan pilih jawapan yang paling kerap muncul. Bagaimana untuk berunding dengan pelbagai pakar dan mengikut konsensus.",
           "when": "Masalah kritikal di mana satu alasan boleh tergelincir dan anda mampu membayar N pelaksanaan.",
-          "whenNot": "Tugas mudah atau sensitif kos — token N× kos.",
+          "whenNot": "Tugas mudah atau sensitif kos, token N× kos.",
           "examples": [
             {
               "right": "Selesaikan masalah ini dalam 3 cara bebas, masing-masing dengan penaakulan yang lengkap. Pada akhirnya, bandingkan tiga kesimpulan\ndan balas dengan jumlah yang sekurang-kurangnya dua bersetuju.",
@@ -296,7 +296,7 @@
           "tip": "Walaupun dalam satu panggilan, minta \"3 pendekatan bebas + undi majoriti\" untuk kesan yang sama pada kos yang lebih murah.",
           "sources": [
             {
-              "label": "Wang et al. 2022 — Ketekalan Diri",
+              "label": "Wang et al. 2022, Ketekalan Diri",
               "url": "https://arxiv.org/abs/2203.11171"
             }
           ]
@@ -307,7 +307,7 @@
           "level": 2,
           "simple": "Minta model menyemak jawapan mereka sendiri sebelum menyerahkan.",
           "whatIs": "Tambahkan langkah di mana model menyemak jawapan terhadap kriteria sebelum memuktamadkan. Murah dan berkesan.",
-          "when": "Hampir setiap kali jawapan boleh disahkan — kod, matematik, pengekstrakan.",
+          "when": "Hampir setiap kali jawapan boleh disahkan, kod, matematik, pengekstrakan.",
           "whenNot": "Apabila tiada kriteria pengesahan objektif, ia menjadi lebih banyak teks sahaja.",
           "examples": [
             {
@@ -317,10 +317,10 @@
             }
           ],
           "why": "Memaksa semakan mengeluarkan model daripada \"mod penjana\" dan mengaktifkan \"mod penyemak\", yang melihat ralat yang tidak dilihat oleh penjana.",
-          "tip": "Berikan kriteria pengesahan yang jelas (\"ujian dengan X, Y, Z\") — pengesahan yang samar-samar tidak mendatangkan kebaikan.",
+          "tip": "Berikan kriteria pengesahan yang jelas (\"ujian dengan X, Y, Z\"), pengesahan yang samar-samar tidak mendatangkan kebaikan.",
           "sources": [
             {
-              "label": "Anthropic — Minta Claude menyemak sendiri",
+              "label": "Anthropic, Minta Claude menyemak sendiri",
               "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
             }
           ]
@@ -331,19 +331,19 @@
           "level": 3,
           "simple": "Hasilkan, kritik respons anda sendiri, dan buat semula dengan lebih baik.",
           "whatIs": "Gelung: model menjana, MENGKRITIK responsnya sendiri, menunjukkan kelemahan konkrit, dan kemudian menghasilkan versi yang disemak semula. Lebih kuat daripada semak sendiri (yang hanya cek).",
-          "when": "Kod, penulisan, penaakulan berurutan — tugasan di mana percubaan pertama biasanya mempunyai ralat yang boleh dibetulkan.",
-          "whenNot": "Apabila jawapan pertama sudah baik dan mudah — gelung hanya menambah kos.",
+          "when": "Kod, penulisan, penaakulan berurutan, tugasan di mana percubaan pertama biasanya mempunyai ralat yang boleh dibetulkan.",
+          "whenNot": "Apabila jawapan pertama sudah baik dan mudah, gelung hanya menambah kos.",
           "examples": [
             {
               "right": "1. Tulis teks halaman pendaratan.\n2. Mengkritik teks anda sendiri: adakah tajuk itu melekat? Adakah cadangan nilai jelas? Adakah terdapat satu CTA? Senaraikan setiap kegagalan.\n3. Tulis semula, betulkan ralat yang diserlahkan.",
               "note": "Kritikan diri memaksa keluar daripada \"mod penjana\" kepada \"mod editor\"."
             }
           ],
-          "why": "Shinn et al. (2023) menunjukkan bahawa kitaran refleksi kendiri meningkatkan prestasi dalam tugasan keputusan, pengekodan dan penaakulan — versi 2 hampir selalu lebih baik daripada 1.",
+          "why": "Shinn et al. (2023) menunjukkan bahawa kitaran refleksi kendiri meningkatkan prestasi dalam tugasan keputusan, pengekodan dan penaakulan, versi 2 hampir selalu lebih baik daripada 1.",
           "tip": "Berikan kriteria konkrit untuk kritikan; Generik \"memperbaiki\" menghasilkan perubahan kosmetik.",
           "sources": [
             {
-              "label": "Shinn et al. 2023 — Refleksi",
+              "label": "Shinn et al. 2023, Refleksi",
               "url": "https://arxiv.org/abs/2303.11366"
             }
           ]
@@ -360,7 +360,7 @@
           "level": 2,
           "simple": "Pecahkan kepada submasalah daripada yang paling mudah kepada yang paling sukar.",
           "whatIs": "Uraikan masalah kepada submasalah yang disusun daripada yang paling mudah kepada yang paling sukar dan selesaikannya mengikut urutan, di mana jawapan kepada satu suapan ke seterusnya.",
-          "when": "Penaakulan dengan pergantungan berurutan — langkah 3 memerlukan hasil langkah 2.",
+          "when": "Penaakulan dengan pergantungan berurutan, langkah 3 memerlukan hasil langkah 2.",
           "whenNot": "Masalah yang tidak secara semula jadi terurai kepada peringkat bergantung.",
           "examples": [
             {
@@ -368,30 +368,30 @@
               "note": "Setiap submasalah adalah remeh secara berasingan; dirantai bersama menyelesaikan keseluruhan."
             }
           ],
-          "why": "Zhou et al. (2022) menunjukkan bahawa penguraian daripada mudah kepada kompleks membolehkan kita membuat generalisasi kepada masalah yang lebih sukar daripada contoh yang dilihat — sesuatu yang CoT tulen tidak melakukannya dengan baik.",
-          "tip": "Minta secara eksplisit output setiap langkah sebelum bergerak ke hadapan — supaya ralat tidak disebarkan secara senyap.",
+          "why": "Zhou et al. (2022) menunjukkan bahawa penguraian daripada mudah kepada kompleks membolehkan kita membuat generalisasi kepada masalah yang lebih sukar daripada contoh yang dilihat, sesuatu yang CoT tulen tidak melakukannya dengan baik.",
+          "tip": "Minta secara eksplisit output setiap langkah sebelum bergerak ke hadapan, supaya ralat tidak disebarkan secara senyap.",
           "sources": [
             {
-              "label": "Zhou et al. 2022 — Paling Tidak Menyenangkan",
+              "label": "Zhou et al. 2022, Paling Tidak Menyenangkan",
               "url": "https://arxiv.org/abs/2205.10625"
             }
           ]
         },
         {
           "id": "tree-of-thoughts-tot",
-          "name": "Pokok Fikiran — ToT",
+          "name": "Pokok Fikiran, ToT",
           "level": 3,
           "simple": "Terokai pelbagai jalan penaakulan dan buang yang buruk.",
           "whatIs": "Daripada satu baris, model meneroka beberapa cabang penaakulan secara selari, menilai setiap satu dan meninggalkan yang tidak membawa kepada penyelesaian. Seperti pemain catur mempertimbangkan pergerakan.",
-          "when": "Masalah dengan pelbagai pendekatan yang munasabah di mana anda perlu membandingkan dan mengundur — perancangan, teka-teki, pengoptimuman.",
-          "whenNot": "Tugas mudah — kos token jauh lebih tinggi daripada CoT.",
+          "when": "Masalah dengan pelbagai pendekatan yang munasabah di mana anda perlu membandingkan dan mengundur, perancangan, teka-teki, pengoptimuman.",
+          "whenNot": "Tugas mudah, kos token jauh lebih tinggi daripada CoT.",
           "examples": [
             {
               "right": "Selesaikan teka-teki ini. Hasilkan 3 strategi awal yang berbeza.\nUntuk setiap satu, nilaikan dalam satu ayat sama ada ia menjanjikan atau\njalan buntu. Membangunkan hanya yang terbaik; Jika ia tersekat, kembali kepada yang kedua.",
               "note": "Penjejakan ke belakang yang jelas adalah yang membezakan ToT daripada CoT linear."
             }
           ],
-          "why": "Yao et al. (2023) menunjukkan lonjakan besar dalam tugas carian: dalam Game of 24, ToT menyelesaikan 74% berbanding 4% CoT — kerana anda boleh kembali dan bukannya mengahwini idea pertama.",
+          "why": "Yao et al. (2023) menunjukkan lonjakan besar dalam tugas carian: dalam Game of 24, ToT menyelesaikan 74% berbanding 4% CoT, kerana anda boleh kembali dan bukannya mengahwini idea pertama.",
           "tip": "Rizab untuk masalah di mana CoT linear gagal. Kosnya hanya berbaloi apabila sebenarnya terdapat beberapa laluan untuk diterokai.",
           "sources": [
             {
@@ -415,11 +415,11 @@
               "note": "Mewakilkan pengiraan kepada Python (yang tidak pernah membuat kesilapan aritmetik) mengalih keluar ralat daripada model."
             }
           ],
-          "why": "Gao et al. (2022) menunjukkan bahawa memindahkan pengiraan kepada jurubahasa mengatasi prestasi CoT dalam penanda aras matematik — model hanya perlu menterjemahkan masalah kepada kod, yang mana ia berfungsi dengan baik.",
+          "why": "Gao et al. (2022) menunjukkan bahawa memindahkan pengiraan kepada jurubahasa mengatasi prestasi CoT dalam penanda aras matematik, model hanya perlu menterjemahkan masalah kepada kod, yang mana ia berfungsi dengan baik.",
           "tip": "Minta kod secara berasingan daripada penjelasan, supaya anda boleh menjalankannya terus tanpa menghuraikan.",
           "sources": [
             {
-              "label": "Gao et al. 2022 — PAL: Model Bahasa Bantuan Program",
+              "label": "Gao et al. 2022, PAL: Model Bahasa Bantuan Program",
               "url": "https://arxiv.org/abs/2211.10435"
             }
           ]
@@ -431,7 +431,7 @@
           "simple": "Pecahkan tugas kepada sub-tugas; atau lakaran sebelum perincian.",
           "whatIs": "DECOMP memecahkan tugas dan mewakilkan setiap subtugas kepada \"pengendali\" khusus (panggilan atau alat lain). Skeleton-of-Thought mula-mula menjana rangka jawapan (topik) dan kemudian berkembang pada setiap titik.",
           "when": "DECOMP dalam saluran paip modular; Rangka dalam respons yang panjang di mana mengekalkan liputan dan struktur penting.",
-          "whenNot": "Jawapan ringkas dan langsung — struktur tambahan tidak menambah apa-apa.",
+          "whenNot": "Jawapan ringkas dan langsung, struktur tambahan tidak menambah apa-apa.",
           "examples": [
             {
               "right": "Tulis laporan tentang kopi istimewa dalam dua langkah.\nLangkah 1 (rangka): senaraikan hanya tajuk 6 bahagian.\nLangkah 2 (pengembangan): bangunkan setiap bahagian menjadi 1 perenggan.",
@@ -439,14 +439,14 @@
             }
           ],
           "why": "Memisahkan \"apa\" (struktur) daripada \"bagaimana\" (kandungan) mengelakkan ketagihan regangan di bahagian pertama dan tergesa-gesa di bahagian terakhir. Skeleton-of-Thought juga membolehkan anda menyelaraskan pengembangan.",
-          "tip": "Dalam Skeleton, semak dan laraskan rangka sebelum mengembangkan — membetulkan struktur adalah murah; Menulis semula keseluruhan kandungan adalah mahal.",
+          "tip": "Dalam Skeleton, semak dan laraskan rangka sebelum mengembangkan, membetulkan struktur adalah murah; Menulis semula keseluruhan kandungan adalah mahal.",
           "sources": [
             {
-              "label": "Khot et al. 2022 — Gesaan Terurai",
+              "label": "Khot et al. 2022, Gesaan Terurai",
               "url": "https://arxiv.org/abs/2210.02406"
             },
             {
-              "label": "Ning et al. 2023 — Rangka-Pemikiran",
+              "label": "Ning et al. 2023, Rangka-Pemikiran",
               "url": "https://arxiv.org/abs/2307.15337"
             }
           ]
@@ -464,7 +464,7 @@
           "simple": "Model itu menyusun semula soalan anda sebelum menjawabnya.",
           "whatIs": "Arahkan model untuk menulis semula soalan dengan perkataan mereka sendiri sebelum menjawab. Ini menjelaskan niat dan mendedahkan kekaburan.",
           "when": "Soalan yang tidak jelas, samar-samar atau kurang dirumuskan; apabila anda ingin memastikan model itu faham.",
-          "whenNot": "Soalan yang sudah jelas dan langsung — perumusan semula hanya menambah teks.",
+          "whenNot": "Soalan yang sudah jelas dan langsung, perumusan semula hanya menambah teks.",
           "examples": [
             {
               "wrong": "Adakah bank ditutup?",
@@ -472,11 +472,11 @@
               "note": "Dengan merumuskan semula, model itu mendedahkan kekaburan (institusi? kerusi?) dan bertindak balas dengan lebih baik."
             }
           ],
-          "why": "Deng et al. (2023) menunjukkan bahawa membiarkan model menyusun semula soalan itu sendiri meningkatkan prestasi pada beberapa tugasan — soalan yang jelas menjana jawapan yang lebih baik.",
+          "why": "Deng et al. (2023) menunjukkan bahawa membiarkan model menyusun semula soalan itu sendiri meningkatkan prestasi pada beberapa tugasan, soalan yang jelas menjana jawapan yang lebih baik.",
           "tip": "Gabungkan dengan CoT: frasa semula, kemudian sebab. Kejelasan perumusan semula meningkatkan penaakulan seterusnya.",
           "sources": [
             {
-              "label": "Deng et al. 2023 — Ungkapkan Semula dan Balas",
+              "label": "Deng et al. 2023, Ungkapkan Semula dan Balas",
               "url": "https://arxiv.org/abs/2311.04205"
             }
           ]
@@ -495,11 +495,11 @@
               "note": "Pembacaan semula menjadikan model perasan syarat yang dapat diatasi oleh bacaan tunggal."
             }
           ],
-          "why": "Xu et al. (2023) menunjukkan bahawa hanya membaca semula pernyataan meningkatkan penaakulan — model memberi perhatian kepada keadaan (mis. \"kecuali pada hari Selasa\") yang akan dilangkau dalam satu bacaan.",
+          "why": "Xu et al. (2023) menunjukkan bahawa hanya membaca semula pernyataan meningkatkan penaakulan, model memberi perhatian kepada keadaan (mis. \"kecuali pada hari Selasa\") yang akan dilangkau dalam satu bacaan.",
           "tip": "Helah kos hampir sifar; Ia berbaloi untuk disusun dengan CoT dalam masalah dengan banyak kekangan.",
           "sources": [
             {
-              "label": "Xu et al. 2023 — Pembacaan Semula Meningkatkan Penaakulan",
+              "label": "Xu et al. 2023, Pembacaan Semula Meningkatkan Penaakulan",
               "url": "https://arxiv.org/abs/2309.06275"
             }
           ]
@@ -511,18 +511,18 @@
           "simple": "Model bertanya sendiri sub-soalan sebelum jawapan akhir.",
           "whatIs": "Model memutuskan sama ada ia memerlukan sub-soalan susulan, menjawab setiap satu dan kemudian menyusun jawapan akhir. Sesuai untuk soalan yang memerlukan penyertaan beberapa fakta (multi-hop).",
           "when": "Soalan yang bergantung pada fakta pertengahan (\"Siapa yang mengarahkan filem yang memenangi Oscar pada tahun X dilahirkan?\").",
-          "whenNot": "Soalan hanya satu fakta — tiada apa yang perlu dipecahkan.",
+          "whenNot": "Soalan hanya satu fakta, tiada apa yang perlu dipecahkan.",
           "examples": [
             {
               "right": "Jawab menggunakan sub-soalan. Sebelum jawapan akhir,\ntanya dan jawab sendiri apa sahaja yang perlu.\nSoalan: Berapakah jangka hayat di negara asal\npencipta Linux?",
               "note": "Memecahkannya kepada \"siapa yang menciptanya → dari mana asalnya → jangkaan di sana\" mengelakkan melangkau pautan dan berhalusinasi."
             }
           ],
-          "why": "Tekan et al. (2022) menunjukkan bahawa membuat sub-soalan secara eksplisit mengurangkan \"jurang komposisi\" — model membuat lebih sedikit kesilapan apabila menjawab setiap pautan secara berasingan.",
+          "why": "Tekan et al. (2022) menunjukkan bahawa membuat sub-soalan secara eksplisit mengurangkan \"jurang komposisi\", model membuat lebih sedikit kesilapan apabila menjawab setiap pautan secara berasingan.",
           "tip": "Ia berfungsi lebih baik dengan akses carian: setiap sub-soalan menjadi pertanyaan.",
           "sources": [
             {
-              "label": "Tekan et al. 2022 — Mengukur dan Mengecilkan Jurang Komposisi",
+              "label": "Tekan et al. 2022, Mengukur dan Mengecilkan Jurang Komposisi",
               "url": "https://arxiv.org/abs/2210.03350"
             }
           ]
@@ -546,7 +546,7 @@
           "tip": "Juga berguna sebagai pertahanan: pendapat yang ditanam dan percubaan manipulasi dikeluarkan dalam peringkat pembersihan.",
           "sources": [
             {
-              "label": "Weston & Sukhbaatar 2023 — Perhatian Sistem 2",
+              "label": "Weston & Sukhbaatar 2023, Perhatian Sistem 2",
               "url": "https://arxiv.org/abs/2311.11829"
             }
           ]
@@ -558,7 +558,7 @@
           "simple": "Model menjana contoh analog; atau belajar dari betul DAN salah.",
           "whatIs": "Analogi menjadikan model menjana contoh sendiri serupa dengan masalah sebelum menyelesaikan (auto-few-shot). Contrastive CoT menyediakan demonstrasi penaakulan betul DAN salah, jadi model mempelajari perkara yang perlu dielakkan.",
           "when": "Analogi: apabila anda tidak mempunyai contoh sedia. Kontrastif: apabila terdapat kesilapan berulang dalam penaakulan untuk mencegah.",
-          "whenNot": "Tugas remeh — menjana analog atau kontras adalah overhed.",
+          "whenNot": "Tugas remeh, menjana analog atau kontras adalah overhed.",
           "examples": [
             {
               "right": "Kontrastif: lihat penaakulan yang BETUL dan SALAH\nperatusan:\n✓ \"20% daripada 50 = 0.20 × 50 = 10\"\n✗ \"20% daripada 50 = 50 / 20 = 2.5\" (bahagi dan bukannya darab)\nSekarang, elakkan 5% daripada darab, apakah ralat 3?",
@@ -566,14 +566,14 @@
             }
           ],
           "why": "Yasunaga et al. (2023) menunjukkan bahawa menjana analog yang betul mengatasi prestasi beberapa pukulan tetap; Chia et al. (2023) menunjukkan bahawa demonstrasi negatif (betul + salah) mengurangkan kesilapan penaakulan.",
-          "tip": "Dalam Kontrastif, tunjukkan ralat EXACT yang anda mahu elakkan — lebih spesifik, lebih berkesan.",
+          "tip": "Dalam Kontrastif, tunjukkan ralat EXACT yang anda mahu elakkan, lebih spesifik, lebih berkesan.",
           "sources": [
             {
-              "label": "Yasunaga et al. 2023 — Anjuran Analogi",
+              "label": "Yasunaga et al. 2023, Anjuran Analogi",
               "url": "https://arxiv.org/abs/2310.01714"
             },
             {
-              "label": "Chia et al. 2023 — CoT Kontrastif",
+              "label": "Chia et al. 2023, CoT Kontrastif",
               "url": "https://arxiv.org/abs/2311.09277"
             }
           ]
@@ -596,11 +596,11 @@
           "tip": "Untuk konteks yang sangat panjang, gabungkan ThoT dengan pengekstrakan petikan sebelum membalas.",
           "sources": [
             {
-              "label": "Zhou et al. 2023 — Benang Pemikiran",
+              "label": "Zhou et al. 2023, Benang Pemikiran",
               "url": "https://arxiv.org/abs/2311.08734"
             },
             {
-              "label": "Jung et al. 2022 — Maieutic Prompting",
+              "label": "Jung et al. 2022, Maieutic Prompting",
               "url": "https://arxiv.org/abs/2205.11822"
             }
           ]
@@ -618,7 +618,7 @@
           "simple": "Berbilang sampel, diagregatkan mengikut majoriti atau konsistensi.",
           "whatIs": "Ketekalan Diri mengundi jawapan majoriti di antara laluan N CoT. Ketekalan Diri Sejagat (USC) melakukan perkara yang sama apabila jawapannya ialah teks percuma (model memilih yang paling konsisten). DiVeRSe pergi lebih jauh: gesaan pelbagai × berbilang laluan + pemarkahan.",
           "when": "Kekritisan yang tinggi. USC untuk respons verbatim; DiVerSe untuk liputan maksimum.",
-          "whenNot": "Tugas mudah atau sensitif kos — semua token N× kos ini.",
+          "whenNot": "Tugas mudah atau sensitif kos, semua token N× kos ini.",
           "examples": [
             {
               "right": "Hasilkan 3 ringkasan eksekutif bebas bagi laporan ini.\nKemudian hasilkan ringkasan akhir dengan hanya mata yang terdapat\ndalam sekurang-kurangnya dua daripadanya (buang apa yang muncul dalam satu sahaja).",
@@ -629,11 +629,11 @@
           "tip": "Gunakan model itu sendiri sebagai hakim untuk memilih jawapan yang paling konsisten apabila tiada undian tepat yang mungkin.",
           "sources": [
             {
-              "label": "Wang et al. 2022 — Ketekalan Diri",
+              "label": "Wang et al. 2022, Ketekalan Diri",
               "url": "https://arxiv.org/abs/2203.11171"
             },
             {
-              "label": "Chen et al. 2023 — Ketekalan Diri Sejagat",
+              "label": "Chen et al. 2023, Ketekalan Diri Sejagat",
               "url": "https://arxiv.org/abs/2311.17311"
             }
           ]
@@ -643,17 +643,17 @@
           "name": "Parafrasa/Ensembel Segera",
           "level": 3,
           "simple": "Tanya dengan cara yang berbeza dan agregat jawapan.",
-          "whatIs": "Merumuskan semula permintaan yang sama dalam beberapa cara, putar semuanya dan agregat. Mengurangkan sensitiviti hasil kepada frasa tertentu — model kadangkala bertindak balas secara berbeza hanya kerana cara anda bertanya.",
+          "whatIs": "Merumuskan semula permintaan yang sama dalam beberapa cara, putar semuanya dan agregat. Mengurangkan sensitiviti hasil kepada frasa tertentu, model kadangkala bertindak balas secara berbeza hanya kerana cara anda bertanya.",
           "when": "Apabila anda mengesyaki bahawa hasilnya bergantung terlalu banyak pada cara soalan ditulis.",
           "whenNot": "Tugas yang stabil dan jelas, di mana frasa tidak mengubah keputusan.",
           "examples": [
             {
               "right": "Saya akan bertanya soalan yang sama dalam 3 cara. Jawab setiap satu\ndan katakan jika anda bersetuju; jika mereka berbeza, terangkan mengapa dan yang\nyang paling boleh dipercayai.\n(a) ... (b) ... (c) ...",
-              "note": "Konvergensi = tindak balas pepejal. Perbezaan mendedahkan kekaburan—maklumat berharga dalam haknya sendiri."
+              "note": "Konvergensi = tindak balas pepejal. Perbezaan mendedahkan kekaburan, maklumat berharga dalam haknya sendiri."
             }
           ],
           "why": "LLM sensitif kepada frasa: soalan yang sama yang diutarakan semula boleh mengubah ketepatan. Menambah parafrasa mengurangkan varians ini dan mendedahkan respons yang rapuh.",
-          "tip": "Jika parafrasa berbeza jauh, masalahnya biasanya terletak pada kekaburan soalan — ia patut dijelaskan terlebih dahulu.",
+          "tip": "Jika parafrasa berbeza jauh, masalahnya biasanya terletak pada kekaburan soalan, ia patut dijelaskan terlebih dahulu.",
           "sources": [
             {
               "label": "Laporan Segera (arXiv:2406.06608)",
@@ -673,7 +673,7 @@
           "level": 3,
           "simple": "Hasilkan respons, buat soalan semak dan semak.",
           "whatIs": "Model menjana jawapan, kemudian merumuskan soalan pengesahan bebas, menjawab setiap satu TANPA melihat jawapan asal dan menyemak semula berdasarkan soalan tersebut. Salah satu pertahanan terbaik terhadap fakta rekaan.",
-          "when": "Jawapan dengan fakta, tarikh, nombor, nama — di mana halusinasi adalah mahal.",
+          "when": "Jawapan dengan fakta, tarikh, nombor, nama, di mana halusinasi adalah mahal.",
           "whenNot": "Tugas tanpa fakta yang boleh disahkan (pendapat, penciptaan percuma).",
           "examples": [
             {
@@ -685,7 +685,7 @@
           "tip": "Lakukan semakan dalam langkah berasingan (atau panggilan berasingan) supaya model tidak tercemar dengan tindak balas awal.",
           "sources": [
             {
-              "label": "Dhuliawala et al. 2023 — Rangkaian Pengesahan",
+              "label": "Dhuliawala et al. 2023, Rangkaian Pengesahan",
               "url": "https://arxiv.org/abs/2309.11495"
             }
           ]
@@ -708,11 +708,11 @@
           "tip": "Gunakan kepercayaan sebagai pencetus automasi: <70% → pendapat kedua atau semakan manusia.",
           "sources": [
             {
-              "label": "Kadavath et al. 2022 — Model Bahasa (Kebanyakannya) Tahu Apa Yang Mereka Tahu",
+              "label": "Kadavath et al. 2022, Model Bahasa (Kebanyakannya) Tahu Apa Yang Mereka Tahu",
               "url": "https://arxiv.org/abs/2207.05221"
             },
             {
-              "label": "Weng et al. 2022 — Pengesahan Kendiri",
+              "label": "Weng et al. 2022, Pengesahan Kendiri",
               "url": "https://arxiv.org/abs/2212.09561"
             }
           ]
@@ -725,24 +725,24 @@
       "techniques": [
         {
           "id": "rag-retrieval-augmented-generation",
-          "name": "RAG — Penjanaan Dipertingkatkan Semula",
+          "name": "RAG, Penjanaan Dipertingkatkan Semula",
           "level": 2,
           "simple": "Cari data sebenar dan balas berdasarkannya.",
           "whatIs": "Sebelum membalas, cari maklumat yang berkaitan dalam sumber luaran (dokumen, pangkalan pengetahuan) dan masukkannya ke dalam gesaan, supaya model bertindak balas berdasarkannya dan bukan pada perkara yang \"teringat\". Teknik yang paling banyak digunakan dalam pengeluaran.",
           "when": "Soalan tentang data peribadi, semasa atau khusus yang model tidak ada dalam latihan (manual, dasar, dokumen syarikat).",
-          "whenNot": "Pengetahuan umum bahawa model sudah menguasai — RAG hanya menambah kependaman.",
+          "whenNot": "Pengetahuan umum bahawa model sudah menguasai, RAG hanya menambah kependaman.",
           "examples": [
             {
               "wrong": "Apakah polisi bayaran balik syarikat kami?",
-              "right": "Balas menggunakan kandungan SAHAJA dalam <policy>. Jika tiada\ndi sana, sebut \"ia tiada dalam dokumen\" — jangan sekali-kali mengada-ada.\nPetik petikan yang menyokongnya.\n<dasar>[teks yang diperoleh]</politica>\nSoalan: Apakah dasar bayaran balik?",
+              "right": "Balas menggunakan kandungan SAHAJA dalam <policy>. Jika tiada\ndi sana, sebut \"ia tiada dalam dokumen\", jangan sekali-kali mengada-ada.\nPetik petikan yang menyokongnya.\n<dasar>[teks yang diperoleh]</politica>\nSoalan: Apakah dasar bayaran balik?",
               "note": "Hadkan kepada dokumen + memerlukan petikan melabuhkan respons dalam kebenaran syarikat."
             }
           ],
-          "why": "Lewis et al. (2020) memperkenalkan RAG untuk menggabungkan memori parametrik (model) dengan memori bukan parametrik (asas) — mengurangkan halusinasi dan membenarkan respons boleh dikemas kini tanpa latihan semula.",
+          "why": "Lewis et al. (2020) memperkenalkan RAG untuk menggabungkan memori parametrik (model) dengan memori bukan parametrik (asas), mengurangkan halusinasi dan membenarkan respons boleh dikemas kini tanpa latihan semula.",
           "tip": "Eksplisit \"tidak muncul\" adalah apa yang menghalang ciptaan apabila maklumat itu hilang. Sentiasa sertakan arahan ini.",
           "sources": [
             {
-              "label": "Lewis et al. 2020 — Penjanaan Pertambahan Pendapatan",
+              "label": "Lewis et al. 2020, Penjanaan Pertambahan Pendapatan",
               "url": "https://arxiv.org/abs/2005.11401"
             }
           ]
@@ -753,19 +753,19 @@
           "level": 2,
           "simple": "Model menjana pengetahuan yang berkaitan sebelum bertindak balas.",
           "whatIs": "Minta model menjana pengetahuan yang berkaitan tentang topik SEBELUM menjawab, dan gunakan pengetahuan itu sebagai asas. Alternatif murah kepada RAG apabila tiada sumber luaran.",
-          "when": "Soalan akal atau pengetahuan am yang membolehkan mengaktifkan konteks yang betul membantu — dan anda tidak mempunyai asas untuk dicari.",
-          "whenNot": "Apabila anda memerlukan fakta yang boleh disahkan dan khusus — kemudian gunakan RAG, bukan pengetahuan yang dijana (yang boleh berhalusinasi).",
+          "when": "Soalan akal atau pengetahuan am yang membolehkan mengaktifkan konteks yang betul membantu, dan anda tidak mempunyai asas untuk dicari.",
+          "whenNot": "Apabila anda memerlukan fakta yang boleh disahkan dan khusus, kemudian gunakan RAG, bukan pengetahuan yang dijana (yang boleh berhalusinasi).",
           "examples": [
             {
               "right": "Sebelum menjawab sama ada kereta elektrik berdaya maju untuk penghantaran di bandar, senaraikan 5 fakta berkaitan tentang autonomi, pengecasan semula, kos setiap km dan infrastruktur. Kemudian, berdasarkan fakta ini, berikan cadangan.",
               "note": "Menjana fakta terlebih dahulu memaksa penaakulan dari asas yang jelas."
             }
           ],
-          "why": "Liu et al. (2022) menunjukkan bahawa menjana pengetahuan dan kemudian menggunakannya meningkatkan penaakulan akal — jawapan menjadi lebih berasas dan kurang generik.",
+          "why": "Liu et al. (2022) menunjukkan bahawa menjana pengetahuan dan kemudian menggunakannya meningkatkan penaakulan akal, jawapan menjadi lebih berasas dan kurang generik.",
           "tip": "Berbeza dengan RAG: di sini pengetahuan dijana oleh model (ia boleh membuat kesilapan). Untuk fakta kritikal, lebih suka mencari sebenarnya.",
           "sources": [
             {
-              "label": "Liu et al. 2022 — Penggerak Pengetahuan Dijana",
+              "label": "Liu et al. 2022, Penggerak Pengetahuan Dijana",
               "url": "https://arxiv.org/abs/2110.08387"
             }
           ]
@@ -775,7 +775,7 @@
           "name": "Asas dengan petikan dan kesan \"Lost in the Middle\".",
           "level": 2,
           "simple": "Ekstrak petikan yang berkaitan sebelum menjawab; dan letakkan perkara penting di hujungnya.",
-          "whatIs": "Dalam tugasan tentang dokumen yang panjang, minta model mengekstrak petikan yang berkaitan dahulu dan kemudian melaksanakan tugas itu. Dan letakkan maklumat penting pada permulaan atau akhir — jangan sekali-kali di tengah.",
+          "whatIs": "Dalam tugasan tentang dokumen yang panjang, minta model mengekstrak petikan yang berkaitan dahulu dan kemudian melaksanakan tugas itu. Dan letakkan maklumat penting pada permulaan atau akhir, jangan sekali-kali di tengah.",
           "when": "Sebarang analisis dokumen panjang (20k+ token).",
           "whenNot": "Teks pendek di mana segala-galanya sesuai dengan perhatian model.",
           "examples": [
@@ -784,11 +784,11 @@
               "note": "Mengeluarkan petikan mengurangkan bunyi bising; data di bahagian atas + soalan di penghujung boleh meningkatkan kualiti sehingga 30%."
             }
           ],
-          "why": "Penyelidikan \"Lost in the Middle\" (Liu et al., 2023, Stanford) menunjukkan bahawa prestasi menurun apabila maklumat yang berkaitan berada di tengah-tengah konteks yang panjang — model berprestasi lebih baik dengan maklumat utama pada permulaan atau akhir.",
-          "tip": "Letakkan perkara yang penting di tepi konteks dan minta petikan dahulu—dua pertahanan murah terhadap kesan medium.",
+          "why": "Penyelidikan \"Lost in the Middle\" (Liu et al., 2023, Stanford) menunjukkan bahawa prestasi menurun apabila maklumat yang berkaitan berada di tengah-tengah konteks yang panjang, model berprestasi lebih baik dengan maklumat utama pada permulaan atau akhir.",
+          "tip": "Letakkan perkara yang penting di tepi konteks dan minta petikan dahulu, dua pertahanan murah terhadap kesan medium.",
           "sources": [
             {
-              "label": "Liu et al. 2023 — Hilang di Pertengahan",
+              "label": "Liu et al. 2023, Hilang di Pertengahan",
               "url": "https://arxiv.org/abs/2307.03172"
             }
           ]
@@ -805,19 +805,19 @@
           "level": 3,
           "simple": "Penaakulan dan tindakan ganti (penggunaan alatan).",
           "whatIs": "Corak yang mendorong setiap ejen AI. Model bergantian antara penaakulan (apa yang perlu saya lakukan sekarang?) dan bertindak (menggunakan alat: carian, membaca fail, memanggil API), memerhatikan keputusan sebelum langkah seterusnya.",
-          "when": "Pada bila-bila masa model memerlukan maklumat luaran atau untuk melakukan tindakan — carian, kod, automasi.",
-          "whenNot": "Tugas yang model selesaikan sendiri dengan perkara yang sudah diketahui — alatan di sana hanya menambah kependaman.",
+          "when": "Pada bila-bila masa model memerlukan maklumat luaran atau untuk melakukan tindakan, carian, kod, automasi.",
+          "whenNot": "Tugas yang model selesaikan sendiri dengan perkara yang sudah diketahui, alatan di sana hanya menambah kependaman.",
           "examples": [
             {
               "right": "Anda mempunyai alat carian. Untuk menjawab:\n1. Fikirkan: apakah maklumat yang saya perlukan dan di mana untuk mendapatkannya.\n2. Ambil tindakan: gunakan carian untuk mendapatkan data sebenar.\n3. Perhatikan hasilnya; jika mencukupi, balas; sebaliknya ulangi.",
               "note": "Kitaran berfikir→bertindak→memerhati menghubungkan model kepada realiti dan bukannya mencipta."
             }
           ],
-          "why": "Yao et al. (2023) menunjukkan bahawa penaakulan dan tindakan bersilang mengatasi kedua-dua CoT tulen (yang tidak bertindak) dan bertindak tanpa alasan — dan mengurangkan halusinasi dengan berlabuh dalam pemerhatian sebenar.",
-          "tip": "Terangkan masa untuk menggunakan setiap alatan. Dalam model moden, elakkan bahasa agresif (\"anda MESTI\") — ia menyebabkan penggunaan alat yang berlebihan.",
+          "why": "Yao et al. (2023) menunjukkan bahawa penaakulan dan tindakan bersilang mengatasi kedua-dua CoT tulen (yang tidak bertindak) dan bertindak tanpa alasan, dan mengurangkan halusinasi dengan berlabuh dalam pemerhatian sebenar.",
+          "tip": "Terangkan masa untuk menggunakan setiap alatan. Dalam model moden, elakkan bahasa agresif (\"anda MESTI\"), ia menyebabkan penggunaan alat yang berlebihan.",
           "sources": [
             {
-              "label": "Yao et al. 2023 — ReAct",
+              "label": "Yao et al. 2023, ReAct",
               "url": "https://arxiv.org/abs/2210.03629"
             }
           ]
@@ -827,20 +827,20 @@
           "name": "Kejuruteraan Konteks",
           "level": 3,
           "simple": "Urus SEMUA aliran konteks ejen, bukan hanya gesaan.",
-          "whatIs": "Disiplinnya lebih besar daripada kejuruteraan segera. Walaupun PE mengoptimumkan arahan, kejuruteraan konteks menguruskan keseluruhan aliran maklumat kepada model dari semasa ke semasa — arahan sistem, alatan, sejarah, data.",
+          "whatIs": "Disiplinnya lebih besar daripada kejuruteraan segera. Walaupun PE mengoptimumkan arahan, kejuruteraan konteks menguruskan keseluruhan aliran maklumat kepada model dari semasa ke semasa, arahan sistem, alatan, sejarah, data.",
           "when": "Apabila \"prompt\" sebenarnya adalah sistem agenik berbilang pusingan, bukan satu pukulan.",
-          "whenNot": "Interaksi satu soalan yang mudah — apa yang diperlukan ialah gesaan yang baik.",
+          "whenNot": "Interaksi satu soalan yang mudah, apa yang diperlukan ialah gesaan yang baik.",
           "examples": [
             {
               "right": "Prinsip: konteks ialah sumber terhingga (terdapat \"reput konteks\").\nGunakan set token isyarat tinggi yang PALING KECIL. Untuk\ntugas yang panjang: pemadatan (ringkaskan sejarah), pengambilan nota (nota\ndi luar konteks) dan sub-agen (konteks bersih).",
               "note": "Kebanyakan kegagalan ejen bukanlah kegagalan model, ia adalah kegagalan konteks."
             }
           ],
-          "why": "Keupayaan untuk mengingat merosot apabila konteks berkembang (\"reput konteks\"). Menyusun konteks pada setiap langkah — terlalu sedikit maklumat → halusinasi, terlalu banyak maklumat → limpahan, maklumat bercanggah → kekeliruan — itulah yang memastikan ejen itu koheren.",
+          "why": "Keupayaan untuk mengingat merosot apabila konteks berkembang (\"reput konteks\"). Menyusun konteks pada setiap langkah, terlalu sedikit maklumat → halusinasi, terlalu banyak maklumat → limpahan, maklumat bercanggah → kekeliruan, itulah yang memastikan ejen itu koheren.",
           "tip": "Muat naik atas permintaan (tepat masa): Daripada pramuat segala-galanya, berikan ejen anda alat untuk mendapatkan perkara yang mereka perlukan apabila mereka memerlukannya.",
           "sources": [
             {
-              "label": "Anthropic — Kejuruteraan konteks yang berkesan untuk ejen AI",
+              "label": "Anthropic, Kejuruteraan konteks yang berkesan untuk ejen AI",
               "url": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents"
             }
           ]
@@ -856,9 +856,9 @@
           "name": "Meta-prompting",
           "level": 2,
           "simple": "Gunakan templat untuk menulis dan menambah baik gesaan.",
-          "whatIs": "Gunakan templat itu sendiri untuk menjana atau menambah baik gesaan. Itulah yang dilakukan oleh alatan seperti \"Penambah Segera\" Anthropic — templat menggunakan teknik dalam panduan ini secara automatik pada draf anda.",
+          "whatIs": "Gunakan templat itu sendiri untuk menjana atau menambah baik gesaan. Itulah yang dilakukan oleh alatan seperti \"Penambah Segera\" Anthropic, templat menggunakan teknik dalam panduan ini secara automatik pada draf anda.",
           "when": "Apabila anda mempunyai gesaan draf dan ingin mengoptimumkannya tanpa menghafal semua teknik.",
-          "whenNot": "Gesaan remeh — gesaan meta menjadi overhed.",
+          "whenNot": "Gesaan remeh, gesaan meta menjadi overhed.",
           "examples": [
             {
               "wrong": "meringkaskan teks ini untuk saya",
@@ -867,10 +867,10 @@
             }
           ],
           "why": "Aliran Anthropic's Prompt Improver ialah: kenal pasti contoh → draf berstruktur dengan XML → perhalusi dengan rantaian pemikiran → memperkayakan contoh. Meta-prompting ialah kejuruteraan segera yang digunakan untuk diri anda sendiri.",
-          "tip": "Berikan meta-prompt konteks model sasaran (Claude? GPT reasoning?) — amalan terbaik berbeza antara keluarga.",
+          "tip": "Berikan meta-prompt konteks model sasaran (Claude? GPT reasoning?), amalan terbaik berbeza antara keluarga.",
           "sources": [
             {
-              "label": "Anthropic — Penambahbaik segera",
+              "label": "Anthropic, Penambahbaik segera",
               "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
             }
           ]
@@ -880,9 +880,9 @@
           "name": "APE, OPRO, DSPy dan syarikat",
           "level": 3,
           "simple": "Mesin secara automatik mengoptimumkan gesaan terhadap data.",
-          "whatIs": "Rangka kerja yang mengoptimumkan gesaan secara pemrograman terhadap set penilaian templat. Anda tidak menulis gesaan yang sempurna—mesin memikirkannya dengan menguji variasi.",
+          "whatIs": "Rangka kerja yang mengoptimumkan gesaan secara pemrograman terhadap set penilaian templat. Anda tidak menulis gesaan yang sempurna, mesin memikirkannya dengan menguji variasi.",
           "when": "Anda mempunyai set data berlabel dan metrik objektif, dan gesaan berjalan pada skala (bernilai mengautomasikan).",
-          "whenNot": "Tiada set data/metrik — berpegang pada gesaan meta manual.",
+          "whenNot": "Tiada set data/metrik, berpegang pada gesaan meta manual.",
           "examples": [
             {
               "right": "Adakah anda mempunyai templat dan metrik? → DSPy/OPRO menyusun gesaan\nterhadap data.\nMahukan keuntungan pantas dengan menulis semula arahan? → APE/TextGrad.\nTiada data? → meta-prompting manual dengan teknik dalam panduan.",
@@ -915,7 +915,7 @@
           "simple": "Lindungi gesaan apabila ia memproses teks pihak ketiga.",
           "whatIs": "Suntikan segera ialah apabila input luaran mengandungi arahan yang \"merampas\" sistem (secara langsung, daripada pengguna, atau tidak langsung, daripada tapak web/dokumen yang dibaca oleh ejen). Jailbreak ialah input yang menjadikan model mengabaikan perlindungannya.",
           "when": "Setiap kali gesaan menerima teks pengguna akhir, membaca kandungan luaran (RAG, web) atau beroperasi sebagai ejen dengan alatan.",
-          "whenNot": "Jangan sekali-kali \"tidak mempertahankan\" — tetapi dalam 100% gesaan dalaman tanpa input luaran risikonya lebih rendah.",
+          "whenNot": "Jangan sekali-kali \"tidak mempertahankan\", tetapi dalam 100% gesaan dalaman tanpa input luaran risikonya lebih rendah.",
           "examples": [
             {
               "wrong": "Ringkaskan ulasan ini: {{komen}}",
@@ -923,11 +923,11 @@
               "note": "Mengehadkan input + mengisytiharkan keutamaan mengurangkan suntikan secara drastik."
             }
           ],
-          "why": "Pertahanan terbaik hari ini mengurangkan serangan yang berjaya daripada ~73% kepada ~9% — itu pengurangan, bukan penyingkiran. Itulah sebabnya ia patut dipertahankan secara berlapis-lapis: pembatas, model penjaga, skop kebenaran minimum dan pengesahan manusia untuk tindakan yang tidak boleh diubah.",
-          "tip": "Jangan sekali-kali mempercayai output alat sebagai arahan — kandungan yang diambil (RAG, web) ialah data yang tidak dipercayai dan termasuk dalam rejim persempadanan semula yang sama.",
+          "why": "Pertahanan terbaik hari ini mengurangkan serangan yang berjaya daripada ~73% kepada ~9%, itu pengurangan, bukan penyingkiran. Itulah sebabnya ia patut dipertahankan secara berlapis-lapis: pembatas, model penjaga, skop kebenaran minimum dan pengesahan manusia untuk tindakan yang tidak boleh diubah.",
+          "tip": "Jangan sekali-kali mempercayai output alat sebagai arahan, kandungan yang diambil (RAG, web) ialah data yang tidak dipercayai dan termasuk dalam rejim persempadanan semula yang sama.",
           "sources": [
             {
-              "label": "OWASP LLM01:2025 — Suntikan Pantas",
+              "label": "OWASP LLM01:2025, Suntikan Pantas",
               "url": "https://genai.owasp.org/llmrisk/llm01-prompt-injection/"
             }
           ]
@@ -942,22 +942,22 @@
           "id": "claude-anthropic",
           "name": "Claude (Antropik)",
           "level": 1,
-          "simple": "Tersurat dan berstruktur — mengisytiharkan skop, gunakan XML.",
+          "simple": "Tersurat dan berstruktur, mengisytiharkan skop, gunakan XML.",
           "whatIs": "Claude mengikut arahan secara literal: dia tidak membuat generalisasi sendiri atau membuat kesimpulan permintaan yang anda belum buat. Ia bertindak balas dengan sangat baik kepada struktur (XML) dan skop eksplisit.",
           "when": "Lalai panduan ini. Hebat untuk pengekstrakan berstruktur, pengekodan dan saluran paip yang anda inginkan gelagat yang boleh diramal.",
-          "whenNot": "Jangan harap dia \"meneka\" apa yang anda maksudkan—berterus-terang.",
+          "whenNot": "Jangan harap dia \"meneka\" apa yang anda maksudkan, berterus-terang.",
           "examples": [
             {
               "wrong": "Bolehkah anda mencadangkan beberapa perubahan pada peranan ini?",
               "right": "Tukar fungsi ini untuk meningkatkan prestasi.\nTukar hanya yang perlu; Jangan faktorkan semula yang lain, jangan tambahkan ciri yang tidak diminta atau pengendalian ralat.",
-              "note": "Beritahu ia kepada BERTINDAK (bukan hanya mencadangkan) dan nyatakan skopnya — Claude adalah literal."
+              "note": "Beritahu ia kepada BERTINDAK (bukan hanya mencadangkan) dan nyatakan skopnya, Claude adalah literal."
             }
           ],
           "why": "Literalisme ialah kekuatan untuk API dan saluran paip: ketepatan dan kurang kerja semula. Tetapi ia memerlukan anda untuk mengisytiharkan skop (\"gunakan untuk SEMUA bahagian, bukan hanya yang pertama\").",
-          "tip": "Elakkan bahasa agresif (\"KRITIKAL: anda MESTI\") — pada model terkini menyebabkan alat terlampau tercetus. Lebih suka \"Gunakan X apabila...\".",
+          "tip": "Elakkan bahasa agresif (\"KRITIKAL: anda MESTI\"), pada model terkini menyebabkan alat terlampau tercetus. Lebih suka \"Gunakan X apabila...\".",
           "sources": [
             {
-              "label": "Anthropic — Mendorong amalan terbaik",
+              "label": "Anthropic, Mendorong amalan terbaik",
               "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
             }
           ]
@@ -969,7 +969,7 @@
           "simple": "Objektif + kekangan + kontrak keluar; tanpa pengurusan mikro.",
           "whatIs": "GPT klasik menyampaikan dengan gesaan yang tepat dan berorientasikan hasil. Model penaakulan (siri-o, penaakulan GPT-5) menghasilkan objektif yang jelas + kekangan kuat + kontrak keluaran, TANPA menetapkan setiap langkah perantaraan.",
           "when": "Model penaakulan bersinar dalam dokumen padat dan panjang (kontrak, kewangan) dan dalam keputusan yang rumit.",
-          "whenNot": "JANGAN arahkan \"fikir langkah demi langkah\" / CoT manual dalam model penaakulan — ia boleh menghalang (mereka sudah membuat alasan secara dalaman).",
+          "whenNot": "JANGAN arahkan \"fikir langkah demi langkah\" / CoT manual dalam model penaakulan, ia boleh menghalang (mereka sudah membuat alasan secara dalaman).",
           "examples": [
             {
               "wrong": "Fikirkan langkah demi langkah: mula-mula lakukan X, kemudian Y, kemudian Z...",
@@ -981,18 +981,18 @@
           "tip": "Dalam siri GPT-5/o, tingkatkan usaha_penaakulan untuk tugas yang sukar dan berikan kontrak keluaran yang jelas dan bukannya contoh yang panjang.",
           "sources": [
             {
-              "label": "OpenAI — Menaakul amalan terbaik",
+              "label": "OpenAI, Menaakul amalan terbaik",
               "url": "https://developers.openai.com/api/docs/guides/reasoning-best-practices"
             }
           ]
         },
         {
           "id": "google-gemini-framework-ptcf",
-          "name": "Google Gemini — rangka kerja PTCF",
+          "name": "Google Gemini, rangka kerja PTCF",
           "level": 1,
           "simple": "Persona · Tugasan · Konteks · Format.",
           "whatIs": "Gemini melakukan yang terbaik dengan struktur PTCF: Persona (siapa model dan penonton), Tugas (hasil yang diingini), Konteks (maklumat latar belakang) dan Format (macam mana output sepatutnya).",
-          "when": "Sebarang gesaan dalam Gemini — PTCF ialah cara yang paling boleh dipercayai untuk menstruktur.",
+          "when": "Sebarang gesaan dalam Gemini, PTCF ialah cara yang paling boleh dipercayai untuk menstruktur.",
           "whenNot": "Ia bukan jaket; anggap ia sebagai titik permulaan dan perhalusi.",
           "examples": [
             {

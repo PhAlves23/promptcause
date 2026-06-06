@@ -343,7 +343,7 @@
           "tip": "Dar criterios concretos para la crítica; La \"mejora\" genérica produce cambios estéticos.",
           "sources": [
             {
-              "label": "Shinn et al. 2023 — Reflexión",
+              "label": "Shinn et al. 2023, Reflexión",
               "url": "https://arxiv.org/abs/2303.11366"
             }
           ]
@@ -379,7 +379,7 @@
         },
         {
           "id": "tree-of-thoughts-tot",
-          "name": "Árbol de pensamientos — ToT",
+          "name": "Árbol de pensamientos, ToT",
           "level": 3,
           "simple": "Explora varios caminos de razonamiento y descarta los malos.",
           "whatIs": "En lugar de una sola línea, el modelo explora varias ramas del razonamiento en paralelo, evalúa cada una y abandona aquellas que no conducen a una solución. Como un jugador de ajedrez considerando sus movimientos.",
@@ -395,7 +395,7 @@
           "tip": "Reserva para problemas en los que falla la CoT lineal. El costo sólo vale la pena cuando en realidad hay varias rutas para explorar.",
           "sources": [
             {
-              "label": "Yao et al. 2023 — Árbol de los Pensamientos",
+              "label": "Yao et al. 2023, Árbol de los Pensamientos",
               "url": "https://arxiv.org/abs/2305.10601"
             }
           ]
@@ -546,7 +546,7 @@
           "tip": "También útil como defensa: las opiniones plantadas y los intentos de manipulación se eliminan en la fase de limpieza.",
           "sources": [
             {
-              "label": "Weston y Sukhbaatar 2023 — Atención del sistema 2",
+              "label": "Weston y Sukhbaatar 2023, Atención del sistema 2",
               "url": "https://arxiv.org/abs/2311.11829"
             }
           ]
@@ -596,11 +596,11 @@
           "tip": "Para contextos muy largos, combine ThoT con extracción de citas antes de responder.",
           "sources": [
             {
-              "label": "Zhou y cols. 2023 — Hilo de pensamiento",
+              "label": "Zhou y cols. 2023, Hilo de pensamiento",
               "url": "https://arxiv.org/abs/2311.08734"
             },
             {
-              "label": "Jung et al. 2022 — Impulso mayéutico",
+              "label": "Jung et al. 2022, Impulso mayéutico",
               "url": "https://arxiv.org/abs/2205.11822"
             }
           ]
@@ -633,7 +633,7 @@
               "url": "https://arxiv.org/abs/2203.11171"
             },
             {
-              "label": "Chen et al. 2023 — Autoconsistencia universal",
+              "label": "Chen et al. 2023, Autoconsistencia universal",
               "url": "https://arxiv.org/abs/2311.17311"
             }
           ]
@@ -685,7 +685,7 @@
           "tip": "Realice la verificación en un paso separado (o llamada separada) para que el modelo no se contamine con la respuesta inicial.",
           "sources": [
             {
-              "label": "Dhuliawala et al. 2023 — Cadena de verificación",
+              "label": "Dhuliawala et al. 2023, Cadena de verificación",
               "url": "https://arxiv.org/abs/2309.11495"
             }
           ]
@@ -712,7 +712,7 @@
               "url": "https://arxiv.org/abs/2207.05221"
             },
             {
-              "label": "Weng et al. 2022 — Autoverificación",
+              "label": "Weng et al. 2022, Autoverificación",
               "url": "https://arxiv.org/abs/2212.09561"
             }
           ]
@@ -742,7 +742,7 @@
           "tip": "El \"no aparece\" explícito es lo que impide la invención cuando falta la información. Incluya siempre esta instrucción.",
           "sources": [
             {
-              "label": "Lewis y cols. 2020 — Generación aumentada de recuperación",
+              "label": "Lewis y cols. 2020, Generación aumentada de recuperación",
               "url": "https://arxiv.org/abs/2005.11401"
             }
           ]
@@ -765,7 +765,7 @@
           "tip": "A diferencia de RAG: aquí el conocimiento lo genera el modelo (puede cometer errores). Para hechos críticos, prefiera buscar realmente.",
           "sources": [
             {
-              "label": "Liu y cols. 2022 — Impulso al conocimiento generado",
+              "label": "Liu y cols. 2022, Impulso al conocimiento generado",
               "url": "https://arxiv.org/abs/2110.08387"
             }
           ]
@@ -927,7 +927,7 @@
           "tip": "Nunca confíe en el resultado de la herramienta como instrucción: el contenido recuperado (RAG, web) no es información confiable y cae dentro del mismo régimen de delimitación.",
           "sources": [
             {
-              "label": "OWASP LLM01:2025 — Inyección rápida",
+              "label": "OWASP LLM01:2025, Inyección rápida",
               "url": "https://genai.owasp.org/llmrisk/llm01-prompt-injection/"
             }
           ]

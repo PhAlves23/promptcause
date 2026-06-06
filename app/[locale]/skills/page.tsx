@@ -142,7 +142,9 @@ export default async function SkillsPage({ params }: { params: Promise<{ locale:
                 </div>
 
                 <h3 className="mb-2 font-display text-[1.4rem] font-medium">{s.name}</h3>
-                <p className="mb-4 text-[0.95rem] leading-[1.5] text-ink-soft">{s.description}</p>
+                <p className="mb-4 text-[0.95rem] leading-[1.5] text-ink-soft">
+                  {t.has(`desc.${s.name}`) ? t(`desc.${s.name}`) : s.description}
+                </p>
 
                 <CopyCommand command={`/plugin install ${s.name}`} size="sm" className="mb-4" />
 

@@ -1,6 +1,6 @@
 {
   "home": {
-    "impactLabel": "Total doado à causa — transferido integralmente",
+    "impactLabel": "Total doado à causa, transferido integralmente",
     "impactPassed": "100% transferido.",
     "impactSub": "Atualizado em tempo real. Cada cêntimo vai para ONGs parceiras de inclusão digital.",
     "whyBody": "Saber usar IA tornou-se alfabetização. E alfabetização não se vende. Cobrar por isso só aprofunda a desigualdade que queremos combater. Por isso o conhecimento fica aberto, e quem puder retribuir financia a inclusão digital de quem ainda nem chegou à internet."
@@ -11,10 +11,10 @@
     "footer": {
       "tagline": "Conhecimento de IA aberto a todos. Doações 100% transferidas para a inclusão digital."
     },
-    "pixHelp": "Copie a chave e doe pela app do seu banco. 100% vai direto para a ONG — não passa por nós."
+    "pixHelp": "Copie a chave e doe pela app do seu banco. 100% vai direto para a ONG, não passa por nós."
   },
   "doar": {
-    "lede": "Escolha uma ONG parceira. 100% do seu donativo vai direto para ela — recebe o comprovativo de transferência.",
+    "lede": "Escolha uma ONG parceira. 100% do seu donativo vai direto para ela, recebe o comprovativo de transferência.",
     "passed": "transferido",
     "retained": "retido",
     "summarySuffix": "→ 100% transferido",
