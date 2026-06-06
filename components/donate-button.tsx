@@ -82,7 +82,7 @@ export function DonateButton({
               <button
                 type="button"
                 onClick={copy}
-                className="shrink-0 rounded-[10px] bg-clay px-4 text-sm font-semibold text-white hover:bg-clay-deep"
+                className="shrink-0 cursor-pointer rounded-[10px] bg-clay px-4 text-sm font-semibold text-white hover:bg-clay-deep"
               >
                 {copied ? t("pixCopied") : t("pixCopy")}
               </button>

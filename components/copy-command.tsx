@@ -61,7 +61,7 @@ export function CopyCommand({
         onClick={copy}
         aria-label={t("copy")}
         className={cn(
-          "flex shrink-0 items-center justify-center gap-1.5 rounded-[10px] font-semibold text-white transition-all duration-200 active:scale-95",
+          "flex shrink-0 cursor-pointer items-center justify-center gap-1.5 rounded-[10px] font-semibold text-white transition-all duration-200 active:scale-95",
           copied ? "bg-green shadow-[0_2px_0_var(--green-deep)]" : "bg-clay shadow-[0_2px_0_var(--clay-deep)] hover:bg-clay-deep",
           size === "sm" ? "w-[100px] text-xs" : "w-[116px] text-sm",
         )}
