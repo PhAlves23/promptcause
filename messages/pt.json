@@ -44,7 +44,9 @@
     "pixCopy": "Copiar",
     "pixCopied": "Copiado!",
     "pixHelp": "Copie a chave e doe pelo app do seu banco. 100% vai direto para a ONG — não passa por nós.",
-    "close": "Fechar"
+    "close": "Fechar",
+    "copy": "Copiar",
+    "copied": "Copiado!"
   },
   "home": {
     "metaTitle": "Aprenda IA de graça. Doe para a causa.",
@@ -232,6 +234,18 @@
     "lede": "Um catálogo aberto de skills para Claude Code, Cursor, Copilot e mais. Criadas pela comunidade, livres para usar.",
     "createdBy": "Criado por",
     "viewOnGithub": "Ver no GitHub",
-    "empty": "Nenhuma skill disponível no momento."
+    "empty": "Nenhuma skill disponível no momento.",
+    "mpTitle": "Um marketplace. Todas as skills.",
+    "mpLede": "Adicione um marketplace e instale qualquer skill do catálogo. Cada skill fica fixada a um commit revisado (sha), então nada muda sob seus pés.",
+    "featCurated": "Curado e revisado, skill por skill",
+    "featSha": "Fixado por commit (sha): seguro e reproduzível",
+    "featGranular": "Instale só as skills que quiser",
+    "featMultiAgent": "Claude Code, Copilot, Cursor, Codex, Gemini e mais",
+    "installHint": "Cole no seu agente:",
+    "starCta": "Dar uma estrela",
+    "contributeCta": "Contribuir com uma skill",
+    "catalogTitle": "Catálogo de skills",
+    "starsLabel": "estrelas",
+    "forksLabel": "forks"
   }
 }

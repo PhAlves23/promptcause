@@ -44,7 +44,9 @@
     "pixCopy": "Copy",
     "pixCopied": "Copied!",
     "pixHelp": "Copy the key and donate in your bank app. 100% goes straight to the NGO — it never passes through us.",
-    "close": "Close"
+    "close": "Close",
+    "copy": "Copy",
+    "copied": "Copied!"
   },
   "home": {
     "metaTitle": "Learn AI for free. Donate to the cause.",
@@ -232,6 +234,18 @@
     "lede": "An open catalog of skills for Claude Code, Cursor, Copilot and more. Built by the community, free to use.",
     "createdBy": "Created by",
     "viewOnGithub": "View on GitHub",
-    "empty": "No skills available right now."
+    "empty": "No skills available right now.",
+    "mpTitle": "One marketplace. Every skill.",
+    "mpLede": "Add one marketplace and install any skill from the catalog. Each skill is pinned to a reviewed commit (sha), so nothing changes under your feet.",
+    "featCurated": "Curated and reviewed, skill by skill",
+    "featSha": "Commit-pinned (sha): safe and reproducible",
+    "featGranular": "Install only the skills you want",
+    "featMultiAgent": "Claude Code, Copilot, Cursor, Codex, Gemini and more",
+    "installHint": "Paste into your agent:",
+    "starCta": "Star on GitHub",
+    "contributeCta": "Contribute a skill",
+    "catalogTitle": "Skills catalog",
+    "starsLabel": "stars",
+    "forksLabel": "forks"
   }
 }
