@@ -40,8 +40,11 @@ export function SiteHeader() {
         </nav>
 
         <div className="ml-auto flex items-center gap-2.5">
-          <ThemeToggle />
-          <LanguageSwitcher />
+          {/* tema + idioma: apenas no desktop (no mobile vão para o menu) */}
+          <div className="hidden items-center gap-2.5 md:flex">
+            <ThemeToggle />
+            <LanguageSwitcher />
+          </div>
           <Button
             asChild
             className="rounded-full bg-clay font-semibold text-white shadow-[0_2px_0_var(--clay-deep)] hover:bg-clay-deep"
@@ -74,6 +77,11 @@ export function SiteHeader() {
             {n.label}
           </Link>
         ))}
+        {/* tema + idioma dentro do menu, no mobile */}
+        <div className="mt-1 flex items-center gap-3 border-t border-line px-2.5 pt-3 pb-1">
+          <ThemeToggle />
+          <LanguageSwitcher />
+        </div>
       </nav>
     </header>
   );
