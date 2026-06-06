@@ -4,7 +4,8 @@
       "learn": "Aprender",
       "cause": "A Causa",
       "transparency": "Transparência",
-      "manifesto": "Manifesto"
+      "manifesto": "Manifesto",
+      "skills": "Skills"
     },
     "cta": {
       "donate": "Doar",
@@ -224,5 +225,13 @@
     "jovens-hackers": {
       "descricao": "Escola de programação, robótica e cultura maker por e para as periferias. Mais de mil alunos desde 2017."
     }
+  },
+  "skills": {
+    "eyebrow": "Marketplace aberto",
+    "h1": "Skills de IA da comunidade.",
+    "lede": "Um catálogo aberto de skills para Claude Code, Cursor, Copilot e mais. Criadas pela comunidade, livres para usar.",
+    "createdBy": "Criado por",
+    "viewOnGithub": "Ver no GitHub",
+    "empty": "Nenhuma skill disponível no momento."
   }
 }
