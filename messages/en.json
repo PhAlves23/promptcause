@@ -4,7 +4,8 @@
       "learn": "Learn",
       "cause": "The Cause",
       "transparency": "Transparency",
-      "manifesto": "Manifesto"
+      "manifesto": "Manifesto",
+      "skills": "Skills"
     },
     "cta": {
       "donate": "Donate",
@@ -224,5 +225,13 @@
     "jovens-hackers": {
       "descricao": "A coding, robotics and maker-culture school by and for the outskirts. Over a thousand students since 2017."
     }
+  },
+  "skills": {
+    "eyebrow": "Open marketplace",
+    "h1": "Community AI skills.",
+    "lede": "An open catalog of skills for Claude Code, Cursor, Copilot and more. Built by the community, free to use.",
+    "createdBy": "Created by",
+    "viewOnGithub": "View on GitHub",
+    "empty": "No skills available right now."
   }
 }
