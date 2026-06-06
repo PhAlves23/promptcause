@@ -2,7 +2,9 @@
 // Dev usa SQLite; produção troca o provider para "postgresql" (mesmo schema).
 
 generator client {
-  provider = "prisma-client-js"
+  provider      = "prisma-client-js"
+  // engines para o runtime da Vercel (Amazon Linux) além do nativo (dev local)
+  binaryTargets = ["native", "rhel-openssl-3.0.x"]
 }
 
 datasource db {
